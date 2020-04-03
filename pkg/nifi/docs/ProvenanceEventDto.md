@@ -1,0 +1,50 @@
+# ProvenanceEventDto
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **string** | The event uuid. | [optional] [default to null]
+**EventId** | **int64** | The event id. This is a one up number thats unique per node. | [optional] [default to null]
+**EventTime** | **string** | The timestamp of the event. | [optional] [default to null]
+**EventDuration** | **int64** | The event duration in milliseconds. | [optional] [default to null]
+**LineageDuration** | **int64** | The duration since the lineage began, in milliseconds. | [optional] [default to null]
+**EventType** | **string** | The type of the event. | [optional] [default to null]
+**FlowFileUuid** | **string** | The uuid of the flowfile for the event. | [optional] [default to null]
+**FileSize** | **string** | The size of the flowfile for the event. | [optional] [default to null]
+**FileSizeBytes** | **int64** | The size of the flowfile in bytes for the event. | [optional] [default to null]
+**ClusterNodeId** | **string** | The identifier for the node where the event originated. | [optional] [default to null]
+**ClusterNodeAddress** | **string** | The label for the node where the event originated. | [optional] [default to null]
+**GroupId** | **string** | The id of the group that the component resides in. If the component is no longer in the flow, the group id will not be set. | [optional] [default to null]
+**ComponentId** | **string** | The id of the component that generated the event. | [optional] [default to null]
+**ComponentType** | **string** | The type of the component that generated the event. | [optional] [default to null]
+**ComponentName** | **string** | The name of the component that generated the event. | [optional] [default to null]
+**SourceSystemFlowFileId** | **string** | The source system flowfile id. | [optional] [default to null]
+**AlternateIdentifierUri** | **string** | The alternate identifier uri for the fileflow for the event. | [optional] [default to null]
+**Attributes** | [**[]AttributeDto**](AttributeDTO.md) | The attributes of the flowfile for the event. | [optional] [default to null]
+**ParentUuids** | **[]string** | The parent uuids for the event. | [optional] [default to null]
+**ChildUuids** | **[]string** | The child uuids for the event. | [optional] [default to null]
+**TransitUri** | **string** | The source/destination system uri if the event was a RECEIVE/SEND. | [optional] [default to null]
+**Relationship** | **string** | The relationship to which the flowfile was routed if the event is of type ROUTE. | [optional] [default to null]
+**Details** | **string** | The event details. | [optional] [default to null]
+**ContentEqual** | **bool** | Whether the input and output content claim is the same. | [optional] [default to null]
+**InputContentAvailable** | **bool** | Whether the input content is still available. | [optional] [default to null]
+**InputContentClaimSection** | **string** | The section in which the input content claim lives. | [optional] [default to null]
+**InputContentClaimContainer** | **string** | The container in which the input content claim lives. | [optional] [default to null]
+**InputContentClaimIdentifier** | **string** | The identifier of the input content claim. | [optional] [default to null]
+**InputContentClaimOffset** | **int64** | The offset into the input content claim where the flowfiles content begins. | [optional] [default to null]
+**InputContentClaimFileSize** | **string** | The file size of the input content claim formatted. | [optional] [default to null]
+**InputContentClaimFileSizeBytes** | **int64** | The file size of the intput content claim in bytes. | [optional] [default to null]
+**OutputContentAvailable** | **bool** | Whether the output content is still available. | [optional] [default to null]
+**OutputContentClaimSection** | **string** | The section in which the output content claim lives. | [optional] [default to null]
+**OutputContentClaimContainer** | **string** | The container in which the output content claim lives. | [optional] [default to null]
+**OutputContentClaimIdentifier** | **string** | The identifier of the output content claim. | [optional] [default to null]
+**OutputContentClaimOffset** | **int64** | The offset into the output content claim where the flowfiles content begins. | [optional] [default to null]
+**OutputContentClaimFileSize** | **string** | The file size of the output content claim formatted. | [optional] [default to null]
+**OutputContentClaimFileSizeBytes** | **int64** | The file size of the output content claim in bytes. | [optional] [default to null]
+**ReplayAvailable** | **bool** | Whether or not replay is available. | [optional] [default to null]
+**ReplayExplanation** | **string** | Explanation as to why replay is unavailable. | [optional] [default to null]
+**SourceConnectionIdentifier** | **string** | The identifier of the queue/connection from which the flowfile was pulled to genereate this event. May be null if the queue/connection is unknown or the flowfile was generated from this event. | [optional] [default to null]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
