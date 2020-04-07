@@ -2946,8 +2946,7 @@ func (a *ProcessGroupsApiService) UploadTemplate(ctx context.Context, id string,
 	}
 	// body params
 	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
-		localVarPostBody = &localVarOptionals.Body.Value()
-		
+		localVarPostBody = localVarOptionals.Body.Value()
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
