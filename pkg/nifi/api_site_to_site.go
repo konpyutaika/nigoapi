@@ -35,10 +35,10 @@ SiteToSiteApiService Returns the available Peers and its status of this NiFi
 */
 func (a *SiteToSiteApiService) GetPeers(ctx context.Context) (PeersEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PeersEntity
 	)
 
@@ -122,10 +122,10 @@ SiteToSiteApiService Returns the details about this NiFi necessary to communicat
 */
 func (a *SiteToSiteApiService) GetSiteToSiteDetails(ctx context.Context) (ControllerEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerEntity
 	)
 

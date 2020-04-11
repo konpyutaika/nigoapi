@@ -21,6 +21,6 @@ Name | Type | Description | Notes
 **InputPorts** | [**[]PortDto**](PortDTO.md) | The input ports available to send data to for the NiFi. | [optional] [default to null]
 **OutputPorts** | [**[]PortDto**](PortDTO.md) | The output ports available to received data from the NiFi. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

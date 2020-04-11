@@ -35,10 +35,10 @@ ResourcesApiService Gets the available resources that support access/authorizati
 */
 func (a *ResourcesApiService) GetResources(ctx context.Context) (ResourcesEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ResourcesEntity
 	)
 

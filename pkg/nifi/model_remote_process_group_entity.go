@@ -25,7 +25,7 @@ type RemoteProcessGroupEntity struct {
 	Bulletins []BulletinEntity `json:"bulletins,omitempty"`
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
-	Component *RemoteProcessGroupDto `json:"component,omitempty"`
+	Component *RemoteProcessGroupDto  `json:"component,omitempty"`
 	// The status of the remote process group.
 	Status *RemoteProcessGroupStatusDto `json:"status,omitempty"`
 	// The number of remote input ports currently available on the target.

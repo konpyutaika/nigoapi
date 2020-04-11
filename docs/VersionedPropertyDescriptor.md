@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **IdentifiesControllerService** | **bool** | Whether or not the property provides the identifier of a Controller Service | [optional] [default to null]
 **Sensitive** | **bool** | Whether or not the property is considered sensitive | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

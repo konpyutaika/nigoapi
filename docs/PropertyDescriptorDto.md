@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **IdentifiesControllerService** | **string** | If the property identifies a controller service this returns the fully qualified type. | [optional] [default to null]
 **IdentifiesControllerServiceBundle** | [***BundleDto**](BundleDTO.md) | If the property identifies a controller service this returns the bundle of the type, null otherwise. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

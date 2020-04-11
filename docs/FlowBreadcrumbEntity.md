@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **Breadcrumb** | [***FlowBreadcrumbDto**](FlowBreadcrumbDTO.md) | This breadcrumb. | [optional] [default to null]
 **ParentBreadcrumb** | [***FlowBreadcrumbEntity**](FlowBreadcrumbEntity.md) | The parent breadcrumb for this breadcrumb. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

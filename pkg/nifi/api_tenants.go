@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *TenantsApiService) CreateUser(ctx context.Context, body UserEntity) (UserEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue UserEntity
 	)
 
@@ -128,10 +129,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *TenantsApiService) CreateUserGroup(ctx context.Context, body UserGroupEntity) (UserGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue UserGroupEntity
 	)
 
@@ -218,10 +219,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *TenantsApiService) GetUser(ctx context.Context, id string) (UserEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue UserEntity
 	)
 
@@ -307,10 +308,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *TenantsApiService) GetUserGroup(ctx context.Context, id string) (UserGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue UserGroupEntity
 	)
 
@@ -395,10 +396,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *TenantsApiService) GetUserGroups(ctx context.Context) (UserGroupsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue UserGroupsEntity
 	)
 
@@ -482,10 +483,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *TenantsApiService) GetUsers(ctx context.Context) (UsersEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue UsersEntity
 	)
 
@@ -581,10 +582,10 @@ type TenantsApiRemoveUserOpts struct {
 
 func (a *TenantsApiService) RemoveUser(ctx context.Context, id string, localVarOptionals *TenantsApiRemoveUserOpts) (UserEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue UserEntity
 	)
 
@@ -690,10 +691,10 @@ type TenantsApiRemoveUserGroupOpts struct {
 
 func (a *TenantsApiService) RemoveUserGroup(ctx context.Context, id string, localVarOptionals *TenantsApiRemoveUserGroupOpts) (UserGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue UserGroupEntity
 	)
 
@@ -788,10 +789,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *TenantsApiService) SearchTenants(ctx context.Context, q string) (TenantsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TenantsEntity
 	)
 
@@ -878,10 +879,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *TenantsApiService) UpdateUser(ctx context.Context, id string, body UserEntity) (UserEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue UserEntity
 	)
 
@@ -970,10 +971,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *TenantsApiService) UpdateUserGroup(ctx context.Context, id string, body UserGroupEntity) (UserGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue UserGroupEntity
 	)
 

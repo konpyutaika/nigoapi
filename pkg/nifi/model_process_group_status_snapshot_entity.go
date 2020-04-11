@@ -12,7 +12,7 @@ package nifi
 
 type ProcessGroupStatusSnapshotEntity struct {
 	// The id of the process group.
-	Id string `json:"id,omitempty"`
+	Id string                                                 `json:"id,omitempty"`
 	ProcessGroupStatusSnapshot *ProcessGroupStatusSnapshotDto `json:"processGroupStatusSnapshot,omitempty"`
 	// Indicates whether the user can read a given resource.
 	CanRead bool `json:"canRead,omitempty"`

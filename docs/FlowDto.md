@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **Labels** | [**[]LabelEntity**](LabelEntity.md) | The labels in this flow. | [optional] [default to null]
 **Funnels** | [**[]FunnelEntity**](FunnelEntity.md) | The funnels in this flow. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **Bucket** | [***Bucket**](Bucket.md) | The bucket where the flow is located | [optional] [default to null]
 **Latest** | **bool** |  | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

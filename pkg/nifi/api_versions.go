@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -135,10 +136,10 @@ type VersionsApiDeleteRevertRequestOpts struct {
 
 func (a *VersionsApiService) DeleteRevertRequest(ctx context.Context, id string, localVarOptionals *VersionsApiDeleteRevertRequestOpts) (VersionedFlowUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionedFlowUpdateRequestEntity
 	)
 
@@ -234,10 +235,10 @@ type VersionsApiDeleteUpdateRequestOpts struct {
 
 func (a *VersionsApiService) DeleteUpdateRequest(ctx context.Context, id string, localVarOptionals *VersionsApiDeleteUpdateRequestOpts) (VersionedFlowUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionedFlowUpdateRequestEntity
 	)
 
@@ -496,10 +497,10 @@ Returns the Revert Request with the given ID. Once a Revert Request has been cre
 */
 func (a *VersionsApiService) GetRevertRequest(ctx context.Context, id string) (VersionedFlowUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionedFlowUpdateRequestEntity
 	)
 
@@ -585,10 +586,10 @@ Returns the Update Request with the given ID. Once an Update Request has been cr
 */
 func (a *VersionsApiService) GetUpdateRequest(ctx context.Context, id string) (VersionedFlowUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionedFlowUpdateRequestEntity
 	)
 
@@ -674,10 +675,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *VersionsApiService) GetVersionInformation(ctx context.Context, id string) (VersionControlInformationEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionControlInformationEntity
 	)
 
@@ -764,10 +765,10 @@ For a Process Group that is already under Version Control, this will initiate th
 */
 func (a *VersionsApiService) InitiateRevertFlowVersion(ctx context.Context, id string, body VersionControlInformationEntity) (VersionedFlowUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionedFlowUpdateRequestEntity
 	)
 
@@ -856,10 +857,10 @@ For a Process Group that is already under Version Control, this will initiate th
 */
 func (a *VersionsApiService) InitiateVersionControlUpdate(ctx context.Context, id string, body VersionControlInformationEntity) (VersionedFlowUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionedFlowUpdateRequestEntity
 	)
 
@@ -948,10 +949,10 @@ Begins version controlling the Process Group with the given ID or commits change
 */
 func (a *VersionsApiService) SaveToFlowRegistry(ctx context.Context, id string, body StartVersionControlRequestEntity) (VersionControlInformationEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionControlInformationEntity
 	)
 
@@ -1050,10 +1051,10 @@ type VersionsApiStopVersionControlOpts struct {
 
 func (a *VersionsApiService) StopVersionControl(ctx context.Context, id string, localVarOptionals *VersionsApiStopVersionControlOpts) (VersionControlInformationEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionControlInformationEntity
 	)
 
@@ -1149,10 +1150,10 @@ For a Process Group that is already under Version Control, this will update the 
 */
 func (a *VersionsApiService) UpdateFlowVersion(ctx context.Context, id string, body VersionedFlowSnapshotEntity) (VersionControlInformationEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionControlInformationEntity
 	)
 
@@ -1241,10 +1242,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *VersionsApiService) UpdateVersionControlRequest(ctx context.Context, id string, body VersionControlComponentMappingEntity) (VersionControlInformationEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionControlInformationEntity
 	)
 

@@ -32,6 +32,6 @@ Name | Type | Description | Notes
 **FlowRefreshed** | **string** | The timestamp when this remote process group was last refreshed. | [optional] [default to null]
 **Contents** | [***RemoteProcessGroupContentsDto**](RemoteProcessGroupContentsDTO.md) | The contents of the remote process group. Will contain available input/output ports. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

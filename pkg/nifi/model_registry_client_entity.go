@@ -25,5 +25,5 @@ type RegistryClientEntity struct {
 	Bulletins []BulletinEntity `json:"bulletins,omitempty"`
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
-	Component *RegistryDto `json:"component,omitempty"`
+	Component *RegistryDto            `json:"component,omitempty"`
 }

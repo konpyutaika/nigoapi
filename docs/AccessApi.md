@@ -54,7 +54,7 @@ No authorization required
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: text/plain
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateAccessTokenFromTicket**
 > string CreateAccessTokenFromTicket(ctx, )
@@ -78,7 +78,7 @@ No authorization required
  - **Content-Type**: text/plain
  - **Accept**: text/plain
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateDownloadToken**
 > string CreateDownloadToken(ctx, )
@@ -102,7 +102,7 @@ No authorization required
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: text/plain
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateUiExtensionToken**
 > string CreateUiExtensionToken(ctx, )
@@ -126,7 +126,7 @@ No authorization required
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: text/plain
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetAccessStatus**
 > AccessStatusEntity GetAccessStatus(ctx, )
@@ -150,7 +150,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLoginConfig**
 > AccessConfigurationEntity GetLoginConfig(ctx, )
@@ -174,7 +174,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **KnoxCallback**
 > KnoxCallback(ctx, )
@@ -198,7 +198,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: */*
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **KnoxLogout**
 > KnoxLogout(ctx, )
@@ -222,7 +222,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: */*
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **KnoxRequest**
 > KnoxRequest(ctx, )
@@ -246,7 +246,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: */*
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **LogOut**
 > LogOut(ctx, )
@@ -270,7 +270,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: */*
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **OidcCallback**
 > OidcCallback(ctx, )
@@ -294,7 +294,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: */*
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **OidcExchange**
 > string OidcExchange(ctx, )
@@ -318,7 +318,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: text/plain
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **OidcLogout**
 > OidcLogout(ctx, )
@@ -342,7 +342,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: */*
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **OidcRequest**
 > OidcRequest(ctx, )
@@ -366,5 +366,5 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: */*
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

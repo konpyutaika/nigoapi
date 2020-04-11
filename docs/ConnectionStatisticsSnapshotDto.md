@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **PredictedPercentBytes** | **int32** | The predicted percentage of bytes in the queue against current threshold at the next configured interval. | [optional] [default to null]
 **PredictionIntervalMillis** | **int64** | The prediction interval in seconds | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

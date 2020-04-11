@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ PoliciesApiService Creates an access policy
 */
 func (a *PoliciesApiService) CreateAccessPolicy(ctx context.Context, body AccessPolicyEntity) (AccessPolicyEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue AccessPolicyEntity
 	)
 
@@ -128,10 +129,10 @@ PoliciesApiService Gets an access policy
 */
 func (a *PoliciesApiService) GetAccessPolicy(ctx context.Context, id string) (AccessPolicyEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue AccessPolicyEntity
 	)
 
@@ -218,10 +219,10 @@ Will return the effective policy if no component specific policy exists for the 
 */
 func (a *PoliciesApiService) GetAccessPolicyForResource(ctx context.Context, action string, resource string) (AccessPolicyEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue AccessPolicyEntity
 	)
 
@@ -319,10 +320,10 @@ type PoliciesApiRemoveAccessPolicyOpts struct {
 
 func (a *PoliciesApiService) RemoveAccessPolicy(ctx context.Context, id string, localVarOptionals *PoliciesApiRemoveAccessPolicyOpts) (AccessPolicyEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue AccessPolicyEntity
 	)
 
@@ -418,10 +419,10 @@ PoliciesApiService Updates a access policy
 */
 func (a *PoliciesApiService) UpdateAccessPolicy(ctx context.Context, id string, body AccessPolicyEntity) (AccessPolicyEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue AccessPolicyEntity
 	)
 

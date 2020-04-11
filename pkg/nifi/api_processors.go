@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ ProcessorsApiService Clears the state for a processor
 */
 func (a *ProcessorsApiService) ClearState(ctx context.Context, id string) (ComponentStateEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ComponentStateEntity
 	)
 
@@ -138,10 +139,10 @@ type ProcessorsApiDeleteProcessorOpts struct {
 
 func (a *ProcessorsApiService) DeleteProcessor(ctx context.Context, id string, localVarOptionals *ProcessorsApiDeleteProcessorOpts) (ProcessorEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorEntity
 	)
 
@@ -236,10 +237,10 @@ ProcessorsApiService Gets a processor
 */
 func (a *ProcessorsApiService) GetProcessor(ctx context.Context, id string) (ProcessorEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorEntity
 	)
 
@@ -325,10 +326,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *ProcessorsApiService) GetProcessorDiagnostics(ctx context.Context, id string) (ProcessorEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorEntity
 	)
 
@@ -422,10 +423,10 @@ type ProcessorsApiGetPropertyDescriptorOpts struct {
 
 func (a *ProcessorsApiService) GetPropertyDescriptor(ctx context.Context, id string, propertyName string, localVarOptionals *ProcessorsApiGetPropertyDescriptorOpts) (PropertyDescriptorEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PropertyDescriptorEntity
 	)
 
@@ -515,10 +516,10 @@ ProcessorsApiService Gets the state for a processor
 */
 func (a *ProcessorsApiService) GetState(ctx context.Context, id string) (ComponentStateEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ComponentStateEntity
 	)
 
@@ -604,10 +605,10 @@ ProcessorsApiService Terminates a processor, essentially \&quot;deleting\&quot; 
 */
 func (a *ProcessorsApiService) TerminateProcessor(ctx context.Context, id string) (ProcessorEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorEntity
 	)
 
@@ -694,10 +695,10 @@ ProcessorsApiService Updates a processor
 */
 func (a *ProcessorsApiService) UpdateProcessor(ctx context.Context, id string, body ProcessorEntity) (ProcessorEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorEntity
 	)
 
@@ -786,10 +787,10 @@ ProcessorsApiService Updates run status of a processor
 */
 func (a *ProcessorsApiService) UpdateRunStatus(ctx context.Context, id string, body ProcessorRunStatusEntity) (ProcessorEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorEntity
 	)
 

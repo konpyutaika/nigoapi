@@ -12,6 +12,6 @@ package nifi
 
 type ProcessGroupFlowEntity struct {
 	// The access policy for this process group.
-	Permissions *PermissionsDto `json:"permissions,omitempty"`
+	Permissions *PermissionsDto           `json:"permissions,omitempty"`
 	ProcessGroupFlow *ProcessGroupFlowDto `json:"processGroupFlow,omitempty"`
 }

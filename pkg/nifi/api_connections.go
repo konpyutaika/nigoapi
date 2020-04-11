@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -49,10 +50,10 @@ type ConnectionsApiDeleteConnectionOpts struct {
 
 func (a *ConnectionsApiService) DeleteConnection(ctx context.Context, id string, localVarOptionals *ConnectionsApiDeleteConnectionOpts) (ConnectionEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ConnectionEntity
 	)
 
@@ -147,10 +148,10 @@ ConnectionsApiService Gets a connection
 */
 func (a *ConnectionsApiService) GetConnection(ctx context.Context, id string) (ConnectionEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ConnectionEntity
 	)
 
@@ -237,10 +238,10 @@ ConnectionsApiService Updates a connection
 */
 func (a *ConnectionsApiService) UpdateConnection(ctx context.Context, id string, body ConnectionEntity) (ConnectionEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ConnectionEntity
 	)
 

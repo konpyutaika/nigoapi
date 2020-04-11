@@ -47,7 +47,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateControllerService**
 > ControllerServiceEntity CreateControllerService(ctx, body)
@@ -75,7 +75,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateRegistryClient**
 > RegistryClientEntity CreateRegistryClient(ctx, body)
@@ -103,7 +103,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateReportingTask**
 > ReportingTaskEntity CreateReportingTask(ctx, body)
@@ -131,7 +131,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteHistory**
 > HistoryEntity DeleteHistory(ctx, endDate)
@@ -159,7 +159,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteNode**
 > NodeEntity DeleteNode(ctx, id)
@@ -187,7 +187,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteRegistryClient**
 > RegistryClientEntity DeleteRegistryClient(ctx, id, optional)
@@ -226,7 +226,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetCluster**
 > ClusterEntity GetCluster(ctx, )
@@ -250,7 +250,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetControllerConfig**
 > ControllerConfigurationEntity GetControllerConfig(ctx, )
@@ -274,7 +274,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetNode**
 > NodeEntity GetNode(ctx, id)
@@ -302,7 +302,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRegistryClient**
 > RegistryClientEntity GetRegistryClient(ctx, id)
@@ -330,7 +330,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRegistryClients**
 > RegistryClientsEntity GetRegistryClients(ctx, )
@@ -354,7 +354,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateControllerConfig**
 > ControllerConfigurationEntity UpdateControllerConfig(ctx, body)
@@ -382,7 +382,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateNode**
 > NodeEntity UpdateNode(ctx, id, body)
@@ -411,7 +411,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateRegistryClient**
 > RegistryClientEntity UpdateRegistryClient(ctx, id, body)
@@ -440,5 +440,5 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

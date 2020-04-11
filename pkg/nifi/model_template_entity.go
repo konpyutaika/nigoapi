@@ -25,5 +25,5 @@ type TemplateEntity struct {
 	Bulletins []BulletinEntity `json:"bulletins,omitempty"`
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
-	Template *TemplateDto `json:"template,omitempty"`
+	Template *TemplateDto             `json:"template,omitempty"`
 }

@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **Flow** | [***FlowDto**](FlowDTO.md) | The flow structure starting at this Process Group. | [optional] [default to null]
 **LastRefreshed** | **string** | The time the flow for the process group was last refreshed. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

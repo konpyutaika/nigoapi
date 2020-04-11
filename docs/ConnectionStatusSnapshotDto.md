@@ -25,6 +25,6 @@ Name | Type | Description | Notes
 **PercentUseCount** | **int32** | Connection percent use regarding queued flow files count and backpressure threshold if configured. | [optional] [default to null]
 **PercentUseBytes** | **int32** | Connection percent use regarding queued flow files size and backpressure threshold if configured. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

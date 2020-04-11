@@ -74,7 +74,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GenerateClientId**
 > string GenerateClientId(ctx, )
@@ -98,7 +98,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: text/plain
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetAboutInfo**
 > AboutEntity GetAboutInfo(ctx, )
@@ -122,7 +122,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetAction**
 > ActionEntity GetAction(ctx, id)
@@ -150,7 +150,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBanners**
 > BannerEntity GetBanners(ctx, )
@@ -174,7 +174,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBuckets**
 > BucketsEntity GetBuckets(ctx, id)
@@ -202,7 +202,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBulletinBoard**
 > BulletinBoardEntity GetBulletinBoard(ctx, optional)
@@ -242,7 +242,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBulletins**
 > ControllerBulletinsEntity GetBulletins(ctx, )
@@ -266,7 +266,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetClusterSummary**
 > ClusteSummaryEntity GetClusterSummary(ctx, )
@@ -290,7 +290,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetComponentHistory**
 > ComponentHistoryEntity GetComponentHistory(ctx, componentId)
@@ -318,7 +318,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetConnectionStatistics**
 > ConnectionStatisticsEntity GetConnectionStatistics(ctx, id, optional)
@@ -356,7 +356,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetConnectionStatus**
 > ConnectionStatusEntity GetConnectionStatus(ctx, id, optional)
@@ -394,7 +394,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetConnectionStatusHistory**
 > StatusHistoryEntity GetConnectionStatusHistory(ctx, id)
@@ -422,7 +422,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetControllerServiceTypes**
 > ControllerServiceTypesEntity GetControllerServiceTypes(ctx, optional)
@@ -463,7 +463,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetControllerServicesFromController**
 > ControllerServicesEntity GetControllerServicesFromController(ctx, )
@@ -487,7 +487,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetControllerServicesFromGroup**
 > ControllerServicesEntity GetControllerServicesFromGroup(ctx, id, optional)
@@ -525,7 +525,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetControllerStatus**
 > ControllerStatusEntity GetControllerStatus(ctx, )
@@ -549,7 +549,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetCurrentUser**
 > CurrentUserEntity GetCurrentUser(ctx, )
@@ -573,7 +573,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetFlow**
 > ProcessGroupFlowEntity GetFlow(ctx, id)
@@ -601,7 +601,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetFlowConfig**
 > FlowConfigurationEntity GetFlowConfig(ctx, )
@@ -625,7 +625,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetFlows**
 > VersionedFlowsEntity GetFlows(ctx, registryId, bucketId)
@@ -654,7 +654,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetInputPortStatus**
 > PortStatusEntity GetInputPortStatus(ctx, id, optional)
@@ -692,7 +692,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetOutputPortStatus**
 > PortStatusEntity GetOutputPortStatus(ctx, id, optional)
@@ -730,7 +730,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetParameterContexts**
 > ParameterContextsEntity GetParameterContexts(ctx, )
@@ -754,7 +754,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPrioritizers**
 > PrioritizerTypesEntity GetPrioritizers(ctx, )
@@ -778,7 +778,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetProcessGroupStatus**
 > ProcessGroupStatusEntity GetProcessGroupStatus(ctx, id, optional)
@@ -817,7 +817,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetProcessGroupStatusHistory**
 > StatusHistoryEntity GetProcessGroupStatusHistory(ctx, id)
@@ -845,7 +845,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetProcessorStatus**
 > ProcessorStatusEntity GetProcessorStatus(ctx, id, optional)
@@ -883,7 +883,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetProcessorStatusHistory**
 > StatusHistoryEntity GetProcessorStatusHistory(ctx, id)
@@ -911,7 +911,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetProcessorTypes**
 > ProcessorTypesEntity GetProcessorTypes(ctx, optional)
@@ -948,7 +948,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRegistries**
 > RegistryClientsEntity GetRegistries(ctx, )
@@ -972,7 +972,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRemoteProcessGroupStatus**
 > RemoteProcessGroupStatusEntity GetRemoteProcessGroupStatus(ctx, id, optional)
@@ -1010,7 +1010,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRemoteProcessGroupStatusHistory**
 > StatusHistoryEntity GetRemoteProcessGroupStatusHistory(ctx, id)
@@ -1038,7 +1038,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetReportingTaskTypes**
 > ReportingTaskTypesEntity GetReportingTaskTypes(ctx, optional)
@@ -1075,7 +1075,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetReportingTasks**
 > ReportingTasksEntity GetReportingTasks(ctx, )
@@ -1099,7 +1099,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetTemplates**
 > TemplatesEntity GetTemplates(ctx, )
@@ -1123,7 +1123,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetVersions**
 > VersionedFlowSnapshotMetadataSetEntity GetVersions(ctx, registryId, bucketId, flowId)
@@ -1153,7 +1153,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **QueryHistory**
 > HistoryEntity QueryHistory(ctx, offset, count, optional)
@@ -1197,7 +1197,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ScheduleComponents**
 > ScheduleComponentsEntity ScheduleComponents(ctx, id, body)
@@ -1226,7 +1226,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SearchCluster**
 > ClusterSearchResultsEntity SearchCluster(ctx, q)
@@ -1254,7 +1254,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SearchFlow**
 > SearchResultsEntity SearchFlow(ctx, optional)
@@ -1289,5 +1289,5 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

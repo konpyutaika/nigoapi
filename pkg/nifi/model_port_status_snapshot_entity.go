@@ -12,7 +12,7 @@ package nifi
 
 type PortStatusSnapshotEntity struct {
 	// The id of the port.
-	Id string `json:"id,omitempty"`
+	Id string                                 `json:"id,omitempty"`
 	PortStatusSnapshot *PortStatusSnapshotDto `json:"portStatusSnapshot,omitempty"`
 	// Indicates whether the user can read a given resource.
 	CanRead bool `json:"canRead,omitempty"`

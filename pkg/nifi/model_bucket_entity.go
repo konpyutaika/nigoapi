@@ -11,7 +11,7 @@
 package nifi
 
 type BucketEntity struct {
-	Id string `json:"id,omitempty"`
-	Bucket *BucketDto `json:"bucket,omitempty"`
+	Id string                   `json:"id,omitempty"`
+	Bucket *BucketDto           `json:"bucket,omitempty"`
 	Permissions *PermissionsDto `json:"permissions,omitempty"`
 }

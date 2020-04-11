@@ -48,7 +48,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteProvenance**
 > ProvenanceEntity DeleteProvenance(ctx, id, optional)
@@ -85,7 +85,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLineage**
 > LineageEntity GetLineage(ctx, id, optional)
@@ -122,7 +122,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetProvenance**
 > ProvenanceEntity GetProvenance(ctx, id, optional)
@@ -161,7 +161,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSearchOptions**
 > ProvenanceOptionsEntity GetSearchOptions(ctx, )
@@ -185,7 +185,7 @@ No authorization required
  - **Content-Type**: */*
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SubmitLineageRequest**
 > LineageEntity SubmitLineageRequest(ctx, body)
@@ -213,7 +213,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SubmitProvenanceRequest**
 > ProvenanceEntity SubmitProvenanceRequest(ctx, body)
@@ -241,5 +241,5 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to README]](../pkg/nifi/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -12,7 +12,7 @@ package nifi
 
 type RemoteProcessGroupStatusSnapshotEntity struct {
 	// The id of the remote process group.
-	Id string `json:"id,omitempty"`
+	Id string                                                             `json:"id,omitempty"`
 	RemoteProcessGroupStatusSnapshot *RemoteProcessGroupStatusSnapshotDto `json:"remoteProcessGroupStatusSnapshot,omitempty"`
 	// Indicates whether the user can read a given resource.
 	CanRead bool `json:"canRead,omitempty"`

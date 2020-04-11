@@ -14,6 +14,6 @@ type ParameterContextReferenceEntity struct {
 	// The id of the component.
 	Id string `json:"id,omitempty"`
 	// The permissions for this component.
-	Permissions *PermissionsDto `json:"permissions,omitempty"`
+	Permissions *PermissionsDto             `json:"permissions,omitempty"`
 	Component *ParameterContextReferenceDto `json:"component,omitempty"`
 }

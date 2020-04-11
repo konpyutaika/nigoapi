@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **CanRead** | **bool** | Indicates whether the user can read a given resource. | [optional] [default to null]
 **Bulletin** | [***BulletinDto**](BulletinDTO.md) |  | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

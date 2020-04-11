@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **Value** | **string** | The attribute value. | [optional] [default to null]
 **PreviousValue** | **string** | The value of the attribute before the event took place. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

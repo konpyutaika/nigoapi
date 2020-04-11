@@ -12,6 +12,6 @@ package nifi
 
 type ControllerServicesEntity struct {
 	// The current time on the system.
-	CurrentTime string `json:"currentTime,omitempty"`
+	CurrentTime string                           `json:"currentTime,omitempty"`
 	ControllerServices []ControllerServiceEntity `json:"controllerServices,omitempty"`
 }

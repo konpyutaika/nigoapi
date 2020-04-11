@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ ReportingTasksApiService Clears the state for a reporting task
 */
 func (a *ReportingTasksApiService) ClearState(ctx context.Context, id string) (ComponentStateEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ComponentStateEntity
 	)
 
@@ -128,10 +129,10 @@ ReportingTasksApiService Gets a reporting task property descriptor
 */
 func (a *ReportingTasksApiService) GetPropertyDescriptor(ctx context.Context, id string, propertyName string) (PropertyDescriptorEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PropertyDescriptorEntity
 	)
 
@@ -218,10 +219,10 @@ ReportingTasksApiService Gets a reporting task
 */
 func (a *ReportingTasksApiService) GetReportingTask(ctx context.Context, id string) (ReportingTaskEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ReportingTaskEntity
 	)
 
@@ -307,10 +308,10 @@ ReportingTasksApiService Gets the state for a reporting task
 */
 func (a *ReportingTasksApiService) GetState(ctx context.Context, id string) (ComponentStateEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ComponentStateEntity
 	)
 
@@ -407,10 +408,10 @@ type ReportingTasksApiRemoveReportingTaskOpts struct {
 
 func (a *ReportingTasksApiService) RemoveReportingTask(ctx context.Context, id string, localVarOptionals *ReportingTasksApiRemoveReportingTaskOpts) (ReportingTaskEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ReportingTaskEntity
 	)
 
@@ -506,10 +507,10 @@ ReportingTasksApiService Updates a reporting task
 */
 func (a *ReportingTasksApiService) UpdateReportingTask(ctx context.Context, id string, body ReportingTaskEntity) (ReportingTaskEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ReportingTaskEntity
 	)
 
@@ -598,10 +599,10 @@ ReportingTasksApiService Updates run status of a reporting task
 */
 func (a *ReportingTasksApiService) UpdateRunStatus(ctx context.Context, id string, body ReportingTaskRunStatusEntity) (ReportingTaskEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ReportingTaskEntity
 	)
 

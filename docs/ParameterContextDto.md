@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **BoundProcessGroups** | [**[]ProcessGroupEntity**](ProcessGroupEntity.md) | The Process Groups that are bound to this Parameter Context | [optional] [default to null]
 **Id** | **string** | The ID the Parameter Context. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

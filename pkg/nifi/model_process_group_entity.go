@@ -25,7 +25,7 @@ type ProcessGroupEntity struct {
 	Bulletins []BulletinEntity `json:"bulletins,omitempty"`
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
-	Component *ProcessGroupDto `json:"component,omitempty"`
+	Component *ProcessGroupDto        `json:"component,omitempty"`
 	// The status of the process group.
 	Status *ProcessGroupStatusDto `json:"status,omitempty"`
 	// Returns the Versioned Flow that describes the contents of the Versioned Flow to be imported

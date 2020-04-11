@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -39,10 +40,10 @@ FlowApiService Enable or disable Controller Services in the specified Process Gr
 */
 func (a *FlowApiService) ActivateControllerServices(ctx context.Context, id string, body ActivateControllerServicesEntity) (ActivateControllerServicesEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ActivateControllerServicesEntity
 	)
 
@@ -216,10 +217,10 @@ FlowApiService Retrieves details about this NiFi to put in the About dialog
 */
 func (a *FlowApiService) GetAboutInfo(ctx context.Context) (AboutEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue AboutEntity
 	)
 
@@ -304,10 +305,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *FlowApiService) GetAction(ctx context.Context, id string) (ActionEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ActionEntity
 	)
 
@@ -392,10 +393,10 @@ FlowApiService Retrieves the banners for this NiFi
 */
 func (a *FlowApiService) GetBanners(ctx context.Context) (BannerEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue BannerEntity
 	)
 
@@ -480,10 +481,10 @@ FlowApiService Gets the buckets from the specified registry for the current user
 */
 func (a *FlowApiService) GetBuckets(ctx context.Context, id string) (BucketsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue BucketsEntity
 	)
 
@@ -585,10 +586,10 @@ type FlowApiGetBulletinBoardOpts struct {
 
 func (a *FlowApiService) GetBulletinBoard(ctx context.Context, localVarOptionals *FlowApiGetBulletinBoardOpts) (BulletinBoardEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue BulletinBoardEntity
 	)
 
@@ -690,10 +691,10 @@ FlowApiService Retrieves Controller level bulletins
 */
 func (a *FlowApiService) GetBulletins(ctx context.Context) (ControllerBulletinsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerBulletinsEntity
 	)
 
@@ -777,10 +778,10 @@ FlowApiService The cluster summary for this NiFi
 */
 func (a *FlowApiService) GetClusterSummary(ctx context.Context) (ClusteSummaryEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ClusteSummaryEntity
 	)
 
@@ -865,10 +866,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *FlowApiService) GetComponentHistory(ctx context.Context, componentId string) (ComponentHistoryEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ComponentHistoryEntity
 	)
 
@@ -963,10 +964,10 @@ type FlowApiGetConnectionStatisticsOpts struct {
 
 func (a *FlowApiService) GetConnectionStatistics(ctx context.Context, id string, localVarOptionals *FlowApiGetConnectionStatisticsOpts) (ConnectionStatisticsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ConnectionStatisticsEntity
 	)
 
@@ -1067,10 +1068,10 @@ type FlowApiGetConnectionStatusOpts struct {
 
 func (a *FlowApiService) GetConnectionStatus(ctx context.Context, id string, localVarOptionals *FlowApiGetConnectionStatusOpts) (ConnectionStatusEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ConnectionStatusEntity
 	)
 
@@ -1162,10 +1163,10 @@ FlowApiService Gets the status history for a connection
 */
 func (a *FlowApiService) GetConnectionStatusHistory(ctx context.Context, id string) (StatusHistoryEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue StatusHistoryEntity
 	)
 
@@ -1269,10 +1270,10 @@ type FlowApiGetControllerServiceTypesOpts struct {
 
 func (a *FlowApiService) GetControllerServiceTypes(ctx context.Context, localVarOptionals *FlowApiGetControllerServiceTypesOpts) (ControllerServiceTypesEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServiceTypesEntity
 	)
 
@@ -1377,10 +1378,10 @@ FlowApiService Gets controller services for reporting tasks
 */
 func (a *FlowApiService) GetControllerServicesFromController(ctx context.Context) (ControllerServicesEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServicesEntity
 	)
 
@@ -1474,10 +1475,10 @@ type FlowApiGetControllerServicesFromGroupOpts struct {
 
 func (a *FlowApiService) GetControllerServicesFromGroup(ctx context.Context, id string, localVarOptionals *FlowApiGetControllerServicesFromGroupOpts) (ControllerServicesEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServicesEntity
 	)
 
@@ -1568,10 +1569,10 @@ FlowApiService Gets the current status of this NiFi
 */
 func (a *FlowApiService) GetControllerStatus(ctx context.Context) (ControllerStatusEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerStatusEntity
 	)
 
@@ -1655,10 +1656,10 @@ FlowApiService Retrieves the user identity of the user making the request
 */
 func (a *FlowApiService) GetCurrentUser(ctx context.Context) (CurrentUserEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue CurrentUserEntity
 	)
 
@@ -1743,10 +1744,10 @@ FlowApiService Gets a process group
 */
 func (a *FlowApiService) GetFlow(ctx context.Context, id string) (ProcessGroupFlowEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupFlowEntity
 	)
 
@@ -1831,10 +1832,10 @@ FlowApiService Retrieves the configuration for this NiFi flow
 */
 func (a *FlowApiService) GetFlowConfig(ctx context.Context) (FlowConfigurationEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FlowConfigurationEntity
 	)
 
@@ -1920,10 +1921,10 @@ FlowApiService Gets the flows from the specified registry and bucket for the cur
 */
 func (a *FlowApiService) GetFlows(ctx context.Context, registryId string, bucketId string) (VersionedFlowsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionedFlowsEntity
 	)
 
@@ -2019,10 +2020,10 @@ type FlowApiGetInputPortStatusOpts struct {
 
 func (a *FlowApiService) GetInputPortStatus(ctx context.Context, id string, localVarOptionals *FlowApiGetInputPortStatusOpts) (PortStatusEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PortStatusEntity
 	)
 
@@ -2123,10 +2124,10 @@ type FlowApiGetOutputPortStatusOpts struct {
 
 func (a *FlowApiService) GetOutputPortStatus(ctx context.Context, id string, localVarOptionals *FlowApiGetOutputPortStatusOpts) (PortStatusEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PortStatusEntity
 	)
 
@@ -2217,10 +2218,10 @@ FlowApiService Gets all Parameter Contexts
 */
 func (a *FlowApiService) GetParameterContexts(ctx context.Context) (ParameterContextsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ParameterContextsEntity
 	)
 
@@ -2304,10 +2305,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *FlowApiService) GetPrioritizers(ctx context.Context) (PrioritizerTypesEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PrioritizerTypesEntity
 	)
 
@@ -2403,10 +2404,10 @@ type FlowApiGetProcessGroupStatusOpts struct {
 
 func (a *FlowApiService) GetProcessGroupStatus(ctx context.Context, id string, localVarOptionals *FlowApiGetProcessGroupStatusOpts) (ProcessGroupStatusEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupStatusEntity
 	)
 
@@ -2501,10 +2502,10 @@ FlowApiService Gets status history for a remote process group
 */
 func (a *FlowApiService) GetProcessGroupStatusHistory(ctx context.Context, id string) (StatusHistoryEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue StatusHistoryEntity
 	)
 
@@ -2599,10 +2600,10 @@ type FlowApiGetProcessorStatusOpts struct {
 
 func (a *FlowApiService) GetProcessorStatus(ctx context.Context, id string, localVarOptionals *FlowApiGetProcessorStatusOpts) (ProcessorStatusEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorStatusEntity
 	)
 
@@ -2694,10 +2695,10 @@ FlowApiService Gets status history for a processor
 */
 func (a *FlowApiService) GetProcessorStatusHistory(ctx context.Context, id string) (StatusHistoryEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue StatusHistoryEntity
 	)
 
@@ -2793,10 +2794,10 @@ type FlowApiGetProcessorTypesOpts struct {
 
 func (a *FlowApiService) GetProcessorTypes(ctx context.Context, localVarOptionals *FlowApiGetProcessorTypesOpts) (ProcessorTypesEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorTypesEntity
 	)
 
@@ -2889,10 +2890,10 @@ FlowApiService Gets the listing of available registries
 */
 func (a *FlowApiService) GetRegistries(ctx context.Context) (RegistryClientsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RegistryClientsEntity
 	)
 
@@ -2986,10 +2987,10 @@ type FlowApiGetRemoteProcessGroupStatusOpts struct {
 
 func (a *FlowApiService) GetRemoteProcessGroupStatus(ctx context.Context, id string, localVarOptionals *FlowApiGetRemoteProcessGroupStatusOpts) (RemoteProcessGroupStatusEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupStatusEntity
 	)
 
@@ -3081,10 +3082,10 @@ FlowApiService Gets the status history
 */
 func (a *FlowApiService) GetRemoteProcessGroupStatusHistory(ctx context.Context, id string) (StatusHistoryEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue StatusHistoryEntity
 	)
 
@@ -3180,10 +3181,10 @@ type FlowApiGetReportingTaskTypesOpts struct {
 
 func (a *FlowApiService) GetReportingTaskTypes(ctx context.Context, localVarOptionals *FlowApiGetReportingTaskTypesOpts) (ReportingTaskTypesEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ReportingTaskTypesEntity
 	)
 
@@ -3276,10 +3277,10 @@ FlowApiService Gets all reporting tasks
 */
 func (a *FlowApiService) GetReportingTasks(ctx context.Context) (ReportingTasksEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ReportingTasksEntity
 	)
 
@@ -3363,10 +3364,10 @@ FlowApiService Gets all templates
 */
 func (a *FlowApiService) GetTemplates(ctx context.Context) (TemplatesEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TemplatesEntity
 	)
 
@@ -3453,10 +3454,10 @@ FlowApiService Gets the flow versions from the specified registry and bucket for
 */
 func (a *FlowApiService) GetVersions(ctx context.Context, registryId string, bucketId string, flowId string) (VersionedFlowSnapshotMetadataSetEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VersionedFlowSnapshotMetadataSetEntity
 	)
 
@@ -3562,10 +3563,10 @@ type FlowApiQueryHistoryOpts struct {
 
 func (a *FlowApiService) QueryHistory(ctx context.Context, offset string, count string, localVarOptionals *FlowApiQueryHistoryOpts) (HistoryEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue HistoryEntity
 	)
 
@@ -3671,10 +3672,10 @@ FlowApiService Schedule or unschedule components in the specified Process Group.
 */
 func (a *FlowApiService) ScheduleComponents(ctx context.Context, id string, body ScheduleComponentsEntity) (ScheduleComponentsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ScheduleComponentsEntity
 	)
 
@@ -3762,10 +3763,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *FlowApiService) SearchCluster(ctx context.Context, q string) (ClusterSearchResultsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ClusterSearchResultsEntity
 	)
 
@@ -3857,10 +3858,10 @@ type FlowApiSearchFlowOpts struct {
 
 func (a *FlowApiService) SearchFlow(ctx context.Context, localVarOptionals *FlowApiSearchFlowOpts) (SearchResultsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue SearchResultsEntity
 	)
 

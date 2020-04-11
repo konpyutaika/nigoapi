@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **Clustered** | **bool** | Whether this NiFi instance is clustered. | [optional] [default to null]
 **ConnectedToCluster** | **bool** | Whether this NiFi instance is connected to a cluster. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

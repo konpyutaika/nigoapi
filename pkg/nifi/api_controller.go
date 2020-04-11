@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ ControllerApiService Creates a new bulletin
 */
 func (a *ControllerApiService) CreateBulletin(ctx context.Context, body BulletinEntity) (BulletinEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue BulletinEntity
 	)
 
@@ -128,10 +129,10 @@ ControllerApiService Creates a new controller service
 */
 func (a *ControllerApiService) CreateControllerService(ctx context.Context, body ControllerServiceEntity) (ControllerServiceEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServiceEntity
 	)
 
@@ -218,10 +219,10 @@ ControllerApiService Creates a new registry client
 */
 func (a *ControllerApiService) CreateRegistryClient(ctx context.Context, body RegistryClientEntity) (RegistryClientEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RegistryClientEntity
 	)
 
@@ -308,10 +309,10 @@ ControllerApiService Creates a new reporting task
 */
 func (a *ControllerApiService) CreateReportingTask(ctx context.Context, body ReportingTaskEntity) (ReportingTaskEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ReportingTaskEntity
 	)
 
@@ -398,10 +399,10 @@ ControllerApiService Purges history
 */
 func (a *ControllerApiService) DeleteHistory(ctx context.Context, endDate string) (HistoryEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue HistoryEntity
 	)
 
@@ -487,10 +488,10 @@ ControllerApiService Removes a node from the cluster
 */
 func (a *ControllerApiService) DeleteNode(ctx context.Context, id string) (NodeEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue NodeEntity
 	)
 
@@ -587,10 +588,10 @@ type ControllerApiDeleteRegistryClientOpts struct {
 
 func (a *ControllerApiService) DeleteRegistryClient(ctx context.Context, id string, localVarOptionals *ControllerApiDeleteRegistryClientOpts) (RegistryClientEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RegistryClientEntity
 	)
 
@@ -684,10 +685,10 @@ Returns the contents of the cluster including all nodes and their status.
 */
 func (a *ControllerApiService) GetCluster(ctx context.Context) (ClusterEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ClusterEntity
 	)
 
@@ -771,10 +772,10 @@ ControllerApiService Retrieves the configuration for this NiFi Controller
 */
 func (a *ControllerApiService) GetControllerConfig(ctx context.Context) (ControllerConfigurationEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerConfigurationEntity
 	)
 
@@ -859,10 +860,10 @@ ControllerApiService Gets a node in the cluster
 */
 func (a *ControllerApiService) GetNode(ctx context.Context, id string) (NodeEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue NodeEntity
 	)
 
@@ -948,10 +949,10 @@ ControllerApiService Gets a registry client
 */
 func (a *ControllerApiService) GetRegistryClient(ctx context.Context, id string) (RegistryClientEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RegistryClientEntity
 	)
 
@@ -1036,10 +1037,10 @@ ControllerApiService Gets the listing of available registry clients
 */
 func (a *ControllerApiService) GetRegistryClients(ctx context.Context) (RegistryClientsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RegistryClientsEntity
 	)
 
@@ -1124,10 +1125,10 @@ ControllerApiService Retrieves the configuration for this NiFi
 */
 func (a *ControllerApiService) UpdateControllerConfig(ctx context.Context, body ControllerConfigurationEntity) (ControllerConfigurationEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerConfigurationEntity
 	)
 
@@ -1215,10 +1216,10 @@ ControllerApiService Updates a node in the cluster
 */
 func (a *ControllerApiService) UpdateNode(ctx context.Context, id string, body NodeEntity) (NodeEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue NodeEntity
 	)
 
@@ -1307,10 +1308,10 @@ ControllerApiService Updates a registry client
 */
 func (a *ControllerApiService) UpdateRegistryClient(ctx context.Context, id string, body RegistryClientEntity) (RegistryClientEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RegistryClientEntity
 	)
 

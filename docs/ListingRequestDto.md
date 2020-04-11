@@ -17,6 +17,6 @@ Name | Type | Description | Notes
 **SourceRunning** | **bool** | Whether the source of the connection is running | [optional] [default to null]
 **DestinationRunning** | **bool** | Whether the destination of the connection is running | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

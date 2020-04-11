@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **UserGroups** | [**[]TenantEntity**](TenantEntity.md) | The groups to which the user belongs. This field is read only and it provided for convenience. | [optional] [default to null]
 **AccessPolicies** | [**[]AccessPolicySummaryEntity**](AccessPolicySummaryEntity.md) | The access policies this user belongs to. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

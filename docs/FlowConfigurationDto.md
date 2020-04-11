@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **DefaultBackPressureObjectThreshold** | **int64** | The default back pressure object threshold. | [optional] [default to null]
 **DefaultBackPressureDataSizeThreshold** | **string** | The default back pressure data size threshold. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

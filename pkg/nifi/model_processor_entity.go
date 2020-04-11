@@ -25,9 +25,9 @@ type ProcessorEntity struct {
 	Bulletins []BulletinEntity `json:"bulletins,omitempty"`
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
-	Component *ProcessorDto `json:"component,omitempty"`
+	Component *ProcessorDto           `json:"component,omitempty"`
 	// The input requirement for this processor.
-	InputRequirement string `json:"inputRequirement,omitempty"`
+	InputRequirement string    `json:"inputRequirement,omitempty"`
 	Status *ProcessorStatusDto `json:"status,omitempty"`
 	// The permissions for this component operations.
 	OperatePermissions *PermissionsDto `json:"operatePermissions,omitempty"`

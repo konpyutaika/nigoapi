@@ -25,5 +25,5 @@ type UserEntity struct {
 	Bulletins []BulletinEntity `json:"bulletins,omitempty"`
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
-	Component *UserDto `json:"component,omitempty"`
+	Component *UserDto                `json:"component,omitempty"`
 }

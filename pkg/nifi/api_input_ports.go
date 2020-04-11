@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ InputPortsApiService Gets an input port
 */
 func (a *InputPortsApiService) GetInputPort(ctx context.Context, id string) (PortEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PortEntity
 	)
 
@@ -138,10 +139,10 @@ type InputPortsApiRemoveInputPortOpts struct {
 
 func (a *InputPortsApiService) RemoveInputPort(ctx context.Context, id string, localVarOptionals *InputPortsApiRemoveInputPortOpts) (PortEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PortEntity
 	)
 
@@ -237,10 +238,10 @@ InputPortsApiService Updates an input port
 */
 func (a *InputPortsApiService) UpdateInputPort(ctx context.Context, id string, body PortEntity) (PortEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PortEntity
 	)
 
@@ -329,10 +330,10 @@ InputPortsApiService Updates run status of an input-port
 */
 func (a *InputPortsApiService) UpdateRunStatus(ctx context.Context, id string, body PortRunStatusEntity) (ProcessorEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorEntity
 	)
 

@@ -26,7 +26,7 @@ type ControllerServiceEntity struct {
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
 	// The id of parent process group of this ControllerService.
-	ParentGroupId string `json:"parentGroupId,omitempty"`
+	ParentGroupId string            `json:"parentGroupId,omitempty"`
 	Component *ControllerServiceDto `json:"component,omitempty"`
 	// The permissions for this component operations.
 	OperatePermissions *PermissionsDto `json:"operatePermissions,omitempty"`

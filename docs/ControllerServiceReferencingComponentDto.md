@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **ReferenceCycle** | **bool** | If the referencing component represents a controller service, this indicates whether it has already been represented in this hierarchy. | [optional] [default to null]
 **ReferencingComponents** | [**[]ControllerServiceReferencingComponentEntity**](ControllerServiceReferencingComponentEntity.md) | If the referencing component represents a controller service, these are the components that reference it. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

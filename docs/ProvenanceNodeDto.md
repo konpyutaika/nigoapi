@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **Millis** | **int64** | The timestamp of the node in milliseconds. | [optional] [default to null]
 **Timestamp** | **string** | The timestamp of the node formatted. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

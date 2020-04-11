@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **Transmitting** | **bool** | Whether the port has incoming or outgoing connections to a remote NiFi. | [optional] [default to null]
 **RunStatus** | **string** | The run status of the port. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

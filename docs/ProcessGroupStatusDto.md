@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **AggregateSnapshot** | [***ProcessGroupStatusSnapshotDto**](ProcessGroupStatusSnapshotDTO.md) | The aggregate status of all nodes in the cluster | [optional] [default to null]
 **NodeSnapshots** | [**[]NodeProcessGroupStatusSnapshotDto**](NodeProcessGroupStatusSnapshotDTO.md) | The status reported by each node in the cluster. If the NiFi instance is a standalone instance, rather than a clustered instance, this value may be null. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

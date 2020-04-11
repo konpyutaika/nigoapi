@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the component that matched the search. | [optional] [default to null]
 **Matches** | **[]string** | What matched the search from the component. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

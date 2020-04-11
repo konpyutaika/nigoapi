@@ -11,6 +11,6 @@
 package nifi
 
 type TenantsEntity struct {
-	Users []TenantEntity `json:"users,omitempty"`
+	Users []TenantEntity      `json:"users,omitempty"`
 	UserGroups []TenantEntity `json:"userGroups,omitempty"`
 }

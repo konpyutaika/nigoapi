@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ ControllerServicesApiService Clears the state for a controller service
 */
 func (a *ControllerServicesApiService) ClearState(ctx context.Context, id string) (ComponentStateEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ComponentStateEntity
 	)
 
@@ -127,10 +128,10 @@ ControllerServicesApiService Gets a controller service
 */
 func (a *ControllerServicesApiService) GetControllerService(ctx context.Context, id string) (ControllerServiceEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServiceEntity
 	)
 
@@ -216,10 +217,10 @@ ControllerServicesApiService Gets a controller service
 */
 func (a *ControllerServicesApiService) GetControllerServiceReferences(ctx context.Context, id string) (ControllerServiceReferencingComponentsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServiceReferencingComponentsEntity
 	)
 
@@ -306,10 +307,10 @@ ControllerServicesApiService Gets a controller service property descriptor
 */
 func (a *ControllerServicesApiService) GetPropertyDescriptor(ctx context.Context, id string, propertyName string) (PropertyDescriptorEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PropertyDescriptorEntity
 	)
 
@@ -396,10 +397,10 @@ ControllerServicesApiService Gets the state for a controller service
 */
 func (a *ControllerServicesApiService) GetState(ctx context.Context, id string) (ComponentStateEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ComponentStateEntity
 	)
 
@@ -496,10 +497,10 @@ type ControllerServicesApiRemoveControllerServiceOpts struct {
 
 func (a *ControllerServicesApiService) RemoveControllerService(ctx context.Context, id string, localVarOptionals *ControllerServicesApiRemoveControllerServiceOpts) (ControllerServiceEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServiceEntity
 	)
 
@@ -595,10 +596,10 @@ ControllerServicesApiService Updates a controller service
 */
 func (a *ControllerServicesApiService) UpdateControllerService(ctx context.Context, id string, body ControllerServiceEntity) (ControllerServiceEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServiceEntity
 	)
 
@@ -687,10 +688,10 @@ ControllerServicesApiService Updates a controller services references
 */
 func (a *ControllerServicesApiService) UpdateControllerServiceReferences(ctx context.Context, id string, body UpdateControllerServiceReferenceRequestEntity) (ControllerServiceReferencingComponentsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServiceReferencingComponentsEntity
 	)
 
@@ -779,10 +780,10 @@ ControllerServicesApiService Updates run status of a controller service
 */
 func (a *ControllerServicesApiService) UpdateRunStatus(ctx context.Context, id string, body ControllerServiceRunStatusEntity) (ControllerServiceEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServiceEntity
 	)
 

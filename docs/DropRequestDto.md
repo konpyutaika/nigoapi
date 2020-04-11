@@ -21,6 +21,6 @@ Name | Type | Description | Notes
 **Dropped** | **string** | The count and size of flow files that have been dropped thus far. | [optional] [default to null]
 **State** | **string** | The current state of the drop request. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

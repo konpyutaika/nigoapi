@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ ParameterContextsApiService Create a Parameter Context
 */
 func (a *ParameterContextsApiService) CreateParameterContext(ctx context.Context, body ParameterContextEntity) (ParameterContextEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ParameterContextEntity
 	)
 
@@ -139,10 +140,10 @@ type ParameterContextsApiDeleteParameterContextOpts struct {
 
 func (a *ParameterContextsApiService) DeleteParameterContext(ctx context.Context, id string, localVarOptionals *ParameterContextsApiDeleteParameterContextOpts) (ParameterContextEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ParameterContextEntity
 	)
 
@@ -245,10 +246,10 @@ type ParameterContextsApiDeleteUpdateRequestOpts struct {
 
 func (a *ParameterContextsApiService) DeleteUpdateRequest(ctx context.Context, contextId string, requestId string, localVarOptionals *ParameterContextsApiDeleteUpdateRequestOpts) (ParameterContextUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ParameterContextUpdateRequestEntity
 	)
 
@@ -346,10 +347,10 @@ type ParameterContextsApiDeleteValidationRequestOpts struct {
 
 func (a *ParameterContextsApiService) DeleteValidationRequest(ctx context.Context, contextId string, id string, localVarOptionals *ParameterContextsApiDeleteValidationRequestOpts) (ParameterContextValidationRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ParameterContextValidationRequestEntity
 	)
 
@@ -439,10 +440,10 @@ Returns the Parameter Context with the given ID.
 */
 func (a *ParameterContextsApiService) GetParameterContext(ctx context.Context, id string) (ParameterContextEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ParameterContextEntity
 	)
 
@@ -529,10 +530,10 @@ Returns the Update Request with the given ID. Once an Update Request has been cr
 */
 func (a *ParameterContextsApiService) GetParameterContextUpdate(ctx context.Context, contextId string, requestId string) (ParameterContextUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ParameterContextUpdateRequestEntity
 	)
 
@@ -620,10 +621,10 @@ Returns the Validation Request with the given ID. Once a Validation Request has 
 */
 func (a *ParameterContextsApiService) GetValidationRequest(ctx context.Context, contextId string, id string) (ParameterContextValidationRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ParameterContextValidationRequestEntity
 	)
 
@@ -711,10 +712,10 @@ This will initiate the process of updating a Parameter Context. Changing the val
 */
 func (a *ParameterContextsApiService) SubmitParameterContextUpdate(ctx context.Context, contextId string, body ParameterContextEntity) (ParameterContextUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ParameterContextUpdateRequestEntity
 	)
 
@@ -803,10 +804,10 @@ This will initiate the process of validating all components whose Process Group 
 */
 func (a *ParameterContextsApiService) SubmitValidationRequest(ctx context.Context, contextId string, body ParameterContextValidationRequestEntity) (ParameterContextValidationRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ParameterContextValidationRequestEntity
 	)
 
@@ -895,10 +896,10 @@ This endpoint will update a Parameter Context to match the provided entity. Howe
 */
 func (a *ParameterContextsApiService) UpdateParameterContext(ctx context.Context, id string, body ParameterContextEntity) (ParameterContextEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ParameterContextEntity
 	)
 

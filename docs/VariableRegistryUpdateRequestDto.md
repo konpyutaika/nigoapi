@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **ProcessGroupId** | **string** | The unique ID of the Process Group that the variable registry belongs to | [optional] [default to null]
 **AffectedComponents** | [**[]AffectedComponentEntity**](AffectedComponentEntity.md) | A set of all components that will be affected if the value of this variable is changed | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

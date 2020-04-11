@@ -12,6 +12,6 @@ package nifi
 
 type UsersEntity struct {
 	// When this content was generated.
-	Generated string `json:"generated,omitempty"`
+	Generated string   `json:"generated,omitempty"`
 	Users []UserEntity `json:"users,omitempty"`
 }

@@ -18,6 +18,6 @@ Name | Type | Description | Notes
 **AllowRemoteAccess** | **bool** | Whether this port can be accessed remotely via Site-to-Site protocol. | [optional] [default to null]
 **ValidationErrors** | **[]string** | Gets the validation errors from this port. These validation errors represent the problems with the port that must be resolved before it can be started. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

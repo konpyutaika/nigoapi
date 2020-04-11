@@ -25,5 +25,5 @@ type VersionedFlowSnapshot struct {
 	Flow *VersionedFlow `json:"flow,omitempty"`
 	// The bucket where the flow is located
 	Bucket *Bucket `json:"bucket,omitempty"`
-	Latest bool `json:"latest,omitempty"`
+	Latest bool    `json:"latest,omitempty"`
 }

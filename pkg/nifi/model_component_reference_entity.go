@@ -26,6 +26,6 @@ type ComponentReferenceEntity struct {
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
 	// The id of parent process group of this component if applicable.
-	ParentGroupId string `json:"parentGroupId,omitempty"`
+	ParentGroupId string             `json:"parentGroupId,omitempty"`
 	Component *ComponentReferenceDto `json:"component,omitempty"`
 }

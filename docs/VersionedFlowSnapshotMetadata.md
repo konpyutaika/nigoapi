@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **Author** | **string** | The user that created this snapshot of the flow. | [optional] [default to null]
 **Comments** | **string** | The comments provided by the user when creating the snapshot. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -13,11 +13,11 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
 )
 
 // Linger please
@@ -39,10 +39,10 @@ DataTransferApiService Commit or cancel the specified transaction
 */
 func (a *DataTransferApiService) CommitInputPortTransaction(ctx context.Context, responseCode int32, portId string, transactionId string) (TransactionResultEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TransactionResultEntity
 	)
 
@@ -133,10 +133,10 @@ DataTransferApiService Commit or cancel the specified transaction
 */
 func (a *DataTransferApiService) CommitOutputPortTransaction(ctx context.Context, responseCode int32, checksum string, portId string, transactionId string) (TransactionResultEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TransactionResultEntity
 	)
 
@@ -226,10 +226,10 @@ DataTransferApiService Create a transaction to the specified output port or inpu
 */
 func (a *DataTransferApiService) CreatePortTransaction(ctx context.Context, portType string, portId string) (TransactionResultEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TransactionResultEntity
 	)
 
@@ -317,10 +317,10 @@ DataTransferApiService Extend transaction TTL
 */
 func (a *DataTransferApiService) ExtendInputPortTransactionTTL(ctx context.Context, portId string, transactionId string) (TransactionResultEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TransactionResultEntity
 	)
 
@@ -408,10 +408,10 @@ DataTransferApiService Extend transaction TTL
 */
 func (a *DataTransferApiService) ExtendOutputPortTransactionTTL(ctx context.Context, portId string, transactionId string) (TransactionResultEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TransactionResultEntity
 	)
 
@@ -590,10 +590,10 @@ DataTransferApiService Transfer flow files from the output port
 */
 func (a *DataTransferApiService) TransferFlowFiles(ctx context.Context, portId string, transactionId string) (StreamingOutput, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue StreamingOutput
 	)
 

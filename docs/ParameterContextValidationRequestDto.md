@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **ParameterContext** | [***ParameterContextDto**](ParameterContextDTO.md) | The Parameter Context that is being operated on. | [optional] [default to null]
 **ComponentValidationResults** | [***ComponentValidationResultsEntity**](ComponentValidationResultsEntity.md) | The Validation Results that were calculated for each component. This value may not be set until the request completes. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

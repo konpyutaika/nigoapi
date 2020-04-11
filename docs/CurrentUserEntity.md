@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **ComponentRestrictionPermissions** | [**[]ComponentRestrictionPermissionDto**](ComponentRestrictionPermissionDTO.md) | Permissions for specific component restrictions. | [optional] [default to null]
 **CanVersionFlows** | **bool** | Whether the current user can version flows. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

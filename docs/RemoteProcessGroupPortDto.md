@@ -17,6 +17,6 @@ Name | Type | Description | Notes
 **Connected** | **bool** | Whether the port has either an incoming or outgoing connection. | [optional] [default to null]
 **BatchSettings** | [***BatchSettingsDto**](BatchSettingsDTO.md) | The batch settings for data transmission. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

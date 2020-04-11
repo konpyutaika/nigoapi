@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
 	"github.com/antihax/optional"
 )
 
@@ -45,10 +46,10 @@ type SystemDiagnosticsApiGetSystemDiagnosticsOpts struct {
 
 func (a *SystemDiagnosticsApiService) GetSystemDiagnostics(ctx context.Context, localVarOptionals *SystemDiagnosticsApiGetSystemDiagnosticsOpts) (SystemDiagnosticsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue SystemDiagnosticsEntity
 	)
 

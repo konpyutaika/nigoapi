@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **AggregateSnapshot** | [***ConnectionStatusSnapshotDto**](ConnectionStatusSnapshotDTO.md) | The status snapshot that represents the aggregate stats of the cluster | [optional] [default to null]
 **NodeSnapshots** | [**[]NodeConnectionStatusSnapshotDto**](NodeConnectionStatusSnapshotDTO.md) | A list of status snapshots for each node | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

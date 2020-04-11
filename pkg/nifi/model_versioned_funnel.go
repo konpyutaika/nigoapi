@@ -18,7 +18,7 @@ type VersionedFunnel struct {
 	// The user-supplied comments for the component
 	Comments string `json:"comments,omitempty"`
 	// The component's position on the graph
-	Position *Position `json:"position,omitempty"`
+	Position *Position   `json:"position,omitempty"`
 	ComponentType string `json:"componentType,omitempty"`
 	// The ID of the Process Group that this component belongs to
 	GroupIdentifier string `json:"groupIdentifier,omitempty"`

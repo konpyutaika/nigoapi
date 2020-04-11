@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ RemoteProcessGroupsApiService Gets a remote process group
 */
 func (a *RemoteProcessGroupsApiService) GetRemoteProcessGroup(ctx context.Context, id string) (RemoteProcessGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupEntity
 	)
 
@@ -127,10 +128,10 @@ RemoteProcessGroupsApiService Gets the state for a RemoteProcessGroup
 */
 func (a *RemoteProcessGroupsApiService) GetState(ctx context.Context, id string) (ComponentStateEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ComponentStateEntity
 	)
 
@@ -227,10 +228,10 @@ type RemoteProcessGroupsApiRemoveRemoteProcessGroupOpts struct {
 
 func (a *RemoteProcessGroupsApiService) RemoveRemoteProcessGroup(ctx context.Context, id string, localVarOptionals *RemoteProcessGroupsApiRemoveRemoteProcessGroupOpts) (RemoteProcessGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupEntity
 	)
 
@@ -326,10 +327,10 @@ RemoteProcessGroupsApiService Updates a remote process group
 */
 func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroup(ctx context.Context, id string, body RemoteProcessGroupEntity) (RemoteProcessGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupEntity
 	)
 
@@ -419,10 +420,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPort(ctx context.Context, id string, portId string, body RemoteProcessGroupPortEntity) (RemoteProcessGroupPortEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupPortEntity
 	)
 
@@ -513,10 +514,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPortRunStatus(ctx context.Context, id string, portId string, body RemotePortRunStatusEntity) (RemoteProcessGroupPortEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupPortEntity
 	)
 
@@ -607,10 +608,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPort(ctx context.Context, id string, portId string, body RemoteProcessGroupPortEntity) (RemoteProcessGroupPortEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupPortEntity
 	)
 
@@ -701,10 +702,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPortRunStatus(ctx context.Context, id string, portId string, body RemotePortRunStatusEntity) (RemoteProcessGroupPortEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupPortEntity
 	)
 
@@ -794,10 +795,10 @@ RemoteProcessGroupsApiService Updates run status of a remote process group
 */
 func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupRunStatus(ctx context.Context, id string, body RemotePortRunStatusEntity) (RemoteProcessGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupEntity
 	)
 

@@ -25,10 +25,10 @@ type PortEntity struct {
 	Bulletins []BulletinEntity `json:"bulletins,omitempty"`
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
-	Component *PortDto `json:"component,omitempty"`
+	Component *PortDto                `json:"component,omitempty"`
 	// The status of the port.
 	Status *PortStatusDto `json:"status,omitempty"`
-	PortType string `json:"portType,omitempty"`
+	PortType string       `json:"portType,omitempty"`
 	// The permissions for this component operations.
 	OperatePermissions *PermissionsDto `json:"operatePermissions,omitempty"`
 	// Whether this port can be accessed remotely via Site-to-Site protocol.

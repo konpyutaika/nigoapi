@@ -24,6 +24,6 @@ Name | Type | Description | Notes
 **LoadBalanceCompression** | **string** | Whether or not data should be compressed when being transferred between nodes in the cluster. | [optional] [default to null]
 **LoadBalanceStatus** | **string** | The current status of the Connection&#39;s Load Balancing Activities. Status can indicate that Load Balancing is not configured for the connection, that Load Balancing is configured but inactive (not currently transferring data to another node), or that Load Balancing is configured and actively transferring data to another node. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

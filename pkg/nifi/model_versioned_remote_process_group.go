@@ -38,7 +38,7 @@ type VersionedRemoteProcessGroup struct {
 	InputPorts []VersionedRemoteGroupPort `json:"inputPorts,omitempty"`
 	// A Set of Output Ports that can be connected to, in order to pull data from the remote NiFi instance
 	OutputPorts []VersionedRemoteGroupPort `json:"outputPorts,omitempty"`
-	ComponentType string `json:"componentType,omitempty"`
+	ComponentType string                   `json:"componentType,omitempty"`
 	// The ID of the Process Group that this component belongs to
 	GroupIdentifier string `json:"groupIdentifier,omitempty"`
 }

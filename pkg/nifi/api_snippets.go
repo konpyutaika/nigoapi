@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ SnippetsApiService Creates a snippet. The snippet will be automatically discarde
 */
 func (a *SnippetsApiService) CreateSnippet(ctx context.Context, body SnippetEntity) (SnippetEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue SnippetEntity
 	)
 
@@ -135,10 +136,10 @@ type SnippetsApiDeleteSnippetOpts struct {
 
 func (a *SnippetsApiService) DeleteSnippet(ctx context.Context, id string, localVarOptionals *SnippetsApiDeleteSnippetOpts) (SnippetEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue SnippetEntity
 	)
 
@@ -228,10 +229,10 @@ SnippetsApiService Move&#39;s the components in this Snippet into a new Process 
 */
 func (a *SnippetsApiService) UpdateSnippet(ctx context.Context, id string, body SnippetEntity) (SnippetEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue SnippetEntity
 	)
 

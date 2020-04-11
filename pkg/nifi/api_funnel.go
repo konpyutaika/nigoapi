@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ FunnelApiService Gets a funnel
 */
 func (a *FunnelApiService) GetFunnel(ctx context.Context, id string) (FunnelEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FunnelEntity
 	)
 
@@ -138,10 +139,10 @@ type FunnelApiRemoveFunnelOpts struct {
 
 func (a *FunnelApiService) RemoveFunnel(ctx context.Context, id string, localVarOptionals *FunnelApiRemoveFunnelOpts) (FunnelEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FunnelEntity
 	)
 
@@ -237,10 +238,10 @@ FunnelApiService Updates a funnel
 */
 func (a *FunnelApiService) UpdateFunnel(ctx context.Context, id string, body FunnelEntity) (FunnelEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FunnelEntity
 	)
 

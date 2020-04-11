@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **BytesReceived** | **int64** | The size of the FlowFiles received from the remote process group in the last 5 minutes. | [optional] [default to null]
 **Received** | **string** | The count/size of the flowfiles received from the remote process group in the last 5 minutes. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

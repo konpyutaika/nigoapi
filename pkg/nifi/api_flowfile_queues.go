@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -38,10 +39,10 @@ FlowfileQueuesApiService Creates a request to drop the contents of the queue in 
 */
 func (a *FlowfileQueuesApiService) CreateDropRequest(ctx context.Context, id string) (DropRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue DropRequestEntity
 	)
 
@@ -127,10 +128,10 @@ FlowfileQueuesApiService Lists the contents of the queue in this connection.
 */
 func (a *FlowfileQueuesApiService) CreateFlowFileListing(ctx context.Context, id string) (ListingRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ListingRequestEntity
 	)
 
@@ -217,10 +218,10 @@ FlowfileQueuesApiService Cancels and/or removes a request to list the contents o
 */
 func (a *FlowfileQueuesApiService) DeleteListingRequest(ctx context.Context, id string, listingRequestId string) (ListingRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ListingRequestEntity
 	)
 
@@ -317,10 +318,10 @@ type FlowfileQueuesApiDownloadFlowFileContentOpts struct {
 
 func (a *FlowfileQueuesApiService) DownloadFlowFileContent(ctx context.Context, id string, flowfileUuid string, localVarOptionals *FlowfileQueuesApiDownloadFlowFileContentOpts) (StreamingOutput, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue StreamingOutput
 	)
 
@@ -414,10 +415,10 @@ FlowfileQueuesApiService Gets the current status of a drop request for the speci
 */
 func (a *FlowfileQueuesApiService) GetDropRequest(ctx context.Context, id string, dropRequestId string) (DropRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue DropRequestEntity
 	)
 
@@ -512,10 +513,10 @@ type FlowfileQueuesApiGetFlowFileOpts struct {
 
 func (a *FlowfileQueuesApiService) GetFlowFile(ctx context.Context, id string, flowfileUuid string, localVarOptionals *FlowfileQueuesApiGetFlowFileOpts) (FlowFileEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FlowFileEntity
 	)
 
@@ -606,10 +607,10 @@ FlowfileQueuesApiService Gets the current status of a listing request for the sp
 */
 func (a *FlowfileQueuesApiService) GetListingRequest(ctx context.Context, id string, listingRequestId string) (ListingRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ListingRequestEntity
 	)
 
@@ -697,10 +698,10 @@ FlowfileQueuesApiService Cancels and/or removes a request to drop the contents o
 */
 func (a *FlowfileQueuesApiService) RemoveDropRequest(ctx context.Context, id string, dropRequestId string) (DropRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue DropRequestEntity
 	)
 

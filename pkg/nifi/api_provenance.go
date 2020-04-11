@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -45,10 +46,10 @@ type ProvenanceApiDeleteLineageOpts struct {
 
 func (a *ProvenanceApiService) DeleteLineage(ctx context.Context, id string, localVarOptionals *ProvenanceApiDeleteLineageOpts) (LineageEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue LineageEntity
 	)
 
@@ -144,10 +145,10 @@ type ProvenanceApiDeleteProvenanceOpts struct {
 
 func (a *ProvenanceApiService) DeleteProvenance(ctx context.Context, id string, localVarOptionals *ProvenanceApiDeleteProvenanceOpts) (ProvenanceEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProvenanceEntity
 	)
 
@@ -243,10 +244,10 @@ type ProvenanceApiGetLineageOpts struct {
 
 func (a *ProvenanceApiService) GetLineage(ctx context.Context, id string, localVarOptionals *ProvenanceApiGetLineageOpts) (LineageEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue LineageEntity
 	)
 
@@ -346,10 +347,10 @@ type ProvenanceApiGetProvenanceOpts struct {
 
 func (a *ProvenanceApiService) GetProvenance(ctx context.Context, id string, localVarOptionals *ProvenanceApiGetProvenanceOpts) (ProvenanceEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProvenanceEntity
 	)
 
@@ -443,10 +444,10 @@ ProvenanceApiService Gets the searchable attributes for provenance events
 */
 func (a *ProvenanceApiService) GetSearchOptions(ctx context.Context) (ProvenanceOptionsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProvenanceOptionsEntity
 	)
 
@@ -531,10 +532,10 @@ Lineage queries may be long running so this endpoint submits a request. The resp
 */
 func (a *ProvenanceApiService) SubmitLineageRequest(ctx context.Context, body LineageEntity) (LineageEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue LineageEntity
 	)
 
@@ -621,10 +622,10 @@ Provenance queries may be long running so this endpoint submits a request. The r
 */
 func (a *ProvenanceApiService) SubmitProvenanceRequest(ctx context.Context, body ProvenanceEntity) (ProvenanceEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProvenanceEntity
 	)
 

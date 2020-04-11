@@ -18,6 +18,6 @@ type BulletinEntity struct {
 	Timestamp string `json:"timestamp,omitempty"`
 	NodeAddress string `json:"nodeAddress,omitempty"`
 	// Indicates whether the user can read a given resource.
-	CanRead bool `json:"canRead,omitempty"`
+	CanRead bool          `json:"canRead,omitempty"`
 	Bulletin *BulletinDto `json:"bulletin,omitempty"`
 }

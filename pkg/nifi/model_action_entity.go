@@ -16,6 +16,6 @@ type ActionEntity struct {
 	Timestamp string `json:"timestamp,omitempty"`
 	SourceId string `json:"sourceId,omitempty"`
 	// Indicates whether the user can read a given resource.
-	CanRead bool `json:"canRead,omitempty"`
+	CanRead bool      `json:"canRead,omitempty"`
 	Action *ActionDto `json:"action,omitempty"`
 }

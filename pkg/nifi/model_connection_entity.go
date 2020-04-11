@@ -25,7 +25,7 @@ type ConnectionEntity struct {
 	Bulletins []BulletinEntity `json:"bulletins,omitempty"`
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
-	Component *ConnectionDto `json:"component,omitempty"`
+	Component *ConnectionDto          `json:"component,omitempty"`
 	// The status of the connection.
 	Status *ConnectionStatusDto `json:"status,omitempty"`
 	// The bend points on the connection.

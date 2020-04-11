@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **Secure** | **bool** | Returns if this peer connection is secure. | [optional] [default to null]
 **FlowFileCount** | **int32** | The number of flowFiles this peer holds. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

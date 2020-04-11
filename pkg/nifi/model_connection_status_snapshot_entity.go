@@ -12,7 +12,7 @@ package nifi
 
 type ConnectionStatusSnapshotEntity struct {
 	// The id of the connection.
-	Id string `json:"id,omitempty"`
+	Id string                                             `json:"id,omitempty"`
 	ConnectionStatusSnapshot *ConnectionStatusSnapshotDto `json:"connectionStatusSnapshot,omitempty"`
 	// Indicates whether the user can read a given resource.
 	CanRead bool `json:"canRead,omitempty"`

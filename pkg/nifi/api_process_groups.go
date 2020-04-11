@@ -13,13 +13,14 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"strings"
-	"fmt"
-	"github.com/antihax/optional"
 	"os"
+	"strings"
+
+	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -40,10 +41,10 @@ ProcessGroupsApiService Copies a snippet and discards it.
 */
 func (a *ProcessGroupsApiService) CopySnippet(ctx context.Context, id string, body CopySnippetRequestEntity) (FlowEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FlowEntity
 	)
 
@@ -132,10 +133,10 @@ ProcessGroupsApiService Creates a connection
 */
 func (a *ProcessGroupsApiService) CreateConnection(ctx context.Context, id string, body ConnectionEntity) (ConnectionEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ConnectionEntity
 	)
 
@@ -224,10 +225,10 @@ ProcessGroupsApiService Creates a new controller service
 */
 func (a *ProcessGroupsApiService) CreateControllerService(ctx context.Context, id string, body ControllerServiceEntity) (ControllerServiceEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServiceEntity
 	)
 
@@ -316,10 +317,10 @@ ProcessGroupsApiService Creates a funnel
 */
 func (a *ProcessGroupsApiService) CreateFunnel(ctx context.Context, id string, body FunnelEntity) (FunnelEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FunnelEntity
 	)
 
@@ -408,10 +409,10 @@ ProcessGroupsApiService Creates an input port
 */
 func (a *ProcessGroupsApiService) CreateInputPort(ctx context.Context, id string, body PortEntity) (PortEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PortEntity
 	)
 
@@ -500,10 +501,10 @@ ProcessGroupsApiService Creates a label
 */
 func (a *ProcessGroupsApiService) CreateLabel(ctx context.Context, id string, body LabelEntity) (LabelEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue LabelEntity
 	)
 
@@ -592,10 +593,10 @@ ProcessGroupsApiService Creates an output port
 */
 func (a *ProcessGroupsApiService) CreateOutputPort(ctx context.Context, id string, body PortEntity) (PortEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PortEntity
 	)
 
@@ -684,10 +685,10 @@ ProcessGroupsApiService Creates a process group
 */
 func (a *ProcessGroupsApiService) CreateProcessGroup(ctx context.Context, id string, body ProcessGroupEntity) (ProcessGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupEntity
 	)
 
@@ -776,10 +777,10 @@ ProcessGroupsApiService Creates a new processor
 */
 func (a *ProcessGroupsApiService) CreateProcessor(ctx context.Context, id string, body ProcessorEntity) (ProcessorEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorEntity
 	)
 
@@ -868,10 +869,10 @@ ProcessGroupsApiService Creates a new process group
 */
 func (a *ProcessGroupsApiService) CreateRemoteProcessGroup(ctx context.Context, id string, body RemoteProcessGroupEntity) (RemoteProcessGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupEntity
 	)
 
@@ -960,10 +961,10 @@ ProcessGroupsApiService Creates a template and discards the specified snippet.
 */
 func (a *ProcessGroupsApiService) CreateTemplate(ctx context.Context, id string, body CreateTemplateRequestEntity) (TemplateEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TemplateEntity
 	)
 
@@ -1059,10 +1060,10 @@ type ProcessGroupsApiDeleteVariableRegistryUpdateRequestOpts struct {
 
 func (a *ProcessGroupsApiService) DeleteVariableRegistryUpdateRequest(ctx context.Context, groupId string, updateId string, localVarOptionals *ProcessGroupsApiDeleteVariableRegistryUpdateRequestOpts) (VariableRegistryUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VariableRegistryUpdateRequestEntity
 	)
 
@@ -1241,10 +1242,10 @@ ProcessGroupsApiService Gets all connections
 */
 func (a *ProcessGroupsApiService) GetConnections(ctx context.Context, id string) (ConnectionsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ConnectionsEntity
 	)
 
@@ -1330,10 +1331,10 @@ ProcessGroupsApiService Gets all funnels
 */
 func (a *ProcessGroupsApiService) GetFunnels(ctx context.Context, id string) (FunnelsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FunnelsEntity
 	)
 
@@ -1419,10 +1420,10 @@ ProcessGroupsApiService Gets all input ports
 */
 func (a *ProcessGroupsApiService) GetInputPorts(ctx context.Context, id string) (InputPortsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue InputPortsEntity
 	)
 
@@ -1508,10 +1509,10 @@ ProcessGroupsApiService Gets all labels
 */
 func (a *ProcessGroupsApiService) GetLabels(ctx context.Context, id string) (LabelsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue LabelsEntity
 	)
 
@@ -1597,10 +1598,10 @@ ProcessGroupsApiService Gets a list of local modifications to the Process Group 
 */
 func (a *ProcessGroupsApiService) GetLocalModifications(ctx context.Context, id string) (FlowComparisonEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FlowComparisonEntity
 	)
 
@@ -1686,10 +1687,10 @@ ProcessGroupsApiService Gets all output ports
 */
 func (a *ProcessGroupsApiService) GetOutputPorts(ctx context.Context, id string) (OutputPortsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue OutputPortsEntity
 	)
 
@@ -1775,10 +1776,10 @@ ProcessGroupsApiService Gets a process group
 */
 func (a *ProcessGroupsApiService) GetProcessGroup(ctx context.Context, id string) (ProcessGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupEntity
 	)
 
@@ -1864,10 +1865,10 @@ ProcessGroupsApiService Gets all process groups
 */
 func (a *ProcessGroupsApiService) GetProcessGroups(ctx context.Context, id string) (ProcessGroupsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupsEntity
 	)
 
@@ -1960,10 +1961,10 @@ type ProcessGroupsApiGetProcessorsOpts struct {
 
 func (a *ProcessGroupsApiService) GetProcessors(ctx context.Context, id string, localVarOptionals *ProcessGroupsApiGetProcessorsOpts) (ProcessorsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorsEntity
 	)
 
@@ -2052,10 +2053,10 @@ ProcessGroupsApiService Gets all remote process groups
 */
 func (a *ProcessGroupsApiService) GetRemoteProcessGroups(ctx context.Context, id string) (RemoteProcessGroupsEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupsEntity
 	)
 
@@ -2148,10 +2149,10 @@ type ProcessGroupsApiGetVariableRegistryOpts struct {
 
 func (a *ProcessGroupsApiService) GetVariableRegistry(ctx context.Context, id string, localVarOptionals *ProcessGroupsApiGetVariableRegistryOpts) (VariableRegistryEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VariableRegistryEntity
 	)
 
@@ -2241,10 +2242,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *ProcessGroupsApiService) GetVariableRegistryUpdateRequest(ctx context.Context, groupId string, updateId string) (VariableRegistryUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VariableRegistryUpdateRequestEntity
 	)
 
@@ -2331,10 +2332,10 @@ ProcessGroupsApiService Imports a template
 */
 func (a *ProcessGroupsApiService) ImportTemplate(ctx context.Context, id string) (TemplateEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TemplateEntity
 	)
 
@@ -2421,10 +2422,10 @@ ProcessGroupsApiService Instantiates a template
 */
 func (a *ProcessGroupsApiService) InstantiateTemplate(ctx context.Context, id string, body InstantiateTemplateRequestEntity) (FlowEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FlowEntity
 	)
 
@@ -2523,10 +2524,10 @@ type ProcessGroupsApiRemoveProcessGroupOpts struct {
 
 func (a *ProcessGroupsApiService) RemoveProcessGroup(ctx context.Context, id string, localVarOptionals *ProcessGroupsApiRemoveProcessGroupOpts) (ProcessGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupEntity
 	)
 
@@ -2622,10 +2623,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *ProcessGroupsApiService) SubmitUpdateVariableRegistryRequest(ctx context.Context, id string, body VariableRegistryEntity) (VariableRegistryUpdateRequestEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VariableRegistryUpdateRequestEntity
 	)
 
@@ -2714,10 +2715,10 @@ ProcessGroupsApiService Updates a process group
 */
 func (a *ProcessGroupsApiService) UpdateProcessGroup(ctx context.Context, id string, body ProcessGroupEntity) (ProcessGroupEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupEntity
 	)
 
@@ -2806,10 +2807,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *ProcessGroupsApiService) UpdateVariableRegistry(ctx context.Context, id string, body VariableRegistryEntity) (VariableRegistryEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VariableRegistryEntity
 	)
 
@@ -2905,10 +2906,10 @@ type ProcessGroupsApiUploadTemplateOpts struct {
 
 func (a *ProcessGroupsApiService) UploadTemplate(ctx context.Context, id string, template *os.File, localVarOptionals *ProcessGroupsApiUploadTemplateOpts) (TemplateEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TemplateEntity
 	)
 

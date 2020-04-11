@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **Permissions** | [***Permissions**](Permissions.md) | The access that the current user has to the bucket containing this item. | [optional] [default to null]
 **VersionCount** | **int64** | The number of versions of this flow. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

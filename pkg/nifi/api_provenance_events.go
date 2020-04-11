@@ -13,11 +13,12 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
+
 	"github.com/antihax/optional"
 )
 
@@ -45,10 +46,10 @@ type ProvenanceEventsApiGetInputContentOpts struct {
 
 func (a *ProvenanceEventsApiService) GetInputContent(ctx context.Context, id string, localVarOptionals *ProvenanceEventsApiGetInputContentOpts) (StreamingOutput, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue StreamingOutput
 	)
 
@@ -144,10 +145,10 @@ type ProvenanceEventsApiGetOutputContentOpts struct {
 
 func (a *ProvenanceEventsApiService) GetOutputContent(ctx context.Context, id string, localVarOptionals *ProvenanceEventsApiGetOutputContentOpts) (StreamingOutput, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue StreamingOutput
 	)
 
@@ -243,10 +244,10 @@ type ProvenanceEventsApiGetProvenanceEventOpts struct {
 
 func (a *ProvenanceEventsApiService) GetProvenanceEvent(ctx context.Context, id string, localVarOptionals *ProvenanceEventsApiGetProvenanceEventOpts) (ProvenanceEventEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProvenanceEventEntity
 	)
 
@@ -335,10 +336,10 @@ ProvenanceEventsApiService Replays content from a provenance event
 */
 func (a *ProvenanceEventsApiService) SubmitReplay(ctx context.Context, body SubmitReplayRequestEntity) (ProvenanceEventEntity, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProvenanceEventEntity
 	)
 

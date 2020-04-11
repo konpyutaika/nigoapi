@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **Events** | [**[]NodeEventDto**](NodeEventDTO.md) | The node&#39;s events. | [optional] [default to null]
 **NodeStartTime** | **string** | The time at which this Node was last refreshed. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

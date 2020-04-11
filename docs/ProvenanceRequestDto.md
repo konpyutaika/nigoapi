@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **Summarize** | **bool** | Whether or not to summarize provenance events returned. This property is false by default. | [optional] [default to null]
 **IncrementalResults** | **bool** | Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

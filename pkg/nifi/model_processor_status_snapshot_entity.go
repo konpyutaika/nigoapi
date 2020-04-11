@@ -12,7 +12,7 @@ package nifi
 
 type ProcessorStatusSnapshotEntity struct {
 	// The id of the processor.
-	Id string `json:"id,omitempty"`
+	Id string                                           `json:"id,omitempty"`
 	ProcessorStatusSnapshot *ProcessorStatusSnapshotDto `json:"processorStatusSnapshot,omitempty"`
 	// Indicates whether the user can read a given resource.
 	CanRead bool `json:"canRead,omitempty"`

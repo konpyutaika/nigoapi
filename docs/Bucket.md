@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **AllowPublicRead** | **bool** | Indicates if this bucket allows read access to unauthenticated anonymous users | [optional] [default to null]
 **Permissions** | [***Permissions**](Permissions.md) | The access that the current user has to this bucket. | [optional] [default to null]
 
-[[Back to Model list]](../pkg/nifi/README.md#documentation-for-models) [[Back to API list]](../pkg/nifi/README.md#documentation-for-api-endpoints) [[Back to README]](../pkg/nifi/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

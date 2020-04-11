@@ -26,6 +26,6 @@ type AccessPolicyEntity struct {
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
 	// When this content was generated.
-	Generated string `json:"generated,omitempty"`
+	Generated string           `json:"generated,omitempty"`
 	Component *AccessPolicyDto `json:"component,omitempty"`
 }
