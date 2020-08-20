@@ -17,6 +17,33 @@ To generate the clients please run following command :
 ./regenerate.sh
 ```
 
+Manual changes : 
+
+- In function `UploadTemplate()` of `api_process_groups.go` replace :
+
+  ```golang
+  localVarPostBody = &localVarOptionals.Body.Value()
+  ```
+  
+  by :
+  
+  ```golang
+  localVarPostBody = localVarOptionals.Body.Value()
+  ```  
+  
+- In `model_revision_dto`, replace : 
+
+  ```golang
+  Version int64 `json:"version,omitempty"`
+  ```
+  
+  by :
+  
+  ```golang
+  Version *int64 `json:"version,omitempty"`
+  ```  
+  
+
 ## Credits
 
 This client is : 
