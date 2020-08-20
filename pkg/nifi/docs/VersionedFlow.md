@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Type_** | **string** | The type of item. | [default to null]
 **Permissions** | [***Permissions**](Permissions.md) | The access that the current user has to the bucket containing this item. | [optional] [default to null]
 **VersionCount** | **int64** | The number of versions of this flow. | [optional] [default to null]
+**Revision** | [***RevisionInfo**](RevisionInfo.md) | The revision of this entity used for optimistic-locking during updates. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

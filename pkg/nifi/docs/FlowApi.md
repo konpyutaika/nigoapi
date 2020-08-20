@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**GetCurrentUser**](FlowApi.md#GetCurrentUser) | **Get** /flow/current-user | Retrieves the user identity of the user making the request
 [**GetFlow**](FlowApi.md#GetFlow) | **Get** /flow/process-groups/{id} | Gets a process group
 [**GetFlowConfig**](FlowApi.md#GetFlowConfig) | **Get** /flow/config | Retrieves the configuration for this NiFi flow
+[**GetFlowMetrics**](FlowApi.md#GetFlowMetrics) | **Get** /flow/metrics/{producer} | Gets all metrics for the flow from a particular node
 [**GetFlows**](FlowApi.md#GetFlows) | **Get** /flow/registries/{registry-id}/buckets/{bucket-id}/flows | Gets the flows from the specified registry and bucket for the current user
 [**GetInputPortStatus**](FlowApi.md#GetInputPortStatus) | **Get** /flow/input-ports/{id}/status | Gets status for an input port
 [**GetOutputPortStatus**](FlowApi.md#GetOutputPortStatus) | **Get** /flow/output-ports/{id}/status | Gets status for an output port
@@ -624,6 +625,34 @@ No authorization required
 
  - **Content-Type**: */*
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetFlowMetrics**
+> StreamingOutput GetFlowMetrics(ctx, producer)
+Gets all metrics for the flow from a particular node
+
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **producer** | **string**| The producer for flow file metrics. Each producer may have its own output format. | 
+
+### Return type
+
+[**StreamingOutput**](StreamingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1275,6 +1304,7 @@ Optional parameters are passed through a pointer to a FlowApiSearchFlowOpts stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **optional.String**|  | 
+ **a** | **optional.String**|  | 
 
 ### Return type
 

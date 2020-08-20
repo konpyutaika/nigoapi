@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **Variables** | **map[string]string** | The variables that are configured for the Process Group. Note that this map contains only those variables that are defined on this Process Group and not any variables that are defined in the parent Process Group, etc. I.e., this Map will not contain all variables that are accessible by components in this Process Group by rather only the variables that are defined for this Process Group itself. | [optional] [default to null]
 **VersionControlInformation** | [***VersionControlInformationDto**](VersionControlInformationDTO.md) | The Version Control information that indicates which Flow Registry, and where in the Flow Registry, this Process Group is tracking to; or null if this Process Group is not under version control | [optional] [default to null]
 **ParameterContext** | [***ParameterContextReferenceEntity**](ParameterContextReferenceEntity.md) | The Parameter Context that this Process Group is bound to. | [optional] [default to null]
+**FlowfileConcurrency** | **string** | The FlowFile Concurrency for this Process Group. | [optional] [default to null]
+**FlowfileOutboundPolicy** | **string** | The Oubound Policy that is used for determining how FlowFiles should be transferred out of the Process Group. | [optional] [default to null]
 **RunningCount** | **int32** | The number of running components in this process group. | [optional] [default to null]
 **StoppedCount** | **int32** | The number of stopped components in the process group. | [optional] [default to null]
 **InvalidCount** | **int32** | The number of invalid components in the process group. | [optional] [default to null]
