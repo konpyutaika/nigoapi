@@ -43,6 +43,23 @@ Manual changes :
   Version *int64 `json:"version,omitempty"`
   ```  
   
+- replace 
+
+  ```golang
+  // The timestamp of when the request was submitted
+  SubmissionTime Time.time `json:"submissionTime,omitempty"`
+  // The timestamp of when the request was last updated
+  LastUpdated Time.time `json:"lastUpdated,omitempty"`
+  ```
+ 
+  by : 
+  
+  ```golang
+  // The timestamp of when the request was submitted
+  SubmissionTime string `json:"submissionTime,omitempty"`
+  // The timestamp of when the request was last updated
+  LastUpdated string `json:"lastUpdated,omitempty"`
+  ```
 
 ## Credits
 
