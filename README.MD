@@ -43,6 +43,18 @@ Manual changes :
   Version *int64 `json:"version,omitempty"`
   ```  
   
+  - In `model_parameter_dto`, replace : 
+  
+    ```golang
+    Value string `json:"value,omitempty"`
+    ```
+    
+    by :
+    
+    ```golang
+    Value *string `json:"value,omitempty"`
+    ``` 
+  
 - replace 
 
   ```golang
@@ -60,6 +72,9 @@ Manual changes :
   // The timestamp of when the request was last updated
   LastUpdated string `json:"lastUpdated,omitempty"`
   ```
+  
+ 
+ 
 
 ## Credits
 

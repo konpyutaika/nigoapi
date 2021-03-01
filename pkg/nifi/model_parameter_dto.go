@@ -18,7 +18,7 @@ type ParameterDto struct {
 	// Whether or not the Parameter is sensitive
 	Sensitive bool `json:"sensitive,omitempty"`
 	// The value of the Parameter
-	Value string `json:"value,omitempty"`
+	Value *string `json:"value,omitempty"`
 	// The set of all components in the flow that are referencing this Parameter
 	ReferencingComponents []AffectedComponentEntity `json:"referencingComponents,omitempty"`
 }
