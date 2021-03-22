@@ -36,7 +36,7 @@ InputPortsApiService Gets an input port
 
 @return PortEntity
 */
-func (a *InputPortsApiService) GetInputPort(ctx context.Context, id string) (PortEntity, *http.Response, error) {
+func (a *InputPortsApiService) GetInputPort(ctx context.Context, id string) (PortEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -72,25 +72,27 @@ func (a *InputPortsApiService) GetInputPort(ctx context.Context, id string) (Por
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -105,16 +107,16 @@ func (a *InputPortsApiService) GetInputPort(ctx context.Context, id string) (Por
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -136,7 +138,7 @@ type InputPortsApiRemoveInputPortOpts struct {
 	DisconnectedNodeAcknowledged optional.Bool
 }
 
-func (a *InputPortsApiService) RemoveInputPort(ctx context.Context, id string, localVarOptionals *InputPortsApiRemoveInputPortOpts) (PortEntity, *http.Response, error) {
+func (a *InputPortsApiService) RemoveInputPort(ctx context.Context, id string, localVarOptionals *InputPortsApiRemoveInputPortOpts) (PortEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -181,25 +183,27 @@ func (a *InputPortsApiService) RemoveInputPort(ctx context.Context, id string, l
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -214,16 +218,16 @@ func (a *InputPortsApiService) RemoveInputPort(ctx context.Context, id string, l
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -235,7 +239,7 @@ InputPortsApiService Updates an input port
 
 @return PortEntity
 */
-func (a *InputPortsApiService) UpdateInputPort(ctx context.Context, id string, body PortEntity) (PortEntity, *http.Response, error) {
+func (a *InputPortsApiService) UpdateInputPort(ctx context.Context, id string, body PortEntity) (PortEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -273,25 +277,27 @@ func (a *InputPortsApiService) UpdateInputPort(ctx context.Context, id string, b
 	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -306,16 +312,16 @@ func (a *InputPortsApiService) UpdateInputPort(ctx context.Context, id string, b
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -327,7 +333,7 @@ InputPortsApiService Updates run status of an input-port
 
 @return ProcessorEntity
 */
-func (a *InputPortsApiService) UpdateRunStatus(ctx context.Context, id string, body PortRunStatusEntity) (ProcessorEntity, *http.Response, error) {
+func (a *InputPortsApiService) UpdateRunStatus(ctx context.Context, id string, body PortRunStatusEntity) (ProcessorEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -365,25 +371,27 @@ func (a *InputPortsApiService) UpdateRunStatus(ctx context.Context, id string, b
 	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -398,14 +406,14 @@ func (a *InputPortsApiService) UpdateRunStatus(ctx context.Context, id string, b
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }

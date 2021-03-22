@@ -36,7 +36,7 @@ RemoteProcessGroupsApiService Gets a remote process group
 
 @return RemoteProcessGroupEntity
 */
-func (a *RemoteProcessGroupsApiService) GetRemoteProcessGroup(ctx context.Context, id string) (RemoteProcessGroupEntity, *http.Response, error) {
+func (a *RemoteProcessGroupsApiService) GetRemoteProcessGroup(ctx context.Context, id string) (RemoteProcessGroupEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -72,25 +72,27 @@ func (a *RemoteProcessGroupsApiService) GetRemoteProcessGroup(ctx context.Contex
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -105,16 +107,16 @@ func (a *RemoteProcessGroupsApiService) GetRemoteProcessGroup(ctx context.Contex
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -125,7 +127,7 @@ RemoteProcessGroupsApiService Gets the state for a RemoteProcessGroup
 
 @return ComponentStateEntity
 */
-func (a *RemoteProcessGroupsApiService) GetState(ctx context.Context, id string) (ComponentStateEntity, *http.Response, error) {
+func (a *RemoteProcessGroupsApiService) GetState(ctx context.Context, id string) (ComponentStateEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -161,25 +163,27 @@ func (a *RemoteProcessGroupsApiService) GetState(ctx context.Context, id string)
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -194,16 +198,16 @@ func (a *RemoteProcessGroupsApiService) GetState(ctx context.Context, id string)
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -225,7 +229,7 @@ type RemoteProcessGroupsApiRemoveRemoteProcessGroupOpts struct {
 	DisconnectedNodeAcknowledged optional.Bool
 }
 
-func (a *RemoteProcessGroupsApiService) RemoveRemoteProcessGroup(ctx context.Context, id string, localVarOptionals *RemoteProcessGroupsApiRemoveRemoteProcessGroupOpts) (RemoteProcessGroupEntity, *http.Response, error) {
+func (a *RemoteProcessGroupsApiService) RemoveRemoteProcessGroup(ctx context.Context, id string, localVarOptionals *RemoteProcessGroupsApiRemoveRemoteProcessGroupOpts) (RemoteProcessGroupEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -270,25 +274,27 @@ func (a *RemoteProcessGroupsApiService) RemoveRemoteProcessGroup(ctx context.Con
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -303,16 +309,16 @@ func (a *RemoteProcessGroupsApiService) RemoveRemoteProcessGroup(ctx context.Con
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -324,7 +330,7 @@ RemoteProcessGroupsApiService Updates a remote process group
 
 @return RemoteProcessGroupEntity
 */
-func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroup(ctx context.Context, id string, body RemoteProcessGroupEntity) (RemoteProcessGroupEntity, *http.Response, error) {
+func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroup(ctx context.Context, id string, body RemoteProcessGroupEntity) (RemoteProcessGroupEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -362,25 +368,27 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroup(ctx context.Con
 	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -395,16 +403,16 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroup(ctx context.Con
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -417,7 +425,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 @return RemoteProcessGroupPortEntity
 */
-func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPort(ctx context.Context, id string, portId string, body RemoteProcessGroupPortEntity) (RemoteProcessGroupPortEntity, *http.Response, error) {
+func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPort(ctx context.Context, id string, portId string, body RemoteProcessGroupPortEntity) (RemoteProcessGroupPortEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -456,25 +464,27 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPort(ctx co
 	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -489,16 +499,16 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPort(ctx co
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -511,7 +521,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 @return RemoteProcessGroupPortEntity
 */
-func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPortRunStatus(ctx context.Context, id string, portId string, body RemotePortRunStatusEntity) (RemoteProcessGroupPortEntity, *http.Response, error) {
+func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPortRunStatus(ctx context.Context, id string, portId string, body RemotePortRunStatusEntity) (RemoteProcessGroupPortEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -550,25 +560,27 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPortRunStat
 	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -583,16 +595,16 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPortRunStat
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -605,7 +617,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 @return RemoteProcessGroupPortEntity
 */
-func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPort(ctx context.Context, id string, portId string, body RemoteProcessGroupPortEntity) (RemoteProcessGroupPortEntity, *http.Response, error) {
+func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPort(ctx context.Context, id string, portId string, body RemoteProcessGroupPortEntity) (RemoteProcessGroupPortEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -644,25 +656,27 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPort(ctx c
 	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -677,16 +691,16 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPort(ctx c
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -699,7 +713,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 @return RemoteProcessGroupPortEntity
 */
-func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPortRunStatus(ctx context.Context, id string, portId string, body RemotePortRunStatusEntity) (RemoteProcessGroupPortEntity, *http.Response, error) {
+func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPortRunStatus(ctx context.Context, id string, portId string, body RemotePortRunStatusEntity) (RemoteProcessGroupPortEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -738,25 +752,27 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPortRunSta
 	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -771,16 +787,16 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPortRunSta
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -792,7 +808,7 @@ RemoteProcessGroupsApiService Updates run status of a remote process group
 
 @return RemoteProcessGroupEntity
 */
-func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupRunStatus(ctx context.Context, id string, body RemotePortRunStatusEntity) (RemoteProcessGroupEntity, *http.Response, error) {
+func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupRunStatus(ctx context.Context, id string, body RemotePortRunStatusEntity) (RemoteProcessGroupEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -830,25 +846,27 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupRunStatus(ctx co
 	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -863,14 +881,14 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupRunStatus(ctx co
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }

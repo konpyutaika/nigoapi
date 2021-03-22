@@ -43,7 +43,7 @@ type ProvenanceApiDeleteLineageOpts struct {
 	ClusterNodeId optional.String
 }
 
-func (a *ProvenanceApiService) DeleteLineage(ctx context.Context, id string, localVarOptionals *ProvenanceApiDeleteLineageOpts) (LineageEntity, *http.Response, error) {
+func (a *ProvenanceApiService) DeleteLineage(ctx context.Context, id string, localVarOptionals *ProvenanceApiDeleteLineageOpts) (LineageEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -82,25 +82,27 @@ func (a *ProvenanceApiService) DeleteLineage(ctx context.Context, id string, loc
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -115,16 +117,16 @@ func (a *ProvenanceApiService) DeleteLineage(ctx context.Context, id string, loc
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -142,7 +144,7 @@ type ProvenanceApiDeleteProvenanceOpts struct {
 	ClusterNodeId optional.String
 }
 
-func (a *ProvenanceApiService) DeleteProvenance(ctx context.Context, id string, localVarOptionals *ProvenanceApiDeleteProvenanceOpts) (ProvenanceEntity, *http.Response, error) {
+func (a *ProvenanceApiService) DeleteProvenance(ctx context.Context, id string, localVarOptionals *ProvenanceApiDeleteProvenanceOpts) (ProvenanceEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -181,25 +183,27 @@ func (a *ProvenanceApiService) DeleteProvenance(ctx context.Context, id string, 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -214,16 +218,16 @@ func (a *ProvenanceApiService) DeleteProvenance(ctx context.Context, id string, 
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -241,7 +245,7 @@ type ProvenanceApiGetLineageOpts struct {
 	ClusterNodeId optional.String
 }
 
-func (a *ProvenanceApiService) GetLineage(ctx context.Context, id string, localVarOptionals *ProvenanceApiGetLineageOpts) (LineageEntity, *http.Response, error) {
+func (a *ProvenanceApiService) GetLineage(ctx context.Context, id string, localVarOptionals *ProvenanceApiGetLineageOpts) (LineageEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -280,25 +284,27 @@ func (a *ProvenanceApiService) GetLineage(ctx context.Context, id string, localV
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -313,16 +319,16 @@ func (a *ProvenanceApiService) GetLineage(ctx context.Context, id string, localV
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -344,7 +350,7 @@ type ProvenanceApiGetProvenanceOpts struct {
 	IncrementalResults optional.Bool
 }
 
-func (a *ProvenanceApiService) GetProvenance(ctx context.Context, id string, localVarOptionals *ProvenanceApiGetProvenanceOpts) (ProvenanceEntity, *http.Response, error) {
+func (a *ProvenanceApiService) GetProvenance(ctx context.Context, id string, localVarOptionals *ProvenanceApiGetProvenanceOpts) (ProvenanceEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -389,25 +395,27 @@ func (a *ProvenanceApiService) GetProvenance(ctx context.Context, id string, loc
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -422,16 +430,16 @@ func (a *ProvenanceApiService) GetProvenance(ctx context.Context, id string, loc
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -441,7 +449,7 @@ ProvenanceApiService Gets the searchable attributes for provenance events
 
 @return ProvenanceOptionsEntity
 */
-func (a *ProvenanceApiService) GetSearchOptions(ctx context.Context) (ProvenanceOptionsEntity, *http.Response, error) {
+func (a *ProvenanceApiService) GetSearchOptions(ctx context.Context) (ProvenanceOptionsEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -476,25 +484,27 @@ func (a *ProvenanceApiService) GetSearchOptions(ctx context.Context) (Provenance
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -509,16 +519,16 @@ func (a *ProvenanceApiService) GetSearchOptions(ctx context.Context) (Provenance
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -529,7 +539,7 @@ Lineage queries may be long running so this endpoint submits a request. The resp
 
 @return LineageEntity
 */
-func (a *ProvenanceApiService) SubmitLineageRequest(ctx context.Context, body LineageEntity) (LineageEntity, *http.Response, error) {
+func (a *ProvenanceApiService) SubmitLineageRequest(ctx context.Context, body LineageEntity) (LineageEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -566,25 +576,27 @@ func (a *ProvenanceApiService) SubmitLineageRequest(ctx context.Context, body Li
 	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -599,16 +611,16 @@ func (a *ProvenanceApiService) SubmitLineageRequest(ctx context.Context, body Li
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -619,7 +631,7 @@ Provenance queries may be long running so this endpoint submits a request. The r
 
 @return ProvenanceEntity
 */
-func (a *ProvenanceApiService) SubmitProvenanceRequest(ctx context.Context, body ProvenanceEntity) (ProvenanceEntity, *http.Response, error) {
+func (a *ProvenanceApiService) SubmitProvenanceRequest(ctx context.Context, body ProvenanceEntity) (ProvenanceEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -656,25 +668,27 @@ func (a *ProvenanceApiService) SubmitProvenanceRequest(ctx context.Context, body
 	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -689,14 +703,14 @@ func (a *ProvenanceApiService) SubmitProvenanceRequest(ctx context.Context, body
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }

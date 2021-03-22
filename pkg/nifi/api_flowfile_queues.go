@@ -36,7 +36,7 @@ FlowfileQueuesApiService Creates a request to drop the contents of the queue in 
 
 @return DropRequestEntity
 */
-func (a *FlowfileQueuesApiService) CreateDropRequest(ctx context.Context, id string) (DropRequestEntity, *http.Response, error) {
+func (a *FlowfileQueuesApiService) CreateDropRequest(ctx context.Context, id string) (DropRequestEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -72,25 +72,27 @@ func (a *FlowfileQueuesApiService) CreateDropRequest(ctx context.Context, id str
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -105,16 +107,16 @@ func (a *FlowfileQueuesApiService) CreateDropRequest(ctx context.Context, id str
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -125,7 +127,7 @@ FlowfileQueuesApiService Lists the contents of the queue in this connection.
 
 @return ListingRequestEntity
 */
-func (a *FlowfileQueuesApiService) CreateFlowFileListing(ctx context.Context, id string) (ListingRequestEntity, *http.Response, error) {
+func (a *FlowfileQueuesApiService) CreateFlowFileListing(ctx context.Context, id string) (ListingRequestEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -161,25 +163,27 @@ func (a *FlowfileQueuesApiService) CreateFlowFileListing(ctx context.Context, id
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -194,16 +198,16 @@ func (a *FlowfileQueuesApiService) CreateFlowFileListing(ctx context.Context, id
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -215,7 +219,7 @@ FlowfileQueuesApiService Cancels and/or removes a request to list the contents o
 
 @return ListingRequestEntity
 */
-func (a *FlowfileQueuesApiService) DeleteListingRequest(ctx context.Context, id string, listingRequestId string) (ListingRequestEntity, *http.Response, error) {
+func (a *FlowfileQueuesApiService) DeleteListingRequest(ctx context.Context, id string, listingRequestId string) (ListingRequestEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -252,25 +256,27 @@ func (a *FlowfileQueuesApiService) DeleteListingRequest(ctx context.Context, id 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -285,16 +291,16 @@ func (a *FlowfileQueuesApiService) DeleteListingRequest(ctx context.Context, id 
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -315,7 +321,7 @@ type FlowfileQueuesApiDownloadFlowFileContentOpts struct {
 	ClusterNodeId optional.String
 }
 
-func (a *FlowfileQueuesApiService) DownloadFlowFileContent(ctx context.Context, id string, flowfileUuid string, localVarOptionals *FlowfileQueuesApiDownloadFlowFileContentOpts) (StreamingOutput, *http.Response, error) {
+func (a *FlowfileQueuesApiService) DownloadFlowFileContent(ctx context.Context, id string, flowfileUuid string, localVarOptionals *FlowfileQueuesApiDownloadFlowFileContentOpts) (StreamingOutput, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -358,25 +364,27 @@ func (a *FlowfileQueuesApiService) DownloadFlowFileContent(ctx context.Context, 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -391,16 +399,16 @@ func (a *FlowfileQueuesApiService) DownloadFlowFileContent(ctx context.Context, 
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -412,7 +420,7 @@ FlowfileQueuesApiService Gets the current status of a drop request for the speci
 
 @return DropRequestEntity
 */
-func (a *FlowfileQueuesApiService) GetDropRequest(ctx context.Context, id string, dropRequestId string) (DropRequestEntity, *http.Response, error) {
+func (a *FlowfileQueuesApiService) GetDropRequest(ctx context.Context, id string, dropRequestId string) (DropRequestEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -449,25 +457,27 @@ func (a *FlowfileQueuesApiService) GetDropRequest(ctx context.Context, id string
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -482,16 +492,16 @@ func (a *FlowfileQueuesApiService) GetDropRequest(ctx context.Context, id string
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -510,7 +520,7 @@ type FlowfileQueuesApiGetFlowFileOpts struct {
 	ClusterNodeId optional.String
 }
 
-func (a *FlowfileQueuesApiService) GetFlowFile(ctx context.Context, id string, flowfileUuid string, localVarOptionals *FlowfileQueuesApiGetFlowFileOpts) (FlowFileEntity, *http.Response, error) {
+func (a *FlowfileQueuesApiService) GetFlowFile(ctx context.Context, id string, flowfileUuid string, localVarOptionals *FlowfileQueuesApiGetFlowFileOpts) (FlowFileEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -550,25 +560,27 @@ func (a *FlowfileQueuesApiService) GetFlowFile(ctx context.Context, id string, f
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -583,16 +595,16 @@ func (a *FlowfileQueuesApiService) GetFlowFile(ctx context.Context, id string, f
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -604,7 +616,7 @@ FlowfileQueuesApiService Gets the current status of a listing request for the sp
 
 @return ListingRequestEntity
 */
-func (a *FlowfileQueuesApiService) GetListingRequest(ctx context.Context, id string, listingRequestId string) (ListingRequestEntity, *http.Response, error) {
+func (a *FlowfileQueuesApiService) GetListingRequest(ctx context.Context, id string, listingRequestId string) (ListingRequestEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -641,25 +653,27 @@ func (a *FlowfileQueuesApiService) GetListingRequest(ctx context.Context, id str
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -674,16 +688,16 @@ func (a *FlowfileQueuesApiService) GetListingRequest(ctx context.Context, id str
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -695,7 +709,7 @@ FlowfileQueuesApiService Cancels and/or removes a request to drop the contents o
 
 @return DropRequestEntity
 */
-func (a *FlowfileQueuesApiService) RemoveDropRequest(ctx context.Context, id string, dropRequestId string) (DropRequestEntity, *http.Response, error) {
+func (a *FlowfileQueuesApiService) RemoveDropRequest(ctx context.Context, id string, dropRequestId string) (DropRequestEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -732,25 +746,27 @@ func (a *FlowfileQueuesApiService) RemoveDropRequest(ctx context.Context, id str
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -765,14 +781,14 @@ func (a *FlowfileQueuesApiService) RemoveDropRequest(ctx context.Context, id str
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }

@@ -43,7 +43,7 @@ type ProvenanceEventsApiGetInputContentOpts struct {
 	ClusterNodeId optional.String
 }
 
-func (a *ProvenanceEventsApiService) GetInputContent(ctx context.Context, id string, localVarOptionals *ProvenanceEventsApiGetInputContentOpts) (StreamingOutput, *http.Response, error) {
+func (a *ProvenanceEventsApiService) GetInputContent(ctx context.Context, id string, localVarOptionals *ProvenanceEventsApiGetInputContentOpts) (StreamingOutput, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -82,25 +82,27 @@ func (a *ProvenanceEventsApiService) GetInputContent(ctx context.Context, id str
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -115,16 +117,16 @@ func (a *ProvenanceEventsApiService) GetInputContent(ctx context.Context, id str
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -142,7 +144,7 @@ type ProvenanceEventsApiGetOutputContentOpts struct {
 	ClusterNodeId optional.String
 }
 
-func (a *ProvenanceEventsApiService) GetOutputContent(ctx context.Context, id string, localVarOptionals *ProvenanceEventsApiGetOutputContentOpts) (StreamingOutput, *http.Response, error) {
+func (a *ProvenanceEventsApiService) GetOutputContent(ctx context.Context, id string, localVarOptionals *ProvenanceEventsApiGetOutputContentOpts) (StreamingOutput, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -181,25 +183,27 @@ func (a *ProvenanceEventsApiService) GetOutputContent(ctx context.Context, id st
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -214,16 +218,16 @@ func (a *ProvenanceEventsApiService) GetOutputContent(ctx context.Context, id st
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -241,7 +245,7 @@ type ProvenanceEventsApiGetProvenanceEventOpts struct {
 	ClusterNodeId optional.String
 }
 
-func (a *ProvenanceEventsApiService) GetProvenanceEvent(ctx context.Context, id string, localVarOptionals *ProvenanceEventsApiGetProvenanceEventOpts) (ProvenanceEventEntity, *http.Response, error) {
+func (a *ProvenanceEventsApiService) GetProvenanceEvent(ctx context.Context, id string, localVarOptionals *ProvenanceEventsApiGetProvenanceEventOpts) (ProvenanceEventEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -280,25 +284,27 @@ func (a *ProvenanceEventsApiService) GetProvenanceEvent(ctx context.Context, id 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -313,16 +319,16 @@ func (a *ProvenanceEventsApiService) GetProvenanceEvent(ctx context.Context, id 
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -333,7 +339,7 @@ ProvenanceEventsApiService Replays content from a provenance event
 
 @return ProvenanceEventEntity
 */
-func (a *ProvenanceEventsApiService) SubmitReplay(ctx context.Context, body SubmitReplayRequestEntity) (ProvenanceEventEntity, *http.Response, error) {
+func (a *ProvenanceEventsApiService) SubmitReplay(ctx context.Context, body SubmitReplayRequestEntity) (ProvenanceEventEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -370,25 +376,27 @@ func (a *ProvenanceEventsApiService) SubmitReplay(ctx context.Context, body Subm
 	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -403,14 +411,14 @@ func (a *ProvenanceEventsApiService) SubmitReplay(ctx context.Context, body Subm
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }

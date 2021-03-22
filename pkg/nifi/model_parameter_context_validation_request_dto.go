@@ -20,9 +20,9 @@ type ParameterContextValidationRequestDto struct {
 	// The URI for the request
 	Uri string `json:"uri,omitempty"`
 	// The timestamp of when the request was submitted
-	SubmissionTime time.Time `json:"submissionTime,omitempty"`
+	SubmissionTime string `json:"submissionTime,omitempty"`
 	// The timestamp of when the request was last updated
-	LastUpdated time.Time `json:"lastUpdated,omitempty"`
+	LastUpdated string `json:"lastUpdated,omitempty"`
 	// Whether or not the request is completed
 	Complete bool `json:"complete,omitempty"`
 	// The reason for the request failing, or null if the request has not failed

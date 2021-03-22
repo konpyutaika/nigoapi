@@ -43,7 +43,7 @@ type AccessApiCreateAccessTokenOpts struct {
 	Password optional.String
 }
 
-func (a *AccessApiService) CreateAccessToken(ctx context.Context, localVarOptionals *AccessApiCreateAccessTokenOpts) (string, *http.Response, error) {
+func (a *AccessApiService) CreateAccessToken(ctx context.Context, localVarOptionals *AccessApiCreateAccessTokenOpts) (string, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -84,25 +84,27 @@ func (a *AccessApiService) CreateAccessToken(ctx context.Context, localVarOption
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -117,16 +119,16 @@ func (a *AccessApiService) CreateAccessToken(ctx context.Context, localVarOption
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -136,7 +138,7 @@ The token returned is formatted as a JSON Web Token (JWT). The token is base64 e
 
 @return string
 */
-func (a *AccessApiService) CreateAccessTokenFromTicket(ctx context.Context) (string, *http.Response, error) {
+func (a *AccessApiService) CreateAccessTokenFromTicket(ctx context.Context) (string, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -171,25 +173,27 @@ func (a *AccessApiService) CreateAccessTokenFromTicket(ctx context.Context) (str
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -204,16 +208,16 @@ func (a *AccessApiService) CreateAccessTokenFromTicket(ctx context.Context) (str
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -223,7 +227,7 @@ The token returned is a base64 encoded string. It is valid for a single request 
 
 @return string
 */
-func (a *AccessApiService) CreateDownloadToken(ctx context.Context) (string, *http.Response, error) {
+func (a *AccessApiService) CreateDownloadToken(ctx context.Context) (string, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -258,25 +262,27 @@ func (a *AccessApiService) CreateDownloadToken(ctx context.Context) (string, *ht
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -291,16 +297,16 @@ func (a *AccessApiService) CreateDownloadToken(ctx context.Context) (string, *ht
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -310,7 +316,7 @@ The token returned is a base64 encoded string. It is valid for a single request 
 
 @return string
 */
-func (a *AccessApiService) CreateUiExtensionToken(ctx context.Context) (string, *http.Response, error) {
+func (a *AccessApiService) CreateUiExtensionToken(ctx context.Context) (string, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -345,25 +351,27 @@ func (a *AccessApiService) CreateUiExtensionToken(ctx context.Context) (string, 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -378,16 +386,16 @@ func (a *AccessApiService) CreateUiExtensionToken(ctx context.Context) (string, 
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -397,7 +405,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 @return AccessStatusEntity
 */
-func (a *AccessApiService) GetAccessStatus(ctx context.Context) (AccessStatusEntity, *http.Response, error) {
+func (a *AccessApiService) GetAccessStatus(ctx context.Context) (AccessStatusEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -432,25 +440,27 @@ func (a *AccessApiService) GetAccessStatus(ctx context.Context) (AccessStatusEnt
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -465,16 +475,16 @@ func (a *AccessApiService) GetAccessStatus(ctx context.Context) (AccessStatusEnt
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -484,7 +494,7 @@ AccessApiService Retrieves the access configuration for this NiFi
 
 @return AccessConfigurationEntity
 */
-func (a *AccessApiService) GetLoginConfig(ctx context.Context) (AccessConfigurationEntity, *http.Response, error) {
+func (a *AccessApiService) GetLoginConfig(ctx context.Context) (AccessConfigurationEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -519,25 +529,27 @@ func (a *AccessApiService) GetLoginConfig(ctx context.Context) (AccessConfigurat
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -552,16 +564,16 @@ func (a *AccessApiService) GetLoginConfig(ctx context.Context) (AccessConfigurat
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -571,7 +583,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 
 */
-func (a *AccessApiService) KnoxCallback(ctx context.Context) (*http.Response, error) {
+func (a *AccessApiService) KnoxCallback(ctx context.Context) (*http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -606,19 +618,21 @@ func (a *AccessApiService) KnoxCallback(ctx context.Context) (*http.Response, er
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -627,10 +641,10 @@ func (a *AccessApiService) KnoxCallback(ctx context.Context) (*http.Response, er
 			error: localVarHttpResponse.Status,
 		}
 		
-		return localVarHttpResponse, newErr
+		return localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarHttpResponse, nil
+	return localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -640,7 +654,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 
 */
-func (a *AccessApiService) KnoxLogout(ctx context.Context) (*http.Response, error) {
+func (a *AccessApiService) KnoxLogout(ctx context.Context) (*http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -675,19 +689,21 @@ func (a *AccessApiService) KnoxLogout(ctx context.Context) (*http.Response, erro
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -696,10 +712,10 @@ func (a *AccessApiService) KnoxLogout(ctx context.Context) (*http.Response, erro
 			error: localVarHttpResponse.Status,
 		}
 		
-		return localVarHttpResponse, newErr
+		return localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarHttpResponse, nil
+	return localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -709,7 +725,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 
 */
-func (a *AccessApiService) KnoxRequest(ctx context.Context) (*http.Response, error) {
+func (a *AccessApiService) KnoxRequest(ctx context.Context) (*http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -744,19 +760,21 @@ func (a *AccessApiService) KnoxRequest(ctx context.Context) (*http.Response, err
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -765,10 +783,10 @@ func (a *AccessApiService) KnoxRequest(ctx context.Context) (*http.Response, err
 			error: localVarHttpResponse.Status,
 		}
 		
-		return localVarHttpResponse, newErr
+		return localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarHttpResponse, nil
+	return localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -778,7 +796,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 
 */
-func (a *AccessApiService) LogOut(ctx context.Context) (*http.Response, error) {
+func (a *AccessApiService) LogOut(ctx context.Context) (*http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -813,19 +831,21 @@ func (a *AccessApiService) LogOut(ctx context.Context) (*http.Response, error) {
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -834,10 +854,10 @@ func (a *AccessApiService) LogOut(ctx context.Context) (*http.Response, error) {
 			error: localVarHttpResponse.Status,
 		}
 		
-		return localVarHttpResponse, newErr
+		return localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarHttpResponse, nil
+	return localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -847,7 +867,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 
 */
-func (a *AccessApiService) OidcCallback(ctx context.Context) (*http.Response, error) {
+func (a *AccessApiService) OidcCallback(ctx context.Context) (*http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -882,19 +902,21 @@ func (a *AccessApiService) OidcCallback(ctx context.Context) (*http.Response, er
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -903,10 +925,10 @@ func (a *AccessApiService) OidcCallback(ctx context.Context) (*http.Response, er
 			error: localVarHttpResponse.Status,
 		}
 		
-		return localVarHttpResponse, newErr
+		return localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarHttpResponse, nil
+	return localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -916,7 +938,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 @return string
 */
-func (a *AccessApiService) OidcExchange(ctx context.Context) (string, *http.Response, error) {
+func (a *AccessApiService) OidcExchange(ctx context.Context) (string, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -951,25 +973,27 @@ func (a *AccessApiService) OidcExchange(ctx context.Context) (string, *http.Resp
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
@@ -984,16 +1008,16 @@ func (a *AccessApiService) OidcExchange(ctx context.Context) (string, *http.Resp
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
 		
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -1003,7 +1027,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 
 */
-func (a *AccessApiService) OidcLogout(ctx context.Context) (*http.Response, error) {
+func (a *AccessApiService) OidcLogout(ctx context.Context) (*http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1038,19 +1062,21 @@ func (a *AccessApiService) OidcLogout(ctx context.Context) (*http.Response, erro
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -1059,10 +1085,10 @@ func (a *AccessApiService) OidcLogout(ctx context.Context) (*http.Response, erro
 			error: localVarHttpResponse.Status,
 		}
 		
-		return localVarHttpResponse, newErr
+		return localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarHttpResponse, nil
+	return localVarHttpResponse, &localStringBody, nil
 }
 
 /* 
@@ -1072,7 +1098,7 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 
 
 */
-func (a *AccessApiService) OidcRequest(ctx context.Context) (*http.Response, error) {
+func (a *AccessApiService) OidcRequest(ctx context.Context) (*http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1107,19 +1133,21 @@ func (a *AccessApiService) OidcRequest(ctx context.Context) (*http.Response, err
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, err
+		return localVarHttpResponse, nil, err
 	}
+
+	localStringBody := string(localVarBody)
 
 
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -1128,8 +1156,8 @@ func (a *AccessApiService) OidcRequest(ctx context.Context) (*http.Response, err
 			error: localVarHttpResponse.Status,
 		}
 		
-		return localVarHttpResponse, newErr
+		return localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarHttpResponse, nil
+	return localVarHttpResponse, &localStringBody, nil
 }
