@@ -10,10 +10,6 @@
 
 package nifi
 
-import (
-	"time"
-)
-
 type ParameterContextValidationRequestDto struct {
 	// The ID of the request
 	RequestId string `json:"requestId,omitempty"`
