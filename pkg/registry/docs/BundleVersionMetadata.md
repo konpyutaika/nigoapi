@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **Id** | **string** | The id of this version of the extension bundle | [optional] [default to null]
 **BundleId** | **string** | The id of the extension bundle this version is for | [optional] [default to null]
 **BucketId** | **string** | The id of the bucket the extension bundle belongs to | [default to null]
+**GroupId** | **string** |  | [optional] [default to null]
+**ArtifactId** | **string** |  | [optional] [default to null]
 **Version** | **string** | The version of the extension bundle | [optional] [default to null]
 **Timestamp** | **int64** | The timestamp of the create date of this version | [optional] [default to null]
 **Author** | **string** | The identity that created this version | [optional] [default to null]

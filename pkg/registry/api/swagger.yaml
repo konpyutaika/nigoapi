@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "The REST API provides an interface to a registry with operations for\
     \ saving, versioning, reading NiFi flows and components."
-  version: "0.7.0"
+  version: "0.8.0"
   title: "Apache NiFi Registry REST API"
   termsOfService: "As described in the license"
   contact:
@@ -89,6 +89,75 @@ paths:
             \ JWT format."
         "500":
           description: "Client failed to log out."
+  /access/oidc/callback:
+    get:
+      tags:
+      - "access"
+      summary: "Redirect/callback URI for processing the result of the OpenId Connect\
+        \ login sequence."
+      description: "\n\nNOTE: This endpoint is subject to change as NiFi Registry\
+        \ and its REST API evolve."
+      operationId: "oidcCallback"
+      consumes:
+      - "*/*"
+      produces:
+      - "*/*"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+  /access/oidc/exchange:
+    post:
+      tags:
+      - "access"
+      summary: "Retrieves a JWT following a successful login sequence using the configured\
+        \ OpenId Connect provider."
+      description: "\n\nNOTE: This endpoint is subject to change as NiFi Registry\
+        \ and its REST API evolve."
+      operationId: "oidcExchange"
+      consumes:
+      - "*/*"
+      produces:
+      - "text/plain"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "string"
+  /access/oidc/logout:
+    delete:
+      tags:
+      - "access"
+      summary: "Performs a logout in the OpenId Provider."
+      description: "\n\nNOTE: This endpoint is subject to change as NiFi Registry\
+        \ and its REST API evolve."
+      operationId: "oidcLogout"
+      consumes:
+      - "*/*"
+      produces:
+      - "*/*"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+  /access/oidc/request:
+    get:
+      tags:
+      - "access"
+      summary: "Initiates a request to authenticate through the configured OpenId\
+        \ Connect provider."
+      description: "\n\nNOTE: This endpoint is subject to change as NiFi Registry\
+        \ and its REST API evolve."
+      operationId: "oidcRequest"
+      consumes:
+      - "*/*"
+      produces:
+      - "*/*"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
   /access/token:
     post:
       tags:
@@ -4267,6 +4336,7 @@ definitions:
           buildTool: "buildTool"
           buildFlags: "buildFlags"
         author: "author"
+        groupId: "groupId"
         link:
           href: "http://example.com/aeiou"
           params:
@@ -4277,6 +4347,7 @@ definitions:
         version: "version"
         sha256Supplied: true
         contentSize: 0
+        artifactId: "artifactId"
         id: "id"
         timestamp: 1
         systemApiVersion: "systemApiVersion"
@@ -4345,6 +4416,10 @@ definitions:
       bucketId:
         type: "string"
         description: "The id of the bucket the extension bundle belongs to"
+      groupId:
+        type: "string"
+      artifactId:
+        type: "string"
       version:
         type: "string"
         description: "The version of the extension bundle"
@@ -4390,6 +4465,7 @@ definitions:
         buildTool: "buildTool"
         buildFlags: "buildFlags"
       author: "author"
+      groupId: "groupId"
       link:
         href: "http://example.com/aeiou"
         params:
@@ -4400,6 +4476,7 @@ definitions:
       version: "version"
       sha256Supplied: true
       contentSize: 0
+      artifactId: "artifactId"
       id: "id"
       timestamp: 1
       systemApiVersion: "systemApiVersion"
@@ -4548,12 +4625,17 @@ definitions:
         readOnly: true
       loginSupported:
         type: "boolean"
-        description: "Indicates if the NiFi instance supports logging in"
+        description: "Indicates if the NiFi Registry instance supports logging in"
       resourcePermissions:
         description: "The access that the current user has to top level resources"
         readOnly: true
         $ref: "#/definitions/ResourcePermissions"
+      oidcloginSupported:
+        type: "boolean"
+        description: "Indicates if the NiFi Registry instance supports logging in\
+          \ with an OIDC provider"
     example:
+      oidcloginSupported: true
       resourcePermissions:
         tenants:
           canRead: true
@@ -7553,12 +7635,12 @@ definitions:
         - "FUNNEL"
         - "LABEL"
         - "CONTROLLER_SERVICE"
-      flowFileOutboundPolicy:
-        type: "string"
-        description: "The FlowFile Outbound Policy for the Process Group"
       flowFileConcurrency:
         type: "string"
         description: "The configured FlowFile Concurrency for the Process Group"
+      flowFileOutboundPolicy:
+        type: "string"
+        description: "The FlowFile Outbound Policy for the Process Group"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
