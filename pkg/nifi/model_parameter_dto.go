@@ -16,7 +16,7 @@ type ParameterDto struct {
 	// The description of the Parameter
 	Description string `json:"description,omitempty"`
 	// Whether or not the Parameter is sensitive
-	Sensitive bool `json:"sensitive,omitempty"`
+	Sensitive bool `json:"sensitive"`
 	// The value of the Parameter
 	Value *string `json:"value"`
 	// The set of all components in the flow that are referencing this Parameter
