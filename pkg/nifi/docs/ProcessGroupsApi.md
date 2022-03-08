@@ -33,6 +33,7 @@ Method | HTTP request | Description
 [**GetReplaceProcessGroupRequest**](ProcessGroupsApi.md#GetReplaceProcessGroupRequest) | **Get** /process-groups/replace-requests/{id} | Returns the Replace Request with the given ID
 [**GetVariableRegistry**](ProcessGroupsApi.md#GetVariableRegistry) | **Get** /process-groups/{id}/variable-registry | Gets a process group&#39;s variable registry
 [**GetVariableRegistryUpdateRequest**](ProcessGroupsApi.md#GetVariableRegistryUpdateRequest) | **Get** /process-groups/{groupId}/variable-registry/update-requests/{updateId} | Gets a process group&#39;s variable registry
+[**ImportProcessGroup**](ProcessGroupsApi.md#ImportProcessGroup) | **Post** /process-groups/{id}/process-groups/import | Imports a specified process group
 [**ImportTemplate**](ProcessGroupsApi.md#ImportTemplate) | **Post** /process-groups/{id}/templates/import | Imports a template
 [**InitiateReplaceProcessGroup**](ProcessGroupsApi.md#InitiateReplaceProcessGroup) | **Post** /process-groups/{id}/replace-requests | Initiate the Replace Request of a Process Group with the given ID
 [**InstantiateTemplate**](ProcessGroupsApi.md#InstantiateTemplate) | **Post** /process-groups/{id}/template-instance | Instantiates a template
@@ -42,6 +43,7 @@ Method | HTTP request | Description
 [**SubmitUpdateVariableRegistryRequest**](ProcessGroupsApi.md#SubmitUpdateVariableRegistryRequest) | **Post** /process-groups/{id}/variable-registry/update-requests | Submits a request to update a process group&#39;s variable registry
 [**UpdateProcessGroup**](ProcessGroupsApi.md#UpdateProcessGroup) | **Put** /process-groups/{id} | Updates a process group
 [**UpdateVariableRegistry**](ProcessGroupsApi.md#UpdateVariableRegistry) | **Put** /process-groups/{id}/variable-registry | Updates the contents of a Process Group&#39;s variable Registry
+[**UploadProcessGroup**](ProcessGroupsApi.md#UploadProcessGroup) | **Post** /process-groups/{id}/process-groups/upload | Uploads a versioned flow definition and creates a process group
 [**UploadTemplate**](ProcessGroupsApi.md#UploadTemplate) | **Post** /process-groups/{id}/templates/upload | Uploads a template
 
 
@@ -908,6 +910,34 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ImportProcessGroup**
+> ProcessGroupEntity ImportProcessGroup(ctx, id)
+Imports a specified process group
+
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The process group id. | 
+
+### Return type
+
+[**ProcessGroupEntity**](ProcessGroupEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ImportTemplate**
 > TemplateEntity ImportTemplate(ctx, id)
 Imports a template
@@ -1174,6 +1204,51 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UploadProcessGroup**
+> ProcessGroupEntity UploadProcessGroup(ctx, id, body, body2, body3, body4, optional)
+Uploads a versioned flow definition and creates a process group
+
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The process group id. | 
+  **body** | **string**| The process group name. | 
+  **body2** | **float64**| The process group X position. | 
+  **body3** | **float64**| The process group Y position. | 
+  **body4** | **string**| The client id. | 
+ **optional** | ***ProcessGroupsApiUploadProcessGroupOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ProcessGroupsApiUploadProcessGroupOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+
+ **body5** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | 
+
+### Return type
+
+[**ProcessGroupEntity**](ProcessGroupEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
