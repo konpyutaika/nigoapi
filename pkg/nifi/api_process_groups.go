@@ -1,4 +1,3 @@
-
 /*
  * NiFi Rest API
  *
@@ -13,13 +12,14 @@ package nifi
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"strings"
-	"fmt"
-	"github.com/antihax/optional"
 	"os"
+	"strings"
+
+	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -29,7 +29,7 @@ var (
 
 type ProcessGroupsApiService service
 
-/* 
+/*
 ProcessGroupsApiService Copies a snippet and discards it.
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -40,10 +40,10 @@ ProcessGroupsApiService Copies a snippet and discards it.
 */
 func (a *ProcessGroupsApiService) CopySnippet(ctx context.Context, id string, body CopySnippetRequestEntity) (FlowEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FlowEntity
 	)
 
@@ -94,36 +94,36 @@ func (a *ProcessGroupsApiService) CopySnippet(ctx context.Context, id string, bo
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Creates a connection
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -134,10 +134,10 @@ ProcessGroupsApiService Creates a connection
 */
 func (a *ProcessGroupsApiService) CreateConnection(ctx context.Context, id string, body ConnectionEntity) (ConnectionEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ConnectionEntity
 	)
 
@@ -188,36 +188,36 @@ func (a *ProcessGroupsApiService) CreateConnection(ctx context.Context, id strin
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ConnectionEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Creates a new controller service
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -228,10 +228,10 @@ ProcessGroupsApiService Creates a new controller service
 */
 func (a *ProcessGroupsApiService) CreateControllerService(ctx context.Context, id string, body ControllerServiceEntity) (ControllerServiceEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ControllerServiceEntity
 	)
 
@@ -282,36 +282,36 @@ func (a *ProcessGroupsApiService) CreateControllerService(ctx context.Context, i
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ControllerServiceEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Creates a request to drop all flowfiles of all connection queues in this process group.
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -321,10 +321,10 @@ ProcessGroupsApiService Creates a request to drop all flowfiles of all connectio
 */
 func (a *ProcessGroupsApiService) CreateEmptyAllConnectionsRequest(ctx context.Context, id string) (ProcessGroupEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupEntity
 	)
 
@@ -373,36 +373,36 @@ func (a *ProcessGroupsApiService) CreateEmptyAllConnectionsRequest(ctx context.C
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Creates a funnel
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -413,10 +413,10 @@ ProcessGroupsApiService Creates a funnel
 */
 func (a *ProcessGroupsApiService) CreateFunnel(ctx context.Context, id string, body FunnelEntity) (FunnelEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FunnelEntity
 	)
 
@@ -467,36 +467,36 @@ func (a *ProcessGroupsApiService) CreateFunnel(ctx context.Context, id string, b
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v FunnelEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Creates an input port
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -507,10 +507,10 @@ ProcessGroupsApiService Creates an input port
 */
 func (a *ProcessGroupsApiService) CreateInputPort(ctx context.Context, id string, body PortEntity) (PortEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PortEntity
 	)
 
@@ -561,36 +561,36 @@ func (a *ProcessGroupsApiService) CreateInputPort(ctx context.Context, id string
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v PortEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Creates a label
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -601,10 +601,10 @@ ProcessGroupsApiService Creates a label
 */
 func (a *ProcessGroupsApiService) CreateLabel(ctx context.Context, id string, body LabelEntity) (LabelEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue LabelEntity
 	)
 
@@ -655,36 +655,36 @@ func (a *ProcessGroupsApiService) CreateLabel(ctx context.Context, id string, bo
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v LabelEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Creates an output port
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -695,10 +695,10 @@ ProcessGroupsApiService Creates an output port
 */
 func (a *ProcessGroupsApiService) CreateOutputPort(ctx context.Context, id string, body PortEntity) (PortEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue PortEntity
 	)
 
@@ -749,36 +749,36 @@ func (a *ProcessGroupsApiService) CreateOutputPort(ctx context.Context, id strin
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v PortEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Creates a process group
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -789,10 +789,10 @@ ProcessGroupsApiService Creates a process group
 */
 func (a *ProcessGroupsApiService) CreateProcessGroup(ctx context.Context, id string, body ProcessGroupEntity) (ProcessGroupEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupEntity
 	)
 
@@ -843,36 +843,36 @@ func (a *ProcessGroupsApiService) CreateProcessGroup(ctx context.Context, id str
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Creates a new processor
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -883,10 +883,10 @@ ProcessGroupsApiService Creates a new processor
 */
 func (a *ProcessGroupsApiService) CreateProcessor(ctx context.Context, id string, body ProcessorEntity) (ProcessorEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorEntity
 	)
 
@@ -937,36 +937,36 @@ func (a *ProcessGroupsApiService) CreateProcessor(ctx context.Context, id string
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessorEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Creates a new process group
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -977,10 +977,10 @@ ProcessGroupsApiService Creates a new process group
 */
 func (a *ProcessGroupsApiService) CreateRemoteProcessGroup(ctx context.Context, id string, body RemoteProcessGroupEntity) (RemoteProcessGroupEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupEntity
 	)
 
@@ -1031,36 +1031,36 @@ func (a *ProcessGroupsApiService) CreateRemoteProcessGroup(ctx context.Context, 
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v RemoteProcessGroupEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Creates a template and discards the specified snippet.
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1071,10 +1071,10 @@ ProcessGroupsApiService Creates a template and discards the specified snippet.
 */
 func (a *ProcessGroupsApiService) CreateTemplate(ctx context.Context, id string, body CreateTemplateRequestEntity) (TemplateEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TemplateEntity
 	)
 
@@ -1125,36 +1125,36 @@ func (a *ProcessGroupsApiService) CreateTemplate(ctx context.Context, id string,
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v TemplateEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Deletes the Replace Request with the given ID
 Deletes the Replace Request with the given ID. After a request is created via a POST to /process-groups/{id}/replace-requests, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Replace process has completed. If the request is deleted before the request completes, then the Replace request will finish the step that it is currently performing and then will cancel any subsequent steps. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1165,16 +1165,16 @@ Deletes the Replace Request with the given ID. After a request is created via a 
 @return ProcessGroupReplaceRequestEntity
 */
 
-type ProcessGroupsApiDeleteReplaceProcessGroupRequestOpts struct { 
+type ProcessGroupsApiDeleteReplaceProcessGroupRequestOpts struct {
 	DisconnectedNodeAcknowledged optional.Bool
 }
 
 func (a *ProcessGroupsApiService) DeleteReplaceProcessGroupRequest(ctx context.Context, id string, localVarOptionals *ProcessGroupsApiDeleteReplaceProcessGroupRequestOpts) (ProcessGroupReplaceRequestEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupReplaceRequestEntity
 	)
 
@@ -1226,36 +1226,36 @@ func (a *ProcessGroupsApiService) DeleteReplaceProcessGroupRequest(ctx context.C
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupReplaceRequestEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Deletes an update request for a process group&#39;s variable registry. If the request is not yet complete, it will automatically be cancelled.
 Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1267,16 +1267,16 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 @return VariableRegistryUpdateRequestEntity
 */
 
-type ProcessGroupsApiDeleteVariableRegistryUpdateRequestOpts struct { 
+type ProcessGroupsApiDeleteVariableRegistryUpdateRequestOpts struct {
 	DisconnectedNodeAcknowledged optional.Bool
 }
 
 func (a *ProcessGroupsApiService) DeleteVariableRegistryUpdateRequest(ctx context.Context, groupId string, updateId string, localVarOptionals *ProcessGroupsApiDeleteVariableRegistryUpdateRequestOpts) (VariableRegistryUpdateRequestEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VariableRegistryUpdateRequestEntity
 	)
 
@@ -1329,36 +1329,36 @@ func (a *ProcessGroupsApiService) DeleteVariableRegistryUpdateRequest(ctx contex
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v VariableRegistryUpdateRequestEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets a process group for download
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1368,10 +1368,10 @@ ProcessGroupsApiService Gets a process group for download
 */
 func (a *ProcessGroupsApiService) ExportProcessGroup(ctx context.Context, id string) (string, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue string
 	)
 
@@ -1420,36 +1420,36 @@ func (a *ProcessGroupsApiService) ExportProcessGroup(ctx context.Context, id str
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v string
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets all connections
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1459,10 +1459,10 @@ ProcessGroupsApiService Gets all connections
 */
 func (a *ProcessGroupsApiService) GetConnections(ctx context.Context, id string) (ConnectionsEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ConnectionsEntity
 	)
 
@@ -1511,36 +1511,36 @@ func (a *ProcessGroupsApiService) GetConnections(ctx context.Context, id string)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ConnectionsEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets the current status of a drop all flowfiles request.
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1551,10 +1551,10 @@ ProcessGroupsApiService Gets the current status of a drop all flowfiles request.
 */
 func (a *ProcessGroupsApiService) GetDropAllFlowfilesRequest(ctx context.Context, id string, dropRequestId string) (DropRequestEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue DropRequestEntity
 	)
 
@@ -1604,36 +1604,36 @@ func (a *ProcessGroupsApiService) GetDropAllFlowfilesRequest(ctx context.Context
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v DropRequestEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets all funnels
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1643,10 +1643,10 @@ ProcessGroupsApiService Gets all funnels
 */
 func (a *ProcessGroupsApiService) GetFunnels(ctx context.Context, id string) (FunnelsEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FunnelsEntity
 	)
 
@@ -1695,36 +1695,36 @@ func (a *ProcessGroupsApiService) GetFunnels(ctx context.Context, id string) (Fu
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v FunnelsEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets all input ports
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1734,10 +1734,10 @@ ProcessGroupsApiService Gets all input ports
 */
 func (a *ProcessGroupsApiService) GetInputPorts(ctx context.Context, id string) (InputPortsEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue InputPortsEntity
 	)
 
@@ -1786,36 +1786,36 @@ func (a *ProcessGroupsApiService) GetInputPorts(ctx context.Context, id string) 
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v InputPortsEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets all labels
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1825,10 +1825,10 @@ ProcessGroupsApiService Gets all labels
 */
 func (a *ProcessGroupsApiService) GetLabels(ctx context.Context, id string) (LabelsEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue LabelsEntity
 	)
 
@@ -1877,36 +1877,36 @@ func (a *ProcessGroupsApiService) GetLabels(ctx context.Context, id string) (Lab
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v LabelsEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets a list of local modifications to the Process Group since it was last synchronized with the Flow Registry
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1916,10 +1916,10 @@ ProcessGroupsApiService Gets a list of local modifications to the Process Group 
 */
 func (a *ProcessGroupsApiService) GetLocalModifications(ctx context.Context, id string) (FlowComparisonEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FlowComparisonEntity
 	)
 
@@ -1968,36 +1968,36 @@ func (a *ProcessGroupsApiService) GetLocalModifications(ctx context.Context, id 
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowComparisonEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets all output ports
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2007,10 +2007,10 @@ ProcessGroupsApiService Gets all output ports
 */
 func (a *ProcessGroupsApiService) GetOutputPorts(ctx context.Context, id string) (OutputPortsEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue OutputPortsEntity
 	)
 
@@ -2059,36 +2059,36 @@ func (a *ProcessGroupsApiService) GetOutputPorts(ctx context.Context, id string)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v OutputPortsEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets a process group
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2098,10 +2098,10 @@ ProcessGroupsApiService Gets a process group
 */
 func (a *ProcessGroupsApiService) GetProcessGroup(ctx context.Context, id string) (ProcessGroupEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupEntity
 	)
 
@@ -2150,36 +2150,36 @@ func (a *ProcessGroupsApiService) GetProcessGroup(ctx context.Context, id string
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets all process groups
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2189,10 +2189,10 @@ ProcessGroupsApiService Gets all process groups
 */
 func (a *ProcessGroupsApiService) GetProcessGroups(ctx context.Context, id string) (ProcessGroupsEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupsEntity
 	)
 
@@ -2241,36 +2241,36 @@ func (a *ProcessGroupsApiService) GetProcessGroups(ctx context.Context, id strin
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupsEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets all processors
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2281,16 +2281,16 @@ ProcessGroupsApiService Gets all processors
 @return ProcessorsEntity
 */
 
-type ProcessGroupsApiGetProcessorsOpts struct { 
+type ProcessGroupsApiGetProcessorsOpts struct {
 	IncludeDescendantGroups optional.Bool
 }
 
 func (a *ProcessGroupsApiService) GetProcessors(ctx context.Context, id string, localVarOptionals *ProcessGroupsApiGetProcessorsOpts) (ProcessorsEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessorsEntity
 	)
 
@@ -2342,36 +2342,36 @@ func (a *ProcessGroupsApiService) GetProcessors(ctx context.Context, id string, 
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessorsEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets all remote process groups
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2381,10 +2381,10 @@ ProcessGroupsApiService Gets all remote process groups
 */
 func (a *ProcessGroupsApiService) GetRemoteProcessGroups(ctx context.Context, id string) (RemoteProcessGroupsEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue RemoteProcessGroupsEntity
 	)
 
@@ -2433,36 +2433,36 @@ func (a *ProcessGroupsApiService) GetRemoteProcessGroups(ctx context.Context, id
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v RemoteProcessGroupsEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Returns the Replace Request with the given ID
 Returns the Replace Request with the given ID. Once a Replace Request has been created by performing a POST to /process-groups/{id}/replace-requests, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2472,10 +2472,10 @@ Returns the Replace Request with the given ID. Once a Replace Request has been c
 */
 func (a *ProcessGroupsApiService) GetReplaceProcessGroupRequest(ctx context.Context, id string) (ProcessGroupReplaceRequestEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupReplaceRequestEntity
 	)
 
@@ -2524,36 +2524,36 @@ func (a *ProcessGroupsApiService) GetReplaceProcessGroupRequest(ctx context.Cont
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupReplaceRequestEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets a process group&#39;s variable registry
 Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2564,16 +2564,16 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 @return VariableRegistryEntity
 */
 
-type ProcessGroupsApiGetVariableRegistryOpts struct { 
+type ProcessGroupsApiGetVariableRegistryOpts struct {
 	IncludeAncestorGroups optional.Bool
 }
 
 func (a *ProcessGroupsApiService) GetVariableRegistry(ctx context.Context, id string, localVarOptionals *ProcessGroupsApiGetVariableRegistryOpts) (VariableRegistryEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VariableRegistryEntity
 	)
 
@@ -2625,36 +2625,36 @@ func (a *ProcessGroupsApiService) GetVariableRegistry(ctx context.Context, id st
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v VariableRegistryEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Gets a process group&#39;s variable registry
 Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2665,10 +2665,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *ProcessGroupsApiService) GetVariableRegistryUpdateRequest(ctx context.Context, groupId string, updateId string) (VariableRegistryUpdateRequestEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VariableRegistryUpdateRequestEntity
 	)
 
@@ -2718,36 +2718,36 @@ func (a *ProcessGroupsApiService) GetVariableRegistryUpdateRequest(ctx context.C
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v VariableRegistryUpdateRequestEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Imports a specified process group
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2757,10 +2757,10 @@ ProcessGroupsApiService Imports a specified process group
 */
 func (a *ProcessGroupsApiService) ImportProcessGroup(ctx context.Context, id string) (ProcessGroupEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupEntity
 	)
 
@@ -2809,36 +2809,36 @@ func (a *ProcessGroupsApiService) ImportProcessGroup(ctx context.Context, id str
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Imports a template
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2848,10 +2848,10 @@ ProcessGroupsApiService Imports a template
 */
 func (a *ProcessGroupsApiService) ImportTemplate(ctx context.Context, id string) (TemplateEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TemplateEntity
 	)
 
@@ -2900,36 +2900,36 @@ func (a *ProcessGroupsApiService) ImportTemplate(ctx context.Context, id string)
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v TemplateEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Initiate the Replace Request of a Process Group with the given ID
 This will initiate the action of replacing a process group with the given process group. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a ProcessGroupReplaceRequestEntity, and the process of replacing the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /process-groups/replace-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /process-groups/replace-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2940,10 +2940,10 @@ This will initiate the action of replacing a process group with the given proces
 */
 func (a *ProcessGroupsApiService) InitiateReplaceProcessGroup(ctx context.Context, id string, body ProcessGroupImportEntity) (ProcessGroupReplaceRequestEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupReplaceRequestEntity
 	)
 
@@ -2994,36 +2994,36 @@ func (a *ProcessGroupsApiService) InitiateReplaceProcessGroup(ctx context.Contex
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupReplaceRequestEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Instantiates a template
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3034,10 +3034,10 @@ ProcessGroupsApiService Instantiates a template
 */
 func (a *ProcessGroupsApiService) InstantiateTemplate(ctx context.Context, id string, body InstantiateTemplateRequestEntity) (FlowEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue FlowEntity
 	)
 
@@ -3088,36 +3088,36 @@ func (a *ProcessGroupsApiService) InstantiateTemplate(ctx context.Context, id st
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Cancels and/or removes a request to drop all flowfiles.
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3128,10 +3128,10 @@ ProcessGroupsApiService Cancels and/or removes a request to drop all flowfiles.
 */
 func (a *ProcessGroupsApiService) RemoveDropRequest(ctx context.Context, id string, dropRequestId string) (DropRequestEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue DropRequestEntity
 	)
 
@@ -3181,36 +3181,36 @@ func (a *ProcessGroupsApiService) RemoveDropRequest(ctx context.Context, id stri
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v DropRequestEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Deletes a process group
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3223,18 +3223,18 @@ ProcessGroupsApiService Deletes a process group
 @return ProcessGroupEntity
 */
 
-type ProcessGroupsApiRemoveProcessGroupOpts struct { 
-	Version optional.String
-	ClientId optional.String
+type ProcessGroupsApiRemoveProcessGroupOpts struct {
+	Version                      optional.String
+	ClientId                     optional.String
 	DisconnectedNodeAcknowledged optional.Bool
 }
 
 func (a *ProcessGroupsApiService) RemoveProcessGroup(ctx context.Context, id string, localVarOptionals *ProcessGroupsApiRemoveProcessGroupOpts) (ProcessGroupEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupEntity
 	)
 
@@ -3292,36 +3292,36 @@ func (a *ProcessGroupsApiService) RemoveProcessGroup(ctx context.Context, id str
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Replace Process Group contents with the given ID with the specified Process Group contents
 This endpoint is used for replication within a cluster, when replacing a flow with a new flow. It expects that the flow beingreplaced is not under version control and that the given snapshot will not modify any Processor that is currently running or any Controller Service that is enabled. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3332,10 +3332,10 @@ This endpoint is used for replication within a cluster, when replacing a flow wi
 */
 func (a *ProcessGroupsApiService) ReplaceProcessGroup(ctx context.Context, id string, body ProcessGroupImportEntity) (ProcessGroupImportEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupImportEntity
 	)
 
@@ -3386,36 +3386,36 @@ func (a *ProcessGroupsApiService) ReplaceProcessGroup(ctx context.Context, id st
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupImportEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Submits a request to update a process group&#39;s variable registry
 Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3426,10 +3426,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *ProcessGroupsApiService) SubmitUpdateVariableRegistryRequest(ctx context.Context, id string, body VariableRegistryEntity) (VariableRegistryUpdateRequestEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VariableRegistryUpdateRequestEntity
 	)
 
@@ -3480,36 +3480,36 @@ func (a *ProcessGroupsApiService) SubmitUpdateVariableRegistryRequest(ctx contex
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v VariableRegistryUpdateRequestEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Updates a process group
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3520,10 +3520,10 @@ ProcessGroupsApiService Updates a process group
 */
 func (a *ProcessGroupsApiService) UpdateProcessGroup(ctx context.Context, id string, body ProcessGroupEntity) (ProcessGroupEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupEntity
 	)
 
@@ -3574,36 +3574,36 @@ func (a *ProcessGroupsApiService) UpdateProcessGroup(ctx context.Context, id str
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Updates the contents of a Process Group&#39;s variable Registry
 Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3614,10 +3614,10 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 */
 func (a *ProcessGroupsApiService) UpdateVariableRegistry(ctx context.Context, id string, body VariableRegistryEntity) (VariableRegistryEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue VariableRegistryEntity
 	)
 
@@ -3668,36 +3668,36 @@ func (a *ProcessGroupsApiService) UpdateVariableRegistry(ctx context.Context, id
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v VariableRegistryEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Uploads a versioned flow definition and creates a process group
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3712,16 +3712,16 @@ ProcessGroupsApiService Uploads a versioned flow definition and creates a proces
 @return ProcessGroupEntity
 */
 
-type ProcessGroupsApiUploadProcessGroupOpts struct { 
+type ProcessGroupsApiUploadProcessGroupOpts struct {
 	Body optional.Bool
 }
 
 func (a *ProcessGroupsApiService) UploadProcessGroup(ctx context.Context, id string, body string, body2 float64, body3 float64, body4 string, localVarOptionals *ProcessGroupsApiUploadProcessGroupOpts) (ProcessGroupEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessGroupEntity
 	)
 
@@ -3760,8 +3760,8 @@ func (a *ProcessGroupsApiService) UploadProcessGroup(ctx context.Context, id str
 	localVarPostBody = &body4
 	// body params
 	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
-		localVarPostBody = &localVarOptionals.Body.Value()
-		
+		localVarPostBody = localVarOptionals.Body.Value()
+
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
@@ -3783,36 +3783,36 @@ func (a *ProcessGroupsApiService) UploadProcessGroup(ctx context.Context, id str
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ProcessGroupEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/* 
+/*
 ProcessGroupsApiService Uploads a template
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3824,16 +3824,16 @@ ProcessGroupsApiService Uploads a template
 @return TemplateEntity
 */
 
-type ProcessGroupsApiUploadTemplateOpts struct { 
+type ProcessGroupsApiUploadTemplateOpts struct {
 	Body optional.Bool
 }
 
 func (a *ProcessGroupsApiService) UploadTemplate(ctx context.Context, id string, template *os.File, localVarOptionals *ProcessGroupsApiUploadTemplateOpts) (TemplateEntity, *http.Response, *string, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue TemplateEntity
 	)
 
@@ -3862,7 +3862,7 @@ func (a *ProcessGroupsApiService) UploadTemplate(ctx context.Context, id string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-    localVarFile := template
+	localVarFile := template
 	if localVarFile != nil {
 		fbs, _ := ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs
@@ -3871,8 +3871,8 @@ func (a *ProcessGroupsApiService) UploadTemplate(ctx context.Context, id string,
 	}
 	// body params
 	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
-		localVarPostBody = &localVarOptionals.Body.Value()
-		
+		localVarPostBody = localVarOptionals.Body.Value()
+
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
@@ -3894,29 +3894,29 @@ func (a *ProcessGroupsApiService) UploadTemplate(ctx context.Context, id string,
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v TemplateEntity
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
