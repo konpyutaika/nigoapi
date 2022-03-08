@@ -1,4 +1,4 @@
-module github.com/erdrix/nigoapi
+module github.com/juldrixx/nigoapi
 
 go 1.13
 
