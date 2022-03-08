@@ -1,6 +1,6 @@
 module github.com/juldrixx/nigoapi
 
-go 1.13
+go 1.15
 
 require (
 	github.com/antihax/optional v1.0.0
