@@ -12,7 +12,7 @@ package nifi
 
 type PositionDto struct {
 	// The x coordinate.
-	X float64 `json:"x,omitempty"`
+	X float64 `json:"x"`
 	// The y coordinate.
-	Y float64 `json:"y,omitempty"`
+	Y float64 `json:"y"`
 }

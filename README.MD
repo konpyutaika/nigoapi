@@ -50,14 +50,21 @@ Manual changes :
 - In `model_parameter_dto`, replace : 
   
     ```golang
+    // The value of the Parameter
     Value string `json:"value,omitempty"`
+    // The description of the Parameter
+	  Description string `json:"description,omitempty"`
     ```
     
     by :
     
     ```golang
+    // The value of the Parameter
     Value *string `json:"value,omitempty"`
-    ``` 
+    // The description of the Parameter
+	  Description *string `json:"description,omitempty"`
+    ```
+
 - In `model_parameter_context_dto`, replace : 
   
     ```golang
@@ -76,8 +83,55 @@ Manual changes :
     BoundProcessGroups []ProcessGroupEntity `json:"boundProcessGroups"`
     // A list of references of Parameter Contexts from which this one inherits parameters
     InheritedParameterContexts []ParameterContextReferenceEntity `json:"inheritedParameterContexts"`
-    ``` 
+    ```
+
+- In `ParameterContextDto`, replace : 
   
+    ```markdown
+    **Parameters** | [**[]ParameterEntity**](ParameterEntity.md) | The Parameters for the Parameter Context | [optional] [default to null]
+    **InheritedParameterContexts** | [**[]ParameterContextReferenceEntity**](ParameterContextReferenceEntity.md) | A list of references of Parameter Contexts from which this one inherits parameters | [optional] [default to null]
+    ```
+    
+    by :
+    
+    ```markdown
+    **Parameters** | [**[]ParameterEntity**](ParameterEntity.md) | The Parameters for the Parameter Context | [required] [default to null]
+    **InheritedParameterContexts** | [**[]ParameterContextReferenceEntity**](ParameterContextReferenceEntity.md) | A list of references of Parameter Contexts from which this one inherits parameters | [required] [default to null]
+    ```
+
+
+- In `model_position_dto`, replace : 
+  
+    ```golang
+    // The x coordinate.
+    X float64 `json:"x,omitempty"`
+    // The y coordinate.
+    Y float64 `json:"y,omitempty"`
+    ```
+    
+    by :
+    
+    ```golang
+    // The x coordinate.
+    X float64 `json:"x"`
+    // The y coordinate.
+    Y float64 `json:"y"`
+    ```
+
+- In `Position`, replace : 
+  
+    ```markdown
+    **X** | **float64** | The x coordinate. | [optional] [default to null]
+    **Y** | **float64** | The y coordinate. | [optional] [default to null]
+    ```
+    
+    by :
+    
+    ```markdown
+    **X** | **float64** | The x coordinate. | [required] [default to null]
+    **Y** | **float64** | The y coordinate. | [required] [default to null]
+    ```
+
 - replace 
 
   ```golang
