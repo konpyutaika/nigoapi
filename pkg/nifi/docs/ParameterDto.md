@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the Parameter | [optional] [default to null]
 **Description** | **string** | The description of the Parameter | [optional] [default to null]
 **Sensitive** | **bool** | Whether or not the Parameter is sensitive | [optional] [default to null]
-**Value** | **string** | The value of the Parameter | [optional] [default to null]
+**Value** | **string** | The value of the Parameter | [required] [default to null]
 **ValueRemoved** | **bool** | Whether or not the value of the Parameter was removed. When a request is made to change a parameter, the value may be null. The absence of the value may be used either to indicate that the value is not to be changed, or that the value is to be set to null (i.e., removed). This denotes which of the two scenarios is being encountered. | [optional] [default to null]
 **ReferencingComponents** | [**[]AffectedComponentEntity**](AffectedComponentEntity.md) | The set of all components in the flow that are referencing this Parameter | [optional] [default to null]
 **ParameterContext** | [***ParameterContextReferenceEntity**](ParameterContextReferenceEntity.md) | A reference to the Parameter Context that contains this one | [optional] [default to null]
