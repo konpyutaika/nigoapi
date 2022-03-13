@@ -57,8 +57,28 @@ Manual changes :
     
     ```golang
     Value *string `json:"value,omitempty"`
-    ``` 
+    ```
+
+- In `model_parameter_context_dto`, replace : 
   
+    ```golang
+    Parameters []ParameterEntity `json:"parameters,omitempty"`
+    // The Process Groups that are bound to this Parameter Context
+    BoundProcessGroups []ProcessGroupEntity `json:"boundProcessGroups,omitempty"`
+    // A list of references of Parameter Contexts from which this one inherits parameters
+    InheritedParameterContexts []ParameterContextReferenceEntity `json:"inheritedParameterContexts,omitempty"`
+    ```
+    
+    by :
+    
+    ```golang
+    Parameters []ParameterEntity `json:"parameters"`
+    // The Process Groups that are bound to this Parameter Context
+    BoundProcessGroups []ProcessGroupEntity `json:"boundProcessGroups"`
+    // A list of references of Parameter Contexts from which this one inherits parameters
+    InheritedParameterContexts []ParameterContextReferenceEntity `json:"inheritedParameterContexts"`
+    ``` 
+
 - replace 
 
   ```golang
