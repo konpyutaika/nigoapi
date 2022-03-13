@@ -60,7 +60,7 @@ Manual changes :
     
     ```golang
     // The value of the Parameter
-    Value *string `json:"value,omitempty"`
+    Value *string `json:"value"`
     // The description of the Parameter
 	  Description *string `json:"description,omitempty"`
     ```
