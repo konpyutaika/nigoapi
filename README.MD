@@ -60,9 +60,21 @@ Manual changes :
     
     ```golang
     // The value of the Parameter
-    Value *string `json:"value,omitempty"`
+    Value *string `json:"value"`
     // The description of the Parameter
 	  Description *string `json:"description,omitempty"`
+    ```
+
+- In `ParameterDto`, replace : 
+  
+    ```markdown
+    **Value** | **string** | The value of the Parameter | [optional] [default to null]
+    ```
+    
+    by :
+    
+    ```markdown
+    **Value** | **string** | The value of the Parameter | [required] [default to null]
     ```
 
 - In `model_parameter_context_dto`, replace : 
