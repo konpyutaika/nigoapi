@@ -40,6 +40,7 @@ Method | HTTP request | Description
 [**GetRemoteProcessGroupStatusHistory**](FlowApi.md#GetRemoteProcessGroupStatusHistory) | **Get** /flow/remote-process-groups/{id}/status/history | Gets the status history
 [**GetReportingTaskTypes**](FlowApi.md#GetReportingTaskTypes) | **Get** /flow/reporting-task-types | Retrieves the types of reporting tasks that this NiFi supports
 [**GetReportingTasks**](FlowApi.md#GetReportingTasks) | **Get** /flow/reporting-tasks | Gets all reporting tasks
+[**GetRuntimeManifest**](FlowApi.md#GetRuntimeManifest) | **Get** /flow/runtime-manifest | Retrieves the runtime manifest for this NiFi instance.
 [**GetTemplates**](FlowApi.md#GetTemplates) | **Get** /flow/templates | Gets all templates
 [**GetVersions**](FlowApi.md#GetVersions) | **Get** /flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/versions | Gets the flow versions from the specified registry and bucket for the specified flow for the current user
 [**QueryHistory**](FlowApi.md#QueryHistory) | **Get** /flow/history | Gets configuration history
@@ -467,13 +468,24 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetControllerServicesFromController**
-> ControllerServicesEntity GetControllerServicesFromController(ctx, )
+> ControllerServicesEntity GetControllerServicesFromController(ctx, optional)
 Gets controller services for reporting tasks
 
-
+If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
 
 ### Required Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***FlowApiGetControllerServicesFromControllerOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiGetControllerServicesFromControllerOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uiOnly** | **optional.Bool**|  | [default to false]
 
 ### Return type
 
@@ -494,7 +506,7 @@ No authorization required
 > ControllerServicesEntity GetControllerServicesFromGroup(ctx, id, optional)
 Gets all controller services
 
-
+If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
 
 ### Required Parameters
 
@@ -512,6 +524,7 @@ Name | Type | Description  | Notes
 
  **includeAncestorGroups** | **optional.Bool**| Whether or not to include parent/ancestory process groups | [default to true]
  **includeDescendantGroups** | **optional.Bool**| Whether or not to include descendant process groups | [default to false]
+ **uiOnly** | **optional.Bool**|  | [default to false]
 
 ### Return type
 
@@ -638,7 +651,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetFlowMetrics**
-> StreamingOutput GetFlowMetrics(ctx, producer)
+> StreamingOutput GetFlowMetrics(ctx, producer, optional)
 Gets all metrics for the flow from a particular node
 
 
@@ -649,6 +662,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **producer** | **string**| The producer for flow file metrics. Each producer may have its own output format. | 
+ **optional** | ***FlowApiGetFlowMetricsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiGetFlowMetricsOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **includedRegistries** | [**optional.Interface of []string**](string.md)| Set of included metrics registries | 
+ **sampleName** | **optional.String**| Regular Expression Pattern to be applied against the sample name field | 
+ **sampleLabelValue** | **optional.String**| Regular Expression Pattern to be applied against the sample label value field | 
+ **rootFieldName** | **optional.String**| Name of the first field of JSON object. Applicable for JSON producer only. | 
 
 ### Return type
 
@@ -1127,6 +1152,30 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ReportingTasksEntity**](ReportingTasksEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetRuntimeManifest**
+> RuntimeManifestEntity GetRuntimeManifest(ctx, )
+Retrieves the runtime manifest for this NiFi instance.
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**RuntimeManifestEntity**](RuntimeManifestEntity.md)
 
 ### Authorization
 

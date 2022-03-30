@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The Name of the Parameter Context. | [optional] [default to null]
 **Description** | **string** | The Description of the Parameter Context. | [optional] [default to null]
 **Parameters** | [**[]ParameterEntity**](ParameterEntity.md) | The Parameters for the Parameter Context | [required] [default to null]
-**BoundProcessGroups** | [**[]ProcessGroupEntity**](ProcessGroupEntity.md) | The Process Groups that are bound to this Parameter Context | [optional] [default to null]
+**BoundProcessGroups** | [**[]ProcessGroupEntity**](ProcessGroupEntity.md) | The Process Groups that are bound to this Parameter Context | [required] [default to null]
 **InheritedParameterContexts** | [**[]ParameterContextReferenceEntity**](ParameterContextReferenceEntity.md) | A list of references of Parameter Contexts from which this one inherits parameters | [required] [default to null]
 **Id** | **string** | The ID the Parameter Context. | [optional] [default to null]
 

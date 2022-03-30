@@ -106,10 +106,10 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetControllerService**
-> ControllerServiceEntity GetControllerService(ctx, id)
+> ControllerServiceEntity GetControllerService(ctx, id, optional)
 Gets a controller service
 
-
+If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
 
 ### Required Parameters
 
@@ -117,6 +117,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| The controller service id. | 
+ **optional** | ***ControllerServicesApiGetControllerServiceOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ControllerServicesApiGetControllerServiceOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **uiOnly** | **optional.Bool**|  | [default to false]
 
 ### Return type
 

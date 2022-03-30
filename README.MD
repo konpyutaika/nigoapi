@@ -130,7 +130,7 @@ Manual changes :
     Y float64 `json:"y"`
     ```
 
-- In `Position`, replace : 
+- In `PositionDto`, replace : 
   
     ```markdown
     **X** | **float64** | The x coordinate. | [optional] [default to null]
@@ -160,10 +160,7 @@ Manual changes :
   SubmissionTime string `json:"submissionTime,omitempty"`
   // The timestamp of when the request was last updated
   LastUpdated string `json:"lastUpdated,omitempty"`
-  ```
-  
- 
- 
+  ``` 
 
 ## Credits
 

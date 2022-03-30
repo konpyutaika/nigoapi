@@ -20,6 +20,10 @@ Name | Type | Description | Notes
 **AnnotationData** | **string** | The annotation data for the processor used to relay configuration between a custom UI and the procesosr. | [optional] [default to null]
 **DefaultConcurrentTasks** | **map[string]string** | Maps default values for concurrent tasks for each applicable scheduling strategy. | [optional] [default to null]
 **DefaultSchedulingPeriod** | **map[string]string** | Maps default values for scheduling period for each applicable scheduling strategy. | [optional] [default to null]
+**RetryCount** | **int32** | Overall number of retries. | [optional] [default to null]
+**RetriedRelationships** | **[]string** | All the relationships should be retried. | [optional] [default to null]
+**BackoffMechanism** | **string** | Determines whether the FlowFile should be penalized or the processor should be yielded between retries. | [optional] [default to null]
+**MaxBackoffPeriod** | **string** | Maximum amount of time to be waited during a retry period. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
