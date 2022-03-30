@@ -1,4 +1,4 @@
-module github.com/juldrixx/nigoapi
+module github.com/konpyutaika/nigoapi
 
 go 1.15
 
