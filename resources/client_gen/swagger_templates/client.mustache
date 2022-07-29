@@ -164,7 +164,7 @@ func (c *APIClient) AddDefaultHeader(key string, value string) {
 	}
 }
 
-// Add default header to request
+// Remove default header
 func (c *APIClient) RemoveDefaultHeader(key string) {
 	if key != "" {
 		if _, ok := c.cfg.DefaultHeader[key]; ok {
