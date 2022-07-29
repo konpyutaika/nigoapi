@@ -232,6 +232,22 @@ func (c *APIClient) ChangeBasePath(path string) {
 	c.cfg.BasePath = path
 }
 
+// Add default header to request
+func (c *APIClient) AddDefaultHeader(key string, value string) {
+	if key != "" && value != "" {
+		c.cfg.DefaultHeader[key] = value
+	}
+}
+
+// Add default header to request
+func (c *APIClient) RemoveDefaultHeader(key string) {
+	if key != "" {
+		if _, ok := c.cfg.DefaultHeader[key]; ok {
+			delete(c.cfg.DefaultHeader, key)
+		}
+	}
+}
+
 // prepareRequest build the request
 func (c *APIClient) prepareRequest(
 	ctx context.Context,
