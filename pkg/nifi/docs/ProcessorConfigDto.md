@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Properties** | **map[string]string** | The properties for the processor. Properties whose value is not set will only contain the property name. | [optional] [default to null]
 **Descriptors** | [**map[string]PropertyDescriptorDto**](PropertyDescriptorDTO.md) | Descriptors for the processor&#39;s properties. | [optional] [default to null]
+**SensitiveDynamicPropertyNames** | **[]string** | Set of sensitive dynamic property names | [optional] [default to null]
 **SchedulingPeriod** | **string** | The frequency with which to schedule the processor. The format of the value will depend on th value of schedulingStrategy. | [optional] [default to null]
 **SchedulingStrategy** | **string** | Indcates whether the prcessor should be scheduled to run in event or timer driven mode. | [optional] [default to null]
 **ExecutionNode** | **string** | Indicates the node where the process will execute. | [optional] [default to null]
@@ -20,6 +21,10 @@ Name | Type | Description | Notes
 **AnnotationData** | **string** | The annotation data for the processor used to relay configuration between a custom UI and the procesosr. | [optional] [default to null]
 **DefaultConcurrentTasks** | **map[string]string** | Maps default values for concurrent tasks for each applicable scheduling strategy. | [optional] [default to null]
 **DefaultSchedulingPeriod** | **map[string]string** | Maps default values for scheduling period for each applicable scheduling strategy. | [optional] [default to null]
+**RetryCount** | **int32** | Overall number of retries. | [optional] [default to null]
+**RetriedRelationships** | **[]string** | All the relationships should be retried. | [optional] [default to null]
+**BackoffMechanism** | **string** | Determines whether the FlowFile should be penalized or the processor should be yielded between retries. | [optional] [default to null]
+**MaxBackoffPeriod** | **string** | Maximum amount of time to be waited during a retry period. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
