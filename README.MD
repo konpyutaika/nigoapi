@@ -76,6 +76,7 @@ Manual changes :
 - In `model_parameter_context_dto`, replace : 
   
   ```golang
+	// The Parameters for the Parameter Context
   Parameters []ParameterEntity `json:"parameters,omitempty"`
   // The Process Groups that are bound to this Parameter Context
   BoundProcessGroups []ProcessGroupEntity `json:"boundProcessGroups,omitempty"`
@@ -86,6 +87,7 @@ Manual changes :
   by :
   
   ```golang
+	// The Parameters for the Parameter Context
   Parameters []ParameterEntity `json:"parameters"`
   // The Process Groups that are bound to this Parameter Context
   BoundProcessGroups []ProcessGroupEntity `json:"boundProcessGroups"`
