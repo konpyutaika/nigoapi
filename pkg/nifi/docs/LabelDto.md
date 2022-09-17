@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Label** | **string** | The text that appears in the label. | [optional] [default to null]
 **Width** | **float64** | The width of the label in pixels when at a 1:1 scale. | [optional] [default to null]
 **Height** | **float64** | The height of the label in pixels when at a 1:1 scale. | [optional] [default to null]
-**GetzIndex** | **int64** | The z index of the label. | [optional] [default to null]
 **Style** | **map[string]string** | The styles for this label (font-size : 12px, background-color : #eee, etc). | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

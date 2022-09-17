@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**CreateFlow**](BucketFlowsApi.md#CreateFlow) | **Post** /buckets/{bucketId}/flows | Create flow
 [**CreateFlowVersion**](BucketFlowsApi.md#CreateFlowVersion) | **Post** /buckets/{bucketId}/flows/{flowId}/versions | Create flow version
 [**DeleteFlow**](BucketFlowsApi.md#DeleteFlow) | **Delete** /buckets/{bucketId}/flows/{flowId} | Delete bucket flow
-[**ExportVersionedFlow**](BucketFlowsApi.md#ExportVersionedFlow) | **Get** /buckets/{bucketId}/flows/{flowId}/versions/{versionNumber}/export | Exports specified bucket flow version content
 [**GetFlow**](BucketFlowsApi.md#GetFlow) | **Get** /buckets/{bucketId}/flows/{flowId} | Get bucket flow
 [**GetFlowDiff**](BucketFlowsApi.md#GetFlowDiff) | **Get** /buckets/{bucketId}/flows/{flowId}/diff/{versionA}/{versionB} | Get bucket flow diff
 [**GetFlowVersion**](BucketFlowsApi.md#GetFlowVersion) | **Get** /buckets/{bucketId}/flows/{flowId}/versions/{versionNumber} | Get bucket flow version
@@ -15,7 +14,6 @@ Method | HTTP request | Description
 [**GetFlows**](BucketFlowsApi.md#GetFlows) | **Get** /buckets/{bucketId}/flows | Get bucket flows
 [**GetLatestFlowVersion**](BucketFlowsApi.md#GetLatestFlowVersion) | **Get** /buckets/{bucketId}/flows/{flowId}/versions/latest | Get latest bucket flow version content
 [**GetLatestFlowVersionMetadata**](BucketFlowsApi.md#GetLatestFlowVersionMetadata) | **Get** /buckets/{bucketId}/flows/{flowId}/versions/latest/metadata | Get latest bucket flow version metadata
-[**ImportVersionedFlow**](BucketFlowsApi.md#ImportVersionedFlow) | **Post** /buckets/{bucketId}/flows/{flowId}/versions/import | Import flow version
 [**UpdateFlow**](BucketFlowsApi.md#UpdateFlow) | **Put** /buckets/{bucketId}/flows/{flowId} | Update bucket flow
 
 
@@ -107,36 +105,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**VersionedFlow**](VersionedFlow.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ExportVersionedFlow**
-> VersionedFlowSnapshot ExportVersionedFlow(ctx, bucketId, flowId, versionNumber)
-Exports specified bucket flow version content
-
-Exports the specified version of a flow, including the metadata and content of the flow.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **bucketId** | **string**| The bucket identifier | 
-  **flowId** | **string**| The flow identifier | 
-  **versionNumber** | **int32**| The version number | 
-
-### Return type
-
-[**VersionedFlowSnapshot**](VersionedFlowSnapshot.md)
 
 ### Authorization
 
@@ -350,46 +318,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: */*
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ImportVersionedFlow**
-> VersionedFlowSnapshot ImportVersionedFlow(ctx, bucketId, flowId, optional)
-Import flow version
-
-Import the next version of a flow. The version number of the object being created will be the next available version integer. Flow versions are immutable after they are created.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **bucketId** | **string**| The bucket identifier | 
-  **flowId** | **string**| The flow identifier | 
- **optional** | ***BucketFlowsApiImportVersionedFlowOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a BucketFlowsApiImportVersionedFlowOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **body** | [**optional.Interface of VersionedFlowSnapshot**](VersionedFlowSnapshot.md)| file | 
- **comments** | **optional.String**|  | 
-
-### Return type
-
-[**VersionedFlowSnapshot**](VersionedFlowSnapshot.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

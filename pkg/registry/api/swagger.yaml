@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "The REST API provides an interface to a registry with operations for\
     \ saving, versioning, reading NiFi flows and components."
-  version: "1.17.0"
+  version: "0.8.0"
   title: "Apache NiFi Registry REST API"
   termsOfService: "As described in the license"
   contact:
@@ -15,8 +15,6 @@ info:
     url: "https://www.apache.org/licenses/LICENSE-2.0.html"
 basePath: "/nifi-registry-api"
 tags:
-- name: "about"
-  description: "Retrieves the version information for this NiFi Registry."
 - name: "access"
   description: "Endpoints for obtaining an access token or checking access status."
 - name: "bucket bundles"
@@ -46,23 +44,6 @@ schemes:
 - "http"
 - "https"
 paths:
-  /about:
-    get:
-      tags:
-      - "about"
-      summary: "Get version"
-      description: "Gets the NiFi Registry version."
-      operationId: "getVersion"
-      produces:
-      - "application/json"
-      parameters: []
-      security:
-      - Authorization: []
-      responses:
-        "200":
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/RegistryAbout"
   /access:
     get:
       tags:
@@ -76,8 +57,6 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -87,6 +66,8 @@ paths:
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid. The NiFi Registry might be\
             \ running unsecured."
+      security:
+      - Authorization: []
   /access/logout:
     delete:
       tags:
@@ -364,8 +345,6 @@ paths:
       produces:
       - "text/plain"
       parameters: []
-      security:
-      - BasicAuth: []
       responses:
         "200":
           description: "successful operation"
@@ -383,6 +362,8 @@ paths:
         "500":
           description: "NiFi Registry was unable to complete the request because an\
             \ unexpected error occurred."
+      security:
+      - BasicAuth: []
   /buckets:
     get:
       tags:
@@ -397,8 +378,6 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -408,6 +387,8 @@ paths:
               $ref: "#/definitions/Bucket"
         "401":
           description: "Client could not be authenticated."
+      security:
+      - Authorization: []
     post:
       tags:
       - "buckets"
@@ -426,8 +407,6 @@ paths:
         schema:
           $ref: "#/definitions/Bucket"
         x-exportParamName: "Body"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -440,6 +419,8 @@ paths:
           description: "Client could not be authenticated."
         "403":
           description: "Client is not authorized to make this request."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets"
         action: "write"
@@ -455,13 +436,13 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
           schema:
             $ref: "#/definitions/Fields"
+      security:
+      - Authorization: []
   /buckets/{bucketId}:
     get:
       tags:
@@ -480,8 +461,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "BucketId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -493,6 +472,8 @@ paths:
           description: "Client is not authorized to make this request."
         "404":
           description: "The specified resource could not be found."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -520,8 +501,6 @@ paths:
         schema:
           $ref: "#/definitions/Bucket"
         x-exportParamName: "Body"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -539,6 +518,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "write"
@@ -575,8 +556,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "BucketId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -591,6 +570,8 @@ paths:
           description: "Client is not authorized to make this request."
         "404":
           description: "The specified resource could not be found."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "delete"
@@ -613,8 +594,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "BucketId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -634,6 +613,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -676,8 +657,6 @@ paths:
         - "nifi-nar"
         - "minifi-cpp"
         x-exportParamName: "BundleType"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -695,6 +674,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "write"
@@ -716,8 +697,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "BucketId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -737,6 +716,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -765,8 +746,6 @@ paths:
         schema:
           $ref: "#/definitions/VersionedFlow"
         x-exportParamName: "Body"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -784,6 +763,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "write"
@@ -811,8 +792,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "FlowId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -830,6 +809,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -863,8 +844,6 @@ paths:
         schema:
           $ref: "#/definitions/VersionedFlow"
         x-exportParamName: "Body"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -882,6 +861,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "write"
@@ -923,8 +904,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "FlowId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -939,6 +918,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "delete"
@@ -982,8 +963,6 @@ paths:
         pattern: "\\d+"
         format: "int32"
         x-exportParamName: "VersionB"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1001,6 +980,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1029,8 +1010,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "FlowId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1047,6 +1026,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1082,8 +1063,6 @@ paths:
         schema:
           $ref: "#/definitions/VersionedFlowSnapshot"
         x-exportParamName: "Body"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1101,69 +1080,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
-      x-access-policy:
-        resource: "/buckets/{bucketId}"
-        action: "write"
-  /buckets/{bucketId}/flows/{flowId}/versions/import:
-    post:
-      tags:
-      - "bucket flows"
-      summary: "Import flow version"
-      description: "Import the next version of a flow. The version number of the object\
-        \ being created will be the next available version integer. Flow versions\
-        \ are immutable after they are created."
-      operationId: "importVersionedFlow"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "bucketId"
-        in: "path"
-        description: "The bucket identifier"
-        required: true
-        type: "string"
-        x-exportParamName: "BucketId"
-      - name: "flowId"
-        in: "path"
-        description: "The flow identifier"
-        required: true
-        type: "string"
-        x-exportParamName: "FlowId"
-      - in: "body"
-        name: "body"
-        description: "file"
-        required: false
-        schema:
-          $ref: "#/definitions/VersionedFlowSnapshot"
-        x-exportParamName: "Body"
-      - name: "Comments"
-        in: "header"
-        required: false
-        type: "string"
-        x-exportParamName: "Comments"
-        x-optionalDataType: "String"
       security:
       - Authorization: []
-      responses:
-        "200":
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/VersionedFlowSnapshot"
-        "201":
-          description: "The resource has been successfully created."
-        "400":
-          description: "NiFi Registry was unable to complete the request because it\
-            \ was invalid. The request should not be retried without modification."
-        "401":
-          description: "Client could not be authenticated."
-        "403":
-          description: "Client is not authorized to make this request."
-        "404":
-          description: "The specified resource could not be found."
-        "409":
-          description: "NiFi Registry was unable to complete the request because it\
-            \ assumes a server state that is not valid."
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "write"
@@ -1192,8 +1110,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "FlowId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1208,6 +1124,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1235,8 +1153,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "FlowId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1251,6 +1167,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1287,8 +1205,6 @@ paths:
         pattern: "\\d+"
         format: "int32"
         x-exportParamName: "VersionNumber"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1306,58 +1222,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
-      x-access-policy:
-        resource: "/buckets/{bucketId}"
-        action: "read"
-  /buckets/{bucketId}/flows/{flowId}/versions/{versionNumber}/export:
-    get:
-      tags:
-      - "bucket flows"
-      summary: "Exports specified bucket flow version content"
-      description: "Exports the specified version of a flow, including the metadata\
-        \ and content of the flow."
-      operationId: "exportVersionedFlow"
-      consumes:
-      - "*/*"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "bucketId"
-        in: "path"
-        description: "The bucket identifier"
-        required: true
-        type: "string"
-        x-exportParamName: "BucketId"
-      - name: "flowId"
-        in: "path"
-        description: "The flow identifier"
-        required: true
-        type: "string"
-        x-exportParamName: "FlowId"
-      - name: "versionNumber"
-        in: "path"
-        description: "The version number"
-        required: true
-        type: "integer"
-        pattern: "\\d+"
-        format: "int32"
-        x-exportParamName: "VersionNumber"
       security:
       - Authorization: []
-      responses:
-        "200":
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/VersionedFlowSnapshot"
-        "401":
-          description: "Client could not be authenticated."
-        "403":
-          description: "Client is not authorized to make this request."
-        "404":
-          description: "The specified resource could not be found."
-        "409":
-          description: "NiFi Registry was unable to complete the request because it\
-            \ assumes a server state that is not valid."
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1404,8 +1270,6 @@ paths:
         type: "string"
         x-exportParamName: "ArtifactId"
         x-optionalDataType: "String"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1415,6 +1279,8 @@ paths:
               $ref: "#/definitions/ExtensionBundle"
         "401":
           description: "Client could not be authenticated."
+      security:
+      - Authorization: []
   /bundles/versions:
     get:
       tags:
@@ -1457,8 +1323,6 @@ paths:
         type: "string"
         x-exportParamName: "Version"
         x-optionalDataType: "String"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1468,6 +1332,8 @@ paths:
               $ref: "#/definitions/BundleVersionMetadata"
         "401":
           description: "Client could not be authenticated."
+      security:
+      - Authorization: []
   /bundles/{bundleId}:
     get:
       tags:
@@ -1487,8 +1353,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "BundleId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1506,6 +1370,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1528,8 +1394,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "BundleId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1547,6 +1411,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "write"
@@ -1570,8 +1436,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "BundleId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1591,6 +1455,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1620,8 +1486,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Version"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1639,6 +1503,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1667,8 +1533,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Version"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1686,6 +1550,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "write"
@@ -1715,8 +1581,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Version"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1738,6 +1602,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1767,8 +1633,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Version"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1788,6 +1652,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1823,8 +1689,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Name"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1844,6 +1708,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1879,8 +1745,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Name"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1898,6 +1762,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1933,8 +1799,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Name"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1952,6 +1816,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -1967,8 +1833,6 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -1976,6 +1840,8 @@ paths:
             $ref: "#/definitions/RegistryConfiguration"
         "401":
           description: "Client could not be authenticated."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/policies,/tenants"
         action: "read"
@@ -1993,8 +1859,6 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2014,6 +1878,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
   /extension-repository/{bucketName}:
     get:
       tags:
@@ -2034,8 +1900,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "BucketName"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2055,6 +1919,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2084,8 +1950,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "GroupId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2105,6 +1969,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2140,8 +2006,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "ArtifactId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2161,6 +2025,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2202,8 +2068,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Version"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2221,6 +2085,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2262,8 +2128,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Version"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2285,6 +2149,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2326,8 +2192,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Version"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2347,6 +2211,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2394,8 +2260,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Name"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2413,6 +2277,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2460,8 +2326,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Name"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2479,6 +2343,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2526,8 +2392,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Name"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2545,6 +2409,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2587,8 +2453,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Version"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2606,6 +2470,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2644,8 +2510,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Version"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2663,6 +2527,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
   /extensions:
     get:
       tags:
@@ -2709,8 +2575,6 @@ paths:
           type: "string"
         collectionFormat: "multi"
         x-exportParamName: "Tag"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2728,6 +2592,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
   /extensions/provided-service-api:
     get:
       tags:
@@ -2768,8 +2634,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Version"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2787,6 +2651,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
   /extensions/tags:
     get:
       tags:
@@ -2801,8 +2667,6 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2822,6 +2686,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
   /flows/fields:
     get:
       tags:
@@ -2835,13 +2701,13 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
           schema:
             $ref: "#/definitions/Fields"
+      security:
+      - Authorization: []
   /flows/{flowId}:
     get:
       tags:
@@ -2860,8 +2726,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "FlowId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2879,6 +2743,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2901,8 +2767,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "FlowId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2919,6 +2783,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2941,8 +2807,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "FlowId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2957,6 +2821,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -2978,8 +2844,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "FlowId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -2994,6 +2858,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -3024,8 +2890,6 @@ paths:
         pattern: "\\d+"
         format: "int32"
         x-exportParamName: "VersionNumber"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3043,6 +2907,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -3060,8 +2926,6 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3071,6 +2935,8 @@ paths:
               $ref: "#/definitions/BucketItem"
         "401":
           description: "Client could not be authenticated."
+      security:
+      - Authorization: []
   /items/fields:
     get:
       tags:
@@ -3084,13 +2950,13 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
           schema:
             $ref: "#/definitions/Fields"
+      security:
+      - Authorization: []
   /items/{bucketId}:
     get:
       tags:
@@ -3109,8 +2975,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "BucketId"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3127,6 +2991,8 @@ paths:
           description: "Client is not authorized to make this request."
         "404":
           description: "The specified resource could not be found."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/buckets/{bucketId}"
         action: "read"
@@ -3142,8 +3008,6 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3158,6 +3022,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/policies"
         action: "read"
@@ -3179,8 +3045,6 @@ paths:
         schema:
           $ref: "#/definitions/AccessPolicy"
         x-exportParamName: "Body"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3197,6 +3061,8 @@ paths:
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid. The NiFi Registry might not\
             \ be configured to use a ConfigurableAccessPolicyProvider."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/policies"
         action: "write"
@@ -3213,8 +3079,6 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3226,6 +3090,8 @@ paths:
           description: "Client could not be authenticated."
         "403":
           description: "Client is not authorized to make this request."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/policies"
         action: "read"
@@ -3258,8 +3124,6 @@ paths:
         type: "string"
         pattern: ".+"
         x-exportParamName: "Resource"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3277,6 +3141,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/policies"
         action: "read"
@@ -3298,8 +3164,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Id"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3314,6 +3178,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/policies"
         action: "read"
@@ -3341,8 +3207,6 @@ paths:
         schema:
           $ref: "#/definitions/AccessPolicy"
         x-exportParamName: "Body"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3361,6 +3225,8 @@ paths:
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid. The NiFi Registry might not\
             \ be configured to use a ConfigurableAccessPolicyProvider."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/policies"
         action: "write"
@@ -3396,8 +3262,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Id"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3413,6 +3277,8 @@ paths:
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid. The NiFi Registry might not\
             \ be configured to use a ConfigurableAccessPolicyProvider."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/policies"
         action: "delete"
@@ -3429,8 +3295,6 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3450,6 +3314,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/tenants"
         action: "read"
@@ -3472,8 +3338,6 @@ paths:
         schema:
           $ref: "#/definitions/UserGroup"
         x-exportParamName: "Body"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3491,6 +3355,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/tenants"
         action: "write"
@@ -3513,8 +3379,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Id"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3532,6 +3396,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/tenants"
         action: "read"
@@ -3560,8 +3426,6 @@ paths:
         schema:
           $ref: "#/definitions/UserGroup"
         x-exportParamName: "Body"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3579,6 +3443,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/tenants"
         action: "write"
@@ -3615,8 +3481,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Id"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3634,6 +3498,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/tenants"
         action: "delete"
@@ -3650,8 +3516,6 @@ paths:
       produces:
       - "application/json"
       parameters: []
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3669,6 +3533,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/tenants"
         action: "read"
@@ -3691,8 +3557,6 @@ paths:
         schema:
           $ref: "#/definitions/User"
         x-exportParamName: "Body"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3710,6 +3574,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/tenants"
         action: "write"
@@ -3732,8 +3598,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Id"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3751,6 +3615,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/tenants"
         action: "read"
@@ -3779,8 +3645,6 @@ paths:
         schema:
           $ref: "#/definitions/User"
         x-exportParamName: "Body"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3798,6 +3662,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/tenants"
         action: "write"
@@ -3834,8 +3700,6 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Id"
-      security:
-      - Authorization: []
       responses:
         "200":
           description: "successful operation"
@@ -3853,6 +3717,8 @@ paths:
         "409":
           description: "NiFi Registry was unable to complete the request because it\
             \ assumes a server state that is not valid."
+      security:
+      - Authorization: []
       x-access-policy:
         resource: "/tenants"
         action: "delete"
@@ -4705,16 +4571,10 @@ definitions:
       comments:
         type: "string"
         description: "The comments for the connectable component."
-      instanceIdentifier:
-        type: "string"
-        description: "The instance ID of an existing component that is described by\
-          \ this VersionedComponent, or null if this is not mapped to an instantiated\
-          \ component"
     example:
       comments: "comments"
       groupId: "groupId"
       name: "name"
-      instanceIdentifier: "instanceIdentifier"
       id: "id"
       type: "PROCESSOR"
   ControllerServiceAPI:
@@ -4800,74 +4660,6 @@ definitions:
       identity: "identity"
       anonymous: true
       loginSupported: true
-  DefaultSchedule:
-    type: "object"
-    properties:
-      strategy:
-        type: "string"
-        description: "The default scheduling strategy"
-      period:
-        type: "string"
-        description: "The default scheduling period"
-      concurrentTasks:
-        type: "string"
-        description: "The default concurrent tasks"
-    example:
-      period: "period"
-      strategy: "strategy"
-      concurrentTasks: "concurrentTasks"
-  DefaultSettings:
-    type: "object"
-    properties:
-      yieldDuration:
-        type: "string"
-        description: "The default yield duration"
-      penaltyDuration:
-        type: "string"
-        description: "The default penalty duration"
-      bulletinLevel:
-        type: "string"
-        description: "The default bulletin level"
-    example:
-      bulletinLevel: "bulletinLevel"
-      penaltyDuration: "penaltyDuration"
-      yieldDuration: "yieldDuration"
-  Dependency:
-    type: "object"
-    properties:
-      propertyName:
-        type: "string"
-        description: "The name of the dependent property"
-      propertyDisplayName:
-        type: "string"
-        description: "The display name of the dependent property"
-      dependentValues:
-        description: "The values of the dependent property that enable the depending\
-          \ property"
-        $ref: "#/definitions/DependentValues"
-    example:
-      propertyDisplayName: "propertyDisplayName"
-      dependentValues:
-        values:
-        - "values"
-        - "values"
-      propertyName: "propertyName"
-  DependentValues:
-    type: "object"
-    properties:
-      values:
-        type: "array"
-        xml:
-          name: "dependentValue"
-        description: "The dependent values"
-        items:
-          type: "string"
-          xml:
-            name: "dependentValue"
-    example:
-      values:
-      - "values"
-      - "values"
   DeprecationNotice:
     type: "object"
     properties:
@@ -5044,37 +4836,12 @@ definitions:
           xml:
             name: "providedServiceAPI"
           $ref: "#/definitions/ProvidedServiceAPI"
-      defaultSettings:
-        description: "The default settings for a processor"
-        $ref: "#/definitions/DefaultSettings"
-      defaultSchedule:
-        description: "The default schedule for a processor reporting task"
-        $ref: "#/definitions/DefaultSchedule"
-      triggerSerially:
-        type: "boolean"
-        description: "Indicates that a processor should be triggered serially"
-      triggerWhenEmpty:
-        type: "boolean"
-        description: "Indicates that a processor should be triggered when the incoming\
-          \ queues are empty"
-      triggerWhenAnyDestinationAvailable:
-        type: "boolean"
-        description: "Indicates that a processor should be triggered when any destinations\
-          \ have space for flow files"
-      supportsBatching:
-        type: "boolean"
-        description: "Indicates that a processor supports batching"
-      eventDriven:
-        type: "boolean"
-        description: "Indicates that a processor supports event driven scheduling"
-      primaryNodeOnly:
-        type: "boolean"
-        description: "Indicates that a processor should be scheduled only on the primary\
-          \ node"
-      sideEffectFree:
-        type: "boolean"
-        description: "Indicates that a processor is side effect free"
     example:
+      deprecationNotice:
+        reason: "reason"
+        alternatives:
+        - "alternatives"
+        - "alternatives"
       dynamicProperties:
       - name: "name"
         expressionLanguageScope: "NONE"
@@ -5086,10 +4853,6 @@ definitions:
         description: "description"
         expressionLanguageSupported: true
         value: "value"
-      defaultSchedule:
-        period: "period"
-        strategy: "strategy"
-        concurrentTasks: "concurrentTasks"
       writesAttributes:
       - name: "name"
         description: "description"
@@ -5110,7 +4873,14 @@ definitions:
       seeAlso:
       - "seeAlso"
       - "seeAlso"
-      primaryNodeOnly: true
+      tags:
+      - "tags"
+      - "tags"
+      readsAttributes:
+      - name: "name"
+        description: "description"
+      - name: "name"
+        description: "description"
       relationships:
       - autoTerminated: true
         name: "name"
@@ -5121,39 +4891,6 @@ definitions:
       dynamicRelationship:
         name: "name"
         description: "description"
-      systemResourceConsiderations:
-      - resource: "resource"
-        description: "description"
-      - resource: "resource"
-        description: "description"
-      sideEffectFree: true
-      stateful:
-        description: "description"
-        scopes:
-        - "CLUSTER"
-        - "CLUSTER"
-      defaultSettings:
-        bulletinLevel: "bulletinLevel"
-        penaltyDuration: "penaltyDuration"
-        yieldDuration: "yieldDuration"
-      triggerWhenAnyDestinationAvailable: true
-      supportsBatching: true
-      deprecationNotice:
-        reason: "reason"
-        alternatives:
-        - "alternatives"
-        - "alternatives"
-      triggerSerially: true
-      tags:
-      - "tags"
-      - "tags"
-      readsAttributes:
-      - name: "name"
-        description: "description"
-      - name: "name"
-        description: "description"
-      triggerWhenEmpty: true
-      eventDriven: true
       restricted:
         restrictions:
         - requiredPermission: "requiredPermission"
@@ -5161,38 +4898,18 @@ definitions:
         - requiredPermission: "requiredPermission"
           explanation: "explanation"
         generalRestrictionExplanation: "generalRestrictionExplanation"
+      systemResourceConsiderations:
+      - resource: "resource"
+        description: "description"
+      - resource: "resource"
+        description: "description"
       name: "name"
       properties:
-      - resourceDefinition:
-          resourceTypes:
-          - "FILE"
-          - "FILE"
-          cardinality: "SINGLE"
-        controllerServiceDefinition:
+      - controllerServiceDefinition:
           groupId: "groupId"
           className: "className"
           artifactId: "artifactId"
           version: "version"
-        displayName: "displayName"
-        defaultValue: "defaultValue"
-        dynamicallyModifiesClasspath: true
-        expressionLanguageScope: "NONE"
-        description: "description"
-        sensitive: true
-        required: true
-        dependencies:
-        - propertyDisplayName: "propertyDisplayName"
-          dependentValues:
-            values:
-            - "values"
-            - "values"
-          propertyName: "propertyName"
-        - propertyDisplayName: "propertyDisplayName"
-          dependentValues:
-            values:
-            - "values"
-            - "values"
-          propertyName: "propertyName"
         allowableValues:
         - displayName: "displayName"
           description: "description"
@@ -5200,39 +4917,21 @@ definitions:
         - displayName: "displayName"
           description: "description"
           value: "value"
+        displayName: "displayName"
+        defaultValue: "defaultValue"
+        dynamicallyModifiesClasspath: true
         name: "name"
+        expressionLanguageScope: "NONE"
+        description: "description"
         dynamic: true
+        sensitive: true
         expressionLanguageSupported: true
-      - resourceDefinition:
-          resourceTypes:
-          - "FILE"
-          - "FILE"
-          cardinality: "SINGLE"
-        controllerServiceDefinition:
+        required: true
+      - controllerServiceDefinition:
           groupId: "groupId"
           className: "className"
           artifactId: "artifactId"
           version: "version"
-        displayName: "displayName"
-        defaultValue: "defaultValue"
-        dynamicallyModifiesClasspath: true
-        expressionLanguageScope: "NONE"
-        description: "description"
-        sensitive: true
-        required: true
-        dependencies:
-        - propertyDisplayName: "propertyDisplayName"
-          dependentValues:
-            values:
-            - "values"
-            - "values"
-          propertyName: "propertyName"
-        - propertyDisplayName: "propertyDisplayName"
-          dependentValues:
-            values:
-            - "values"
-            - "values"
-          propertyName: "propertyName"
         allowableValues:
         - displayName: "displayName"
           description: "description"
@@ -5240,9 +4939,21 @@ definitions:
         - displayName: "displayName"
           description: "description"
           value: "value"
+        displayName: "displayName"
+        defaultValue: "defaultValue"
+        dynamicallyModifiesClasspath: true
         name: "name"
+        expressionLanguageScope: "NONE"
+        description: "description"
         dynamic: true
+        sensitive: true
         expressionLanguageSupported: true
+        required: true
+      stateful:
+        description: "description"
+        scopes:
+        - "CLUSTER"
+        - "CLUSTER"
   ExtensionBundle:
     type: "object"
     required:
@@ -5782,14 +5493,14 @@ definitions:
         type: "number"
         format: "double"
         description: "The x coordinate."
-      "y":
+      y:
         type: "number"
         format: "double"
         description: "The y coordinate."
     description: "The position of a component on the graph"
     example:
       x: 0.8008281904610115
-      "y": 6.027456183070403
+      y: 6.027456183070403
   Property:
     type: "object"
     properties:
@@ -5840,49 +5551,12 @@ definitions:
       dynamic:
         type: "boolean"
         description: "Whether or not the processor is dynamic"
-      dependencies:
-        type: "array"
-        xml:
-          wrapped: true
-        description: "The properties that this property depends on"
-        items:
-          xml:
-            name: "dependency"
-          $ref: "#/definitions/Dependency"
-      resourceDefinition:
-        description: "The optional resource definition"
-        $ref: "#/definitions/ResourceDefinition"
     example:
-      resourceDefinition:
-        resourceTypes:
-        - "FILE"
-        - "FILE"
-        cardinality: "SINGLE"
       controllerServiceDefinition:
         groupId: "groupId"
         className: "className"
         artifactId: "artifactId"
         version: "version"
-      displayName: "displayName"
-      defaultValue: "defaultValue"
-      dynamicallyModifiesClasspath: true
-      expressionLanguageScope: "NONE"
-      description: "description"
-      sensitive: true
-      required: true
-      dependencies:
-      - propertyDisplayName: "propertyDisplayName"
-        dependentValues:
-          values:
-          - "values"
-          - "values"
-        propertyName: "propertyName"
-      - propertyDisplayName: "propertyDisplayName"
-        dependentValues:
-          values:
-          - "values"
-          - "values"
-        propertyName: "propertyName"
       allowableValues:
       - displayName: "displayName"
         description: "description"
@@ -5890,9 +5564,16 @@ definitions:
       - displayName: "displayName"
         description: "description"
         value: "value"
+      displayName: "displayName"
+      defaultValue: "defaultValue"
+      dynamicallyModifiesClasspath: true
       name: "name"
+      expressionLanguageScope: "NONE"
+      description: "description"
       dynamic: true
+      sensitive: true
       expressionLanguageSupported: true
+      required: true
   ProvidedServiceAPI:
     type: "object"
     properties:
@@ -5913,15 +5594,6 @@ definitions:
       className: "className"
       artifactId: "artifactId"
       version: "version"
-  RegistryAbout:
-    type: "object"
-    properties:
-      registryAboutVersion:
-        type: "string"
-        description: "The version string for this Nifi Registry"
-        readOnly: true
-    example:
-      registryAboutVersion: "registryAboutVersion"
   RegistryConfiguration:
     type: "object"
     properties:
@@ -5972,34 +5644,6 @@ definitions:
     example:
       identifier: "identifier"
       name: "name"
-  ResourceDefinition:
-    type: "object"
-    properties:
-      cardinality:
-        type: "string"
-        description: "The cardinality of the resource definition"
-        enum:
-        - "SINGLE"
-        - "MULTIPLE"
-      resourceTypes:
-        type: "array"
-        xml:
-          wrapped: true
-        description: "The types of resources"
-        items:
-          type: "string"
-          xml:
-            name: "resourceType"
-          enum:
-          - "FILE"
-          - "DIRECTORY"
-          - "TEXT"
-          - "URL"
-    example:
-      resourceTypes:
-      - "FILE"
-      - "FILE"
-      cardinality: "SINGLE"
   ResourcePermissions:
     type: "object"
     properties:
@@ -6604,11 +6248,6 @@ definitions:
       identifier:
         type: "string"
         description: "The component's unique identifier"
-      instanceIdentifier:
-        type: "string"
-        description: "The instance ID of an existing component that is described by\
-          \ this VersionedComponent, or null if this is not mapped to an instantiated\
-          \ component"
       name:
         type: "string"
         description: "The component's name"
@@ -6709,9 +6348,6 @@ definitions:
         - "FUNNEL"
         - "LABEL"
         - "CONTROLLER_SERVICE"
-        - "REPORTING_TASK"
-        - "PARAMETER_CONTEXT"
-        - "TEMPLATE"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -6731,7 +6367,6 @@ definitions:
         comments: "comments"
         groupId: "groupId"
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         id: "id"
         type: "PROCESSOR"
       backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
@@ -6740,35 +6375,28 @@ definitions:
         comments: "comments"
         groupId: "groupId"
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         id: "id"
         type: "PROCESSOR"
-      labelIndex: 2
+      labelIndex: 3
       bends:
       - x: 0.8008281904610115
-        "y": 6.027456183070403
+        y: 6.027456183070403
       - x: 0.8008281904610115
-        "y": 6.027456183070403
-      backPressureObjectThreshold: 7
+        y: 6.027456183070403
+      backPressureObjectThreshold: 4
       name: "name"
-      instanceIdentifier: "instanceIdentifier"
       position:
         x: 0.8008281904610115
-        "y": 6.027456183070403
+        y: 6.027456183070403
       groupIdentifier: "groupIdentifier"
       partitioningAttribute: "partitioningAttribute"
-      zIndex: 4
+      zIndex: 2
   VersionedControllerService:
     type: "object"
     properties:
       identifier:
         type: "string"
         description: "The component's unique identifier"
-      instanceIdentifier:
-        type: "string"
-        description: "The instance ID of an existing component that is described by\
-          \ this VersionedComponent, or null if this is not mapped to an instantiated\
-          \ component"
       name:
         type: "string"
         description: "The component's name"
@@ -6780,41 +6408,29 @@ definitions:
         $ref: "#/definitions/Position"
       type:
         type: "string"
-        description: "The type of the extension component"
+        description: "The type of the controller service."
       bundle:
-        description: "Information about the bundle from which the component came"
+        description: "The details of the artifact that bundled this processor type."
         $ref: "#/definitions/Bundle"
-      properties:
-        type: "object"
-        description: "The properties for the component. Properties whose value is\
-          \ not set will only contain the property name."
-        additionalProperties:
-          type: "string"
-      propertyDescriptors:
-        type: "object"
-        description: "The property descriptors for the component."
-        additionalProperties:
-          $ref: "#/definitions/VersionedPropertyDescriptor"
       controllerServiceApis:
         type: "array"
         description: "Lists the APIs this Controller Service implements."
         items:
           $ref: "#/definitions/ControllerServiceAPI"
+      properties:
+        type: "object"
+        description: "The properties of the controller service."
+        additionalProperties:
+          type: "string"
+      propertyDescriptors:
+        type: "object"
+        description: "The property descriptors for the processor."
+        additionalProperties:
+          $ref: "#/definitions/VersionedPropertyDescriptor"
       annotationData:
         type: "string"
         description: "The annotation for the controller service. This is how the custom\
           \ UI relays configuration to the controller service."
-      scheduledState:
-        type: "string"
-        description: "The ScheduledState denoting whether the Controller Service is\
-          \ ENABLED or DISABLED"
-        enum:
-        - "ENABLED"
-        - "DISABLED"
-        - "RUNNING"
-      bulletinLevel:
-        type: "string"
-        description: "The level at which the controller service will report bulletins."
       componentType:
         type: "string"
         enum:
@@ -6829,9 +6445,6 @@ definitions:
         - "FUNNEL"
         - "LABEL"
         - "CONTROLLER_SERVICE"
-        - "REPORTING_TASK"
-        - "PARAMETER_CONTEXT"
-        - "TEMPLATE"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -6840,20 +6453,6 @@ definitions:
       identifier: "identifier"
       componentType: "CONNECTION"
       comments: "comments"
-      bulletinLevel: "bulletinLevel"
-      type: "type"
-      propertyDescriptors:
-        key:
-          resourceDefinition:
-            resourceTypes:
-            - "FILE"
-            - "FILE"
-            cardinality: "SINGLE"
-          displayName: "displayName"
-          identifiesControllerService: true
-          name: "name"
-          sensitive: true
-      scheduledState: "ENABLED"
       controllerServiceApis:
       - type: "type"
         bundle:
@@ -6866,10 +6465,16 @@ definitions:
           version: "version"
           group: "group"
       name: "name"
-      instanceIdentifier: "instanceIdentifier"
       position:
         x: 0.8008281904610115
-        "y": 6.027456183070403
+        y: 6.027456183070403
+      type: "type"
+      propertyDescriptors:
+        key:
+          displayName: "displayName"
+          identifiesControllerService: true
+          name: "name"
+          sensitive: true
       groupIdentifier: "groupIdentifier"
       bundle:
         artifact: "artifact"
@@ -6988,7 +6593,7 @@ definitions:
       registryUrl: "registryUrl"
       bucketId: "bucketId"
       flowId: "flowId"
-      version: 6
+      version: 1
       latest: true
   VersionedFlowDifference:
     type: "object"
@@ -7128,103 +6733,78 @@ definitions:
         componentType: "CONNECTION"
         variables:
           key: "variables"
-        defaultBackPressureObjectThreshold: 7
         comments: "comments"
         processors:
-        - autoTerminatedRelationships:
+        - annotationData: "annotationData"
+          identifier: "identifier"
+          componentType: "CONNECTION"
+          comments: "comments"
+          concurrentlySchedulableTaskCount: 7
+          autoTerminatedRelationships:
           - "autoTerminatedRelationships"
           - "autoTerminatedRelationships"
           bulletinLevel: "bulletinLevel"
           executionNode: "executionNode"
+          penaltyDuration: "penaltyDuration"
           runDurationMillis: 2
           type: "type"
           propertyDescriptors:
             key:
-              resourceDefinition:
-                resourceTypes:
-                - "FILE"
-                - "FILE"
-                cardinality: "SINGLE"
               displayName: "displayName"
               identifiesControllerService: true
               name: "name"
               sensitive: true
           scheduledState: "ENABLED"
-          maxBackoffPeriod: "maxBackoffPeriod"
+          schedulingStrategy: "schedulingStrategy"
+          name: "name"
+          style:
+            key: "style"
+          schedulingPeriod: "schedulingPeriod"
           yieldDuration: "yieldDuration"
+          position:
+            x: 0.8008281904610115
+            y: 6.027456183070403
+          groupIdentifier: "groupIdentifier"
           bundle:
             artifact: "artifact"
             version: "version"
             group: "group"
-          retriedRelationships:
-          - "retriedRelationships"
-          - "retriedRelationships"
-          annotationData: "annotationData"
-          identifier: "identifier"
-          componentType: "CONNECTION"
-          comments: "comments"
-          concurrentlySchedulableTaskCount: 7
-          retryCount: 9
-          penaltyDuration: "penaltyDuration"
-          backoffMechanism: "PENALIZE_FLOWFILE"
-          schedulingStrategy: "schedulingStrategy"
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          style:
-            key: "style"
-          schedulingPeriod: "schedulingPeriod"
-          position:
-            x: 0.8008281904610115
-            "y": 6.027456183070403
-          groupIdentifier: "groupIdentifier"
           properties:
             key: "properties"
-        - autoTerminatedRelationships:
+        - annotationData: "annotationData"
+          identifier: "identifier"
+          componentType: "CONNECTION"
+          comments: "comments"
+          concurrentlySchedulableTaskCount: 7
+          autoTerminatedRelationships:
           - "autoTerminatedRelationships"
           - "autoTerminatedRelationships"
           bulletinLevel: "bulletinLevel"
           executionNode: "executionNode"
+          penaltyDuration: "penaltyDuration"
           runDurationMillis: 2
           type: "type"
           propertyDescriptors:
             key:
-              resourceDefinition:
-                resourceTypes:
-                - "FILE"
-                - "FILE"
-                cardinality: "SINGLE"
               displayName: "displayName"
               identifiesControllerService: true
               name: "name"
               sensitive: true
           scheduledState: "ENABLED"
-          maxBackoffPeriod: "maxBackoffPeriod"
+          schedulingStrategy: "schedulingStrategy"
+          name: "name"
+          style:
+            key: "style"
+          schedulingPeriod: "schedulingPeriod"
           yieldDuration: "yieldDuration"
+          position:
+            x: 0.8008281904610115
+            y: 6.027456183070403
+          groupIdentifier: "groupIdentifier"
           bundle:
             artifact: "artifact"
             version: "version"
             group: "group"
-          retriedRelationships:
-          - "retriedRelationships"
-          - "retriedRelationships"
-          annotationData: "annotationData"
-          identifier: "identifier"
-          componentType: "CONNECTION"
-          comments: "comments"
-          concurrentlySchedulableTaskCount: 7
-          retryCount: 9
-          penaltyDuration: "penaltyDuration"
-          backoffMechanism: "PENALIZE_FLOWFILE"
-          schedulingStrategy: "schedulingStrategy"
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          style:
-            key: "style"
-          schedulingPeriod: "schedulingPeriod"
-          position:
-            x: 0.8008281904610115
-            "y": 6.027456183070403
-          groupIdentifier: "groupIdentifier"
           properties:
             key: "properties"
         labels:
@@ -7232,52 +6812,33 @@ definitions:
           componentType: "CONNECTION"
           comments: "comments"
           name: "name"
-          width: 1.0246457001441578
-          instanceIdentifier: "instanceIdentifier"
+          width: 7.386281948385884
           style:
             key: "style"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           label: "label"
           groupIdentifier: "groupIdentifier"
-          zIndex: 1
-          height: 1.4894159098541704
+          height: 1.2315135367772556
         - identifier: "identifier"
           componentType: "CONNECTION"
           comments: "comments"
           name: "name"
-          width: 1.0246457001441578
-          instanceIdentifier: "instanceIdentifier"
+          width: 7.386281948385884
           style:
             key: "style"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           label: "label"
           groupIdentifier: "groupIdentifier"
-          zIndex: 1
-          height: 1.4894159098541704
-        defaultBackPressureDataSizeThreshold: "defaultBackPressureDataSizeThreshold"
+          height: 1.2315135367772556
         controllerServices:
         - annotationData: "annotationData"
           identifier: "identifier"
           componentType: "CONNECTION"
           comments: "comments"
-          bulletinLevel: "bulletinLevel"
-          type: "type"
-          propertyDescriptors:
-            key:
-              resourceDefinition:
-                resourceTypes:
-                - "FILE"
-                - "FILE"
-                cardinality: "SINGLE"
-              displayName: "displayName"
-              identifiesControllerService: true
-              name: "name"
-              sensitive: true
-          scheduledState: "ENABLED"
           controllerServiceApis:
           - type: "type"
             bundle:
@@ -7290,10 +6851,16 @@ definitions:
               version: "version"
               group: "group"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
+          type: "type"
+          propertyDescriptors:
+            key:
+              displayName: "displayName"
+              identifiesControllerService: true
+              name: "name"
+              sensitive: true
           groupIdentifier: "groupIdentifier"
           bundle:
             artifact: "artifact"
@@ -7305,20 +6872,6 @@ definitions:
           identifier: "identifier"
           componentType: "CONNECTION"
           comments: "comments"
-          bulletinLevel: "bulletinLevel"
-          type: "type"
-          propertyDescriptors:
-            key:
-              resourceDefinition:
-                resourceTypes:
-                - "FILE"
-                - "FILE"
-                cardinality: "SINGLE"
-              displayName: "displayName"
-              identifiesControllerService: true
-              name: "name"
-              sensitive: true
-          scheduledState: "ENABLED"
           controllerServiceApis:
           - type: "type"
             bundle:
@@ -7331,10 +6884,16 @@ definitions:
               version: "version"
               group: "group"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
+          type: "type"
+          propertyDescriptors:
+            key:
+              displayName: "displayName"
+              identifiesControllerService: true
+              name: "name"
+              sensitive: true
           groupIdentifier: "groupIdentifier"
           bundle:
             artifact: "artifact"
@@ -7342,7 +6901,6 @@ definitions:
             group: "group"
           properties:
             key: "properties"
-        defaultFlowFileExpiration: "defaultFlowFileExpiration"
         flowFileConcurrency: "flowFileConcurrency"
         processGroups:
         - null
@@ -7353,12 +6911,11 @@ definitions:
           componentType: "CONNECTION"
           comments: "comments"
           allowRemoteAccess: true
-          concurrentlySchedulableTaskCount: 3
+          concurrentlySchedulableTaskCount: 9
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           type: "INPUT_PORT"
           groupIdentifier: "groupIdentifier"
           scheduledState: "ENABLED"
@@ -7366,12 +6923,11 @@ definitions:
           componentType: "CONNECTION"
           comments: "comments"
           allowRemoteAccess: true
-          concurrentlySchedulableTaskCount: 3
+          concurrentlySchedulableTaskCount: 9
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           type: "INPUT_PORT"
           groupIdentifier: "groupIdentifier"
           scheduledState: "ENABLED"
@@ -7381,12 +6937,11 @@ definitions:
           componentType: "CONNECTION"
           comments: "comments"
           allowRemoteAccess: true
-          concurrentlySchedulableTaskCount: 3
+          concurrentlySchedulableTaskCount: 9
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           type: "INPUT_PORT"
           groupIdentifier: "groupIdentifier"
           scheduledState: "ENABLED"
@@ -7394,12 +6949,11 @@ definitions:
           componentType: "CONNECTION"
           comments: "comments"
           allowRemoteAccess: true
-          concurrentlySchedulableTaskCount: 3
+          concurrentlySchedulableTaskCount: 9
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           type: "INPUT_PORT"
           groupIdentifier: "groupIdentifier"
           scheduledState: "ENABLED"
@@ -7408,29 +6962,26 @@ definitions:
           componentType: "CONNECTION"
           comments: "comments"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           groupIdentifier: "groupIdentifier"
         - identifier: "identifier"
           componentType: "CONNECTION"
           comments: "comments"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           groupIdentifier: "groupIdentifier"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         versionedFlowCoordinates:
           registryUrl: "registryUrl"
           bucketId: "bucketId"
           flowId: "flowId"
-          version: 6
+          version: 1
           latest: true
         remoteProcessGroups:
         - identifier: "identifier"
@@ -7447,36 +6998,34 @@ definitions:
             comments: "comments"
             targetId: "targetId"
             concurrentlySchedulableTaskCount: 5
-            useCompression: true
-            scheduledState: "ENABLED"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             position:
               x: 0.8008281904610115
-              "y": 6.027456183070403
+              y: 6.027456183070403
+            useCompression: true
             batchSize:
               duration: "duration"
               size: "size"
               count: 5
             groupIdentifier: "groupIdentifier"
+            scheduledState: "ENABLED"
           - identifier: "identifier"
             componentType: "CONNECTION"
             remoteGroupId: "remoteGroupId"
             comments: "comments"
             targetId: "targetId"
             concurrentlySchedulableTaskCount: 5
-            useCompression: true
-            scheduledState: "ENABLED"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             position:
               x: 0.8008281904610115
-              "y": 6.027456183070403
+              y: 6.027456183070403
+            useCompression: true
             batchSize:
               duration: "duration"
               size: "size"
               count: 5
             groupIdentifier: "groupIdentifier"
+            scheduledState: "ENABLED"
           name: "name"
           targetUri: "targetUri"
           proxyUser: "proxyUser"
@@ -7488,41 +7037,38 @@ definitions:
             comments: "comments"
             targetId: "targetId"
             concurrentlySchedulableTaskCount: 5
-            useCompression: true
-            scheduledState: "ENABLED"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             position:
               x: 0.8008281904610115
-              "y": 6.027456183070403
+              y: 6.027456183070403
+            useCompression: true
             batchSize:
               duration: "duration"
               size: "size"
               count: 5
             groupIdentifier: "groupIdentifier"
+            scheduledState: "ENABLED"
           - identifier: "identifier"
             componentType: "CONNECTION"
             remoteGroupId: "remoteGroupId"
             comments: "comments"
             targetId: "targetId"
             concurrentlySchedulableTaskCount: 5
-            useCompression: true
-            scheduledState: "ENABLED"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             position:
               x: 0.8008281904610115
-              "y": 6.027456183070403
+              y: 6.027456183070403
+            useCompression: true
             batchSize:
               duration: "duration"
               size: "size"
               count: 5
             groupIdentifier: "groupIdentifier"
-          instanceIdentifier: "instanceIdentifier"
+            scheduledState: "ENABLED"
           yieldDuration: "yieldDuration"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           groupIdentifier: "groupIdentifier"
           localNetworkInterface: "localNetworkInterface"
         - identifier: "identifier"
@@ -7539,36 +7085,34 @@ definitions:
             comments: "comments"
             targetId: "targetId"
             concurrentlySchedulableTaskCount: 5
-            useCompression: true
-            scheduledState: "ENABLED"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             position:
               x: 0.8008281904610115
-              "y": 6.027456183070403
+              y: 6.027456183070403
+            useCompression: true
             batchSize:
               duration: "duration"
               size: "size"
               count: 5
             groupIdentifier: "groupIdentifier"
+            scheduledState: "ENABLED"
           - identifier: "identifier"
             componentType: "CONNECTION"
             remoteGroupId: "remoteGroupId"
             comments: "comments"
             targetId: "targetId"
             concurrentlySchedulableTaskCount: 5
-            useCompression: true
-            scheduledState: "ENABLED"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             position:
               x: 0.8008281904610115
-              "y": 6.027456183070403
+              y: 6.027456183070403
+            useCompression: true
             batchSize:
               duration: "duration"
               size: "size"
               count: 5
             groupIdentifier: "groupIdentifier"
+            scheduledState: "ENABLED"
           name: "name"
           targetUri: "targetUri"
           proxyUser: "proxyUser"
@@ -7580,41 +7124,38 @@ definitions:
             comments: "comments"
             targetId: "targetId"
             concurrentlySchedulableTaskCount: 5
-            useCompression: true
-            scheduledState: "ENABLED"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             position:
               x: 0.8008281904610115
-              "y": 6.027456183070403
+              y: 6.027456183070403
+            useCompression: true
             batchSize:
               duration: "duration"
               size: "size"
               count: 5
             groupIdentifier: "groupIdentifier"
+            scheduledState: "ENABLED"
           - identifier: "identifier"
             componentType: "CONNECTION"
             remoteGroupId: "remoteGroupId"
             comments: "comments"
             targetId: "targetId"
             concurrentlySchedulableTaskCount: 5
-            useCompression: true
-            scheduledState: "ENABLED"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             position:
               x: 0.8008281904610115
-              "y": 6.027456183070403
+              y: 6.027456183070403
+            useCompression: true
             batchSize:
               duration: "duration"
               size: "size"
               count: 5
             groupIdentifier: "groupIdentifier"
-          instanceIdentifier: "instanceIdentifier"
+            scheduledState: "ENABLED"
           yieldDuration: "yieldDuration"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           groupIdentifier: "groupIdentifier"
           localNetworkInterface: "localNetworkInterface"
         groupIdentifier: "groupIdentifier"
@@ -7634,7 +7175,6 @@ definitions:
             comments: "comments"
             groupId: "groupId"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             id: "id"
             type: "PROCESSOR"
           backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
@@ -7643,24 +7183,22 @@ definitions:
             comments: "comments"
             groupId: "groupId"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             id: "id"
             type: "PROCESSOR"
-          labelIndex: 2
+          labelIndex: 3
           bends:
           - x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           - x: 0.8008281904610115
-            "y": 6.027456183070403
-          backPressureObjectThreshold: 7
+            y: 6.027456183070403
+          backPressureObjectThreshold: 4
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           groupIdentifier: "groupIdentifier"
           partitioningAttribute: "partitioningAttribute"
-          zIndex: 4
+          zIndex: 2
         - identifier: "identifier"
           componentType: "CONNECTION"
           prioritizers:
@@ -7676,7 +7214,6 @@ definitions:
             comments: "comments"
             groupId: "groupId"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             id: "id"
             type: "PROCESSOR"
           backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
@@ -7685,24 +7222,22 @@ definitions:
             comments: "comments"
             groupId: "groupId"
             name: "name"
-            instanceIdentifier: "instanceIdentifier"
             id: "id"
             type: "PROCESSOR"
-          labelIndex: 2
+          labelIndex: 3
           bends:
           - x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           - x: 0.8008281904610115
-            "y": 6.027456183070403
-          backPressureObjectThreshold: 7
+            y: 6.027456183070403
+          backPressureObjectThreshold: 4
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
           groupIdentifier: "groupIdentifier"
           partitioningAttribute: "partitioningAttribute"
-          zIndex: 4
+          zIndex: 2
         parameterContextName: "parameterContextName"
       flowEncodingVersion: "flowEncodingVersion"
       flow:
@@ -7729,19 +7264,8 @@ definitions:
           version: 6
       parameterContexts:
         key:
-          identifier: "identifier"
-          inheritedParameterContexts:
-          - "inheritedParameterContexts"
-          - "inheritedParameterContexts"
-          componentType: "CONNECTION"
-          comments: "comments"
           name: "name"
           description: "description"
-          instanceIdentifier: "instanceIdentifier"
-          position:
-            x: 0.8008281904610115
-            "y": 6.027456183070403
-          groupIdentifier: "groupIdentifier"
           parameters:
           - name: "name"
             description: "description"
@@ -7805,11 +7329,6 @@ definitions:
       identifier:
         type: "string"
         description: "The component's unique identifier"
-      instanceIdentifier:
-        type: "string"
-        description: "The instance ID of an existing component that is described by\
-          \ this VersionedComponent, or null if this is not mapped to an instantiated\
-          \ component"
       name:
         type: "string"
         description: "The component's name"
@@ -7833,9 +7352,6 @@ definitions:
         - "FUNNEL"
         - "LABEL"
         - "CONTROLLER_SERVICE"
-        - "REPORTING_TASK"
-        - "PARAMETER_CONTEXT"
-        - "TEMPLATE"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -7844,10 +7360,9 @@ definitions:
       componentType: "CONNECTION"
       comments: "comments"
       name: "name"
-      instanceIdentifier: "instanceIdentifier"
       position:
         x: 0.8008281904610115
-        "y": 6.027456183070403
+        y: 6.027456183070403
       groupIdentifier: "groupIdentifier"
   VersionedLabel:
     type: "object"
@@ -7855,11 +7370,6 @@ definitions:
       identifier:
         type: "string"
         description: "The component's unique identifier"
-      instanceIdentifier:
-        type: "string"
-        description: "The instance ID of an existing component that is described by\
-          \ this VersionedComponent, or null if this is not mapped to an instantiated\
-          \ component"
       name:
         type: "string"
         description: "The component's name"
@@ -7872,10 +7382,6 @@ definitions:
       label:
         type: "string"
         description: "The text that appears in the label."
-      zIndex:
-        type: "integer"
-        format: "int64"
-        description: "The z index of the connection."
       width:
         type: "number"
         format: "double"
@@ -7904,9 +7410,6 @@ definitions:
         - "FUNNEL"
         - "LABEL"
         - "CONTROLLER_SERVICE"
-        - "REPORTING_TASK"
-        - "PARAMETER_CONTEXT"
-        - "TEMPLATE"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -7915,17 +7418,15 @@ definitions:
       componentType: "CONNECTION"
       comments: "comments"
       name: "name"
-      width: 1.0246457001441578
-      instanceIdentifier: "instanceIdentifier"
+      width: 7.386281948385884
       style:
         key: "style"
       position:
         x: 0.8008281904610115
-        "y": 6.027456183070403
+        y: 6.027456183070403
       label: "label"
       groupIdentifier: "groupIdentifier"
-      zIndex: 1
-      height: 1.4894159098541704
+      height: 1.2315135367772556
   VersionedParameter:
     type: "object"
     properties:
@@ -7949,72 +7450,21 @@ definitions:
   VersionedParameterContext:
     type: "object"
     properties:
-      identifier:
-        type: "string"
-        description: "The component's unique identifier"
-      instanceIdentifier:
-        type: "string"
-        description: "The instance ID of an existing component that is described by\
-          \ this VersionedComponent, or null if this is not mapped to an instantiated\
-          \ component"
       name:
         type: "string"
-        description: "The component's name"
-      comments:
+        description: "The name of the context"
+      description:
         type: "string"
-        description: "The user-supplied comments for the component"
-      position:
-        description: "The component's position on the graph"
-        $ref: "#/definitions/Position"
+        description: "The description of the parameter context"
       parameters:
         type: "array"
         description: "The parameters in the context"
         uniqueItems: true
         items:
           $ref: "#/definitions/VersionedParameter"
-      inheritedParameterContexts:
-        type: "array"
-        description: "The names of additional parameter contexts from which to inherit\
-          \ parameters"
-        items:
-          type: "string"
-      description:
-        type: "string"
-        description: "The description of the parameter context"
-      componentType:
-        type: "string"
-        enum:
-        - "CONNECTION"
-        - "PROCESSOR"
-        - "PROCESS_GROUP"
-        - "REMOTE_PROCESS_GROUP"
-        - "INPUT_PORT"
-        - "OUTPUT_PORT"
-        - "REMOTE_INPUT_PORT"
-        - "REMOTE_OUTPUT_PORT"
-        - "FUNNEL"
-        - "LABEL"
-        - "CONTROLLER_SERVICE"
-        - "REPORTING_TASK"
-        - "PARAMETER_CONTEXT"
-        - "TEMPLATE"
-      groupIdentifier:
-        type: "string"
-        description: "The ID of the Process Group that this component belongs to"
     example:
-      identifier: "identifier"
-      inheritedParameterContexts:
-      - "inheritedParameterContexts"
-      - "inheritedParameterContexts"
-      componentType: "CONNECTION"
-      comments: "comments"
       name: "name"
       description: "description"
-      instanceIdentifier: "instanceIdentifier"
-      position:
-        x: 0.8008281904610115
-        "y": 6.027456183070403
-      groupIdentifier: "groupIdentifier"
       parameters:
       - name: "name"
         description: "description"
@@ -8030,11 +7480,6 @@ definitions:
       identifier:
         type: "string"
         description: "The component's unique identifier"
-      instanceIdentifier:
-        type: "string"
-        description: "The instance ID of an existing component that is described by\
-          \ this VersionedComponent, or null if this is not mapped to an instantiated\
-          \ component"
       name:
         type: "string"
         description: "The component's name"
@@ -8061,7 +7506,6 @@ definitions:
         enum:
         - "ENABLED"
         - "DISABLED"
-        - "RUNNING"
       allowRemoteAccess:
         type: "boolean"
         description: "Whether or not this port allows remote access for site-to-site"
@@ -8079,9 +7523,6 @@ definitions:
         - "FUNNEL"
         - "LABEL"
         - "CONTROLLER_SERVICE"
-        - "REPORTING_TASK"
-        - "PARAMETER_CONTEXT"
-        - "TEMPLATE"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -8090,12 +7531,11 @@ definitions:
       componentType: "CONNECTION"
       comments: "comments"
       allowRemoteAccess: true
-      concurrentlySchedulableTaskCount: 3
+      concurrentlySchedulableTaskCount: 9
       name: "name"
-      instanceIdentifier: "instanceIdentifier"
       position:
         x: 0.8008281904610115
-        "y": 6.027456183070403
+        y: 6.027456183070403
       type: "INPUT_PORT"
       groupIdentifier: "groupIdentifier"
       scheduledState: "ENABLED"
@@ -8105,11 +7545,6 @@ definitions:
       identifier:
         type: "string"
         description: "The component's unique identifier"
-      instanceIdentifier:
-        type: "string"
-        description: "The instance ID of an existing component that is described by\
-          \ this VersionedComponent, or null if this is not mapped to an instantiated\
-          \ component"
       name:
         type: "string"
         description: "The component's name"
@@ -8186,18 +7621,6 @@ definitions:
       parameterContextName:
         type: "string"
         description: "The name of the parameter context used by this process group"
-      defaultFlowFileExpiration:
-        type: "string"
-        description: "The default FlowFile Expiration for this Process Group."
-      defaultBackPressureObjectThreshold:
-        type: "integer"
-        format: "int64"
-        description: "Default value used in this Process Group for the maximum number\
-          \ of objects that can be queued before back pressure is applied."
-      defaultBackPressureDataSizeThreshold:
-        type: "string"
-        description: "Default value used in this Process Group for the maximum data\
-          \ size of objects that can be queued before back pressure is applied."
       componentType:
         type: "string"
         enum:
@@ -8212,9 +7635,6 @@ definitions:
         - "FUNNEL"
         - "LABEL"
         - "CONTROLLER_SERVICE"
-        - "REPORTING_TASK"
-        - "PARAMETER_CONTEXT"
-        - "TEMPLATE"
       flowFileConcurrency:
         type: "string"
         description: "The configured FlowFile Concurrency for the Process Group"
@@ -8229,103 +7649,78 @@ definitions:
       componentType: "CONNECTION"
       variables:
         key: "variables"
-      defaultBackPressureObjectThreshold: 7
       comments: "comments"
       processors:
-      - autoTerminatedRelationships:
+      - annotationData: "annotationData"
+        identifier: "identifier"
+        componentType: "CONNECTION"
+        comments: "comments"
+        concurrentlySchedulableTaskCount: 7
+        autoTerminatedRelationships:
         - "autoTerminatedRelationships"
         - "autoTerminatedRelationships"
         bulletinLevel: "bulletinLevel"
         executionNode: "executionNode"
+        penaltyDuration: "penaltyDuration"
         runDurationMillis: 2
         type: "type"
         propertyDescriptors:
           key:
-            resourceDefinition:
-              resourceTypes:
-              - "FILE"
-              - "FILE"
-              cardinality: "SINGLE"
             displayName: "displayName"
             identifiesControllerService: true
             name: "name"
             sensitive: true
         scheduledState: "ENABLED"
-        maxBackoffPeriod: "maxBackoffPeriod"
+        schedulingStrategy: "schedulingStrategy"
+        name: "name"
+        style:
+          key: "style"
+        schedulingPeriod: "schedulingPeriod"
         yieldDuration: "yieldDuration"
+        position:
+          x: 0.8008281904610115
+          y: 6.027456183070403
+        groupIdentifier: "groupIdentifier"
         bundle:
           artifact: "artifact"
           version: "version"
           group: "group"
-        retriedRelationships:
-        - "retriedRelationships"
-        - "retriedRelationships"
-        annotationData: "annotationData"
-        identifier: "identifier"
-        componentType: "CONNECTION"
-        comments: "comments"
-        concurrentlySchedulableTaskCount: 7
-        retryCount: 9
-        penaltyDuration: "penaltyDuration"
-        backoffMechanism: "PENALIZE_FLOWFILE"
-        schedulingStrategy: "schedulingStrategy"
-        name: "name"
-        instanceIdentifier: "instanceIdentifier"
-        style:
-          key: "style"
-        schedulingPeriod: "schedulingPeriod"
-        position:
-          x: 0.8008281904610115
-          "y": 6.027456183070403
-        groupIdentifier: "groupIdentifier"
         properties:
           key: "properties"
-      - autoTerminatedRelationships:
+      - annotationData: "annotationData"
+        identifier: "identifier"
+        componentType: "CONNECTION"
+        comments: "comments"
+        concurrentlySchedulableTaskCount: 7
+        autoTerminatedRelationships:
         - "autoTerminatedRelationships"
         - "autoTerminatedRelationships"
         bulletinLevel: "bulletinLevel"
         executionNode: "executionNode"
+        penaltyDuration: "penaltyDuration"
         runDurationMillis: 2
         type: "type"
         propertyDescriptors:
           key:
-            resourceDefinition:
-              resourceTypes:
-              - "FILE"
-              - "FILE"
-              cardinality: "SINGLE"
             displayName: "displayName"
             identifiesControllerService: true
             name: "name"
             sensitive: true
         scheduledState: "ENABLED"
-        maxBackoffPeriod: "maxBackoffPeriod"
+        schedulingStrategy: "schedulingStrategy"
+        name: "name"
+        style:
+          key: "style"
+        schedulingPeriod: "schedulingPeriod"
         yieldDuration: "yieldDuration"
+        position:
+          x: 0.8008281904610115
+          y: 6.027456183070403
+        groupIdentifier: "groupIdentifier"
         bundle:
           artifact: "artifact"
           version: "version"
           group: "group"
-        retriedRelationships:
-        - "retriedRelationships"
-        - "retriedRelationships"
-        annotationData: "annotationData"
-        identifier: "identifier"
-        componentType: "CONNECTION"
-        comments: "comments"
-        concurrentlySchedulableTaskCount: 7
-        retryCount: 9
-        penaltyDuration: "penaltyDuration"
-        backoffMechanism: "PENALIZE_FLOWFILE"
-        schedulingStrategy: "schedulingStrategy"
-        name: "name"
-        instanceIdentifier: "instanceIdentifier"
-        style:
-          key: "style"
-        schedulingPeriod: "schedulingPeriod"
-        position:
-          x: 0.8008281904610115
-          "y": 6.027456183070403
-        groupIdentifier: "groupIdentifier"
         properties:
           key: "properties"
       labels:
@@ -8333,52 +7728,33 @@ definitions:
         componentType: "CONNECTION"
         comments: "comments"
         name: "name"
-        width: 1.0246457001441578
-        instanceIdentifier: "instanceIdentifier"
+        width: 7.386281948385884
         style:
           key: "style"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         label: "label"
         groupIdentifier: "groupIdentifier"
-        zIndex: 1
-        height: 1.4894159098541704
+        height: 1.2315135367772556
       - identifier: "identifier"
         componentType: "CONNECTION"
         comments: "comments"
         name: "name"
-        width: 1.0246457001441578
-        instanceIdentifier: "instanceIdentifier"
+        width: 7.386281948385884
         style:
           key: "style"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         label: "label"
         groupIdentifier: "groupIdentifier"
-        zIndex: 1
-        height: 1.4894159098541704
-      defaultBackPressureDataSizeThreshold: "defaultBackPressureDataSizeThreshold"
+        height: 1.2315135367772556
       controllerServices:
       - annotationData: "annotationData"
         identifier: "identifier"
         componentType: "CONNECTION"
         comments: "comments"
-        bulletinLevel: "bulletinLevel"
-        type: "type"
-        propertyDescriptors:
-          key:
-            resourceDefinition:
-              resourceTypes:
-              - "FILE"
-              - "FILE"
-              cardinality: "SINGLE"
-            displayName: "displayName"
-            identifiesControllerService: true
-            name: "name"
-            sensitive: true
-        scheduledState: "ENABLED"
         controllerServiceApis:
         - type: "type"
           bundle:
@@ -8391,10 +7767,16 @@ definitions:
             version: "version"
             group: "group"
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
+        type: "type"
+        propertyDescriptors:
+          key:
+            displayName: "displayName"
+            identifiesControllerService: true
+            name: "name"
+            sensitive: true
         groupIdentifier: "groupIdentifier"
         bundle:
           artifact: "artifact"
@@ -8406,20 +7788,6 @@ definitions:
         identifier: "identifier"
         componentType: "CONNECTION"
         comments: "comments"
-        bulletinLevel: "bulletinLevel"
-        type: "type"
-        propertyDescriptors:
-          key:
-            resourceDefinition:
-              resourceTypes:
-              - "FILE"
-              - "FILE"
-              cardinality: "SINGLE"
-            displayName: "displayName"
-            identifiesControllerService: true
-            name: "name"
-            sensitive: true
-        scheduledState: "ENABLED"
         controllerServiceApis:
         - type: "type"
           bundle:
@@ -8432,10 +7800,16 @@ definitions:
             version: "version"
             group: "group"
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
+        type: "type"
+        propertyDescriptors:
+          key:
+            displayName: "displayName"
+            identifiesControllerService: true
+            name: "name"
+            sensitive: true
         groupIdentifier: "groupIdentifier"
         bundle:
           artifact: "artifact"
@@ -8443,7 +7817,6 @@ definitions:
           group: "group"
         properties:
           key: "properties"
-      defaultFlowFileExpiration: "defaultFlowFileExpiration"
       flowFileConcurrency: "flowFileConcurrency"
       processGroups:
       - null
@@ -8454,12 +7827,11 @@ definitions:
         componentType: "CONNECTION"
         comments: "comments"
         allowRemoteAccess: true
-        concurrentlySchedulableTaskCount: 3
+        concurrentlySchedulableTaskCount: 9
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         type: "INPUT_PORT"
         groupIdentifier: "groupIdentifier"
         scheduledState: "ENABLED"
@@ -8467,12 +7839,11 @@ definitions:
         componentType: "CONNECTION"
         comments: "comments"
         allowRemoteAccess: true
-        concurrentlySchedulableTaskCount: 3
+        concurrentlySchedulableTaskCount: 9
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         type: "INPUT_PORT"
         groupIdentifier: "groupIdentifier"
         scheduledState: "ENABLED"
@@ -8482,12 +7853,11 @@ definitions:
         componentType: "CONNECTION"
         comments: "comments"
         allowRemoteAccess: true
-        concurrentlySchedulableTaskCount: 3
+        concurrentlySchedulableTaskCount: 9
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         type: "INPUT_PORT"
         groupIdentifier: "groupIdentifier"
         scheduledState: "ENABLED"
@@ -8495,12 +7865,11 @@ definitions:
         componentType: "CONNECTION"
         comments: "comments"
         allowRemoteAccess: true
-        concurrentlySchedulableTaskCount: 3
+        concurrentlySchedulableTaskCount: 9
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         type: "INPUT_PORT"
         groupIdentifier: "groupIdentifier"
         scheduledState: "ENABLED"
@@ -8509,29 +7878,26 @@ definitions:
         componentType: "CONNECTION"
         comments: "comments"
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         groupIdentifier: "groupIdentifier"
       - identifier: "identifier"
         componentType: "CONNECTION"
         comments: "comments"
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         groupIdentifier: "groupIdentifier"
-      instanceIdentifier: "instanceIdentifier"
       position:
         x: 0.8008281904610115
-        "y": 6.027456183070403
+        y: 6.027456183070403
       versionedFlowCoordinates:
         registryUrl: "registryUrl"
         bucketId: "bucketId"
         flowId: "flowId"
-        version: 6
+        version: 1
         latest: true
       remoteProcessGroups:
       - identifier: "identifier"
@@ -8548,36 +7914,34 @@ definitions:
           comments: "comments"
           targetId: "targetId"
           concurrentlySchedulableTaskCount: 5
-          useCompression: true
-          scheduledState: "ENABLED"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
+          useCompression: true
           batchSize:
             duration: "duration"
             size: "size"
             count: 5
           groupIdentifier: "groupIdentifier"
+          scheduledState: "ENABLED"
         - identifier: "identifier"
           componentType: "CONNECTION"
           remoteGroupId: "remoteGroupId"
           comments: "comments"
           targetId: "targetId"
           concurrentlySchedulableTaskCount: 5
-          useCompression: true
-          scheduledState: "ENABLED"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
+          useCompression: true
           batchSize:
             duration: "duration"
             size: "size"
             count: 5
           groupIdentifier: "groupIdentifier"
+          scheduledState: "ENABLED"
         name: "name"
         targetUri: "targetUri"
         proxyUser: "proxyUser"
@@ -8589,41 +7953,38 @@ definitions:
           comments: "comments"
           targetId: "targetId"
           concurrentlySchedulableTaskCount: 5
-          useCompression: true
-          scheduledState: "ENABLED"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
+          useCompression: true
           batchSize:
             duration: "duration"
             size: "size"
             count: 5
           groupIdentifier: "groupIdentifier"
+          scheduledState: "ENABLED"
         - identifier: "identifier"
           componentType: "CONNECTION"
           remoteGroupId: "remoteGroupId"
           comments: "comments"
           targetId: "targetId"
           concurrentlySchedulableTaskCount: 5
-          useCompression: true
-          scheduledState: "ENABLED"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
+          useCompression: true
           batchSize:
             duration: "duration"
             size: "size"
             count: 5
           groupIdentifier: "groupIdentifier"
-        instanceIdentifier: "instanceIdentifier"
+          scheduledState: "ENABLED"
         yieldDuration: "yieldDuration"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         groupIdentifier: "groupIdentifier"
         localNetworkInterface: "localNetworkInterface"
       - identifier: "identifier"
@@ -8640,36 +8001,34 @@ definitions:
           comments: "comments"
           targetId: "targetId"
           concurrentlySchedulableTaskCount: 5
-          useCompression: true
-          scheduledState: "ENABLED"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
+          useCompression: true
           batchSize:
             duration: "duration"
             size: "size"
             count: 5
           groupIdentifier: "groupIdentifier"
+          scheduledState: "ENABLED"
         - identifier: "identifier"
           componentType: "CONNECTION"
           remoteGroupId: "remoteGroupId"
           comments: "comments"
           targetId: "targetId"
           concurrentlySchedulableTaskCount: 5
-          useCompression: true
-          scheduledState: "ENABLED"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
+          useCompression: true
           batchSize:
             duration: "duration"
             size: "size"
             count: 5
           groupIdentifier: "groupIdentifier"
+          scheduledState: "ENABLED"
         name: "name"
         targetUri: "targetUri"
         proxyUser: "proxyUser"
@@ -8681,41 +8040,38 @@ definitions:
           comments: "comments"
           targetId: "targetId"
           concurrentlySchedulableTaskCount: 5
-          useCompression: true
-          scheduledState: "ENABLED"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
+          useCompression: true
           batchSize:
             duration: "duration"
             size: "size"
             count: 5
           groupIdentifier: "groupIdentifier"
+          scheduledState: "ENABLED"
         - identifier: "identifier"
           componentType: "CONNECTION"
           remoteGroupId: "remoteGroupId"
           comments: "comments"
           targetId: "targetId"
           concurrentlySchedulableTaskCount: 5
-          useCompression: true
-          scheduledState: "ENABLED"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
-            "y": 6.027456183070403
+            y: 6.027456183070403
+          useCompression: true
           batchSize:
             duration: "duration"
             size: "size"
             count: 5
           groupIdentifier: "groupIdentifier"
-        instanceIdentifier: "instanceIdentifier"
+          scheduledState: "ENABLED"
         yieldDuration: "yieldDuration"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         groupIdentifier: "groupIdentifier"
         localNetworkInterface: "localNetworkInterface"
       groupIdentifier: "groupIdentifier"
@@ -8735,7 +8091,6 @@ definitions:
           comments: "comments"
           groupId: "groupId"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           id: "id"
           type: "PROCESSOR"
         backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
@@ -8744,24 +8099,22 @@ definitions:
           comments: "comments"
           groupId: "groupId"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           id: "id"
           type: "PROCESSOR"
-        labelIndex: 2
+        labelIndex: 3
         bends:
         - x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         - x: 0.8008281904610115
-          "y": 6.027456183070403
-        backPressureObjectThreshold: 7
+          y: 6.027456183070403
+        backPressureObjectThreshold: 4
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         groupIdentifier: "groupIdentifier"
         partitioningAttribute: "partitioningAttribute"
-        zIndex: 4
+        zIndex: 2
       - identifier: "identifier"
         componentType: "CONNECTION"
         prioritizers:
@@ -8777,7 +8130,6 @@ definitions:
           comments: "comments"
           groupId: "groupId"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           id: "id"
           type: "PROCESSOR"
         backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
@@ -8786,24 +8138,22 @@ definitions:
           comments: "comments"
           groupId: "groupId"
           name: "name"
-          instanceIdentifier: "instanceIdentifier"
           id: "id"
           type: "PROCESSOR"
-        labelIndex: 2
+        labelIndex: 3
         bends:
         - x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         - x: 0.8008281904610115
-          "y": 6.027456183070403
-        backPressureObjectThreshold: 7
+          y: 6.027456183070403
+        backPressureObjectThreshold: 4
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
         groupIdentifier: "groupIdentifier"
         partitioningAttribute: "partitioningAttribute"
-        zIndex: 4
+        zIndex: 2
       parameterContextName: "parameterContextName"
   VersionedProcessor:
     type: "object"
@@ -8811,11 +8161,6 @@ definitions:
       identifier:
         type: "string"
         description: "The component's unique identifier"
-      instanceIdentifier:
-        type: "string"
-        description: "The instance ID of an existing component that is described by\
-          \ this VersionedComponent, or null if this is not mapped to an instantiated\
-          \ component"
       name:
         type: "string"
         description: "The component's name"
@@ -8825,28 +8170,28 @@ definitions:
       position:
         description: "The component's position on the graph"
         $ref: "#/definitions/Position"
-      type:
-        type: "string"
-        description: "The type of the extension component"
       bundle:
         description: "Information about the bundle from which the component came"
         $ref: "#/definitions/Bundle"
-      properties:
-        type: "object"
-        description: "The properties for the component. Properties whose value is\
-          \ not set will only contain the property name."
-        additionalProperties:
-          type: "string"
-      propertyDescriptors:
-        type: "object"
-        description: "The property descriptors for the component."
-        additionalProperties:
-          $ref: "#/definitions/VersionedPropertyDescriptor"
       style:
         type: "object"
         description: "Stylistic data for rendering in a UI"
         additionalProperties:
           type: "string"
+      type:
+        type: "string"
+        description: "The type of Processor"
+      properties:
+        type: "object"
+        description: "The properties for the processor. Properties whose value is\
+          \ not set will only contain the property name."
+        additionalProperties:
+          type: "string"
+      propertyDescriptors:
+        type: "object"
+        description: "The property descriptors for the processor."
+        additionalProperties:
+          $ref: "#/definitions/VersionedPropertyDescriptor"
       annotationData:
         type: "string"
         description: "The annotation data for the processor used to relay configuration\
@@ -8857,7 +8202,7 @@ definitions:
           \ of the value will depend on th value of schedulingStrategy."
       schedulingStrategy:
         type: "string"
-        description: "Indicates whether the processor should be scheduled to run in\
+        description: "Indcates whether the prcessor should be scheduled to run in\
           \ event or timer driven mode."
       executionNode:
         type: "string"
@@ -8900,27 +8245,6 @@ definitions:
         enum:
         - "ENABLED"
         - "DISABLED"
-        - "RUNNING"
-      retryCount:
-        type: "integer"
-        format: "int32"
-        description: "Overall number of retries."
-      retriedRelationships:
-        type: "array"
-        description: "All the relationships should be retried."
-        uniqueItems: true
-        items:
-          type: "string"
-      backoffMechanism:
-        type: "string"
-        description: "Determines whether the FlowFile should be penalized or the processor\
-          \ should be yielded between retries."
-        enum:
-        - "PENALIZE_FLOWFILE"
-        - "YIELD_PROCESSOR"
-      maxBackoffPeriod:
-        type: "string"
-        description: "Maximum amount of time to be waited during a retry period."
       componentType:
         type: "string"
         enum:
@@ -8935,59 +8259,44 @@ definitions:
         - "FUNNEL"
         - "LABEL"
         - "CONTROLLER_SERVICE"
-        - "REPORTING_TASK"
-        - "PARAMETER_CONTEXT"
-        - "TEMPLATE"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
     example:
-      autoTerminatedRelationships:
-      - "autoTerminatedRelationships"
-      - "autoTerminatedRelationships"
-      bulletinLevel: "bulletinLevel"
-      executionNode: "executionNode"
-      runDurationMillis: 2
-      type: "type"
-      propertyDescriptors:
-        key:
-          resourceDefinition:
-            resourceTypes:
-            - "FILE"
-            - "FILE"
-            cardinality: "SINGLE"
-          displayName: "displayName"
-          identifiesControllerService: true
-          name: "name"
-          sensitive: true
-      scheduledState: "ENABLED"
-      maxBackoffPeriod: "maxBackoffPeriod"
-      yieldDuration: "yieldDuration"
-      bundle:
-        artifact: "artifact"
-        version: "version"
-        group: "group"
-      retriedRelationships:
-      - "retriedRelationships"
-      - "retriedRelationships"
       annotationData: "annotationData"
       identifier: "identifier"
       componentType: "CONNECTION"
       comments: "comments"
       concurrentlySchedulableTaskCount: 7
-      retryCount: 9
+      autoTerminatedRelationships:
+      - "autoTerminatedRelationships"
+      - "autoTerminatedRelationships"
+      bulletinLevel: "bulletinLevel"
+      executionNode: "executionNode"
       penaltyDuration: "penaltyDuration"
-      backoffMechanism: "PENALIZE_FLOWFILE"
+      runDurationMillis: 2
+      type: "type"
+      propertyDescriptors:
+        key:
+          displayName: "displayName"
+          identifiesControllerService: true
+          name: "name"
+          sensitive: true
+      scheduledState: "ENABLED"
       schedulingStrategy: "schedulingStrategy"
       name: "name"
-      instanceIdentifier: "instanceIdentifier"
       style:
         key: "style"
       schedulingPeriod: "schedulingPeriod"
+      yieldDuration: "yieldDuration"
       position:
         x: 0.8008281904610115
-        "y": 6.027456183070403
+        y: 6.027456183070403
       groupIdentifier: "groupIdentifier"
+      bundle:
+        artifact: "artifact"
+        version: "version"
+        group: "group"
       properties:
         key: "properties"
   VersionedPropertyDescriptor:
@@ -9006,16 +8315,7 @@ definitions:
       sensitive:
         type: "boolean"
         description: "Whether or not the property is considered sensitive"
-      resourceDefinition:
-        description: "Returns the Resource Definition that defines which type(s) of\
-          \ resource(s) this property references, if any"
-        $ref: "#/definitions/VersionedResourceDefinition"
     example:
-      resourceDefinition:
-        resourceTypes:
-        - "FILE"
-        - "FILE"
-        cardinality: "SINGLE"
       displayName: "displayName"
       identifiesControllerService: true
       name: "name"
@@ -9026,11 +8326,6 @@ definitions:
       identifier:
         type: "string"
         description: "The component's unique identifier"
-      instanceIdentifier:
-        type: "string"
-        description: "The instance ID of an existing component that is described by\
-          \ this VersionedComponent, or null if this is not mapped to an instantiated\
-          \ component"
       name:
         type: "string"
         description: "The component's name"
@@ -9069,9 +8364,6 @@ definitions:
         - "FUNNEL"
         - "LABEL"
         - "CONTROLLER_SERVICE"
-        - "REPORTING_TASK"
-        - "PARAMETER_CONTEXT"
-        - "TEMPLATE"
       targetId:
         type: "string"
         description: "The ID of the port on the target NiFi instance"
@@ -9081,7 +8373,6 @@ definitions:
         enum:
         - "ENABLED"
         - "DISABLED"
-        - "RUNNING"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -9092,29 +8383,23 @@ definitions:
       comments: "comments"
       targetId: "targetId"
       concurrentlySchedulableTaskCount: 5
-      useCompression: true
-      scheduledState: "ENABLED"
       name: "name"
-      instanceIdentifier: "instanceIdentifier"
       position:
         x: 0.8008281904610115
-        "y": 6.027456183070403
+        y: 6.027456183070403
+      useCompression: true
       batchSize:
         duration: "duration"
         size: "size"
         count: 5
       groupIdentifier: "groupIdentifier"
+      scheduledState: "ENABLED"
   VersionedRemoteProcessGroup:
     type: "object"
     properties:
       identifier:
         type: "string"
         description: "The component's unique identifier"
-      instanceIdentifier:
-        type: "string"
-        description: "The instance ID of an existing component that is described by\
-          \ this VersionedComponent, or null if this is not mapped to an instantiated\
-          \ component"
       name:
         type: "string"
         description: "The component's name"
@@ -9188,9 +8473,6 @@ definitions:
         - "FUNNEL"
         - "LABEL"
         - "CONTROLLER_SERVICE"
-        - "REPORTING_TASK"
-        - "PARAMETER_CONTEXT"
-        - "TEMPLATE"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -9209,36 +8491,34 @@ definitions:
         comments: "comments"
         targetId: "targetId"
         concurrentlySchedulableTaskCount: 5
-        useCompression: true
-        scheduledState: "ENABLED"
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
+        useCompression: true
         batchSize:
           duration: "duration"
           size: "size"
           count: 5
         groupIdentifier: "groupIdentifier"
+        scheduledState: "ENABLED"
       - identifier: "identifier"
         componentType: "CONNECTION"
         remoteGroupId: "remoteGroupId"
         comments: "comments"
         targetId: "targetId"
         concurrentlySchedulableTaskCount: 5
-        useCompression: true
-        scheduledState: "ENABLED"
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
+        useCompression: true
         batchSize:
           duration: "duration"
           size: "size"
           count: 5
         groupIdentifier: "groupIdentifier"
+        scheduledState: "ENABLED"
       name: "name"
       targetUri: "targetUri"
       proxyUser: "proxyUser"
@@ -9250,66 +8530,37 @@ definitions:
         comments: "comments"
         targetId: "targetId"
         concurrentlySchedulableTaskCount: 5
-        useCompression: true
-        scheduledState: "ENABLED"
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
+        useCompression: true
         batchSize:
           duration: "duration"
           size: "size"
           count: 5
         groupIdentifier: "groupIdentifier"
+        scheduledState: "ENABLED"
       - identifier: "identifier"
         componentType: "CONNECTION"
         remoteGroupId: "remoteGroupId"
         comments: "comments"
         targetId: "targetId"
         concurrentlySchedulableTaskCount: 5
-        useCompression: true
-        scheduledState: "ENABLED"
         name: "name"
-        instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
-          "y": 6.027456183070403
+          y: 6.027456183070403
+        useCompression: true
         batchSize:
           duration: "duration"
           size: "size"
           count: 5
         groupIdentifier: "groupIdentifier"
-      instanceIdentifier: "instanceIdentifier"
+        scheduledState: "ENABLED"
       yieldDuration: "yieldDuration"
       position:
         x: 0.8008281904610115
-        "y": 6.027456183070403
+        y: 6.027456183070403
       groupIdentifier: "groupIdentifier"
       localNetworkInterface: "localNetworkInterface"
-  VersionedResourceDefinition:
-    type: "object"
-    properties:
-      cardinality:
-        type: "string"
-        description: "The cardinality of the resource"
-        enum:
-        - "SINGLE"
-        - "MULTIPLE"
-      resourceTypes:
-        type: "array"
-        description: "The types of resource that the Property Descriptor is allowed\
-          \ to reference"
-        uniqueItems: true
-        items:
-          type: "string"
-          enum:
-          - "FILE"
-          - "DIRECTORY"
-          - "TEXT"
-          - "URL"
-    example:
-      resourceTypes:
-      - "FILE"
-      - "FILE"
-      cardinality: "SINGLE"
