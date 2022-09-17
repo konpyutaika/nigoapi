@@ -15,8 +15,6 @@ Name | Type | Description | Notes
 **ExpressionLanguageScope** | **string** | The scope of expression language support | [optional] [default to null]
 **DynamicallyModifiesClasspath** | **bool** | Whether or not the processor dynamically modifies the classpath | [optional] [default to null]
 **Dynamic** | **bool** | Whether or not the processor is dynamic | [optional] [default to null]
-**Dependencies** | [**[]Dependency**](Dependency.md) | The properties that this property depends on | [optional] [default to null]
-**ResourceDefinition** | [***ResourceDefinition**](ResourceDefinition.md) | The optional resource definition | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

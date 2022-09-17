@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**UpdateRemoteProcessGroupOutputPort**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupOutputPort) | **Put** /remote-process-groups/{id}/output-ports/{port-id} | Updates a remote port
 [**UpdateRemoteProcessGroupOutputPortRunStatus**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupOutputPortRunStatus) | **Put** /remote-process-groups/{id}/output-ports/{port-id}/run-status | Updates run status of a remote port
 [**UpdateRemoteProcessGroupRunStatus**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupRunStatus) | **Put** /remote-process-groups/{id}/run-status | Updates run status of a remote process group
-[**UpdateRemoteProcessGroupRunStatuses**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupRunStatuses) | **Put** /remote-process-groups/process-group/{id}/run-status | Updates run status of all remote process groups in a process group (recursively)
 
 
 # **GetRemoteProcessGroup**
@@ -273,35 +272,6 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| The remote process group id. | 
   **body** | [**RemotePortRunStatusEntity**](RemotePortRunStatusEntity.md)| The remote process group run status. | 
-
-### Return type
-
-[**RemoteProcessGroupEntity**](RemoteProcessGroupEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **UpdateRemoteProcessGroupRunStatuses**
-> RemoteProcessGroupEntity UpdateRemoteProcessGroupRunStatuses(ctx, id, body)
-Updates run status of all remote process groups in a process group (recursively)
-
-
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
-  **body** | [**RemotePortRunStatusEntity**](RemotePortRunStatusEntity.md)| The remote process groups run status. | 
 
 ### Return type
 

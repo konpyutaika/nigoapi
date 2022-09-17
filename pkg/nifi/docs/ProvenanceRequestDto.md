@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SearchTerms** | [**map[string]ProvenanceSearchValueDto**](ProvenanceSearchValueDTO.md) | The search terms used to perform the search. | [optional] [default to null]
+**SearchTerms** | **map[string]string** | The search terms used to perform the search. | [optional] [default to null]
 **ClusterNodeId** | **string** | The id of the node in the cluster where this provenance originated. | [optional] [default to null]
 **StartDate** | **string** | The earliest event time to include in the query. | [optional] [default to null]
 **EndDate** | **string** | The latest event time to include in the query. | [optional] [default to null]
