@@ -14,11 +14,11 @@ type ParameterDto struct {
 	// The name of the Parameter
 	Name string `json:"name,omitempty"`
 	// The description of the Parameter
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 	// Whether or not the Parameter is sensitive
 	Sensitive bool `json:"sensitive,omitempty"`
 	// The value of the Parameter
-	Value string `json:"value,omitempty"`
+	Value *string `json:"value"`
 	// Whether or not the value of the Parameter was removed. When a request is made to change a parameter, the value may be null. The absence of the value may be used either to indicate that the value is not to be changed, or that the value is to be set to null (i.e., removed). This denotes which of the two scenarios is being encountered.
 	ValueRemoved bool `json:"valueRemoved,omitempty"`
 	// The set of all components in the flow that are referencing this Parameter
