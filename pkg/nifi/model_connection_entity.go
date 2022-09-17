@@ -24,14 +24,14 @@ type ConnectionEntity struct {
 	// The bulletins for this component.
 	Bulletins []BulletinEntity `json:"bulletins,omitempty"`
 	// Acknowledges that this node is disconnected to allow for mutable requests to proceed.
-	DisconnectedNodeAcknowledged bool `json:"disconnectedNodeAcknowledged,omitempty"`
-	Component *ConnectionDto `json:"component,omitempty"`
+	DisconnectedNodeAcknowledged bool           `json:"disconnectedNodeAcknowledged,omitempty"`
+	Component                    *ConnectionDto `json:"component,omitempty"`
 	// The status of the connection.
 	Status *ConnectionStatusDto `json:"status,omitempty"`
 	// The bend points on the connection.
 	Bends []PositionDto `json:"bends,omitempty"`
 	// The index of the bend point where to place the connection label.
-	LabelIndex int32 `json:"labelIndex,omitempty"`
+	LabelIndex int32 `json:"labelIndex"`
 	// The z index of the connection.
 	GetzIndex int64 `json:"getzIndex,omitempty"`
 	// The identifier of the source of this connection.
