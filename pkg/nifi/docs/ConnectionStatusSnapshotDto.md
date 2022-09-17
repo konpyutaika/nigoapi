@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **QueuedCount** | **string** | The number of flowfiles that are queued, pretty printed. | [optional] [default to null]
 **PercentUseCount** | **int32** | Connection percent use regarding queued flow files count and backpressure threshold if configured. | [optional] [default to null]
 **PercentUseBytes** | **int32** | Connection percent use regarding queued flow files size and backpressure threshold if configured. | [optional] [default to null]
+**FlowFileAvailability** | **string** | The availability of FlowFiles in this connection | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

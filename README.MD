@@ -43,17 +43,103 @@ Manual changes :
   Version *int64 `json:"version,omitempty"`
   ```  
   
-  - In `model_parameter_dto`, replace : 
+- In `model_parameter_dto`, replace : 
   
-    ```golang
-    Description string `json:"value,omitempty"`
-    ```
+  ```golang
+	// The description of the Parameter
+	Description string `json:"description,omitempty"`
+	// The value of the Parameter
+	Value string `json:"value,omitempty"`
+  ```
     
-    by :
+  by :
+  
+  ```golang
+	// The description of the Parameter
+  Description *string `json:"description,omitempty"`
+	// The value of the Parameter
+	Value *string `json:"value"`
+  ```
+
+- In `ParameterDto`, replace : 
+  
+  ```markdown
+  **Value** | **string** | The value of the Parameter | [optional] [default to null]
+  ```
+  
+  by :
+  
+  ```markdown
+  **Value** | **string** | The value of the Parameter | [required] [default to null]
+  ```
+
+- In `model_parameter_context_dto`, replace : 
+  
+  ```golang
+	// The Parameters for the Parameter Context
+  Parameters []ParameterEntity `json:"parameters,omitempty"`
+  // The Process Groups that are bound to this Parameter Context
+  BoundProcessGroups []ProcessGroupEntity `json:"boundProcessGroups,omitempty"`
+  // A list of references of Parameter Contexts from which this one inherits parameters
+  InheritedParameterContexts []ParameterContextReferenceEntity `json:"inheritedParameterContexts,omitempty"`
+  ```
+  
+  by :
+  
+  ```golang
+	// The Parameters for the Parameter Context
+  Parameters []ParameterEntity `json:"parameters"`
+  // The Process Groups that are bound to this Parameter Context
+  BoundProcessGroups []ProcessGroupEntity `json:"boundProcessGroups"`
+  // A list of references of Parameter Contexts from which this one inherits parameters
+  InheritedParameterContexts []ParameterContextReferenceEntity `json:"inheritedParameterContexts"`
+  ```
+
+- In `ParameterContextDto`, replace : 
+  
+  ```markdown
+  **Parameters** | [**[]ParameterEntity**](ParameterEntity.md) | The Parameters for the Parameter Context | [optional] [default to null]
+  **InheritedParameterContexts** | [**[]ParameterContextReferenceEntity**](ParameterContextReferenceEntity.md) | A list of references of Parameter Contexts from which this one inherits parameters | [optional] [default to null]
+  ```
+  
+  by :
+  
+  ```markdown
+  **Parameters** | [**[]ParameterEntity**](ParameterEntity.md) | The Parameters for the Parameter Context | [required] [default to null]
+  **InheritedParameterContexts** | [**[]ParameterContextReferenceEntity**](ParameterContextReferenceEntity.md) | A list of references of Parameter Contexts from which this one inherits parameters | [required] [default to null]
+  ```
+
+- In `model_position_dto`, replace : 
+  
+  ```golang
+  // The x coordinate.
+  X float64 `json:"x,omitempty"`
+  // The y coordinate.
+  Y float64 `json:"y,omitempty"`
+  ```
     
-    ```golang
-    Description *string `json:"value,omitempty"`
-    ``` 
+  by :
+    
+  ```golang
+  // The x coordinate.
+  X float64 `json:"x"`
+    // The y coordinate.
+  Y float64 `json:"y"`
+  ```
+
+- In `PositionDto`, replace : 
+  
+  ```markdown
+  **X** | **float64** | The x coordinate. | [optional] [default to null]
+  **Y** | **float64** | The y coordinate. | [optional] [default to null]
+  ```
+    
+  by :
+  
+  ```markdown
+  **X** | **float64** | The x coordinate. | [required] [default to null]
+  **Y** | **float64** | The y coordinate. | [required] [default to null]
+  ```
   
 - replace 
 
@@ -72,6 +158,7 @@ Manual changes :
   // The timestamp of when the request was last updated
   LastUpdated string `json:"lastUpdated,omitempty"`
   ```
+
 - replace
 
   ```golang

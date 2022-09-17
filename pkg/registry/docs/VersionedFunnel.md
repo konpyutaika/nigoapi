@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Identifier** | **string** | The component&#39;s unique identifier | [optional] [default to null]
+**InstanceIdentifier** | **string** | The instance ID of an existing component that is described by this VersionedComponent, or null if this is not mapped to an instantiated component | [optional] [default to null]
 **Name** | **string** | The component&#39;s name | [optional] [default to null]
 **Comments** | **string** | The user-supplied comments for the component | [optional] [default to null]
 **Position** | [***Position**](Position.md) | The component&#39;s position on the graph | [optional] [default to null]
