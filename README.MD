@@ -46,13 +46,13 @@ Manual changes :
   - In `model_parameter_dto`, replace : 
   
     ```golang
-    Value string `json:"value,omitempty"`
+    Description string `json:"value,omitempty"`
     ```
     
     by :
     
     ```golang
-    Value *string `json:"value,omitempty"`
+    Description *string `json:"value,omitempty"`
     ``` 
   
 - replace 
@@ -72,7 +72,19 @@ Manual changes :
   // The timestamp of when the request was last updated
   LastUpdated string `json:"lastUpdated,omitempty"`
   ```
-  
+- replace
+
+  ```golang
+	// The index of the bend point where to place the connection label.
+  LabelIndex int32 `json:"labelIndex,omitempty"`
+  ```
+
+  by :
+
+  ```golang
+	// The index of the bend point where to place the connection label.
+  LabelIndex int32 `json:"labelIndex"`
+  ```
  
  
 

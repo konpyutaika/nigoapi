@@ -24,7 +24,7 @@ type VersionedConnection struct {
 	// The destination of the connection.
 	Destination *ConnectableComponent `json:"destination,omitempty"`
 	// The index of the bend point where to place the connection label.
-	LabelIndex int32 `json:"labelIndex,omitempty"`
+	LabelIndex int32 `json:"labelIndex"`
 	// The z index of the connection.
 	ZIndex int64 `json:"zIndex,omitempty"`
 	// The selected relationship that comprise the connection.
@@ -45,7 +45,7 @@ type VersionedConnection struct {
 	PartitioningAttribute string `json:"partitioningAttribute,omitempty"`
 	// Whether or not compression should be used when transferring FlowFiles between nodes
 	LoadBalanceCompression string `json:"loadBalanceCompression,omitempty"`
-	ComponentType string `json:"componentType,omitempty"`
+	ComponentType          string `json:"componentType,omitempty"`
 	// The ID of the Process Group that this component belongs to
 	GroupIdentifier string `json:"groupIdentifier,omitempty"`
 }

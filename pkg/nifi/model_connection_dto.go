@@ -26,7 +26,7 @@ type ConnectionDto struct {
 	// The name of the connection.
 	Name string `json:"name,omitempty"`
 	// The index of the bend point where to place the connection label.
-	LabelIndex int32 `json:"labelIndex,omitempty"`
+	LabelIndex int32 `json:"labelIndex"`
 	// The z index of the connection.
 	GetzIndex int64 `json:"getzIndex,omitempty"`
 	// The selected relationship that comprise the connection.
