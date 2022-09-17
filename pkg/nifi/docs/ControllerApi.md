@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**GetCluster**](ControllerApi.md#GetCluster) | **Get** /controller/cluster | Gets the contents of the cluster
 [**GetControllerConfig**](ControllerApi.md#GetControllerConfig) | **Get** /controller/config | Retrieves the configuration for this NiFi Controller
 [**GetNode**](ControllerApi.md#GetNode) | **Get** /controller/cluster/nodes/{id} | Gets a node in the cluster
+[**GetNodeStatusHistory**](ControllerApi.md#GetNodeStatusHistory) | **Get** /controller/status/history | Gets status history for the node
 [**GetRegistryClient**](ControllerApi.md#GetRegistryClient) | **Get** /controller/registry-clients/{id} | Gets a registry client
 [**GetRegistryClients**](ControllerApi.md#GetRegistryClients) | **Get** /controller/registry-clients | Gets the listing of available registry clients
 [**UpdateControllerConfig**](ControllerApi.md#UpdateControllerConfig) | **Put** /controller/config | Retrieves the configuration for this NiFi
@@ -292,6 +293,30 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**NodeEntity**](NodeEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetNodeStatusHistory**
+> ComponentHistoryEntity GetNodeStatusHistory(ctx, )
+Gets status history for the node
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ComponentHistoryEntity**](ComponentHistoryEntity.md)
 
 ### Authorization
 
