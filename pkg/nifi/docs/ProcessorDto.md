@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **SupportsParallelProcessing** | **bool** | Whether the processor supports parallel processing. | [optional] [default to null]
 **SupportsEventDriven** | **bool** | Whether the processor supports event driven scheduling. | [optional] [default to null]
 **SupportsBatching** | **bool** | Whether the processor supports batching. This makes the run duration settings available. | [optional] [default to null]
+**SupportsSensitiveDynamicProperties** | **bool** | Whether the processor supports sensitive dynamic properties. | [optional] [default to null]
 **PersistsState** | **bool** | Whether the processor persists state. | [optional] [default to null]
 **Restricted** | **bool** | Whether the processor requires elevated privileges. | [optional] [default to null]
 **Deprecated** | **bool** | Whether the processor has been deprecated. | [optional] [default to null]
