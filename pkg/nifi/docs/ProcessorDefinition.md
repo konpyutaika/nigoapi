@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **Restricted** | **bool** | Whether or not the component has a general restriction | [optional] [default to null]
 **RestrictedExplanation** | **string** | An optional description of the general restriction | [optional] [default to null]
 **ExplicitRestrictions** | [**[]Restriction**](Restriction.md) | Explicit restrictions that indicate a require permission to use the component | [optional] [default to null]
+**Stateful** | [***Stateful**](Stateful.md) |  | [optional] [default to null]
 **PropertyDescriptors** | [**map[string]PropertyDescriptor**](PropertyDescriptor.md) | Descriptions of configuration properties applicable to this component. | [optional] [default to null]
 **SupportsDynamicProperties** | **bool** | Whether or not this component makes use of dynamic (user-set) properties. | [optional] [default to null]
 **InputRequirement** | **string** | Any input requirements this processor has. | [optional] [default to null]

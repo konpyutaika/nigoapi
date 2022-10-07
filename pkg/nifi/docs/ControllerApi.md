@@ -6,20 +6,23 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateBulletin**](ControllerApi.md#CreateBulletin) | **Post** /controller/bulletin | Creates a new bulletin
 [**CreateControllerService**](ControllerApi.md#CreateControllerService) | **Post** /controller/controller-services | Creates a new controller service
-[**CreateRegistryClient**](ControllerApi.md#CreateRegistryClient) | **Post** /controller/registry-clients | Creates a new registry client
+[**CreateFlowRegistryClient**](ControllerApi.md#CreateFlowRegistryClient) | **Post** /controller/registry-clients | Creates a new flow registry client
+[**CreateParameterProvider**](ControllerApi.md#CreateParameterProvider) | **Post** /controller/parameter-providers | Creates a new parameter provider
 [**CreateReportingTask**](ControllerApi.md#CreateReportingTask) | **Post** /controller/reporting-tasks | Creates a new reporting task
+[**DeleteFlowRegistryClient**](ControllerApi.md#DeleteFlowRegistryClient) | **Delete** /controller/registry-clients/{id} | Deletes a flow registry client
 [**DeleteHistory**](ControllerApi.md#DeleteHistory) | **Delete** /controller/history | Purges history
 [**DeleteNode**](ControllerApi.md#DeleteNode) | **Delete** /controller/cluster/nodes/{id} | Removes a node from the cluster
-[**DeleteRegistryClient**](ControllerApi.md#DeleteRegistryClient) | **Delete** /controller/registry-clients/{id} | Deletes a registry client
 [**GetCluster**](ControllerApi.md#GetCluster) | **Get** /controller/cluster | Gets the contents of the cluster
 [**GetControllerConfig**](ControllerApi.md#GetControllerConfig) | **Get** /controller/config | Retrieves the configuration for this NiFi Controller
+[**GetFlowRegistryClient**](ControllerApi.md#GetFlowRegistryClient) | **Get** /controller/registry-clients/{id} | Gets a flow registry client
+[**GetFlowRegistryClients**](ControllerApi.md#GetFlowRegistryClients) | **Get** /controller/registry-clients | Gets the listing of available flow registry clients
 [**GetNode**](ControllerApi.md#GetNode) | **Get** /controller/cluster/nodes/{id} | Gets a node in the cluster
 [**GetNodeStatusHistory**](ControllerApi.md#GetNodeStatusHistory) | **Get** /controller/status/history | Gets status history for the node
-[**GetRegistryClient**](ControllerApi.md#GetRegistryClient) | **Get** /controller/registry-clients/{id} | Gets a registry client
-[**GetRegistryClients**](ControllerApi.md#GetRegistryClients) | **Get** /controller/registry-clients | Gets the listing of available registry clients
+[**GetPropertyDescriptor**](ControllerApi.md#GetPropertyDescriptor) | **Get** /controller/registry-clients/{id}/descriptors | Gets a flow registry client property descriptor
+[**GetRegistryClientTypes**](ControllerApi.md#GetRegistryClientTypes) | **Get** /controller/registry-types | Retrieves the types of flow  that this NiFi supports
 [**UpdateControllerConfig**](ControllerApi.md#UpdateControllerConfig) | **Put** /controller/config | Retrieves the configuration for this NiFi
+[**UpdateFlowRegistryClient**](ControllerApi.md#UpdateFlowRegistryClient) | **Put** /controller/registry-clients/{id} | Updates a flow registry client
 [**UpdateNode**](ControllerApi.md#UpdateNode) | **Put** /controller/cluster/nodes/{id} | Updates a node in the cluster
-[**UpdateRegistryClient**](ControllerApi.md#UpdateRegistryClient) | **Put** /controller/registry-clients/{id} | Updates a registry client
 
 
 # **CreateBulletin**
@@ -78,9 +81,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **CreateRegistryClient**
-> RegistryClientEntity CreateRegistryClient(ctx, body)
-Creates a new registry client
+# **CreateFlowRegistryClient**
+> FlowRegistryClientEntity CreateFlowRegistryClient(ctx, body)
+Creates a new flow registry client
 
 
 
@@ -89,11 +92,39 @@ Creates a new registry client
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body** | [**RegistryClientEntity**](RegistryClientEntity.md)| The registry configuration details. | 
+  **body** | [**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)| The flow registry client configuration details. | 
 
 ### Return type
 
-[**RegistryClientEntity**](RegistryClientEntity.md)
+[**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **CreateParameterProvider**
+> ParameterProviderEntity CreateParameterProvider(ctx, body)
+Creates a new parameter provider
+
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ParameterProviderEntity**](ParameterProviderEntity.md)| The parameter provider configuration details. | 
+
+### Return type
+
+[**ParameterProviderEntity**](ParameterProviderEntity.md)
 
 ### Authorization
 
@@ -130,6 +161,45 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteFlowRegistryClient**
+> FlowRegistryClientEntity DeleteFlowRegistryClient(ctx, id, optional)
+Deletes a flow registry client
+
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The flow registry client id. | 
+ **optional** | ***ControllerApiDeleteFlowRegistryClientOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ControllerApiDeleteFlowRegistryClientOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **version** | **optional.String**| The revision is used to verify the client is working with the latest version of the flow. | 
+ **clientId** | **optional.String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
+ **disconnectedNodeAcknowledged** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
+
+### Return type
+
+[**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -190,45 +260,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **DeleteRegistryClient**
-> RegistryClientEntity DeleteRegistryClient(ctx, id, optional)
-Deletes a registry client
-
-
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The registry id. | 
- **optional** | ***ControllerApiDeleteRegistryClientOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a ControllerApiDeleteRegistryClientOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **version** | **optional.String**| The revision is used to verify the client is working with the latest version of the flow. | 
- **clientId** | **optional.String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
- **disconnectedNodeAcknowledged** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
-
-### Return type
-
-[**RegistryClientEntity**](RegistryClientEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **GetCluster**
 > ClusterEntity GetCluster(ctx, )
 Gets the contents of the cluster
@@ -265,6 +296,58 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ControllerConfigurationEntity**](ControllerConfigurationEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetFlowRegistryClient**
+> FlowRegistryClientEntity GetFlowRegistryClient(ctx, id)
+Gets a flow registry client
+
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The flow registry client id. | 
+
+### Return type
+
+[**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetFlowRegistryClients**
+> FlowRegistryClientsEntity GetFlowRegistryClients(ctx, )
+Gets the listing of available flow registry clients
+
+
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**FlowRegistryClientsEntity**](FlowRegistryClientsEntity.md)
 
 ### Authorization
 
@@ -329,9 +412,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetRegistryClient**
-> RegistryClientEntity GetRegistryClient(ctx, id)
-Gets a registry client
+# **GetPropertyDescriptor**
+> PropertyDescriptorEntity GetPropertyDescriptor(ctx, id, propertyName, optional)
+Gets a flow registry client property descriptor
 
 
 
@@ -340,11 +423,22 @@ Gets a registry client
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The registry id. | 
+  **id** | **string**| The flow registry client id. | 
+  **propertyName** | **string**| The property name. | 
+ **optional** | ***ControllerApiGetPropertyDescriptorOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ControllerApiGetPropertyDescriptorOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **sensitive** | **optional.Bool**| Property Descriptor requested sensitive status | [default to false]
 
 ### Return type
 
-[**RegistryClientEntity**](RegistryClientEntity.md)
+[**PropertyDescriptorEntity**](PropertyDescriptorEntity.md)
 
 ### Authorization
 
@@ -357,18 +451,18 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetRegistryClients**
-> RegistryClientsEntity GetRegistryClients(ctx, )
-Gets the listing of available registry clients
+# **GetRegistryClientTypes**
+> FlowRegistryClientTypesEntity GetRegistryClientTypes(ctx, )
+Retrieves the types of flow  that this NiFi supports
 
-
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 
 ### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**RegistryClientsEntity**](RegistryClientsEntity.md)
+[**FlowRegistryClientTypesEntity**](FlowRegistryClientTypesEntity.md)
 
 ### Authorization
 
@@ -409,6 +503,35 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **UpdateFlowRegistryClient**
+> FlowRegistryClientEntity UpdateFlowRegistryClient(ctx, id, body)
+Updates a flow registry client
+
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The flow registry client id. | 
+  **body** | [**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)| The flow registry client configuration details. | 
+
+### Return type
+
+[**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **UpdateNode**
 > NodeEntity UpdateNode(ctx, id, body)
 Updates a node in the cluster
@@ -426,35 +549,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**NodeEntity**](NodeEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **UpdateRegistryClient**
-> RegistryClientEntity UpdateRegistryClient(ctx, id, body)
-Updates a registry client
-
-
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The registry id. | 
-  **body** | [**RegistryClientEntity**](RegistryClientEntity.md)| The registry configuration details. | 
-
-### Return type
-
-[**RegistryClientEntity**](RegistryClientEntity.md)
 
 ### Authorization
 

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **DisconnectedNodeAcknowledged** | **bool** | Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [optional] [default to null]
 **Component** | [***ProcessGroupDto**](ProcessGroupDTO.md) |  | [optional] [default to null]
 **Status** | [***ProcessGroupStatusDto**](ProcessGroupStatusDTO.md) | The status of the process group. | [optional] [default to null]
-**VersionedFlowSnapshot** | [***VersionedFlowSnapshot**](VersionedFlowSnapshot.md) | Returns the Versioned Flow that describes the contents of the Versioned Flow to be imported | [optional] [default to null]
+**VersionedFlowSnapshot** | [***RegisteredFlowSnapshot**](RegisteredFlowSnapshot.md) | Returns the Versioned Flow that describes the contents of the Versioned Flow to be imported | [optional] [default to null]
 **RunningCount** | **int32** | The number of running components in this process group. | [optional] [default to null]
 **StoppedCount** | **int32** | The number of stopped components in the process group. | [optional] [default to null]
 **InvalidCount** | **int32** | The number of invalid components in the process group. | [optional] [default to null]

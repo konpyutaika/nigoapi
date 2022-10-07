@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**RegistryId** | **string** | The identifier of the Flow Registry that contains the flow | [optional] [default to null]
+**StorageLocation** | **string** | The location of the Flow Registry that stores the flow | [optional] [default to null]
 **RegistryUrl** | **string** | The URL of the Flow Registry that contains the flow | [optional] [default to null]
 **BucketId** | **string** | The UUID of the bucket that the flow resides in | [optional] [default to null]
 **FlowId** | **string** | The UUID of the flow | [optional] [default to null]

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AnalyzeConfiguration**](ControllerServicesApi.md#AnalyzeConfiguration) | **Post** /controller-services/{id}/config/analysis | Performs analysis of the component&#39;s configuration, providing information about which attributes are referenced.
 [**ClearState**](ControllerServicesApi.md#ClearState) | **Post** /controller-services/{id}/state/clear-requests | Clears the state for a controller service
-[**DeleteValidationRequest**](ControllerServicesApi.md#DeleteValidationRequest) | **Delete** /controller-services/{id}/config/verification-requests/{requestId} | Deletes the Verification Request with the given ID
+[**DeleteVerificationRequest**](ControllerServicesApi.md#DeleteVerificationRequest) | **Delete** /controller-services/{id}/config/verification-requests/{requestId} | Deletes the Verification Request with the given ID
 [**GetControllerService**](ControllerServicesApi.md#GetControllerService) | **Get** /controller-services/{id} | Gets a controller service
 [**GetControllerServiceReferences**](ControllerServicesApi.md#GetControllerServiceReferences) | **Get** /controller-services/{id}/references | Gets a controller service
 [**GetPropertyDescriptor**](ControllerServicesApi.md#GetPropertyDescriptor) | **Get** /controller-services/{id}/descriptors | Gets a controller service property descriptor
@@ -76,8 +76,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **DeleteValidationRequest**
-> VerifyConfigRequestEntity DeleteValidationRequest(ctx, id, requestId)
+# **DeleteVerificationRequest**
+> VerifyConfigRequestEntity DeleteVerificationRequest(ctx, id, requestId)
 Deletes the Verification Request with the given ID
 
 Deletes the Verification Request with the given ID. After a request is created, it is expected that the client will properly clean up the request by DELETE'ing it, once the Verification process has completed. If the request is deleted before the request completes, then the Verification request will finish the step that it is currently performing and then will cancel any subsequent steps.
