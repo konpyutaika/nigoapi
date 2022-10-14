@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "The REST API provides an interface to a registry with operations for\
     \ saving, versioning, reading NiFi flows and components."
-  version: "1.17.0"
+  version: "1.18.0"
   title: "Apache NiFi Registry REST API"
   termsOfService: "As described in the license"
   contact:
@@ -5756,6 +5756,29 @@ definitions:
       href: "http://example.com/aeiou"
       params:
         key: "params"
+  ParameterProviderReference:
+    type: "object"
+    properties:
+      identifier:
+        type: "string"
+        description: "The identifier of the parameter provider"
+      name:
+        type: "string"
+        description: "The name of the parameter provider"
+      type:
+        type: "string"
+        description: "The fully qualified name of the parameter provider class."
+      bundle:
+        description: "The details of the artifact that bundled this parameter provider."
+        $ref: "#/definitions/Bundle"
+    example:
+      identifier: "identifier"
+      name: "name"
+      type: "type"
+      bundle:
+        artifact: "artifact"
+        version: "version"
+        group: "group"
   Permissions:
     type: "object"
     properties:
@@ -6711,7 +6734,9 @@ definitions:
         - "CONTROLLER_SERVICE"
         - "REPORTING_TASK"
         - "PARAMETER_CONTEXT"
+        - "PARAMETER_PROVIDER"
         - "TEMPLATE"
+        - "FLOW_REGISTRY_CLIENT"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -6831,7 +6856,9 @@ definitions:
         - "CONTROLLER_SERVICE"
         - "REPORTING_TASK"
         - "PARAMETER_CONTEXT"
+        - "PARAMETER_PROVIDER"
         - "TEMPLATE"
+        - "FLOW_REGISTRY_CLIENT"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -6967,6 +6994,12 @@ definitions:
   VersionedFlowCoordinates:
     type: "object"
     properties:
+      registryId:
+        type: "string"
+        description: "The identifier of the Flow Registry that contains the flow"
+      storageLocation:
+        type: "string"
+        description: "The location of the Flow Registry that stores the flow"
       registryUrl:
         type: "string"
         description: "The URL of the Flow Registry that contains the flow"
@@ -6986,6 +7019,8 @@ definitions:
           \ of the flow"
     example:
       registryUrl: "registryUrl"
+      registryId: "registryId"
+      storageLocation: "storageLocation"
       bucketId: "bucketId"
       flowId: "flowId"
       version: 6
@@ -7067,6 +7102,12 @@ definitions:
           \ flow."
         additionalProperties:
           $ref: "#/definitions/ExternalControllerServiceReference"
+      parameterProviders:
+        type: "object"
+        description: "Contains basic information about parameter providers referenced\
+          \ in the versioned flow."
+        additionalProperties:
+          $ref: "#/definitions/ParameterProviderReference"
       parameterContexts:
         type: "object"
         description: "The parameter contexts referenced by process groups in the flow\
@@ -7428,6 +7469,8 @@ definitions:
           "y": 6.027456183070403
         versionedFlowCoordinates:
           registryUrl: "registryUrl"
+          registryId: "registryId"
+          storageLocation: "storageLocation"
           bucketId: "bucketId"
           flowId: "flowId"
           version: 6
@@ -7704,6 +7747,15 @@ definitions:
           partitioningAttribute: "partitioningAttribute"
           zIndex: 4
         parameterContextName: "parameterContextName"
+      parameterProviders:
+        key:
+          identifier: "identifier"
+          name: "name"
+          type: "type"
+          bundle:
+            artifact: "artifact"
+            version: "version"
+            group: "group"
       flowEncodingVersion: "flowEncodingVersion"
       flow:
         versionCount: 0
@@ -7729,28 +7781,33 @@ definitions:
           version: 6
       parameterContexts:
         key:
+          parameterGroupName: "parameterGroupName"
           identifier: "identifier"
+          synchronized: true
+          componentType: "CONNECTION"
+          comments: "comments"
+          description: "description"
           inheritedParameterContexts:
           - "inheritedParameterContexts"
           - "inheritedParameterContexts"
-          componentType: "CONNECTION"
-          comments: "comments"
           name: "name"
-          description: "description"
           instanceIdentifier: "instanceIdentifier"
           position:
             x: 0.8008281904610115
             "y": 6.027456183070403
           groupIdentifier: "groupIdentifier"
           parameters:
-          - name: "name"
+          - provided: true
+            name: "name"
             description: "description"
             sensitive: true
             value: "value"
-          - name: "name"
+          - provided: true
+            name: "name"
             description: "description"
             sensitive: true
             value: "value"
+          parameterProvider: "parameterProvider"
       latest: true
   VersionedFlowSnapshotMetadata:
     type: "object"
@@ -7835,7 +7892,9 @@ definitions:
         - "CONTROLLER_SERVICE"
         - "REPORTING_TASK"
         - "PARAMETER_CONTEXT"
+        - "PARAMETER_PROVIDER"
         - "TEMPLATE"
+        - "FLOW_REGISTRY_CLIENT"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -7906,7 +7965,9 @@ definitions:
         - "CONTROLLER_SERVICE"
         - "REPORTING_TASK"
         - "PARAMETER_CONTEXT"
+        - "PARAMETER_PROVIDER"
         - "TEMPLATE"
+        - "FLOW_REGISTRY_CLIENT"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -7938,10 +7999,14 @@ definitions:
       sensitive:
         type: "boolean"
         description: "Whether or not the parameter value is sensitive"
+      provided:
+        type: "boolean"
+        description: "Whether or not the parameter value is provided by a ParameterProvider"
       value:
         type: "string"
         description: "The value of the parameter"
     example:
+      provided: true
       name: "name"
       description: "description"
       sensitive: true
@@ -7981,6 +8046,17 @@ definitions:
       description:
         type: "string"
         description: "The description of the parameter context"
+      parameterProvider:
+        type: "string"
+        description: "The identifier of an optional parameter provider"
+      parameterGroupName:
+        type: "string"
+        description: "The corresponding parameter group name fetched from the parameter\
+          \ provider, if applicable"
+      synchronized:
+        type: "boolean"
+        description: "True if the parameter provider is set and the context should\
+          \ receive updates when its parameters are next fetched"
       componentType:
         type: "string"
         enum:
@@ -7997,33 +8073,40 @@ definitions:
         - "CONTROLLER_SERVICE"
         - "REPORTING_TASK"
         - "PARAMETER_CONTEXT"
+        - "PARAMETER_PROVIDER"
         - "TEMPLATE"
+        - "FLOW_REGISTRY_CLIENT"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
     example:
+      parameterGroupName: "parameterGroupName"
       identifier: "identifier"
+      synchronized: true
+      componentType: "CONNECTION"
+      comments: "comments"
+      description: "description"
       inheritedParameterContexts:
       - "inheritedParameterContexts"
       - "inheritedParameterContexts"
-      componentType: "CONNECTION"
-      comments: "comments"
       name: "name"
-      description: "description"
       instanceIdentifier: "instanceIdentifier"
       position:
         x: 0.8008281904610115
         "y": 6.027456183070403
       groupIdentifier: "groupIdentifier"
       parameters:
-      - name: "name"
+      - provided: true
+        name: "name"
         description: "description"
         sensitive: true
         value: "value"
-      - name: "name"
+      - provided: true
+        name: "name"
         description: "description"
         sensitive: true
         value: "value"
+      parameterProvider: "parameterProvider"
   VersionedPort:
     type: "object"
     properties:
@@ -8081,7 +8164,9 @@ definitions:
         - "CONTROLLER_SERVICE"
         - "REPORTING_TASK"
         - "PARAMETER_CONTEXT"
+        - "PARAMETER_PROVIDER"
         - "TEMPLATE"
+        - "FLOW_REGISTRY_CLIENT"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -8198,6 +8283,12 @@ definitions:
         type: "string"
         description: "Default value used in this Process Group for the maximum data\
           \ size of objects that can be queued before back pressure is applied."
+      flowFileConcurrency:
+        type: "string"
+        description: "The configured FlowFile Concurrency for the Process Group"
+      flowFileOutboundPolicy:
+        type: "string"
+        description: "The FlowFile Outbound Policy for the Process Group"
       componentType:
         type: "string"
         enum:
@@ -8214,13 +8305,9 @@ definitions:
         - "CONTROLLER_SERVICE"
         - "REPORTING_TASK"
         - "PARAMETER_CONTEXT"
+        - "PARAMETER_PROVIDER"
         - "TEMPLATE"
-      flowFileConcurrency:
-        type: "string"
-        description: "The configured FlowFile Concurrency for the Process Group"
-      flowFileOutboundPolicy:
-        type: "string"
-        description: "The FlowFile Outbound Policy for the Process Group"
+        - "FLOW_REGISTRY_CLIENT"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -8529,6 +8616,8 @@ definitions:
         "y": 6.027456183070403
       versionedFlowCoordinates:
         registryUrl: "registryUrl"
+        registryId: "registryId"
+        storageLocation: "storageLocation"
         bucketId: "bucketId"
         flowId: "flowId"
         version: 6
@@ -8937,7 +9026,9 @@ definitions:
         - "CONTROLLER_SERVICE"
         - "REPORTING_TASK"
         - "PARAMETER_CONTEXT"
+        - "PARAMETER_PROVIDER"
         - "TEMPLATE"
+        - "FLOW_REGISTRY_CLIENT"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
@@ -9071,7 +9162,9 @@ definitions:
         - "CONTROLLER_SERVICE"
         - "REPORTING_TASK"
         - "PARAMETER_CONTEXT"
+        - "PARAMETER_PROVIDER"
         - "TEMPLATE"
+        - "FLOW_REGISTRY_CLIENT"
       targetId:
         type: "string"
         description: "The ID of the port on the target NiFi instance"
@@ -9190,7 +9283,9 @@ definitions:
         - "CONTROLLER_SERVICE"
         - "REPORTING_TASK"
         - "PARAMETER_CONTEXT"
+        - "PARAMETER_PROVIDER"
         - "TEMPLATE"
+        - "FLOW_REGISTRY_CLIENT"
       groupIdentifier:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"

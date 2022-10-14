@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AnalyzeConfiguration**](ReportingTasksApi.md#AnalyzeConfiguration) | **Post** /reporting-tasks/{id}/config/analysis | Performs analysis of the component&#39;s configuration, providing information about which attributes are referenced.
 [**ClearState**](ReportingTasksApi.md#ClearState) | **Post** /reporting-tasks/{id}/state/clear-requests | Clears the state for a reporting task
-[**DeleteValidationRequest**](ReportingTasksApi.md#DeleteValidationRequest) | **Delete** /reporting-tasks/{id}/config/verification-requests/{requestId} | Deletes the Verification Request with the given ID
+[**DeleteVerificationRequest**](ReportingTasksApi.md#DeleteVerificationRequest) | **Delete** /reporting-tasks/{id}/config/verification-requests/{requestId} | Deletes the Verification Request with the given ID
 [**GetPropertyDescriptor**](ReportingTasksApi.md#GetPropertyDescriptor) | **Get** /reporting-tasks/{id}/descriptors | Gets a reporting task property descriptor
 [**GetReportingTask**](ReportingTasksApi.md#GetReportingTask) | **Get** /reporting-tasks/{id} | Gets a reporting task
 [**GetState**](ReportingTasksApi.md#GetState) | **Get** /reporting-tasks/{id}/state | Gets the state for a reporting task
@@ -74,8 +74,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **DeleteValidationRequest**
-> VerifyConfigRequestEntity DeleteValidationRequest(ctx, id, requestId)
+# **DeleteVerificationRequest**
+> VerifyConfigRequestEntity DeleteVerificationRequest(ctx, id, requestId)
 Deletes the Verification Request with the given ID
 
 Deletes the Verification Request with the given ID. After a request is created, it is expected that the client will properly clean up the request by DELETE'ing it, once the Verification process has completed. If the request is deleted before the request completes, then the Verification request will finish the step that it is currently performing and then will cancel any subsequent steps.
@@ -270,7 +270,7 @@ No authorization required
 > VerifyConfigRequestEntity SubmitConfigVerificationRequest(ctx, id, body)
 Performs verification of the Reporting Task's configuration
 
-This will initiate the process of verifying a given Reporting Task configuration. This may be a long-running task. As a result, this endpoint will immediately return a ReportingTaskConfigVerificationRequestEntity, and the process of performing the verification will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /reporting-tasks/{serviceId}/verification-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /reporting-tasks/{serviceId}/verification-requests/{requestId}.
+This will initiate the process of verifying a given Reporting Task configuration. This may be a long-running task. As a result, this endpoint will immediately return a ReportingTaskConfigVerificationRequestEntity, and the process of performing the verification will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /reporting-tasks/{taskId}/verification-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /reporting-tasks/{serviceId}/verification-requests/{requestId}.
 
 ### Required Parameters
 

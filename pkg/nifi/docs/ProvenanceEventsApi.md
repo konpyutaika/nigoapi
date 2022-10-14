@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetOutputContent**](ProvenanceEventsApi.md#GetOutputContent) | **Get** /provenance-events/{id}/content/output | Gets the output content for a provenance event
 [**GetProvenanceEvent**](ProvenanceEventsApi.md#GetProvenanceEvent) | **Get** /provenance-events/{id} | Gets a provenance event
 [**SubmitReplay**](ProvenanceEventsApi.md#SubmitReplay) | **Post** /provenance-events/replays | Replays content from a provenance event
+[**SubmitReplayLatestEvent**](ProvenanceEventsApi.md#SubmitReplayLatestEvent) | **Post** /provenance-events/latest/replays | Replays content from a provenance event
 
 
 # **GetInputContent**
@@ -137,6 +138,34 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ProvenanceEventEntity**](ProvenanceEventEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **SubmitReplayLatestEvent**
+> ReplayLastEventResponseEntity SubmitReplayLatestEvent(ctx, body)
+Replays content from a provenance event
+
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ReplayLastEventRequestEntity**](ReplayLastEventRequestEntity.md)| The replay request. | 
+
+### Return type
+
+[**ReplayLastEventResponseEntity**](ReplayLastEventResponseEntity.md)
 
 ### Authorization
 

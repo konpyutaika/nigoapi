@@ -29,13 +29,15 @@ Method | HTTP request | Description
 [**GetInputPortStatus**](FlowApi.md#GetInputPortStatus) | **Get** /flow/input-ports/{id}/status | Gets status for an input port
 [**GetOutputPortStatus**](FlowApi.md#GetOutputPortStatus) | **Get** /flow/output-ports/{id}/status | Gets status for an output port
 [**GetParameterContexts**](FlowApi.md#GetParameterContexts) | **Get** /flow/parameter-contexts | Gets all Parameter Contexts
+[**GetParameterProviderTypes**](FlowApi.md#GetParameterProviderTypes) | **Get** /flow/parameter-provider-types | Retrieves the types of parameter providers that this NiFi supports
+[**GetParameterProviders**](FlowApi.md#GetParameterProviders) | **Get** /flow/parameter-providers | Gets all parameter providers
 [**GetPrioritizers**](FlowApi.md#GetPrioritizers) | **Get** /flow/prioritizers | Retrieves the types of prioritizers that this NiFi supports
 [**GetProcessGroupStatus**](FlowApi.md#GetProcessGroupStatus) | **Get** /flow/process-groups/{id}/status | Gets the status for a process group
 [**GetProcessGroupStatusHistory**](FlowApi.md#GetProcessGroupStatusHistory) | **Get** /flow/process-groups/{id}/status/history | Gets status history for a remote process group
 [**GetProcessorStatus**](FlowApi.md#GetProcessorStatus) | **Get** /flow/processors/{id}/status | Gets status for a processor
 [**GetProcessorStatusHistory**](FlowApi.md#GetProcessorStatusHistory) | **Get** /flow/processors/{id}/status/history | Gets status history for a processor
 [**GetProcessorTypes**](FlowApi.md#GetProcessorTypes) | **Get** /flow/processor-types | Retrieves the types of processors that this NiFi supports
-[**GetRegistries**](FlowApi.md#GetRegistries) | **Get** /flow/registries | Gets the listing of available registries
+[**GetRegistryClients**](FlowApi.md#GetRegistryClients) | **Get** /flow/registries | Gets the listing of available flow registry clients
 [**GetRemoteProcessGroupStatus**](FlowApi.md#GetRemoteProcessGroupStatus) | **Get** /flow/remote-process-groups/{id}/status | Gets status for a remote process group
 [**GetRemoteProcessGroupStatusHistory**](FlowApi.md#GetRemoteProcessGroupStatusHistory) | **Get** /flow/remote-process-groups/{id}/status/history | Gets the status history
 [**GetReportingTaskTypes**](FlowApi.md#GetReportingTaskTypes) | **Get** /flow/reporting-task-types | Retrieves the types of reporting tasks that this NiFi supports
@@ -179,7 +181,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBuckets**
-> BucketsEntity GetBuckets(ctx, id)
+> FlowRegistryBucketsEntity GetBuckets(ctx, id)
 Gets the buckets from the specified registry for the current user
 
 
@@ -193,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BucketsEntity**](BucketsEntity.md)
+[**FlowRegistryBucketsEntity**](FlowRegistryBucketsEntity.md)
 
 ### Authorization
 
@@ -701,7 +703,7 @@ Gets the flows from the specified registry and bucket for the current user
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **registryId** | **string**| The registry id. | 
+  **registryId** | **string**| The registry client id. | 
   **bucketId** | **string**| The bucket id. | 
 
 ### Return type
@@ -807,6 +809,67 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ParameterContextsEntity**](ParameterContextsEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetParameterProviderTypes**
+> ParameterProviderTypesEntity GetParameterProviderTypes(ctx, optional)
+Retrieves the types of parameter providers that this NiFi supports
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***FlowApiGetParameterProviderTypesOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiGetParameterProviderTypesOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bundleGroupFilter** | **optional.String**| If specified, will only return types that are a member of this bundle group. | 
+ **bundleArtifactFilter** | **optional.String**| If specified, will only return types that are a member of this bundle artifact. | 
+ **type_** | **optional.String**| If specified, will only return types whose fully qualified classname matches. | 
+
+### Return type
+
+[**ParameterProviderTypesEntity**](ParameterProviderTypesEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetParameterProviders**
+> ParameterProvidersEntity GetParameterProviders(ctx, )
+Gets all parameter providers
+
+
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ParameterProvidersEntity**](ParameterProvidersEntity.md)
 
 ### Authorization
 
@@ -1013,9 +1076,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetRegistries**
-> RegistryClientsEntity GetRegistries(ctx, )
-Gets the listing of available registries
+# **GetRegistryClients**
+> FlowRegistryClientsEntity GetRegistryClients(ctx, )
+Gets the listing of available flow registry clients
 
 
 
@@ -1024,7 +1087,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RegistryClientsEntity**](RegistryClientsEntity.md)
+[**FlowRegistryClientsEntity**](FlowRegistryClientsEntity.md)
 
 ### Authorization
 
@@ -1223,7 +1286,7 @@ Gets the flow versions from the specified registry and bucket for the specified 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **registryId** | **string**| The registry id. | 
+  **registryId** | **string**| The registry client id. | 
   **bucketId** | **string**| The bucket id. | 
   **flowId** | **string**| The flow id. | 
 

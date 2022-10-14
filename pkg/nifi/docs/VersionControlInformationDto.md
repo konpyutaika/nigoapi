@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **FlowName** | **string** | The name of the flow | [optional] [default to null]
 **FlowDescription** | **string** | The description of the flow | [optional] [default to null]
 **Version** | **int32** | The version of the flow | [optional] [default to null]
+**StorageLocation** | **string** | The storage location | [optional] [default to null]
 **State** | **string** | The current state of the Process Group, as it relates to the Versioned Flow | [optional] [default to null]
 **StateExplanation** | **string** | Explanation of why the group is in the specified state | [optional] [default to null]
 

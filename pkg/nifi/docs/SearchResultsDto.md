@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **LabelResults** | [**[]ComponentSearchResultDto**](ComponentSearchResultDTO.md) | The labels that matched the search. | [optional] [default to null]
 **ControllerServiceNodeResults** | [**[]ComponentSearchResultDto**](ComponentSearchResultDTO.md) | The controller service nodes that matched the search | [optional] [default to null]
 **ParameterContextResults** | [**[]ComponentSearchResultDto**](ComponentSearchResultDTO.md) | The parameter contexts that matched the search. | [optional] [default to null]
+**ParameterProviderNodeResults** | [**[]ComponentSearchResultDto**](ComponentSearchResultDTO.md) | The parameter provider nodes that matched the search | [optional] [default to null]
 **ParameterResults** | [**[]ComponentSearchResultDto**](ComponentSearchResultDTO.md) | The parameters that matched the search. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
