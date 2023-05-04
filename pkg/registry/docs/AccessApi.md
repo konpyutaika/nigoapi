@@ -10,10 +10,12 @@ Method | HTTP request | Description
 [**CreateAccessTokenUsingKerberosTicket**](AccessApi.md#CreateAccessTokenUsingKerberosTicket) | **Post** /access/token/kerberos | Create token using kerberos
 [**GetAccessStatus**](AccessApi.md#GetAccessStatus) | **Get** /access | Get access status
 [**GetIdentityProviderUsageInstructions**](AccessApi.md#GetIdentityProviderUsageInstructions) | **Get** /access/token/identity-provider/usage | Get identity provider usage
-[**LogOut**](AccessApi.md#LogOut) | **Delete** /access/logout | Performs a logout for other providers that have been issued a JWT.
+[**Logout**](AccessApi.md#Logout) | **Delete** /access/logout | Performs a logout for other providers that have been issued a JWT.
+[**LogoutComplete**](AccessApi.md#LogoutComplete) | **Get** /access/logout/complete | Completes the logout sequence.
 [**OidcCallback**](AccessApi.md#OidcCallback) | **Get** /access/oidc/callback | Redirect/callback URI for processing the result of the OpenId Connect login sequence.
 [**OidcExchange**](AccessApi.md#OidcExchange) | **Post** /access/oidc/exchange | Retrieves a JWT following a successful login sequence using the configured OpenId Connect provider.
-[**OidcLogout**](AccessApi.md#OidcLogout) | **Delete** /access/oidc/logout | Performs a logout in the OpenId Provider.
+[**OidcLogout**](AccessApi.md#OidcLogout) | **Get** /access/oidc/logout | Performs a logout in the OpenId Provider.
+[**OidcLogoutCallback**](AccessApi.md#OidcLogoutCallback) | **Get** /access/oidc/logout/callback | Redirect/callback URI for processing the result of the OpenId Connect logout sequence.
 [**OidcRequest**](AccessApi.md#OidcRequest) | **Get** /access/oidc/request | Initiates a request to authenticate through the configured OpenId Connect provider.
 [**TestIdentityProviderRecognizesCredentialsFormat**](AccessApi.md#TestIdentityProviderRecognizesCredentialsFormat) | **Post** /access/token/identity-provider/test | Test identity provider
 
@@ -162,9 +164,33 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **LogOut**
-> LogOut(ctx, )
+# **Logout**
+> Logout(ctx, )
 Performs a logout for other providers that have been issued a JWT.
+
+  NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **LogoutComplete**
+> LogoutComplete(ctx, )
+Completes the logout sequence.
 
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
 
@@ -237,6 +263,30 @@ No authorization required
 # **OidcLogout**
 > OidcLogout(ctx, )
 Performs a logout in the OpenId Provider.
+
+  NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **OidcLogoutCallback**
+> OidcLogoutCallback(ctx, )
+Redirect/callback URI for processing the result of the OpenId Connect logout sequence.
 
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
 

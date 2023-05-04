@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| The process group id. | 
-  **body** | [**VersionControlInformationEntity**](VersionControlInformationEntity.md)| The controller service configuration details. | 
+  **body** | [**VersionControlInformationEntity**](VersionControlInformationEntity.md)| The Version Control Information to revert to. | 
 
 ### Return type
 

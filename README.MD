@@ -11,39 +11,65 @@ The aim of this project is to provide a convenient Go client to interact with Ni
 
 ## Generate client
 
-To generate the clients please run following command : 
+To generate the clients please run following command: 
 
 ```console
 ./regenerate.sh
 ```
 
-Manual changes : 
+Manual changes: 
 
-- In function `UploadTemplate()` of `api_process_groups.go` replace :
+- In function `UploadTemplate()` of `api_process_groups.go` replace:
 
   ```golang
   localVarPostBody = &localVarOptionals.Body.Value()
   ```
   
-  by :
+  by:
   
   ```golang
   localVarPostBody = localVarOptionals.Body.Value()
   ```  
   
-- In `model_revision_dto`, replace : 
+- In `model_revision_dto`, replace: 
 
   ```golang
   Version int64 `json:"version,omitempty"`
   ```
   
-  by :
+  by:
   
   ```golang
   Version *int64 `json:"version,omitempty"`
   ```  
+
+- In `model_label_dto`, replace: 
   
-- In `model_parameter_dto`, replace : 
+  ```golang
+	// The text that appears in the label.
+	Label string `json:"label,omitempty"`
+  ```
+    
+  by:
+  
+  ```golang
+	// The text that appears in the label.
+	Label string `json:"label"`
+  ```
+
+- In `LabelDto`, replace: 
+  
+  ```markdown
+  **Label** | **string** | The text that appears in the label. | [optional] [default to null]
+  ```
+  
+  by:
+  
+  ```markdown
+  **Label** | **string** | The text that appears in the label. | [required] [default to null]
+  ```
+  
+- In `model_parameter_dto`, replace: 
   
   ```golang
 	// The description of the Parameter
@@ -52,7 +78,7 @@ Manual changes :
 	Value string `json:"value,omitempty"`
   ```
     
-  by :
+  by:
   
   ```golang
 	// The description of the Parameter
@@ -61,19 +87,19 @@ Manual changes :
 	Value *string `json:"value"`
   ```
 
-- In `ParameterDto`, replace : 
+- In `ParameterDto`, replace: 
   
   ```markdown
   **Value** | **string** | The value of the Parameter | [optional] [default to null]
   ```
   
-  by :
+  by:
   
   ```markdown
   **Value** | **string** | The value of the Parameter | [required] [default to null]
   ```
 
-- In `model_parameter_context_dto`, replace : 
+- In `model_parameter_context_dto`, replace: 
   
   ```golang
 	// The Parameters for the Parameter Context
@@ -84,7 +110,7 @@ Manual changes :
   InheritedParameterContexts []ParameterContextReferenceEntity `json:"inheritedParameterContexts,omitempty"`
   ```
   
-  by :
+  by:
   
   ```golang
 	// The Parameters for the Parameter Context
@@ -95,21 +121,23 @@ Manual changes :
   InheritedParameterContexts []ParameterContextReferenceEntity `json:"inheritedParameterContexts"`
   ```
 
-- In `ParameterContextDto`, replace : 
+- In `ParameterContextDto`, replace: 
   
   ```markdown
   **Parameters** | [**[]ParameterEntity**](ParameterEntity.md) | The Parameters for the Parameter Context | [optional] [default to null]
+  **BoundProcessGroups** | [**[]ProcessGroupEntity**](ProcessGroupEntity.md) | The Process Groups that are bound to this Parameter Context | [optional] [default to null]
   **InheritedParameterContexts** | [**[]ParameterContextReferenceEntity**](ParameterContextReferenceEntity.md) | A list of references of Parameter Contexts from which this one inherits parameters | [optional] [default to null]
   ```
   
-  by :
+  by:
   
   ```markdown
   **Parameters** | [**[]ParameterEntity**](ParameterEntity.md) | The Parameters for the Parameter Context | [required] [default to null]
+  **BoundProcessGroups** | [**[]ProcessGroupEntity**](ProcessGroupEntity.md) | The Process Groups that are bound to this Parameter Context | [required] [default to null]
   **InheritedParameterContexts** | [**[]ParameterContextReferenceEntity**](ParameterContextReferenceEntity.md) | A list of references of Parameter Contexts from which this one inherits parameters | [required] [default to null]
   ```
 
-- In `model_position_dto`, replace : 
+- In `model_position_dto`, replace: 
   
   ```golang
   // The x coordinate.
@@ -118,7 +146,7 @@ Manual changes :
   Y float64 `json:"y,omitempty"`
   ```
     
-  by :
+  by:
     
   ```golang
   // The x coordinate.
@@ -127,14 +155,14 @@ Manual changes :
   Y float64 `json:"y"`
   ```
 
-- In `PositionDto`, replace : 
+- In `PositionDto`, replace: 
   
   ```markdown
   **X** | **float64** | The x coordinate. | [optional] [default to null]
   **Y** | **float64** | The y coordinate. | [optional] [default to null]
   ```
     
-  by :
+  by:
   
   ```markdown
   **X** | **float64** | The x coordinate. | [required] [default to null]
@@ -150,7 +178,7 @@ Manual changes :
   LastUpdated Time.time `json:"lastUpdated,omitempty"`
   ```
  
-  by : 
+  by: 
   
   ```golang
   // The timestamp of when the request was submitted
@@ -166,7 +194,7 @@ Manual changes :
   LabelIndex int32 `json:"labelIndex,omitempty"`
   ```
 
-  by :
+  by:
 
   ```golang
 	// The index of the bend point where to place the connection label.
@@ -177,7 +205,7 @@ Manual changes :
 
 ## Credits
 
-This client is : 
+This client is: 
 
 - inspired by the python client [nipyapi](https://github.com/Chaffelson/nipyapi)
 - using [swagger-codegen](https://swagger.io/tools/swagger-codegen/)

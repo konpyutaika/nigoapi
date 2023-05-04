@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **ProxyHost** | **string** |  | [optional] [default to null]
 **ProxyPort** | **int32** |  | [optional] [default to null]
 **ProxyUser** | **string** |  | [optional] [default to null]
+**ProxyPassword** | **string** |  | [optional] [default to null]
 **InputPorts** | [**[]VersionedRemoteGroupPort**](VersionedRemoteGroupPort.md) | A Set of Input Ports that can be connected to, in order to send data to the remote NiFi instance | [optional] [default to null]
 **OutputPorts** | [**[]VersionedRemoteGroupPort**](VersionedRemoteGroupPort.md) | A Set of Output Ports that can be connected to, in order to pull data from the remote NiFi instance | [optional] [default to null]
 **ComponentType** | **string** |  | [optional] [default to null]

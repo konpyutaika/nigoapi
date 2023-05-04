@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "The REST API provides an interface to a registry with operations for\
     \ saving, versioning, reading NiFi flows and components."
-  version: "1.18.0"
+  version: "1.21.0"
   title: "Apache NiFi Registry REST API"
   termsOfService: "As described in the license"
   contact:
@@ -94,7 +94,28 @@ paths:
       summary: "Performs a logout for other providers that have been issued a JWT."
       description: "\n\nNOTE: This endpoint is subject to change as NiFi Registry\
         \ and its REST API evolve."
-      operationId: "logOut"
+      operationId: "logout"
+      consumes:
+      - "*/*"
+      produces:
+      - "*/*"
+      parameters: []
+      responses:
+        "200":
+          description: "User was logged out successfully."
+        "401":
+          description: "Authentication token provided was empty or not in the correct\
+            \ JWT format."
+        "500":
+          description: "Client failed to log out."
+  /access/logout/complete:
+    get:
+      tags:
+      - "access"
+      summary: "Completes the logout sequence."
+      description: "\n\nNOTE: This endpoint is subject to change as NiFi Registry\
+        \ and its REST API evolve."
+      operationId: "logoutComplete"
       consumes:
       - "*/*"
       produces:
@@ -145,13 +166,30 @@ paths:
           schema:
             type: "string"
   /access/oidc/logout:
-    delete:
+    get:
       tags:
       - "access"
       summary: "Performs a logout in the OpenId Provider."
       description: "\n\nNOTE: This endpoint is subject to change as NiFi Registry\
         \ and its REST API evolve."
       operationId: "oidcLogout"
+      consumes:
+      - "*/*"
+      produces:
+      - "*/*"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+  /access/oidc/logout/callback:
+    get:
+      tags:
+      - "access"
+      summary: "Redirect/callback URI for processing the result of the OpenId Connect\
+        \ logout sequence."
+      description: "\n\nNOTE: This endpoint is subject to change as NiFi Registry\
+        \ and its REST API evolve."
+      operationId: "oidcLogoutCallback"
       consumes:
       - "*/*"
       produces:
@@ -7479,6 +7517,7 @@ definitions:
         - identifier: "identifier"
           componentType: "CONNECTION"
           comments: "comments"
+          proxyPassword: "proxyPassword"
           communicationsTimeout: "communicationsTimeout"
           proxyHost: "proxyHost"
           proxyPort: 1
@@ -7571,6 +7610,7 @@ definitions:
         - identifier: "identifier"
           componentType: "CONNECTION"
           comments: "comments"
+          proxyPassword: "proxyPassword"
           communicationsTimeout: "communicationsTimeout"
           proxyHost: "proxyHost"
           proxyPort: 1
@@ -8626,6 +8666,7 @@ definitions:
       - identifier: "identifier"
         componentType: "CONNECTION"
         comments: "comments"
+        proxyPassword: "proxyPassword"
         communicationsTimeout: "communicationsTimeout"
         proxyHost: "proxyHost"
         proxyPort: 1
@@ -8718,6 +8759,7 @@ definitions:
       - identifier: "identifier"
         componentType: "CONNECTION"
         comments: "comments"
+        proxyPassword: "proxyPassword"
         communicationsTimeout: "communicationsTimeout"
         proxyHost: "proxyHost"
         proxyPort: 1
@@ -9253,6 +9295,8 @@ definitions:
         format: "int32"
       proxyUser:
         type: "string"
+      proxyPassword:
+        type: "string"
       inputPorts:
         type: "array"
         description: "A Set of Input Ports that can be connected to, in order to send\
@@ -9293,6 +9337,7 @@ definitions:
       identifier: "identifier"
       componentType: "CONNECTION"
       comments: "comments"
+      proxyPassword: "proxyPassword"
       communicationsTimeout: "communicationsTimeout"
       proxyHost: "proxyHost"
       proxyPort: 1

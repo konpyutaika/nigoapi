@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**GetControllerServicesFromGroup**](FlowApi.md#GetControllerServicesFromGroup) | **Get** /flow/process-groups/{id}/controller-services | Gets all controller services
 [**GetControllerStatus**](FlowApi.md#GetControllerStatus) | **Get** /flow/status | Gets the current status of this NiFi
 [**GetCurrentUser**](FlowApi.md#GetCurrentUser) | **Get** /flow/current-user | Retrieves the user identity of the user making the request
+[**GetDetails**](FlowApi.md#GetDetails) | **Get** /flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/details | Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
 [**GetFlow**](FlowApi.md#GetFlow) | **Get** /flow/process-groups/{id} | Gets a process group
 [**GetFlowConfig**](FlowApi.md#GetFlowConfig) | **Get** /flow/config | Retrieves the configuration for this NiFi flow
 [**GetFlowMetrics**](FlowApi.md#GetFlowMetrics) | **Get** /flow/metrics/{producer} | Gets all metrics for the flow from a particular node
@@ -579,6 +580,36 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**CurrentUserEntity**](CurrentUserEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDetails**
+> VersionedFlowEntity GetDetails(ctx, registryId, bucketId, flowId)
+Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
+
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **registryId** | **string**| The registry client id. | 
+  **bucketId** | **string**| The bucket id. | 
+  **flowId** | **string**| The flow id. | 
+
+### Return type
+
+[**VersionedFlowEntity**](VersionedFlowEntity.md)
 
 ### Authorization
 

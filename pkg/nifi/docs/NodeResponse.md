@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **Throwable** | [***Throwable**](Throwable.md) |  | [optional] [default to null]
 **UpdatedEntity** | [***Entity**](Entity.md) |  | [optional] [default to null]
 **RequestId** | **string** |  | [optional] [default to null]
-**ClientResponse** | [***Response**](Response.md) |  | [optional] [default to null]
 **Is2xx** | **bool** |  | [optional] [default to null]
 **Is5xx** | **bool** |  | [optional] [default to null]
+**ClientResponse** | [***Response**](Response.md) |  | [optional] [default to null]
 **InputStream** | [***InputStream**](InputStream.md) |  | [optional] [default to null]
 **Status** | **int32** |  | [optional] [default to null]
 
