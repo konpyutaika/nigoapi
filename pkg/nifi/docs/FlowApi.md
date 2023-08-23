@@ -489,6 +489,7 @@ Optional parameters are passed through a pointer to a FlowApiGetControllerServic
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uiOnly** | **optional.Bool**|  | [default to false]
+ **includeReferencingComponents** | **optional.Bool**| Whether or not to include services&#39; referencing components in the response | [default to true]
 
 ### Return type
 
@@ -525,8 +526,9 @@ Optional parameters are passed through a pointer to a FlowApiGetControllerServic
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **includeAncestorGroups** | **optional.Bool**| Whether or not to include parent/ancestory process groups | [default to true]
+ **includeAncestorGroups** | **optional.Bool**| Whether or not to include parent/ancestor process groups | [default to true]
  **includeDescendantGroups** | **optional.Bool**| Whether or not to include descendant process groups | [default to false]
+ **includeReferencingComponents** | **optional.Bool**| Whether or not to include services&#39; referencing components in the response | [default to true]
  **uiOnly** | **optional.Bool**|  | [default to false]
 
 ### Return type

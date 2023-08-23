@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Description** | **string** | The description of the extension | [optional] [default to null]
 **Tags** | **[]string** | The tags of the extension | [optional] [default to null]
 **Properties** | [**[]Property**](Property.md) | The properties of the extension | [optional] [default to null]
+**SupportsSensitiveDynamicProperties** | **bool** |  | [optional] [default to null]
 **DynamicProperties** | [**[]DynamicProperty**](DynamicProperty.md) | The dynamic properties of the extension | [optional] [default to null]
 **Relationships** | [**[]Relationship**](Relationship.md) | The relationships of the extension | [optional] [default to null]
 **DynamicRelationship** | [***DynamicRelationship**](DynamicRelationship.md) | The dynamic relationships of the extension | [optional] [default to null]

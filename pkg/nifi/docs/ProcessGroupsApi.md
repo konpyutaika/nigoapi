@@ -279,7 +279,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateProcessGroup**
-> ProcessGroupEntity CreateProcessGroup(ctx, id, body)
+> ProcessGroupEntity CreateProcessGroup(ctx, id, body, optional)
 Creates a process group
 
 
@@ -291,6 +291,16 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| The process group id. | 
   **body** | [**ProcessGroupEntity**](ProcessGroupEntity.md)| The process group configuration details. | 
+ **optional** | ***ProcessGroupsApiCreateProcessGroupOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ProcessGroupsApiCreateProcessGroupOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **parameterContextHandlingStrategy** | **optional.String**| Handling Strategy controls whether to keep or replace Parameter Contexts | [default to KEEP_EXISTING]
 
 ### Return type
 
