@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **DefaultFlowFileExpiration** | **string** | The default FlowFile Expiration for this Process Group. | [optional] [default to null]
 **DefaultBackPressureObjectThreshold** | **int64** | Default value used in this Process Group for the maximum number of objects that can be queued before back pressure is applied. | [optional] [default to null]
 **DefaultBackPressureDataSizeThreshold** | **string** | Default value used in this Process Group for the maximum data size of objects that can be queued before back pressure is applied. | [optional] [default to null]
+**LogFileSuffix** | **string** | The log file suffix for this Process Group for dedicated logging. | [optional] [default to null]
 **RunningCount** | **int32** | The number of running components in this process group. | [optional] [default to null]
 **StoppedCount** | **int32** | The number of stopped components in the process group. | [optional] [default to null]
 **InvalidCount** | **int32** | The number of invalid components in the process group. | [optional] [default to null]

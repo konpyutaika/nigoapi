@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **AdditionalDetails** | **bool** | Indicates if the component has additional details documentation | [optional] [default to null]
 **PropertyDescriptors** | [**map[string]PropertyDescriptor**](PropertyDescriptor.md) | Descriptions of configuration properties applicable to this component. | [optional] [default to null]
 **SupportsDynamicProperties** | **bool** | Whether or not this component makes use of dynamic (user-set) properties. | [optional] [default to null]
+**SupportsSensitiveDynamicProperties** | **bool** | Whether or not this component makes use of sensitive dynamic (user-set) properties. | [optional] [default to null]
 **DynamicProperties** | [**[]DynamicProperty**](DynamicProperty.md) | Describes the dynamic properties supported by this component | [optional] [default to null]
 **SupportedSchedulingStrategies** | **[]string** | The supported scheduling strategies, such as TIME_DRIVER or CRON. | [optional] [default to null]
 **DefaultSchedulingStrategy** | **string** | The default scheduling strategy for the reporting task. | [optional] [default to null]

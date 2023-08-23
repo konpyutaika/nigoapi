@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **CreateBucket**
-> Bucket CreateBucket(ctx, body)
+> Bucket CreateBucket(ctx, body, optional)
 Create bucket
 
 
@@ -24,6 +24,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **body** | [**Bucket**](Bucket.md)| The bucket to create | 
+ **optional** | ***BucketsApiCreateBucketOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a BucketsApiCreateBucketOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **preserveSourceProperties** | **optional.Bool**| Whether source properties like identifier should be kept | 
 
 ### Return type
 

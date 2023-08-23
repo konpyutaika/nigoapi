@@ -19,7 +19,7 @@ To generate the clients please run following command:
 
 Manual changes: 
 
-- In function `UploadTemplate()` of `api_process_groups.go` replace:
+- In function `UploadTemplate()` of [`api_process_groups.go`](./pkg/nifi/api_process_groups.go) replace:
 
   ```golang
   localVarPostBody = &localVarOptionals.Body.Value()
@@ -31,7 +31,7 @@ Manual changes:
   localVarPostBody = localVarOptionals.Body.Value()
   ```  
   
-- In `model_revision_dto`, replace: 
+- In [`model_revision_dto.go`](./pkg/nifi/model_revision_dto.go), replace: 
 
   ```golang
   Version int64 `json:"version,omitempty"`
@@ -43,7 +43,7 @@ Manual changes:
   Version *int64 `json:"version,omitempty"`
   ```  
 
-- In `model_label_dto`, replace: 
+- In [`model_label_dto.go`](./pkg/nifi/model_label_dto.go), replace: 
   
   ```golang
 	// The text that appears in the label.
@@ -57,7 +57,7 @@ Manual changes:
 	Label string `json:"label"`
   ```
 
-- In `LabelDto`, replace: 
+- In [`LabelDto.md`](./pkg/nifi/docs/LabelDto.md), replace: 
   
   ```markdown
   **Label** | **string** | The text that appears in the label. | [optional] [default to null]
@@ -69,7 +69,7 @@ Manual changes:
   **Label** | **string** | The text that appears in the label. | [required] [default to null]
   ```
   
-- In `model_parameter_dto`, replace: 
+- In [`model_parameter_dto.go`](./pkg/nifi/model_parameter_dto.go), replace: 
   
   ```golang
 	// The description of the Parameter
@@ -87,7 +87,7 @@ Manual changes:
 	Value *string `json:"value"`
   ```
 
-- In `ParameterDto`, replace: 
+- In [`ParameterDto.md`](./pkg/nifi/docs/ParameterDto.md), replace: 
   
   ```markdown
   **Value** | **string** | The value of the Parameter | [optional] [default to null]
@@ -99,7 +99,7 @@ Manual changes:
   **Value** | **string** | The value of the Parameter | [required] [default to null]
   ```
 
-- In `model_parameter_context_dto`, replace: 
+- In [`model_parameter_context_dto`](./pkg/nifi/model_parameter_context_dto.go), replace: 
   
   ```golang
 	// The Parameters for the Parameter Context
@@ -121,7 +121,7 @@ Manual changes:
   InheritedParameterContexts []ParameterContextReferenceEntity `json:"inheritedParameterContexts"`
   ```
 
-- In `ParameterContextDto`, replace: 
+- In [`ParameterContextDto`](./pkg/nifi/docs/ParameterContextDto.md), replace: 
   
   ```markdown
   **Parameters** | [**[]ParameterEntity**](ParameterEntity.md) | The Parameters for the Parameter Context | [optional] [default to null]
@@ -137,7 +137,7 @@ Manual changes:
   **InheritedParameterContexts** | [**[]ParameterContextReferenceEntity**](ParameterContextReferenceEntity.md) | A list of references of Parameter Contexts from which this one inherits parameters | [required] [default to null]
   ```
 
-- In `model_position_dto`, replace: 
+- In [`model_position_dto`](./pkg/nifi/model_position_dto.go), replace: 
   
   ```golang
   // The x coordinate.
@@ -155,7 +155,7 @@ Manual changes:
   Y float64 `json:"y"`
   ```
 
-- In `PositionDto`, replace: 
+- In [`PositionDto`](./pkg/nifi/docs/PositionDto.md), replace: 
   
   ```markdown
   **X** | **float64** | The x coordinate. | [optional] [default to null]

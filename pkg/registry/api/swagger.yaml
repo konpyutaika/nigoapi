@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "The REST API provides an interface to a registry with operations for\
     \ saving, versioning, reading NiFi flows and components."
-  version: "1.21.0"
+  version: "1.23.2"
   title: "Apache NiFi Registry REST API"
   termsOfService: "As described in the license"
   contact:
@@ -464,6 +464,13 @@ paths:
         schema:
           $ref: "#/definitions/Bucket"
         x-exportParamName: "Body"
+      - name: "preserveSourceProperties"
+        in: "query"
+        description: "Whether source properties like identifier should be kept"
+        required: false
+        type: "boolean"
+        x-exportParamName: "PreserveSourceProperties"
+        x-optionalDataType: "Bool"
       security:
       - Authorization: []
       responses:
@@ -1120,6 +1127,13 @@ paths:
         schema:
           $ref: "#/definitions/VersionedFlowSnapshot"
         x-exportParamName: "Body"
+      - name: "preserveSourceProperties"
+        in: "query"
+        description: "Whether source properties like author should be kept"
+        required: false
+        type: "boolean"
+        x-exportParamName: "PreserveSourceProperties"
+        x-optionalDataType: "Bool"
       security:
       - Authorization: []
       responses:
@@ -5003,6 +5017,8 @@ definitions:
           xml:
             name: "property"
           $ref: "#/definitions/Property"
+      supportsSensitiveDynamicProperties:
+        type: "boolean"
       dynamicProperties:
         type: "array"
         xml:
@@ -5164,6 +5180,7 @@ definitions:
         description: "description"
       - resource: "resource"
         description: "description"
+      supportsSensitiveDynamicProperties: true
       sideEffectFree: true
       stateful:
         description: "description"
@@ -7203,12 +7220,6 @@ definitions:
           identifier: "identifier"
           name: "name"
       flowContents:
-        identifier: "identifier"
-        componentType: "CONNECTION"
-        variables:
-          key: "variables"
-        defaultBackPressureObjectThreshold: 7
-        comments: "comments"
         processors:
         - autoTerminatedRelationships:
           - "autoTerminatedRelationships"
@@ -7306,6 +7317,156 @@ definitions:
           groupIdentifier: "groupIdentifier"
           properties:
             key: "properties"
+        processGroups:
+        - null
+        - null
+        outputPorts:
+        - identifier: "identifier"
+          componentType: "CONNECTION"
+          comments: "comments"
+          allowRemoteAccess: true
+          concurrentlySchedulableTaskCount: 3
+          name: "name"
+          instanceIdentifier: "instanceIdentifier"
+          position:
+            x: 0.8008281904610115
+            "y": 6.027456183070403
+          type: "INPUT_PORT"
+          groupIdentifier: "groupIdentifier"
+          scheduledState: "ENABLED"
+        - identifier: "identifier"
+          componentType: "CONNECTION"
+          comments: "comments"
+          allowRemoteAccess: true
+          concurrentlySchedulableTaskCount: 3
+          name: "name"
+          instanceIdentifier: "instanceIdentifier"
+          position:
+            x: 0.8008281904610115
+            "y": 6.027456183070403
+          type: "INPUT_PORT"
+          groupIdentifier: "groupIdentifier"
+          scheduledState: "ENABLED"
+        funnels:
+        - identifier: "identifier"
+          componentType: "CONNECTION"
+          comments: "comments"
+          name: "name"
+          instanceIdentifier: "instanceIdentifier"
+          position:
+            x: 0.8008281904610115
+            "y": 6.027456183070403
+          groupIdentifier: "groupIdentifier"
+        - identifier: "identifier"
+          componentType: "CONNECTION"
+          comments: "comments"
+          name: "name"
+          instanceIdentifier: "instanceIdentifier"
+          position:
+            x: 0.8008281904610115
+            "y": 6.027456183070403
+          groupIdentifier: "groupIdentifier"
+        versionedFlowCoordinates:
+          registryUrl: "registryUrl"
+          registryId: "registryId"
+          storageLocation: "storageLocation"
+          bucketId: "bucketId"
+          flowId: "flowId"
+          version: 6
+          latest: true
+        connections:
+        - identifier: "identifier"
+          componentType: "CONNECTION"
+          prioritizers:
+          - "prioritizers"
+          - "prioritizers"
+          comments: "comments"
+          flowFileExpiration: "flowFileExpiration"
+          selectedRelationships:
+          - "selectedRelationships"
+          - "selectedRelationships"
+          loadBalanceCompression: "DO_NOT_COMPRESS"
+          destination:
+            comments: "comments"
+            groupId: "groupId"
+            name: "name"
+            instanceIdentifier: "instanceIdentifier"
+            id: "id"
+            type: "PROCESSOR"
+          backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
+          loadBalanceStrategy: "DO_NOT_LOAD_BALANCE"
+          source:
+            comments: "comments"
+            groupId: "groupId"
+            name: "name"
+            instanceIdentifier: "instanceIdentifier"
+            id: "id"
+            type: "PROCESSOR"
+          labelIndex: 2
+          bends:
+          - x: 0.8008281904610115
+            "y": 6.027456183070403
+          - x: 0.8008281904610115
+            "y": 6.027456183070403
+          backPressureObjectThreshold: 7
+          name: "name"
+          instanceIdentifier: "instanceIdentifier"
+          position:
+            x: 0.8008281904610115
+            "y": 6.027456183070403
+          groupIdentifier: "groupIdentifier"
+          partitioningAttribute: "partitioningAttribute"
+          zIndex: 4
+        - identifier: "identifier"
+          componentType: "CONNECTION"
+          prioritizers:
+          - "prioritizers"
+          - "prioritizers"
+          comments: "comments"
+          flowFileExpiration: "flowFileExpiration"
+          selectedRelationships:
+          - "selectedRelationships"
+          - "selectedRelationships"
+          loadBalanceCompression: "DO_NOT_COMPRESS"
+          destination:
+            comments: "comments"
+            groupId: "groupId"
+            name: "name"
+            instanceIdentifier: "instanceIdentifier"
+            id: "id"
+            type: "PROCESSOR"
+          backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
+          loadBalanceStrategy: "DO_NOT_LOAD_BALANCE"
+          source:
+            comments: "comments"
+            groupId: "groupId"
+            name: "name"
+            instanceIdentifier: "instanceIdentifier"
+            id: "id"
+            type: "PROCESSOR"
+          labelIndex: 2
+          bends:
+          - x: 0.8008281904610115
+            "y": 6.027456183070403
+          - x: 0.8008281904610115
+            "y": 6.027456183070403
+          backPressureObjectThreshold: 7
+          name: "name"
+          instanceIdentifier: "instanceIdentifier"
+          position:
+            x: 0.8008281904610115
+            "y": 6.027456183070403
+          groupIdentifier: "groupIdentifier"
+          partitioningAttribute: "partitioningAttribute"
+          zIndex: 4
+        logFileSuffix: "logFileSuffix"
+        parameterContextName: "parameterContextName"
+        identifier: "identifier"
+        componentType: "CONNECTION"
+        variables:
+          key: "variables"
+        defaultBackPressureObjectThreshold: 7
+        comments: "comments"
         labels:
         - identifier: "identifier"
           componentType: "CONNECTION"
@@ -7423,37 +7584,7 @@ definitions:
             key: "properties"
         defaultFlowFileExpiration: "defaultFlowFileExpiration"
         flowFileConcurrency: "flowFileConcurrency"
-        processGroups:
-        - null
-        - null
         flowFileOutboundPolicy: "flowFileOutboundPolicy"
-        outputPorts:
-        - identifier: "identifier"
-          componentType: "CONNECTION"
-          comments: "comments"
-          allowRemoteAccess: true
-          concurrentlySchedulableTaskCount: 3
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          position:
-            x: 0.8008281904610115
-            "y": 6.027456183070403
-          type: "INPUT_PORT"
-          groupIdentifier: "groupIdentifier"
-          scheduledState: "ENABLED"
-        - identifier: "identifier"
-          componentType: "CONNECTION"
-          comments: "comments"
-          allowRemoteAccess: true
-          concurrentlySchedulableTaskCount: 3
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          position:
-            x: 0.8008281904610115
-            "y": 6.027456183070403
-          type: "INPUT_PORT"
-          groupIdentifier: "groupIdentifier"
-          scheduledState: "ENABLED"
         name: "name"
         inputPorts:
         - identifier: "identifier"
@@ -7482,37 +7613,10 @@ definitions:
           type: "INPUT_PORT"
           groupIdentifier: "groupIdentifier"
           scheduledState: "ENABLED"
-        funnels:
-        - identifier: "identifier"
-          componentType: "CONNECTION"
-          comments: "comments"
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          position:
-            x: 0.8008281904610115
-            "y": 6.027456183070403
-          groupIdentifier: "groupIdentifier"
-        - identifier: "identifier"
-          componentType: "CONNECTION"
-          comments: "comments"
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          position:
-            x: 0.8008281904610115
-            "y": 6.027456183070403
-          groupIdentifier: "groupIdentifier"
         instanceIdentifier: "instanceIdentifier"
         position:
           x: 0.8008281904610115
           "y": 6.027456183070403
-        versionedFlowCoordinates:
-          registryUrl: "registryUrl"
-          registryId: "registryId"
-          storageLocation: "storageLocation"
-          bucketId: "bucketId"
-          flowId: "flowId"
-          version: 6
-          latest: true
         remoteProcessGroups:
         - identifier: "identifier"
           componentType: "CONNECTION"
@@ -7701,92 +7805,6 @@ definitions:
           groupIdentifier: "groupIdentifier"
           localNetworkInterface: "localNetworkInterface"
         groupIdentifier: "groupIdentifier"
-        connections:
-        - identifier: "identifier"
-          componentType: "CONNECTION"
-          prioritizers:
-          - "prioritizers"
-          - "prioritizers"
-          comments: "comments"
-          flowFileExpiration: "flowFileExpiration"
-          selectedRelationships:
-          - "selectedRelationships"
-          - "selectedRelationships"
-          loadBalanceCompression: "DO_NOT_COMPRESS"
-          destination:
-            comments: "comments"
-            groupId: "groupId"
-            name: "name"
-            instanceIdentifier: "instanceIdentifier"
-            id: "id"
-            type: "PROCESSOR"
-          backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
-          loadBalanceStrategy: "DO_NOT_LOAD_BALANCE"
-          source:
-            comments: "comments"
-            groupId: "groupId"
-            name: "name"
-            instanceIdentifier: "instanceIdentifier"
-            id: "id"
-            type: "PROCESSOR"
-          labelIndex: 2
-          bends:
-          - x: 0.8008281904610115
-            "y": 6.027456183070403
-          - x: 0.8008281904610115
-            "y": 6.027456183070403
-          backPressureObjectThreshold: 7
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          position:
-            x: 0.8008281904610115
-            "y": 6.027456183070403
-          groupIdentifier: "groupIdentifier"
-          partitioningAttribute: "partitioningAttribute"
-          zIndex: 4
-        - identifier: "identifier"
-          componentType: "CONNECTION"
-          prioritizers:
-          - "prioritizers"
-          - "prioritizers"
-          comments: "comments"
-          flowFileExpiration: "flowFileExpiration"
-          selectedRelationships:
-          - "selectedRelationships"
-          - "selectedRelationships"
-          loadBalanceCompression: "DO_NOT_COMPRESS"
-          destination:
-            comments: "comments"
-            groupId: "groupId"
-            name: "name"
-            instanceIdentifier: "instanceIdentifier"
-            id: "id"
-            type: "PROCESSOR"
-          backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
-          loadBalanceStrategy: "DO_NOT_LOAD_BALANCE"
-          source:
-            comments: "comments"
-            groupId: "groupId"
-            name: "name"
-            instanceIdentifier: "instanceIdentifier"
-            id: "id"
-            type: "PROCESSOR"
-          labelIndex: 2
-          bends:
-          - x: 0.8008281904610115
-            "y": 6.027456183070403
-          - x: 0.8008281904610115
-            "y": 6.027456183070403
-          backPressureObjectThreshold: 7
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          position:
-            x: 0.8008281904610115
-            "y": 6.027456183070403
-          groupIdentifier: "groupIdentifier"
-          partitioningAttribute: "partitioningAttribute"
-          zIndex: 4
-        parameterContextName: "parameterContextName"
       parameterProviders:
         key:
           identifier: "identifier"
@@ -8323,6 +8341,9 @@ definitions:
         type: "string"
         description: "Default value used in this Process Group for the maximum data\
           \ size of objects that can be queued before back pressure is applied."
+      logFileSuffix:
+        type: "string"
+        description: "The log file suffix for this Process Group for dedicated logging."
       flowFileConcurrency:
         type: "string"
         description: "The configured FlowFile Concurrency for the Process Group"
@@ -8352,12 +8373,6 @@ definitions:
         type: "string"
         description: "The ID of the Process Group that this component belongs to"
     example:
-      identifier: "identifier"
-      componentType: "CONNECTION"
-      variables:
-        key: "variables"
-      defaultBackPressureObjectThreshold: 7
-      comments: "comments"
       processors:
       - autoTerminatedRelationships:
         - "autoTerminatedRelationships"
@@ -8455,6 +8470,156 @@ definitions:
         groupIdentifier: "groupIdentifier"
         properties:
           key: "properties"
+      processGroups:
+      - null
+      - null
+      outputPorts:
+      - identifier: "identifier"
+        componentType: "CONNECTION"
+        comments: "comments"
+        allowRemoteAccess: true
+        concurrentlySchedulableTaskCount: 3
+        name: "name"
+        instanceIdentifier: "instanceIdentifier"
+        position:
+          x: 0.8008281904610115
+          "y": 6.027456183070403
+        type: "INPUT_PORT"
+        groupIdentifier: "groupIdentifier"
+        scheduledState: "ENABLED"
+      - identifier: "identifier"
+        componentType: "CONNECTION"
+        comments: "comments"
+        allowRemoteAccess: true
+        concurrentlySchedulableTaskCount: 3
+        name: "name"
+        instanceIdentifier: "instanceIdentifier"
+        position:
+          x: 0.8008281904610115
+          "y": 6.027456183070403
+        type: "INPUT_PORT"
+        groupIdentifier: "groupIdentifier"
+        scheduledState: "ENABLED"
+      funnels:
+      - identifier: "identifier"
+        componentType: "CONNECTION"
+        comments: "comments"
+        name: "name"
+        instanceIdentifier: "instanceIdentifier"
+        position:
+          x: 0.8008281904610115
+          "y": 6.027456183070403
+        groupIdentifier: "groupIdentifier"
+      - identifier: "identifier"
+        componentType: "CONNECTION"
+        comments: "comments"
+        name: "name"
+        instanceIdentifier: "instanceIdentifier"
+        position:
+          x: 0.8008281904610115
+          "y": 6.027456183070403
+        groupIdentifier: "groupIdentifier"
+      versionedFlowCoordinates:
+        registryUrl: "registryUrl"
+        registryId: "registryId"
+        storageLocation: "storageLocation"
+        bucketId: "bucketId"
+        flowId: "flowId"
+        version: 6
+        latest: true
+      connections:
+      - identifier: "identifier"
+        componentType: "CONNECTION"
+        prioritizers:
+        - "prioritizers"
+        - "prioritizers"
+        comments: "comments"
+        flowFileExpiration: "flowFileExpiration"
+        selectedRelationships:
+        - "selectedRelationships"
+        - "selectedRelationships"
+        loadBalanceCompression: "DO_NOT_COMPRESS"
+        destination:
+          comments: "comments"
+          groupId: "groupId"
+          name: "name"
+          instanceIdentifier: "instanceIdentifier"
+          id: "id"
+          type: "PROCESSOR"
+        backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
+        loadBalanceStrategy: "DO_NOT_LOAD_BALANCE"
+        source:
+          comments: "comments"
+          groupId: "groupId"
+          name: "name"
+          instanceIdentifier: "instanceIdentifier"
+          id: "id"
+          type: "PROCESSOR"
+        labelIndex: 2
+        bends:
+        - x: 0.8008281904610115
+          "y": 6.027456183070403
+        - x: 0.8008281904610115
+          "y": 6.027456183070403
+        backPressureObjectThreshold: 7
+        name: "name"
+        instanceIdentifier: "instanceIdentifier"
+        position:
+          x: 0.8008281904610115
+          "y": 6.027456183070403
+        groupIdentifier: "groupIdentifier"
+        partitioningAttribute: "partitioningAttribute"
+        zIndex: 4
+      - identifier: "identifier"
+        componentType: "CONNECTION"
+        prioritizers:
+        - "prioritizers"
+        - "prioritizers"
+        comments: "comments"
+        flowFileExpiration: "flowFileExpiration"
+        selectedRelationships:
+        - "selectedRelationships"
+        - "selectedRelationships"
+        loadBalanceCompression: "DO_NOT_COMPRESS"
+        destination:
+          comments: "comments"
+          groupId: "groupId"
+          name: "name"
+          instanceIdentifier: "instanceIdentifier"
+          id: "id"
+          type: "PROCESSOR"
+        backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
+        loadBalanceStrategy: "DO_NOT_LOAD_BALANCE"
+        source:
+          comments: "comments"
+          groupId: "groupId"
+          name: "name"
+          instanceIdentifier: "instanceIdentifier"
+          id: "id"
+          type: "PROCESSOR"
+        labelIndex: 2
+        bends:
+        - x: 0.8008281904610115
+          "y": 6.027456183070403
+        - x: 0.8008281904610115
+          "y": 6.027456183070403
+        backPressureObjectThreshold: 7
+        name: "name"
+        instanceIdentifier: "instanceIdentifier"
+        position:
+          x: 0.8008281904610115
+          "y": 6.027456183070403
+        groupIdentifier: "groupIdentifier"
+        partitioningAttribute: "partitioningAttribute"
+        zIndex: 4
+      logFileSuffix: "logFileSuffix"
+      parameterContextName: "parameterContextName"
+      identifier: "identifier"
+      componentType: "CONNECTION"
+      variables:
+        key: "variables"
+      defaultBackPressureObjectThreshold: 7
+      comments: "comments"
       labels:
       - identifier: "identifier"
         componentType: "CONNECTION"
@@ -8572,37 +8737,7 @@ definitions:
           key: "properties"
       defaultFlowFileExpiration: "defaultFlowFileExpiration"
       flowFileConcurrency: "flowFileConcurrency"
-      processGroups:
-      - null
-      - null
       flowFileOutboundPolicy: "flowFileOutboundPolicy"
-      outputPorts:
-      - identifier: "identifier"
-        componentType: "CONNECTION"
-        comments: "comments"
-        allowRemoteAccess: true
-        concurrentlySchedulableTaskCount: 3
-        name: "name"
-        instanceIdentifier: "instanceIdentifier"
-        position:
-          x: 0.8008281904610115
-          "y": 6.027456183070403
-        type: "INPUT_PORT"
-        groupIdentifier: "groupIdentifier"
-        scheduledState: "ENABLED"
-      - identifier: "identifier"
-        componentType: "CONNECTION"
-        comments: "comments"
-        allowRemoteAccess: true
-        concurrentlySchedulableTaskCount: 3
-        name: "name"
-        instanceIdentifier: "instanceIdentifier"
-        position:
-          x: 0.8008281904610115
-          "y": 6.027456183070403
-        type: "INPUT_PORT"
-        groupIdentifier: "groupIdentifier"
-        scheduledState: "ENABLED"
       name: "name"
       inputPorts:
       - identifier: "identifier"
@@ -8631,37 +8766,10 @@ definitions:
         type: "INPUT_PORT"
         groupIdentifier: "groupIdentifier"
         scheduledState: "ENABLED"
-      funnels:
-      - identifier: "identifier"
-        componentType: "CONNECTION"
-        comments: "comments"
-        name: "name"
-        instanceIdentifier: "instanceIdentifier"
-        position:
-          x: 0.8008281904610115
-          "y": 6.027456183070403
-        groupIdentifier: "groupIdentifier"
-      - identifier: "identifier"
-        componentType: "CONNECTION"
-        comments: "comments"
-        name: "name"
-        instanceIdentifier: "instanceIdentifier"
-        position:
-          x: 0.8008281904610115
-          "y": 6.027456183070403
-        groupIdentifier: "groupIdentifier"
       instanceIdentifier: "instanceIdentifier"
       position:
         x: 0.8008281904610115
         "y": 6.027456183070403
-      versionedFlowCoordinates:
-        registryUrl: "registryUrl"
-        registryId: "registryId"
-        storageLocation: "storageLocation"
-        bucketId: "bucketId"
-        flowId: "flowId"
-        version: 6
-        latest: true
       remoteProcessGroups:
       - identifier: "identifier"
         componentType: "CONNECTION"
@@ -8850,92 +8958,6 @@ definitions:
         groupIdentifier: "groupIdentifier"
         localNetworkInterface: "localNetworkInterface"
       groupIdentifier: "groupIdentifier"
-      connections:
-      - identifier: "identifier"
-        componentType: "CONNECTION"
-        prioritizers:
-        - "prioritizers"
-        - "prioritizers"
-        comments: "comments"
-        flowFileExpiration: "flowFileExpiration"
-        selectedRelationships:
-        - "selectedRelationships"
-        - "selectedRelationships"
-        loadBalanceCompression: "DO_NOT_COMPRESS"
-        destination:
-          comments: "comments"
-          groupId: "groupId"
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          id: "id"
-          type: "PROCESSOR"
-        backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
-        loadBalanceStrategy: "DO_NOT_LOAD_BALANCE"
-        source:
-          comments: "comments"
-          groupId: "groupId"
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          id: "id"
-          type: "PROCESSOR"
-        labelIndex: 2
-        bends:
-        - x: 0.8008281904610115
-          "y": 6.027456183070403
-        - x: 0.8008281904610115
-          "y": 6.027456183070403
-        backPressureObjectThreshold: 7
-        name: "name"
-        instanceIdentifier: "instanceIdentifier"
-        position:
-          x: 0.8008281904610115
-          "y": 6.027456183070403
-        groupIdentifier: "groupIdentifier"
-        partitioningAttribute: "partitioningAttribute"
-        zIndex: 4
-      - identifier: "identifier"
-        componentType: "CONNECTION"
-        prioritizers:
-        - "prioritizers"
-        - "prioritizers"
-        comments: "comments"
-        flowFileExpiration: "flowFileExpiration"
-        selectedRelationships:
-        - "selectedRelationships"
-        - "selectedRelationships"
-        loadBalanceCompression: "DO_NOT_COMPRESS"
-        destination:
-          comments: "comments"
-          groupId: "groupId"
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          id: "id"
-          type: "PROCESSOR"
-        backPressureDataSizeThreshold: "backPressureDataSizeThreshold"
-        loadBalanceStrategy: "DO_NOT_LOAD_BALANCE"
-        source:
-          comments: "comments"
-          groupId: "groupId"
-          name: "name"
-          instanceIdentifier: "instanceIdentifier"
-          id: "id"
-          type: "PROCESSOR"
-        labelIndex: 2
-        bends:
-        - x: 0.8008281904610115
-          "y": 6.027456183070403
-        - x: 0.8008281904610115
-          "y": 6.027456183070403
-        backPressureObjectThreshold: 7
-        name: "name"
-        instanceIdentifier: "instanceIdentifier"
-        position:
-          x: 0.8008281904610115
-          "y": 6.027456183070403
-        groupIdentifier: "groupIdentifier"
-        partitioningAttribute: "partitioningAttribute"
-        zIndex: 4
-      parameterContextName: "parameterContextName"
   VersionedProcessor:
     type: "object"
     properties:

@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateFlowVersion**
-> VersionedFlowSnapshot CreateFlowVersion(ctx, bucketId, flowId, body)
+> VersionedFlowSnapshot CreateFlowVersion(ctx, bucketId, flowId, body, optional)
 Create flow version
 
 Creates the next version of a flow. The version number of the object being created must be the next available version integer. Flow versions are immutable after they are created.
@@ -62,6 +62,17 @@ Name | Type | Description  | Notes
   **bucketId** | **string**| The bucket identifier | 
   **flowId** | **string**| The flow identifier | 
   **body** | [**VersionedFlowSnapshot**](VersionedFlowSnapshot.md)| The new versioned flow snapshot. | 
+ **optional** | ***BucketFlowsApiCreateFlowVersionOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a BucketFlowsApiCreateFlowVersionOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **preserveSourceProperties** | **optional.Bool**| Whether source properties like author should be kept | 
 
 ### Return type
 
