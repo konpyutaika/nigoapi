@@ -1,0 +1,36 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "The REST API provides an interface to a registry with operations for saving, versioning, reading NiFi flows and components.",
+    "version" : "2.0.0-M1",
+    "title" : "Apache NiFi Registry REST API",
+    "termsOfService" : "As described in the license",
+    "contact" : {
+      "name" : "Apache NiFi Registry",
+      "url" : "https://nifi.apache.org",
+      "email" : "dev@nifi.apache.org"
+    },
+    "license" : {
+      "name" : "Apache 2.0 License",
+      "url" : "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "basePath" : "/nifi-registry-api",
+  "tags" : [ {
+    "name" : "Swagger Resource",
+    "description" : "Find and retrieve extensions."
+  } ],
+  "schemes" : [ "http", "https" ],
+  "securityDefinitions" : {
+    "Authorization" : {
+      "description" : "NiFi Registry Auth Token (JWT)",
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
+    },
+    "BasicAuth" : {
+      "description" : "HTTP Basic Auth",
+      "type" : "basic"
+    }
+  }
+}
