@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost/nifi-api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ActivateControllerServices**](FlowApi.md#ActivateControllerServices) | **Put** /flow/process-groups/{id}/controller-services | Enable or disable Controller Services in the specified Process Group.
+[**DownloadReportingTaskSnapshot**](FlowApi.md#DownloadReportingTaskSnapshot) | **Get** /flow/reporting-tasks/download | Download a snapshot of the given reporting tasks and any controller services they use
 [**GenerateClientId**](FlowApi.md#GenerateClientId) | **Get** /flow/client-id | Generates a client id.
 [**GetAboutInfo**](FlowApi.md#GetAboutInfo) | **Get** /flow/about | Retrieves details about this NiFi to put in the About dialog
 [**GetAction**](FlowApi.md#GetAction) | **Get** /flow/history/{id} | Gets an action
@@ -41,6 +42,7 @@ Method | HTTP request | Description
 [**GetRegistryClients**](FlowApi.md#GetRegistryClients) | **Get** /flow/registries | Gets the listing of available flow registry clients
 [**GetRemoteProcessGroupStatus**](FlowApi.md#GetRemoteProcessGroupStatus) | **Get** /flow/remote-process-groups/{id}/status | Gets status for a remote process group
 [**GetRemoteProcessGroupStatusHistory**](FlowApi.md#GetRemoteProcessGroupStatusHistory) | **Get** /flow/remote-process-groups/{id}/status/history | Gets the status history
+[**GetReportingTaskSnapshot**](FlowApi.md#GetReportingTaskSnapshot) | **Get** /flow/reporting-tasks/snapshot | Get a snapshot of the given reporting tasks and any controller services they use
 [**GetReportingTaskTypes**](FlowApi.md#GetReportingTaskTypes) | **Get** /flow/reporting-task-types | Retrieves the types of reporting tasks that this NiFi supports
 [**GetReportingTasks**](FlowApi.md#GetReportingTasks) | **Get** /flow/reporting-tasks | Gets all reporting tasks
 [**GetRuntimeManifest**](FlowApi.md#GetRuntimeManifest) | **Get** /flow/runtime-manifest | Retrieves the runtime manifest for this NiFi instance.
@@ -77,6 +79,41 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DownloadReportingTaskSnapshot**
+> []string DownloadReportingTaskSnapshot(ctx, optional)
+Download a snapshot of the given reporting tasks and any controller services they use
+
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***FlowApiDownloadReportingTaskSnapshotOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiDownloadReportingTaskSnapshotOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reportingTaskId** | **optional.String**| Specifies a reporting task id to export. If not specified, all reporting tasks will be exported. | 
+
+### Return type
+
+**[]string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1187,6 +1224,41 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StatusHistoryEntity**](StatusHistoryEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetReportingTaskSnapshot**
+> VersionedReportingTaskSnapshot GetReportingTaskSnapshot(ctx, optional)
+Get a snapshot of the given reporting tasks and any controller services they use
+
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***FlowApiGetReportingTaskSnapshotOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiGetReportingTaskSnapshotOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reportingTaskId** | **optional.String**| Specifies a reporting task id to export. If not specified, all reporting tasks will be exported. | 
+
+### Return type
+
+[**VersionedReportingTaskSnapshot**](VersionedReportingTaskSnapshot.md)
 
 ### Authorization
 
