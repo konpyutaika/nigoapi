@@ -11,7 +11,7 @@ The aim of this project is to provide a convenient Go client to interact with Ni
 
 ## Generate swagger file
 
-To generate the swagger files for a specific version <version>, run the following commands:
+To generate the swagger files for a specific version \<version\>, run the following commands:
 
 ```console
 git checkout tags/rel/nifi-<version> -b rel/nifi-<version>
