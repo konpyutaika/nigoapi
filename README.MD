@@ -9,6 +9,32 @@ The aim of this project is to provide a convenient Go client to interact with Ni
 - [NiFi client](pkg/registry/README.md)
 - [NiFi Registry client](pkg/registry/README.md)
 
+## Generate swagger file
+
+To generate the swagger files for a specific version <version>, run the following commands:
+
+```console
+git checkout tags/rel/nifi-<version> -b rel/nifi-<version>
+```
+
+Build the `swagger.json` for **NiFi**:
+
+```console
+cd nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-web/nifi-web-api
+mvn clean install -T2C -DskipTests
+```
+
+Now available at `nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-web/nifi-web-api/target/swagger-ui/swagger.json`.
+
+Build the `swagger.json` for **NiFi Registry**:
+
+```console
+cd nifi-registry/nifi-registry-core/nifi-registry-web-api
+mvn clean install -T2C -DskipTests
+```
+
+Now available at `nifi-registry/nifi-registry-core/nifi-registry-web-api/target/swagger/swagger.json`.
+
 ## Generate client
 
 To generate the clients please run following command: 
