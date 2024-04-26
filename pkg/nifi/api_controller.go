@@ -100,7 +100,7 @@ func (a *ControllerApiService) AnalyzeFlowAnalysisRuleConfiguration(ctx context.
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ConfigurationAnalysisEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -186,7 +186,7 @@ func (a *ControllerApiService) ClearState(ctx context.Context, id string) (Compo
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ComponentStateEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -273,7 +273,7 @@ func (a *ControllerApiService) CreateBulletin(ctx context.Context, body Bulletin
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v BulletinEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -360,7 +360,7 @@ func (a *ControllerApiService) CreateControllerService(ctx context.Context, body
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ControllerServiceEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -447,7 +447,7 @@ func (a *ControllerApiService) CreateFlowAnalysisRule(ctx context.Context, body 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowAnalysisRuleEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -534,7 +534,7 @@ func (a *ControllerApiService) CreateFlowRegistryClient(ctx context.Context, bod
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowRegistryClientEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -621,7 +621,7 @@ func (a *ControllerApiService) CreateParameterProvider(ctx context.Context, body
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ParameterProviderEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -708,7 +708,7 @@ func (a *ControllerApiService) CreateReportingTask(ctx context.Context, body Rep
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ReportingTaskEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -797,7 +797,7 @@ func (a *ControllerApiService) DeleteFlowAnalysisRuleVerificationRequest(ctx con
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v VerifyConfigRequestEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -903,7 +903,7 @@ func (a *ControllerApiService) DeleteFlowRegistryClient(ctx context.Context, id 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowRegistryClientEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -989,7 +989,7 @@ func (a *ControllerApiService) DeleteHistory(ctx context.Context, endDate DateTi
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v HistoryEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -1075,7 +1075,7 @@ func (a *ControllerApiService) DeleteNode(ctx context.Context, id string) (NodeE
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v NodeEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -1160,7 +1160,7 @@ func (a *ControllerApiService) GetCluster(ctx context.Context) (ClusterEntity, *
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ClusterEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -1244,7 +1244,7 @@ func (a *ControllerApiService) GetControllerConfig(ctx context.Context) (Control
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ControllerConfigurationEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -1330,7 +1330,7 @@ func (a *ControllerApiService) GetFlowAnalysisRule(ctx context.Context, id strin
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowAnalysisRuleEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -1428,7 +1428,7 @@ func (a *ControllerApiService) GetFlowAnalysisRulePropertyDescriptor(ctx context
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v PropertyDescriptorEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -1514,7 +1514,7 @@ func (a *ControllerApiService) GetFlowAnalysisRuleState(ctx context.Context, id 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ComponentStateEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -1603,7 +1603,7 @@ func (a *ControllerApiService) GetFlowAnalysisRuleVerificationRequest(ctx contex
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v VerifyConfigRequestEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -1687,7 +1687,7 @@ func (a *ControllerApiService) GetFlowAnalysisRules(ctx context.Context) (FlowAn
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowAnalysisRulesEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -1773,7 +1773,7 @@ func (a *ControllerApiService) GetFlowRegistryClient(ctx context.Context, id str
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowRegistryClientEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -1857,7 +1857,7 @@ func (a *ControllerApiService) GetFlowRegistryClients(ctx context.Context) (Flow
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowRegistryClientsEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -1943,7 +1943,7 @@ func (a *ControllerApiService) GetNode(ctx context.Context, id string) (NodeEnti
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v NodeEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -2028,7 +2028,7 @@ func (a *ControllerApiService) GetNodeStatusHistory(ctx context.Context) (Compon
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ComponentHistoryEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -2126,7 +2126,7 @@ func (a *ControllerApiService) GetPropertyDescriptor(ctx context.Context, id str
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v PropertyDescriptorEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -2211,7 +2211,7 @@ func (a *ControllerApiService) GetRegistryClientTypes(ctx context.Context) (Flow
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowRegistryClientTypesEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -2298,7 +2298,7 @@ func (a *ControllerApiService) ImportReportingTaskSnapshot(ctx context.Context, 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v VersionedReportingTaskImportResponseEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -2404,7 +2404,7 @@ func (a *ControllerApiService) RemoveFlowAnalysisRule(ctx context.Context, id st
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowAnalysisRuleEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -2494,7 +2494,7 @@ func (a *ControllerApiService) SubmitFlowAnalysisRuleConfigVerificationRequest(c
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v VerifyConfigRequestEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -2581,7 +2581,7 @@ func (a *ControllerApiService) UpdateControllerConfig(ctx context.Context, body 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ControllerConfigurationEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -2670,7 +2670,7 @@ func (a *ControllerApiService) UpdateFlowAnalysisRule(ctx context.Context, body 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowAnalysisRuleEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -2759,7 +2759,7 @@ func (a *ControllerApiService) UpdateFlowRegistryClient(ctx context.Context, bod
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowRegistryClientEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -2848,7 +2848,7 @@ func (a *ControllerApiService) UpdateNode(ctx context.Context, body NodeEntity, 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v NodeEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -2937,7 +2937,7 @@ func (a *ControllerApiService) UpdateRunStatus(ctx context.Context, body FlowAna
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowAnalysisRuleEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {

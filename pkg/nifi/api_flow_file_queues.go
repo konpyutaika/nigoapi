@@ -97,7 +97,7 @@ func (a *FlowFileQueuesApiService) CreateDropRequest(ctx context.Context, id str
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v DropRequestEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -183,7 +183,7 @@ func (a *FlowFileQueuesApiService) CreateFlowFileListing(ctx context.Context, id
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ListingRequestEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -271,7 +271,7 @@ func (a *FlowFileQueuesApiService) DeleteListingRequest(ctx context.Context, id 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ListingRequestEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -374,7 +374,7 @@ func (a *FlowFileQueuesApiService) DownloadFlowFileContent(ctx context.Context, 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v StreamingOutput
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -462,7 +462,7 @@ func (a *FlowFileQueuesApiService) GetDropRequest(ctx context.Context, id string
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v DropRequestEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -560,7 +560,7 @@ func (a *FlowFileQueuesApiService) GetFlowFile(ctx context.Context, id string, f
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v FlowFileEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -648,7 +648,7 @@ func (a *FlowFileQueuesApiService) GetListingRequest(ctx context.Context, id str
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ListingRequestEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -736,7 +736,7 @@ func (a *FlowFileQueuesApiService) RemoveDropRequest(ctx context.Context, id str
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v DropRequestEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {

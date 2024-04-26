@@ -93,7 +93,7 @@ func (a *ResourcesApiService) GetResources(ctx context.Context) (ResourcesEntity
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ResourcesEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {

@@ -114,7 +114,7 @@ func (a *DataTransferApiService) CommitInputPortTransaction(ctx context.Context,
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v TransactionResultEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -219,7 +219,7 @@ func (a *DataTransferApiService) CommitOutputPortTransaction(ctx context.Context
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v TransactionResultEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -320,7 +320,7 @@ func (a *DataTransferApiService) CreatePortTransaction(ctx context.Context, port
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v TransactionResultEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -421,7 +421,7 @@ func (a *DataTransferApiService) ExtendInputPortTransactionTTL(ctx context.Conte
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v TransactionResultEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -522,7 +522,7 @@ func (a *DataTransferApiService) ExtendOutputPortTransactionTTL(ctx context.Cont
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v TransactionResultEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -623,7 +623,7 @@ func (a *DataTransferApiService) ReceiveFlowFiles(ctx context.Context, portId st
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -724,7 +724,7 @@ func (a *DataTransferApiService) TransferFlowFiles(ctx context.Context, portId s
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v StreamingOutput
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {

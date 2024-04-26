@@ -111,7 +111,7 @@ func (a *CountersApiService) GetCounters(ctx context.Context, localVarOptionals 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v CountersEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -198,7 +198,7 @@ func (a *CountersApiService) UpdateCounter(ctx context.Context, id string) (Coun
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v CounterEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {

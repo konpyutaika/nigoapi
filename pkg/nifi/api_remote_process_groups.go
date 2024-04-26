@@ -97,7 +97,7 @@ func (a *RemoteProcessGroupsApiService) GetRemoteProcessGroup(ctx context.Contex
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v RemoteProcessGroupEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -183,7 +183,7 @@ func (a *RemoteProcessGroupsApiService) GetState3(ctx context.Context, id string
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v ComponentStateEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -289,7 +289,7 @@ func (a *RemoteProcessGroupsApiService) RemoveRemoteProcessGroup(ctx context.Con
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v RemoteProcessGroupEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -378,7 +378,7 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroup(ctx context.Con
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v RemoteProcessGroupEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -470,7 +470,7 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPort(ctx co
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v RemoteProcessGroupPortEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -562,7 +562,7 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPortRunStat
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v RemoteProcessGroupPortEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -654,7 +654,7 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPort(ctx c
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v RemoteProcessGroupPortEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -746,7 +746,7 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPortRunSta
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v RemoteProcessGroupPortEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -835,7 +835,7 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupRunStatus(ctx co
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v RemoteProcessGroupEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
@@ -924,7 +924,7 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupRunStatuses(ctx 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v RemoteProcessGroupEntity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {

@@ -261,7 +261,7 @@ func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}
 			error: localVarHttpResponse.Status,
 		}
 		{{#responses}}{{#dataType}}
-		if localVarHttpResponse.StatusCode == {{{code}}} {
+		if localVarHttpResponse.StatusCode == {{^isWildcard}}{{code}}{{/isWildcard}}{{#isWildcard}}200{{/isWildcard}} {
 			var v {{{dataType}}}
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {

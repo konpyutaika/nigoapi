@@ -94,7 +94,7 @@ func (a *AboutApiService) GetVersion(ctx context.Context) (RegistryAbout, *http.
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v RegistryAbout
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {

@@ -366,7 +366,7 @@ func (a *AccessApiService) GetAccessStatus(ctx context.Context) (CurrentUser, *h
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 0 {
+		if localVarHttpResponse.StatusCode == 200 {
 			var v CurrentUser
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
