@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 **Id** | **string** | The id of the component. | [optional] [default to null]
 **VersionedComponentId** | **string** | The ID of the corresponding component that is under version control | [optional] [default to null]
 **ParentGroupId** | **string** | The id of parent process group of this component if applicable. | [optional] [default to null]
-**Position** | [***PositionDto**](PositionDTO.md) | The position of this component in the UI if applicable. | [optional] [default to null]
+**Position** | [***PositionDto**](PositionDTO.md) |  | [optional] [default to null]
 **Name** | **string** | The name of the reporting task. | [optional] [default to null]
 **Type_** | **string** | The fully qualified type of the reporting task. | [optional] [default to null]
-**Bundle** | [***BundleDto**](BundleDTO.md) | The details of the artifact that bundled this reporting task type. | [optional] [default to null]
+**Bundle** | [***BundleDto**](BundleDTO.md) |  | [optional] [default to null]
 **State** | **string** | The state of the reporting task. | [optional] [default to null]
 **Comments** | **string** | The comments of the reporting task. | [optional] [default to null]
 **PersistsState** | **bool** | Whether the reporting task persists state. | [optional] [default to null]
@@ -31,5 +31,4 @@ Name | Type | Description | Notes
 **ExtensionMissing** | **bool** | Whether the underlying extension is missing. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

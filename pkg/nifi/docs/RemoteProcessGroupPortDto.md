@@ -15,8 +15,7 @@ Name | Type | Description | Notes
 **Exists** | **bool** | Whether the target port exists. | [optional] [default to null]
 **TargetRunning** | **bool** | Whether the target port is running. | [optional] [default to null]
 **Connected** | **bool** | Whether the port has either an incoming or outgoing connection. | [optional] [default to null]
-**BatchSettings** | [***BatchSettingsDto**](BatchSettingsDTO.md) | The batch settings for data transmission. | [optional] [default to null]
+**BatchSettings** | [***BatchSettingsDto**](BatchSettingsDTO.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

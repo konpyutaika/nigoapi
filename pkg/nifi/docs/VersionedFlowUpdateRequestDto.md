@@ -11,8 +11,7 @@ Name | Type | Description | Notes
 **FailureReason** | **string** | An explanation of why this request failed, or null if this request has not failed | [optional] [default to null]
 **PercentCompleted** | **int32** | The percentage complete for the request, between 0 and 100 | [optional] [default to null]
 **State** | **string** | The state of the request | [optional] [default to null]
-**VersionControlInformation** | [***VersionControlInformationDto**](VersionControlInformationDTO.md) | The VersionControlInformation that describes where the Versioned Flow is located; this may not be populated until the request is completed. | [optional] [default to null]
+**VersionControlInformation** | [***VersionControlInformationDto**](VersionControlInformationDTO.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

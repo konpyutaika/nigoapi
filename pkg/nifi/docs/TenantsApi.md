@@ -1,6 +1,6 @@
-# \TenantsApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,6 @@ Method | HTTP request | Description
 [**SearchTenants**](TenantsApi.md#SearchTenants) | **Get** /tenants/search-results | Searches for a tenant with the specified identity
 [**UpdateUser**](TenantsApi.md#UpdateUser) | **Put** /tenants/users/{id} | Updates a user
 [**UpdateUserGroup**](TenantsApi.md#UpdateUserGroup) | **Put** /tenants/user-groups/{id} | Updates a user group
-
 
 # **CreateUser**
 > UserEntity CreateUser(ctx, body)
@@ -96,7 +95,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -124,7 +123,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -148,7 +147,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -172,7 +171,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -193,12 +192,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a TenantsApiRemoveUserOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **version** | **optional.String**| The revision is used to verify the client is working with the latest version of the flow. | 
- **clientId** | **optional.String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
+ **version** | [**optional.Interface of LongParameter**](.md)| The revision is used to verify the client is working with the latest version of the flow. | 
+ **clientId** | [**optional.Interface of ClientIdParameter**](.md)| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
  **disconnectedNodeAcknowledged** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
 
 ### Return type
@@ -211,7 +209,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -232,12 +230,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a TenantsApiRemoveUserGroupOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **version** | **optional.String**| The revision is used to verify the client is working with the latest version of the flow. | 
- **clientId** | **optional.String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
+ **version** | [**optional.Interface of LongParameter**](.md)| The revision is used to verify the client is working with the latest version of the flow. | 
+ **clientId** | [**optional.Interface of ClientIdParameter**](.md)| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
  **disconnectedNodeAcknowledged** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
 
 ### Return type
@@ -250,7 +247,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -278,13 +275,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUser**
-> UserEntity UpdateUser(ctx, id, body)
+> UserEntity UpdateUser(ctx, body, id)
 Updates a user
 
 Note: This endpoint is subject to change as NiFi and it's REST API evolve.
@@ -294,8 +291,8 @@ Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The user id. | 
   **body** | [**UserEntity**](UserEntity.md)| The user configuration details. | 
+  **id** | **string**| The user id. | 
 
 ### Return type
 
@@ -313,7 +310,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUserGroup**
-> UserGroupEntity UpdateUserGroup(ctx, id, body)
+> UserGroupEntity UpdateUserGroup(ctx, body, id)
 Updates a user group
 
 Note: This endpoint is subject to change as NiFi and it's REST API evolve.
@@ -323,8 +320,8 @@ Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The user group id. | 
   **body** | [**UserGroupEntity**](UserGroupEntity.md)| The user group configuration details. | 
+  **id** | **string**| The user group id. | 
 
 ### Return type
 

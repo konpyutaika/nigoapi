@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 **Group** | **string** | The group name of the bundle that provides the referenced type. | [optional] [default to null]
 **Artifact** | **string** | The artifact name of the bundle that provides the referenced type. | [optional] [default to null]
 **Version** | **string** | The version of the bundle that provides the referenced type. | [optional] [default to null]
-**Type_** | **string** | The fully-qualified class type | [default to null]
+**Type_** | **string** | The fully-qualified class type | [optional] [default to null]
 **TypeDescription** | **string** | The description of the type. | [optional] [default to null]
-**BuildInfo** | [***BuildInfo**](BuildInfo.md) | The build metadata for this component | [optional] [default to null]
+**BuildInfo** | [***BuildInfo**](BuildInfo.md) |  | [optional] [default to null]
 **ProvidedApiImplementations** | [**[]DefinedType**](DefinedType.md) | If this type represents a provider for an interface, this lists the APIs it implements | [optional] [default to null]
 **Tags** | **[]string** | The tags associated with this type | [optional] [default to null]
 **SeeAlso** | **[]string** | The names of other component types that may be related | [optional] [default to null]
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Restricted** | **bool** | Whether or not the component has a general restriction | [optional] [default to null]
 **RestrictedExplanation** | **string** | An optional description of the general restriction | [optional] [default to null]
 **ExplicitRestrictions** | [**[]Restriction**](Restriction.md) | Explicit restrictions that indicate a require permission to use the component | [optional] [default to null]
-**Stateful** | [***Stateful**](Stateful.md) | Indicates if the component stores state | [optional] [default to null]
+**Stateful** | [***Stateful**](Stateful.md) |  | [optional] [default to null]
 **SystemResourceConsiderations** | [**[]SystemResourceConsideration**](SystemResourceConsideration.md) | The system resource considerations for the given component | [optional] [default to null]
 **AdditionalDetails** | **bool** | Indicates if the component has additional details documentation | [optional] [default to null]
 **PropertyDescriptors** | [**map[string]PropertyDescriptor**](PropertyDescriptor.md) | Descriptions of configuration properties applicable to this component. | [optional] [default to null]
@@ -30,5 +30,4 @@ Name | Type | Description | Notes
 **DefaultSchedulingPeriodBySchedulingStrategy** | **map[string]string** | The default scheduling period for each scheduling strategy. The scheduling period is expected to be a time period, such as \&quot;30 sec\&quot;. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

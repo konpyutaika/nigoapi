@@ -1,6 +1,6 @@
-# \ProvenanceEventsApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,24 +10,20 @@ Method | HTTP request | Description
 [**SubmitReplay**](ProvenanceEventsApi.md#SubmitReplay) | **Post** /provenance-events/replays | Replays content from a provenance event
 [**SubmitReplayLatestEvent**](ProvenanceEventsApi.md#SubmitReplayLatestEvent) | **Post** /provenance-events/latest/replays | Replays content from a provenance event
 
-
 # **GetInputContent**
 > StreamingOutput GetInputContent(ctx, id, optional)
 Gets the input content for a provenance event
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The provenance event id. | 
+  **id** | [**LongParameter**](.md)| The provenance event id. | 
  **optional** | ***ProvenanceEventsApiGetInputContentOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProvenanceEventsApiGetInputContentOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -43,7 +39,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -52,19 +48,16 @@ No authorization required
 > StreamingOutput GetOutputContent(ctx, id, optional)
 Gets the output content for a provenance event
 
-
-
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The provenance event id. | 
+  **id** | [**LongParameter**](.md)| The provenance event id. | 
  **optional** | ***ProvenanceEventsApiGetOutputContentOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProvenanceEventsApiGetOutputContentOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -80,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -89,19 +82,16 @@ No authorization required
 > ProvenanceEventEntity GetProvenanceEvent(ctx, id, optional)
 Gets a provenance event
 
-
-
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The provenance event id. | 
+  **id** | [**LongParameter**](.md)| The provenance event id. | 
  **optional** | ***ProvenanceEventsApiGetProvenanceEventOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProvenanceEventsApiGetProvenanceEventOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -117,7 +107,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -125,8 +115,6 @@ No authorization required
 # **SubmitReplay**
 > ProvenanceEventEntity SubmitReplay(ctx, body)
 Replays content from a provenance event
-
-
 
 ### Required Parameters
 
@@ -153,8 +141,6 @@ No authorization required
 # **SubmitReplayLatestEvent**
 > ReplayLastEventResponseEntity SubmitReplayLatestEvent(ctx, body)
 Replays content from a provenance event
-
-
 
 ### Required Parameters
 

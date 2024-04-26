@@ -44,18 +44,6 @@ To generate the clients please run following command:
 ```
 
 Manual changes: 
-
-- In function `UploadTemplate()` of [`api_process_groups.go`](./pkg/nifi/api_process_groups.go) replace:
-
-  ```golang
-  localVarPostBody = &localVarOptionals.Body.Value()
-  ```
-  
-  by:
-  
-  ```golang
-  localVarPostBody = localVarOptionals.Body.Value()
-  ```  
   
 - In [`model_revision_dto.go`](./pkg/nifi/model_revision_dto.go), replace: 
 
@@ -225,9 +213,7 @@ Manual changes:
   ```golang
 	// The index of the bend point where to place the connection label.
   LabelIndex int32 `json:"labelIndex"`
-  ```
- 
- 
+  ``` 
 
 ## Credits
 

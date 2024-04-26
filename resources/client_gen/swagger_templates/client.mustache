@@ -25,8 +25,8 @@ import (
 )
 
 var (
-	jsonCheck = regexp.MustCompile("(?i:(?:application|text)/json)")
-	xmlCheck  = regexp.MustCompile("(?i:(?:application|text)/xml)")
+	jsonCheck = regexp.MustCompile("(?i:[application|text]/json)")
+	xmlCheck  = regexp.MustCompile("(?i:[application|text]/xml)")
 )
 
 // APIClient manages communication with the {{appName}} API v{{version}}
@@ -155,22 +155,6 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 // Change base path to allow switching to mocks
 func (c *APIClient) ChangeBasePath(path string) {
 	c.cfg.BasePath = path
-}
-
-// Add default header to request
-func (c *APIClient) AddDefaultHeader(key string, value string) {
-	if key != "" && value != "" {
-		c.cfg.DefaultHeader[key] = value
-	}
-}
-
-// Remove default header
-func (c *APIClient) RemoveDefaultHeader(key string) {
-	if key != "" {
-		if _, ok := c.cfg.DefaultHeader[key]; ok {
-			delete(c.cfg.DefaultHeader, key)
-		}
-	}
 }
 
 // prepareRequest build the request

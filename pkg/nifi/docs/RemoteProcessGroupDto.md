@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **string** | The id of the component. | [optional] [default to null]
 **VersionedComponentId** | **string** | The ID of the corresponding component that is under version control | [optional] [default to null]
 **ParentGroupId** | **string** | The id of parent process group of this component if applicable. | [optional] [default to null]
-**Position** | [***PositionDto**](PositionDTO.md) | The position of this component in the UI if applicable. | [optional] [default to null]
+**Position** | [***PositionDto**](PositionDTO.md) |  | [optional] [default to null]
 **TargetUri** | **string** | The target URI of the remote process group. If target uri is not set, but uris are set, then returns the first url in the urls. If neither target uri nor uris are set, then returns null. | [optional] [default to null]
 **TargetUris** | **string** | The target URI of the remote process group. If target uris is not set but target uri is set, then returns a collection containing the single target uri. If neither target uris nor uris are set, then returns null. | [optional] [default to null]
 **TargetSecure** | **bool** | Whether the target is running securely. | [optional] [default to null]
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **ProxyUser** | **string** |  | [optional] [default to null]
 **ProxyPassword** | **string** |  | [optional] [default to null]
 **AuthorizationIssues** | **[]string** | Any remote authorization issues for the remote process group. | [optional] [default to null]
-**ValidationErrors** | **[]string** | The validation errors for the remote process group. These validation errors represent the problems with the remote process group that must be resolved before it can transmit. | [optional] [default to null]
+**ValidationErrors** | **[]string** | The validation errors for the remote process group. These validation errors represent the problems with the remote process group that must be resolved before it can transmit.  | [optional] [default to null]
 **Transmitting** | **bool** | Whether the remote process group is actively transmitting. | [optional] [default to null]
 **InputPortCount** | **int32** | The number of remote input ports currently available on the target. | [optional] [default to null]
 **OutputPortCount** | **int32** | The number of remote output ports currently available on the target. | [optional] [default to null]
@@ -30,8 +30,7 @@ Name | Type | Description | Notes
 **ActiveRemoteOutputPortCount** | **int32** | The number of active remote output ports. | [optional] [default to null]
 **InactiveRemoteOutputPortCount** | **int32** | The number of inactive remote output ports. | [optional] [default to null]
 **FlowRefreshed** | **string** | The timestamp when this remote process group was last refreshed. | [optional] [default to null]
-**Contents** | [***RemoteProcessGroupContentsDto**](RemoteProcessGroupContentsDTO.md) | The contents of the remote process group. Will contain available input/output ports. | [optional] [default to null]
+**Contents** | [***RemoteProcessGroupContentsDto**](RemoteProcessGroupContentsDTO.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

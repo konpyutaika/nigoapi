@@ -1,6 +1,6 @@
-# \TenantsApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-registry-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,6 @@ Method | HTTP request | Description
 [**RemoveUserGroup**](TenantsApi.md#RemoveUserGroup) | **Delete** /tenants/user-groups/{id} | Delete user group
 [**UpdateUser**](TenantsApi.md#UpdateUser) | **Put** /tenants/users/{id} | Update user
 [**UpdateUserGroup**](TenantsApi.md#UpdateUserGroup) | **Put** /tenants/user-groups/{id} | Update user group
-
 
 # **CreateUser**
 > User CreateUser(ctx, body)
@@ -35,7 +34,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -63,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -91,11 +90,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -119,11 +118,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -143,11 +142,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -167,11 +166,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -187,18 +186,17 @@ Delete user
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **version** | **string**| The version is used to verify the client is working with the latest version of the entity. | 
+  **version** | [**LongParameter**](.md)| The version is used to verify the client is working with the latest version of the entity. | 
   **id** | **string**| The user id. | 
  **optional** | ***TenantsApiRemoveUserOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a TenantsApiRemoveUserOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **clientId** | **optional.String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
+ **clientId** | [**optional.Interface of ClientIdParameter**](.md)| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
 
 ### Return type
 
@@ -206,11 +204,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -226,18 +224,17 @@ Delete user group
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **version** | **string**| The version is used to verify the client is working with the latest version of the entity. | 
+  **version** | [**LongParameter**](.md)| The version is used to verify the client is working with the latest version of the entity. | 
   **id** | **string**| The user group id. | 
  **optional** | ***TenantsApiRemoveUserGroupOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a TenantsApiRemoveUserGroupOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **clientId** | **optional.String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
+ **clientId** | [**optional.Interface of ClientIdParameter**](.md)| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
 
 ### Return type
 
@@ -245,17 +242,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUser**
-> User UpdateUser(ctx, id, body)
+> User UpdateUser(ctx, body, id)
 Update user
 
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
@@ -265,8 +262,8 @@ Update user
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The user id. | 
   **body** | [**User**](User.md)| The user configuration details. | 
+  **id** | **string**| The user id. | 
 
 ### Return type
 
@@ -274,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -284,7 +281,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUserGroup**
-> UserGroup UpdateUserGroup(ctx, id, body)
+> UserGroup UpdateUserGroup(ctx, body, id)
 Update user group
 
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
@@ -294,8 +291,8 @@ Update user group
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The user group id. | 
   **body** | [**UserGroup**](UserGroup.md)| The user group configuration details. | 
+  **id** | **string**| The user group id. | 
 
 ### Return type
 
@@ -303,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 

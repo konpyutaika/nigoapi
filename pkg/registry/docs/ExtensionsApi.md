@@ -1,13 +1,12 @@
-# \ExtensionsApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-registry-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetExtensions**](ExtensionsApi.md#GetExtensions) | **Get** /extensions | Get all extensions
 [**GetExtensionsProvidingServiceAPI**](ExtensionsApi.md#GetExtensionsProvidingServiceAPI) | **Get** /extensions/provided-service-api | Get extensions providing service API
 [**GetTags**](ExtensionsApi.md#GetTags) | **Get** /extensions/tags | Get extension tags
-
 
 # **GetExtensions**
 > ExtensionMetadataContainer GetExtensions(ctx, optional)
@@ -24,7 +23,6 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ExtensionsApiGetExtensionsOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bundleType** | **optional.String**| The type of bundles to return | 
@@ -37,11 +35,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -68,11 +66,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -92,11 +90,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

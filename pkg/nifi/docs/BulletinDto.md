@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Level** | **string** | The level of the bulletin. | [optional] [default to null]
 **Message** | **string** | The bulletin message. | [optional] [default to null]
 **Timestamp** | **string** | When this bulletin was generated. | [optional] [default to null]
+**SourceType** | **string** | The type of the source component | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 
