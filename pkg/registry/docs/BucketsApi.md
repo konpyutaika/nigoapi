@@ -1,6 +1,6 @@
-# \BucketsApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-registry-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,12 +11,9 @@ Method | HTTP request | Description
 [**GetBuckets**](BucketsApi.md#GetBuckets) | **Get** /buckets | Get all buckets
 [**UpdateBucket**](BucketsApi.md#UpdateBucket) | **Put** /buckets/{bucketId} | Update bucket
 
-
 # **CreateBucket**
 > Bucket CreateBucket(ctx, body, optional)
 Create bucket
-
-
 
 ### Required Parameters
 
@@ -28,11 +25,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a BucketsApiCreateBucketOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **preserveSourceProperties** | **optional.Bool**| Whether source properties like identifier should be kept | 
+ **preserveSourceProperties** | **optional.bool**| Whether source properties like identifier should be kept | 
 
 ### Return type
 
@@ -40,7 +36,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -60,18 +56,17 @@ Deletes the bucket with the given id, along with all objects stored in the bucke
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **version** | **string**| The version is used to verify the client is working with the latest version of the entity. | 
+  **version** | [**LongParameter**](.md)| The version is used to verify the client is working with the latest version of the entity. | 
   **bucketId** | **string**| The bucket identifier | 
  **optional** | ***BucketsApiDeleteBucketOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a BucketsApiDeleteBucketOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **clientId** | **optional.String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
+ **clientId** | [**optional.Interface of ClientIdParameter**](.md)| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
 
 ### Return type
 
@@ -79,11 +74,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -103,11 +98,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -131,11 +126,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -155,17 +150,17 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateBucket**
-> Bucket UpdateBucket(ctx, bucketId, body)
+> Bucket UpdateBucket(ctx, body, bucketId)
 Update bucket
 
 Updates the bucket with the given id.
@@ -175,8 +170,8 @@ Updates the bucket with the given id.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **bucketId** | **string**| The bucket identifier | 
   **body** | [**Bucket**](Bucket.md)| The updated bucket | 
+  **bucketId** | **string**| The bucket identifier | 
 
 ### Return type
 
@@ -184,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 

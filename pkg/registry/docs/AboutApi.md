@@ -1,11 +1,10 @@
-# \AboutApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-registry-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetVersion**](AboutApi.md#GetVersion) | **Get** /about | Get version
-
 
 # **GetVersion**
 > RegistryAbout GetVersion(ctx, )
@@ -22,7 +21,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 

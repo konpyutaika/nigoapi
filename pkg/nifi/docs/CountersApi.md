@@ -1,12 +1,11 @@
-# \CountersApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetCounters**](CountersApi.md#GetCounters) | **Get** /counters | Gets the current counters for this NiFi
 [**UpdateCounter**](CountersApi.md#UpdateCounter) | **Put** /counters/{id} | Updates the specified counter. This will reset the counter value to 0
-
 
 # **GetCounters**
 > CountersEntity GetCounters(ctx, optional)
@@ -23,11 +22,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a CountersApiGetCountersOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **nodewise** | **optional.Bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
- **clusterNodeId** | **optional.String**| The id of the node where to get the status. | 
+ **nodewise** | **optional.bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
+ **clusterNodeId** | **optional.string**| The id of the node where to get the status. | 
 
 ### Return type
 
@@ -39,7 +37,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -67,7 +65,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

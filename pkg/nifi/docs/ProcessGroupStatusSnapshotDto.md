@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **InputPortStatusSnapshots** | [**[]PortStatusSnapshotEntity**](PortStatusSnapshotEntity.md) | The status of all input ports in the process group. | [optional] [default to null]
 **OutputPortStatusSnapshots** | [**[]PortStatusSnapshotEntity**](PortStatusSnapshotEntity.md) | The status of all output ports in the process group. | [optional] [default to null]
 **VersionedFlowState** | **string** | The current state of the Process Group, as it relates to the Versioned Flow | [optional] [default to null]
+**StatelessActiveThreadCount** | **int32** | The current number of active threads for the Process Group, when running in Stateless mode. | [optional] [default to null]
 **FlowFilesIn** | **int32** | The number of FlowFiles that have come into this ProcessGroup in the last 5 minutes | [optional] [default to null]
 **BytesIn** | **int64** | The number of bytes that have come into this ProcessGroup in the last 5 minutes | [optional] [default to null]
 **Input** | **string** | The input count/size for the process group in the last 5 minutes (pretty printed). | [optional] [default to null]
@@ -41,5 +42,4 @@ Name | Type | Description | Notes
 **ProcessingNanos** | **int64** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

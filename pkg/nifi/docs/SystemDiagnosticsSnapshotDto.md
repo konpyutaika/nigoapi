@@ -26,13 +26,13 @@ Name | Type | Description | Notes
 **TotalThreads** | **int32** | Total number of threads. | [optional] [default to null]
 **DaemonThreads** | **int32** | Number of daemon threads. | [optional] [default to null]
 **Uptime** | **string** | The uptime of the Java virtual machine | [optional] [default to null]
-**FlowFileRepositoryStorageUsage** | [***StorageUsageDto**](StorageUsageDTO.md) | The flowfile repository storage usage. | [optional] [default to null]
+**FlowFileRepositoryStorageUsage** | [***StorageUsageDto**](StorageUsageDTO.md) |  | [optional] [default to null]
 **ContentRepositoryStorageUsage** | [**[]StorageUsageDto**](StorageUsageDTO.md) | The content repository storage usage. | [optional] [default to null]
 **ProvenanceRepositoryStorageUsage** | [**[]StorageUsageDto**](StorageUsageDTO.md) | The provenance repository storage usage. | [optional] [default to null]
 **GarbageCollection** | [**[]GarbageCollectionDto**](GarbageCollectionDTO.md) | The garbage collection details. | [optional] [default to null]
+**ResourceClaimDetails** | [**[]ResourceClaimDetailsDto**](ResourceClaimDetailsDTO.md) |  | [optional] [default to null]
 **StatsLastRefreshed** | **string** | When the diagnostics were generated. | [optional] [default to null]
-**VersionInfo** | [***VersionInfoDto**](VersionInfoDTO.md) | The nifi, os, java, and build version information | [optional] [default to null]
+**VersionInfo** | [***VersionInfoDto**](VersionInfoDTO.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

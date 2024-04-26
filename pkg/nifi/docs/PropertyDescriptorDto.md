@@ -14,9 +14,8 @@ Name | Type | Description | Notes
 **SupportsEl** | **bool** | Whether the property supports expression language. | [optional] [default to null]
 **ExpressionLanguageScope** | **string** | Scope of the Expression Language evaluation for the property. | [optional] [default to null]
 **IdentifiesControllerService** | **string** | If the property identifies a controller service this returns the fully qualified type. | [optional] [default to null]
-**IdentifiesControllerServiceBundle** | [***BundleDto**](BundleDTO.md) | If the property identifies a controller service this returns the bundle of the type, null otherwise. | [optional] [default to null]
+**IdentifiesControllerServiceBundle** | [***BundleDto**](BundleDTO.md) |  | [optional] [default to null]
 **Dependencies** | [**[]PropertyDependencyDto**](PropertyDependencyDTO.md) | A list of dependencies that must be met in order for this Property to be relevant. If any of these dependencies is not met, the property described by this Property Descriptor is not relevant. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

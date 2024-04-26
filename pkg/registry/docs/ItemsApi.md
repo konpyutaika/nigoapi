@@ -1,13 +1,12 @@
-# \ItemsApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-registry-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetAvailableBucketItemFields**](ItemsApi.md#GetAvailableBucketItemFields) | **Get** /items/fields | Get item fields
 [**GetItems**](ItemsApi.md#GetItems) | **Get** /items | Get all items
-[**GetItemsInBucket**](ItemsApi.md#GetItemsInBucket) | **Get** /items/{bucketId} | Get bucket items
-
+[**GetItems1**](ItemsApi.md#GetItems1) | **Get** /items/{bucketId} | Get bucket items
 
 # **GetAvailableBucketItemFields**
 > Fields GetAvailableBucketItemFields(ctx, )
@@ -24,11 +23,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -48,17 +47,17 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetItemsInBucket**
-> []BucketItem GetItemsInBucket(ctx, bucketId)
+# **GetItems1**
+> []BucketItem GetItems1(ctx, bucketId)
 Get bucket items
 
 Gets the items located in the given bucket.
@@ -76,11 +75,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

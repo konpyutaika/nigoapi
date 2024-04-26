@@ -1,6 +1,6 @@
-# \ProvenanceApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,12 +12,9 @@ Method | HTTP request | Description
 [**SubmitLineageRequest**](ProvenanceApi.md#SubmitLineageRequest) | **Post** /provenance/lineage | Submits a lineage query
 [**SubmitProvenanceRequest**](ProvenanceApi.md#SubmitProvenanceRequest) | **Post** /provenance | Submits a provenance query
 
-
 # **DeleteLineage**
 > LineageEntity DeleteLineage(ctx, id, optional)
 Deletes a lineage query
-
-
 
 ### Required Parameters
 
@@ -29,11 +26,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProvenanceApiDeleteLineageOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **clusterNodeId** | **optional.String**| The id of the node where this query exists if clustered. | 
+ **clusterNodeId** | **optional.string**| The id of the node where this query exists if clustered. | 
 
 ### Return type
 
@@ -45,7 +41,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -53,8 +49,6 @@ No authorization required
 # **DeleteProvenance**
 > ProvenanceEntity DeleteProvenance(ctx, id, optional)
 Deletes a provenance query
-
-
 
 ### Required Parameters
 
@@ -66,11 +60,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProvenanceApiDeleteProvenanceOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **clusterNodeId** | **optional.String**| The id of the node where this query exists if clustered. | 
+ **clusterNodeId** | **optional.string**| The id of the node where this query exists if clustered. | 
 
 ### Return type
 
@@ -82,7 +75,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -90,8 +83,6 @@ No authorization required
 # **GetLineage**
 > LineageEntity GetLineage(ctx, id, optional)
 Gets a lineage query
-
-
 
 ### Required Parameters
 
@@ -103,11 +94,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProvenanceApiGetLineageOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **clusterNodeId** | **optional.String**| The id of the node where this query exists if clustered. | 
+ **clusterNodeId** | **optional.string**| The id of the node where this query exists if clustered. | 
 
 ### Return type
 
@@ -119,7 +109,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -127,8 +117,6 @@ No authorization required
 # **GetProvenance**
 > ProvenanceEntity GetProvenance(ctx, id, optional)
 Gets a provenance query
-
-
 
 ### Required Parameters
 
@@ -140,13 +128,12 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProvenanceApiGetProvenanceOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **clusterNodeId** | **optional.String**| The id of the node where this query exists if clustered. | 
- **summarize** | **optional.Bool**| Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. | [default to false]
- **incrementalResults** | **optional.Bool**| Whether or not to summarize provenance events returned. This property is false by default. | [default to true]
+ **clusterNodeId** | **optional.string**| The id of the node where this query exists if clustered. | 
+ **summarize** | **optional.bool**| Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. | [default to false]
+ **incrementalResults** | **optional.bool**| Whether or not to summarize provenance events returned. This property is false by default. | [default to true]
 
 ### Return type
 
@@ -158,7 +145,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -166,8 +153,6 @@ No authorization required
 # **GetSearchOptions**
 > ProvenanceOptionsEntity GetSearchOptions(ctx, )
 Gets the searchable attributes for provenance events
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -182,7 +167,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

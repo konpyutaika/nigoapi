@@ -12,9 +12,8 @@ Name | Type | Description | Notes
 **PercentCompleted** | **int32** | A value between 0 and 100 (inclusive) indicating how close the request is to completion | [optional] [default to null]
 **State** | **string** | A description of the current state of the request | [optional] [default to null]
 **UpdateSteps** | [**[]ParameterContextValidationStepDto**](ParameterContextValidationStepDTO.md) | The steps that are required in order to complete the request, along with the status of each | [optional] [default to null]
-**ParameterContext** | [***ParameterContextDto**](ParameterContextDTO.md) | The Parameter Context that is being operated on. | [optional] [default to null]
-**ComponentValidationResults** | [***ComponentValidationResultsEntity**](ComponentValidationResultsEntity.md) | The Validation Results that were calculated for each component. This value may not be set until the request completes. | [optional] [default to null]
+**ParameterContext** | [***ParameterContextDto**](ParameterContextDTO.md) |  | [optional] [default to null]
+**ComponentValidationResults** | [***ComponentValidationResultsEntity**](ComponentValidationResultsEntity.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

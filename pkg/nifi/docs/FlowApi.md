@@ -1,6 +1,6 @@
-# \FlowApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,9 @@ Method | HTTP request | Description
 [**GenerateClientId**](FlowApi.md#GenerateClientId) | **Get** /flow/client-id | Generates a client id.
 [**GetAboutInfo**](FlowApi.md#GetAboutInfo) | **Get** /flow/about | Retrieves details about this NiFi to put in the About dialog
 [**GetAction**](FlowApi.md#GetAction) | **Get** /flow/history/{id} | Gets an action
+[**GetAllFlowAnalysisResults**](FlowApi.md#GetAllFlowAnalysisResults) | **Get** /flow/flow-analysis/results | Returns all flow analysis results currently in effect
 [**GetBanners**](FlowApi.md#GetBanners) | **Get** /flow/banners | Retrieves the banners for this NiFi
+[**GetBreadcrumbs**](FlowApi.md#GetBreadcrumbs) | **Get** /flow/process-groups/{id}/breadcrumbs | Gets the breadcrumbs for a process group
 [**GetBuckets**](FlowApi.md#GetBuckets) | **Get** /flow/registries/{id}/buckets | Gets the buckets from the specified registry for the current user
 [**GetBulletinBoard**](FlowApi.md#GetBulletinBoard) | **Get** /flow/bulletin-board | Gets current bulletins
 [**GetBulletins**](FlowApi.md#GetBulletins) | **Get** /flow/controller/bulletins | Retrieves Controller level bulletins
@@ -25,6 +27,8 @@ Method | HTTP request | Description
 [**GetCurrentUser**](FlowApi.md#GetCurrentUser) | **Get** /flow/current-user | Retrieves the user identity of the user making the request
 [**GetDetails**](FlowApi.md#GetDetails) | **Get** /flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/details | Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
 [**GetFlow**](FlowApi.md#GetFlow) | **Get** /flow/process-groups/{id} | Gets a process group
+[**GetFlowAnalysisResults**](FlowApi.md#GetFlowAnalysisResults) | **Get** /flow/flow-analysis/results/{processGroupId} | Returns flow analysis results produced by the analysis of a given process group
+[**GetFlowAnalysisRuleTypes**](FlowApi.md#GetFlowAnalysisRuleTypes) | **Get** /flow/flow-analysis-rule-types | Retrieves the types of available Flow Analysis Rules
 [**GetFlowConfig**](FlowApi.md#GetFlowConfig) | **Get** /flow/config | Retrieves the configuration for this NiFi flow
 [**GetFlowMetrics**](FlowApi.md#GetFlowMetrics) | **Get** /flow/metrics/{producer} | Gets all metrics for the flow from a particular node
 [**GetFlows**](FlowApi.md#GetFlows) | **Get** /flow/registries/{registry-id}/buckets/{bucket-id}/flows | Gets the flows from the specified registry and bucket for the current user
@@ -46,27 +50,23 @@ Method | HTTP request | Description
 [**GetReportingTaskTypes**](FlowApi.md#GetReportingTaskTypes) | **Get** /flow/reporting-task-types | Retrieves the types of reporting tasks that this NiFi supports
 [**GetReportingTasks**](FlowApi.md#GetReportingTasks) | **Get** /flow/reporting-tasks | Gets all reporting tasks
 [**GetRuntimeManifest**](FlowApi.md#GetRuntimeManifest) | **Get** /flow/runtime-manifest | Retrieves the runtime manifest for this NiFi instance.
-[**GetTemplates**](FlowApi.md#GetTemplates) | **Get** /flow/templates | Gets all templates
 [**GetVersions**](FlowApi.md#GetVersions) | **Get** /flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/versions | Gets the flow versions from the specified registry and bucket for the specified flow for the current user
 [**QueryHistory**](FlowApi.md#QueryHistory) | **Get** /flow/history | Gets configuration history
 [**ScheduleComponents**](FlowApi.md#ScheduleComponents) | **Put** /flow/process-groups/{id} | Schedule or unschedule components in the specified Process Group.
 [**SearchCluster**](FlowApi.md#SearchCluster) | **Get** /flow/cluster/search-results | Searches the cluster for a node with the specified address
 [**SearchFlow**](FlowApi.md#SearchFlow) | **Get** /flow/search-results | Performs a search against this NiFi using the specified search term
 
-
 # **ActivateControllerServices**
-> ActivateControllerServicesEntity ActivateControllerServices(ctx, id, body)
+> ActivateControllerServicesEntity ActivateControllerServices(ctx, body, id)
 Enable or disable Controller Services in the specified Process Group.
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**ActivateControllerServicesEntity**](ActivateControllerServicesEntity.md)| The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -84,10 +84,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DownloadReportingTaskSnapshot**
-> []string DownloadReportingTaskSnapshot(ctx, optional)
+> string DownloadReportingTaskSnapshot(ctx, optional)
 Download a snapshot of the given reporting tasks and any controller services they use
-
-
 
 ### Required Parameters
 
@@ -98,14 +96,13 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiDownloadReportingTaskSnapshotOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportingTaskId** | **optional.String**| Specifies a reporting task id to export. If not specified, all reporting tasks will be exported. | 
+ **reportingTaskId** | **optional.string**| Specifies a reporting task id to export. If not specified, all reporting tasks will be exported. | 
 
 ### Return type
 
-**[]string**
+**string**
 
 ### Authorization
 
@@ -113,7 +110,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -121,8 +118,6 @@ No authorization required
 # **GenerateClientId**
 > string GenerateClientId(ctx, )
 Generates a client id.
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -137,7 +132,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: text/plain
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -145,8 +140,6 @@ No authorization required
 # **GetAboutInfo**
 > AboutEntity GetAboutInfo(ctx, )
 Retrieves details about this NiFi to put in the About dialog
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -161,7 +154,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -177,7 +170,7 @@ Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The action id. | 
+  **id** | [**IntegerParameter**](.md)| The action id. | 
 
 ### Return type
 
@@ -189,7 +182,29 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetAllFlowAnalysisResults**
+> FlowAnalysisResultEntity GetAllFlowAnalysisResults(ctx, )
+Returns all flow analysis results currently in effect
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**FlowAnalysisResultEntity**](FlowAnalysisResultEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -197,8 +212,6 @@ No authorization required
 # **GetBanners**
 > BannerEntity GetBanners(ctx, )
 Retrieves the banners for this NiFi
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -213,7 +226,33 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetBreadcrumbs**
+> FlowBreadcrumbEntity GetBreadcrumbs(ctx, id)
+Gets the breadcrumbs for a process group
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The process group id. | 
+
+### Return type
+
+[**FlowBreadcrumbEntity**](FlowBreadcrumbEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -221,8 +260,6 @@ No authorization required
 # **GetBuckets**
 > FlowRegistryBucketsEntity GetBuckets(ctx, id)
 Gets the buckets from the specified registry for the current user
-
-
 
 ### Required Parameters
 
@@ -241,7 +278,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -249,8 +286,6 @@ No authorization required
 # **GetBulletinBoard**
 > BulletinBoardEntity GetBulletinBoard(ctx, optional)
 Gets current bulletins
-
-
 
 ### Required Parameters
 
@@ -261,15 +296,14 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetBulletinBoardOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **after** | **optional.String**| Includes bulletins with an id after this value. | 
- **sourceName** | **optional.String**| Includes bulletins originating from this sources whose name match this regular expression. | 
- **message** | **optional.String**| Includes bulletins whose message that match this regular expression. | 
- **sourceId** | **optional.String**| Includes bulletins originating from this sources whose id match this regular expression. | 
- **groupId** | **optional.String**| Includes bulletins originating from this sources whose group id match this regular expression. | 
- **limit** | **optional.String**| The number of bulletins to limit the response to. | 
+ **after** | [**optional.Interface of LongParameter**](.md)| Includes bulletins with an id after this value. | 
+ **sourceName** | [**optional.Interface of BulletinBoardPatternParameter**](.md)| Includes bulletins originating from this sources whose name match this regular expression. | 
+ **message** | [**optional.Interface of BulletinBoardPatternParameter**](.md)| Includes bulletins whose message that match this regular expression. | 
+ **sourceId** | [**optional.Interface of BulletinBoardPatternParameter**](.md)| Includes bulletins originating from this sources whose id match this regular expression. | 
+ **groupId** | [**optional.Interface of BulletinBoardPatternParameter**](.md)| Includes bulletins originating from this sources whose group id match this regular expression. | 
+ **limit** | [**optional.Interface of IntegerParameter**](.md)| The number of bulletins to limit the response to. | 
 
 ### Return type
 
@@ -281,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -289,8 +323,6 @@ No authorization required
 # **GetBulletins**
 > ControllerBulletinsEntity GetBulletins(ctx, )
 Retrieves Controller level bulletins
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -305,23 +337,21 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetClusterSummary**
-> ClusteSummaryEntity GetClusterSummary(ctx, )
+> ClusterSummaryEntity GetClusterSummary(ctx, )
 The cluster summary for this NiFi
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**ClusteSummaryEntity**](ClusteSummaryEntity.md)
+[**ClusterSummaryEntity**](ClusterSummaryEntity.md)
 
 ### Authorization
 
@@ -329,7 +359,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -357,7 +387,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -365,8 +395,6 @@ No authorization required
 # **GetConnectionStatistics**
 > ConnectionStatisticsEntity GetConnectionStatistics(ctx, id, optional)
 Gets statistics for a connection
-
-
 
 ### Required Parameters
 
@@ -378,12 +406,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetConnectionStatisticsOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **nodewise** | **optional.Bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
- **clusterNodeId** | **optional.String**| The id of the node where to get the statistics. | 
+ **nodewise** | **optional.bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
+ **clusterNodeId** | **optional.string**| The id of the node where to get the statistics. | 
 
 ### Return type
 
@@ -395,7 +422,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -403,8 +430,6 @@ No authorization required
 # **GetConnectionStatus**
 > ConnectionStatusEntity GetConnectionStatus(ctx, id, optional)
 Gets status for a connection
-
-
 
 ### Required Parameters
 
@@ -416,12 +441,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetConnectionStatusOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **nodewise** | **optional.Bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
- **clusterNodeId** | **optional.String**| The id of the node where to get the status. | 
+ **nodewise** | **optional.bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
+ **clusterNodeId** | **optional.string**| The id of the node where to get the status. | 
 
 ### Return type
 
@@ -433,7 +457,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -441,8 +465,6 @@ No authorization required
 # **GetConnectionStatusHistory**
 > StatusHistoryEntity GetConnectionStatusHistory(ctx, id)
 Gets the status history for a connection
-
-
 
 ### Required Parameters
 
@@ -461,7 +483,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -481,16 +503,15 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetControllerServiceTypesOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceType** | **optional.String**| If specified, will only return controller services that are compatible with this type of service. | 
- **serviceBundleGroup** | **optional.String**| If serviceType specified, is the bundle group of the serviceType. | 
- **serviceBundleArtifact** | **optional.String**| If serviceType specified, is the bundle artifact of the serviceType. | 
- **serviceBundleVersion** | **optional.String**| If serviceType specified, is the bundle version of the serviceType. | 
- **bundleGroupFilter** | **optional.String**| If specified, will only return types that are a member of this bundle group. | 
- **bundleArtifactFilter** | **optional.String**| If specified, will only return types that are a member of this bundle artifact. | 
- **typeFilter** | **optional.String**| If specified, will only return types whose fully qualified classname matches. | 
+ **serviceType** | **optional.string**| If specified, will only return controller services that are compatible with this type of service. | 
+ **serviceBundleGroup** | **optional.string**| If serviceType specified, is the bundle group of the serviceType. | 
+ **serviceBundleArtifact** | **optional.string**| If serviceType specified, is the bundle artifact of the serviceType. | 
+ **serviceBundleVersion** | **optional.string**| If serviceType specified, is the bundle version of the serviceType. | 
+ **bundleGroupFilter** | **optional.string**| If specified, will only return types that are a member of this bundle group. | 
+ **bundleArtifactFilter** | **optional.string**| If specified, will only return types that are a member of this bundle artifact. | 
+ **typeFilter** | **optional.string**| If specified, will only return types whose fully qualified classname matches. | 
 
 ### Return type
 
@@ -502,7 +523,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -522,11 +543,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetControllerServicesFromControllerOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uiOnly** | **optional.Bool**|  | [default to false]
- **includeReferencingComponents** | **optional.Bool**| Whether or not to include services&#39; referencing components in the response | [default to true]
+ **uiOnly** | **optional.bool**|  | [default to false]
+ **includeReferencingComponents** | **optional.bool**| Whether or not to include services&#x27; referencing components in the response | [default to true]
 
 ### Return type
 
@@ -538,7 +558,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -559,14 +579,13 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetControllerServicesFromGroupOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **includeAncestorGroups** | **optional.Bool**| Whether or not to include parent/ancestor process groups | [default to true]
- **includeDescendantGroups** | **optional.Bool**| Whether or not to include descendant process groups | [default to false]
- **includeReferencingComponents** | **optional.Bool**| Whether or not to include services&#39; referencing components in the response | [default to true]
- **uiOnly** | **optional.Bool**|  | [default to false]
+ **includeAncestorGroups** | **optional.bool**| Whether or not to include parent/ancestor process groups | [default to true]
+ **includeDescendantGroups** | **optional.bool**| Whether or not to include descendant process groups | [default to false]
+ **includeReferencingComponents** | **optional.bool**| Whether or not to include services&#x27; referencing components in the response | [default to true]
+ **uiOnly** | **optional.bool**|  | [default to false]
 
 ### Return type
 
@@ -578,7 +597,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -586,8 +605,6 @@ No authorization required
 # **GetControllerStatus**
 > ControllerStatusEntity GetControllerStatus(ctx, )
 Gets the current status of this NiFi
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -602,7 +619,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -610,8 +627,6 @@ No authorization required
 # **GetCurrentUser**
 > CurrentUserEntity GetCurrentUser(ctx, )
 Retrieves the user identity of the user making the request
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -626,7 +641,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -634,8 +649,6 @@ No authorization required
 # **GetDetails**
 > VersionedFlowEntity GetDetails(ctx, registryId, bucketId, flowId)
 Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
-
-
 
 ### Required Parameters
 
@@ -656,7 +669,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -677,11 +690,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetFlowOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **uiOnly** | **optional.Bool**|  | [default to false]
+ **uiOnly** | **optional.bool**|  | [default to false]
 
 ### Return type
 
@@ -693,7 +705,69 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetFlowAnalysisResults**
+> FlowAnalysisResultEntity GetFlowAnalysisResults(ctx, processGroupId)
+Returns flow analysis results produced by the analysis of a given process group
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **processGroupId** | **string**| The id of the process group representing (a part of) the flow to be analyzed. | 
+
+### Return type
+
+[**FlowAnalysisResultEntity**](FlowAnalysisResultEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetFlowAnalysisRuleTypes**
+> FlowAnalysisRuleTypesEntity GetFlowAnalysisRuleTypes(ctx, optional)
+Retrieves the types of available Flow Analysis Rules
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***FlowApiGetFlowAnalysisRuleTypesOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiGetFlowAnalysisRuleTypesOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bundleGroupFilter** | **optional.string**| If specified, will only return types that are a member of this bundle group. | 
+ **bundleArtifactFilter** | **optional.string**| If specified, will only return types that are a member of this bundle artifact. | 
+ **type_** | **optional.string**| If specified, will only return types whose fully qualified classname matches. | 
+
+### Return type
+
+[**FlowAnalysisRuleTypesEntity**](FlowAnalysisRuleTypesEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -701,8 +775,6 @@ No authorization required
 # **GetFlowConfig**
 > FlowConfigurationEntity GetFlowConfig(ctx, )
 Retrieves the configuration for this NiFi flow
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -717,7 +789,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -725,8 +797,6 @@ No authorization required
 # **GetFlowMetrics**
 > StreamingOutput GetFlowMetrics(ctx, producer, optional)
 Gets all metrics for the flow from a particular node
-
-
 
 ### Required Parameters
 
@@ -738,14 +808,13 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetFlowMetricsOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **includedRegistries** | [**optional.Interface of []string**](string.md)| Set of included metrics registries | 
- **sampleName** | **optional.String**| Regular Expression Pattern to be applied against the sample name field | 
- **sampleLabelValue** | **optional.String**| Regular Expression Pattern to be applied against the sample label value field | 
- **rootFieldName** | **optional.String**| Name of the first field of JSON object. Applicable for JSON producer only. | 
+ **sampleName** | **optional.string**| Regular Expression Pattern to be applied against the sample name field | 
+ **sampleLabelValue** | **optional.string**| Regular Expression Pattern to be applied against the sample label value field | 
+ **rootFieldName** | **optional.string**| Name of the first field of JSON object. Applicable for JSON producer only. | 
 
 ### Return type
 
@@ -757,7 +826,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -765,8 +834,6 @@ No authorization required
 # **GetFlows**
 > VersionedFlowsEntity GetFlows(ctx, registryId, bucketId)
 Gets the flows from the specified registry and bucket for the current user
-
-
 
 ### Required Parameters
 
@@ -786,7 +853,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -794,8 +861,6 @@ No authorization required
 # **GetInputPortStatus**
 > PortStatusEntity GetInputPortStatus(ctx, id, optional)
 Gets status for an input port
-
-
 
 ### Required Parameters
 
@@ -807,12 +872,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetInputPortStatusOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **nodewise** | **optional.Bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
- **clusterNodeId** | **optional.String**| The id of the node where to get the status. | 
+ **nodewise** | **optional.bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
+ **clusterNodeId** | **optional.string**| The id of the node where to get the status. | 
 
 ### Return type
 
@@ -824,7 +888,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -832,8 +896,6 @@ No authorization required
 # **GetOutputPortStatus**
 > PortStatusEntity GetOutputPortStatus(ctx, id, optional)
 Gets status for an output port
-
-
 
 ### Required Parameters
 
@@ -845,12 +907,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetOutputPortStatusOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **nodewise** | **optional.Bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
- **clusterNodeId** | **optional.String**| The id of the node where to get the status. | 
+ **nodewise** | **optional.bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
+ **clusterNodeId** | **optional.string**| The id of the node where to get the status. | 
 
 ### Return type
 
@@ -862,7 +923,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -870,8 +931,6 @@ No authorization required
 # **GetParameterContexts**
 > ParameterContextsEntity GetParameterContexts(ctx, )
 Gets all Parameter Contexts
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -886,7 +945,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -906,12 +965,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetParameterProviderTypesOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundleGroupFilter** | **optional.String**| If specified, will only return types that are a member of this bundle group. | 
- **bundleArtifactFilter** | **optional.String**| If specified, will only return types that are a member of this bundle artifact. | 
- **type_** | **optional.String**| If specified, will only return types whose fully qualified classname matches. | 
+ **bundleGroupFilter** | **optional.string**| If specified, will only return types that are a member of this bundle group. | 
+ **bundleArtifactFilter** | **optional.string**| If specified, will only return types that are a member of this bundle artifact. | 
+ **type_** | **optional.string**| If specified, will only return types whose fully qualified classname matches. | 
 
 ### Return type
 
@@ -923,7 +981,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -931,8 +989,6 @@ No authorization required
 # **GetParameterProviders**
 > ParameterProvidersEntity GetParameterProviders(ctx, )
 Gets all parameter providers
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -947,7 +1003,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -971,7 +1027,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -992,13 +1048,12 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetProcessGroupStatusOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **recursive** | **optional.Bool**| Whether all descendant groups and the status of their content will be included. Optional, defaults to false | [default to false]
- **nodewise** | **optional.Bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
- **clusterNodeId** | **optional.String**| The id of the node where to get the status. | 
+ **recursive** | **optional.bool**| Whether all descendant groups and the status of their content will be included. Optional, defaults to false | [default to false]
+ **nodewise** | **optional.bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
+ **clusterNodeId** | **optional.string**| The id of the node where to get the status. | 
 
 ### Return type
 
@@ -1010,7 +1065,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1018,8 +1073,6 @@ No authorization required
 # **GetProcessGroupStatusHistory**
 > StatusHistoryEntity GetProcessGroupStatusHistory(ctx, id)
 Gets status history for a remote process group
-
-
 
 ### Required Parameters
 
@@ -1038,7 +1091,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1046,8 +1099,6 @@ No authorization required
 # **GetProcessorStatus**
 > ProcessorStatusEntity GetProcessorStatus(ctx, id, optional)
 Gets status for a processor
-
-
 
 ### Required Parameters
 
@@ -1059,12 +1110,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetProcessorStatusOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **nodewise** | **optional.Bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
- **clusterNodeId** | **optional.String**| The id of the node where to get the status. | 
+ **nodewise** | **optional.bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
+ **clusterNodeId** | **optional.string**| The id of the node where to get the status. | 
 
 ### Return type
 
@@ -1076,7 +1126,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1084,8 +1134,6 @@ No authorization required
 # **GetProcessorStatusHistory**
 > StatusHistoryEntity GetProcessorStatusHistory(ctx, id)
 Gets status history for a processor
-
-
 
 ### Required Parameters
 
@@ -1104,7 +1152,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1124,12 +1172,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetProcessorTypesOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundleGroupFilter** | **optional.String**| If specified, will only return types that are a member of this bundle group. | 
- **bundleArtifactFilter** | **optional.String**| If specified, will only return types that are a member of this bundle artifact. | 
- **type_** | **optional.String**| If specified, will only return types whose fully qualified classname matches. | 
+ **bundleGroupFilter** | **optional.string**| If specified, will only return types that are a member of this bundle group. | 
+ **bundleArtifactFilter** | **optional.string**| If specified, will only return types that are a member of this bundle artifact. | 
+ **type_** | **optional.string**| If specified, will only return types whose fully qualified classname matches. | 
 
 ### Return type
 
@@ -1141,7 +1188,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1149,8 +1196,6 @@ No authorization required
 # **GetRegistryClients**
 > FlowRegistryClientsEntity GetRegistryClients(ctx, )
 Gets the listing of available flow registry clients
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -1165,7 +1210,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1173,8 +1218,6 @@ No authorization required
 # **GetRemoteProcessGroupStatus**
 > RemoteProcessGroupStatusEntity GetRemoteProcessGroupStatus(ctx, id, optional)
 Gets status for a remote process group
-
-
 
 ### Required Parameters
 
@@ -1186,12 +1229,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetRemoteProcessGroupStatusOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **nodewise** | **optional.Bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
- **clusterNodeId** | **optional.String**| The id of the node where to get the status. | 
+ **nodewise** | **optional.bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
+ **clusterNodeId** | **optional.string**| The id of the node where to get the status. | 
 
 ### Return type
 
@@ -1203,7 +1245,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1211,8 +1253,6 @@ No authorization required
 # **GetRemoteProcessGroupStatusHistory**
 > StatusHistoryEntity GetRemoteProcessGroupStatusHistory(ctx, id)
 Gets the status history
-
-
 
 ### Required Parameters
 
@@ -1231,7 +1271,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1239,8 +1279,6 @@ No authorization required
 # **GetReportingTaskSnapshot**
 > VersionedReportingTaskSnapshot GetReportingTaskSnapshot(ctx, optional)
 Get a snapshot of the given reporting tasks and any controller services they use
-
-
 
 ### Required Parameters
 
@@ -1251,10 +1289,9 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetReportingTaskSnapshotOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportingTaskId** | **optional.String**| Specifies a reporting task id to export. If not specified, all reporting tasks will be exported. | 
+ **reportingTaskId** | **optional.string**| Specifies a reporting task id to export. If not specified, all reporting tasks will be exported. | 
 
 ### Return type
 
@@ -1266,7 +1303,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1286,12 +1323,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiGetReportingTaskTypesOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundleGroupFilter** | **optional.String**| If specified, will only return types that are a member of this bundle group. | 
- **bundleArtifactFilter** | **optional.String**| If specified, will only return types that are a member of this bundle artifact. | 
- **type_** | **optional.String**| If specified, will only return types whose fully qualified classname matches. | 
+ **bundleGroupFilter** | **optional.string**| If specified, will only return types that are a member of this bundle group. | 
+ **bundleArtifactFilter** | **optional.string**| If specified, will only return types that are a member of this bundle artifact. | 
+ **type_** | **optional.string**| If specified, will only return types whose fully qualified classname matches. | 
 
 ### Return type
 
@@ -1303,7 +1339,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1311,8 +1347,6 @@ No authorization required
 # **GetReportingTasks**
 > ReportingTasksEntity GetReportingTasks(ctx, )
 Gets all reporting tasks
-
-
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -1327,7 +1361,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1351,31 +1385,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **GetTemplates**
-> TemplatesEntity GetTemplates(ctx, )
-Gets all templates
-
-
-
-### Required Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**TemplatesEntity**](TemplatesEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1383,8 +1393,6 @@ No authorization required
 # **GetVersions**
 > VersionedFlowSnapshotMetadataSetEntity GetVersions(ctx, registryId, bucketId, flowId)
 Gets the flow versions from the specified registry and bucket for the specified flow for the current user
-
-
 
 ### Required Parameters
 
@@ -1405,7 +1413,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1421,23 +1429,22 @@ Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **offset** | **string**| The offset into the result set. | 
-  **count** | **string**| The number of actions to return. | 
+  **offset** | [**IntegerParameter**](.md)| The offset into the result set. | 
+  **count** | [**IntegerParameter**](.md)| The number of actions to return. | 
  **optional** | ***FlowApiQueryHistoryOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiQueryHistoryOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **sortColumn** | **optional.String**| The field to sort on. | 
- **sortOrder** | **optional.String**| The direction to sort. | 
- **startDate** | **optional.String**| Include actions after this date. | 
- **endDate** | **optional.String**| Include actions before this date. | 
- **userIdentity** | **optional.String**| Include actions performed by this user. | 
- **sourceId** | **optional.String**| Include actions on this component. | 
+ **sortColumn** | **optional.string**| The field to sort on. | 
+ **sortOrder** | **optional.string**| The direction to sort. | 
+ **startDate** | [**optional.Interface of DateTimeParameter**](.md)| Include actions after this date. | 
+ **endDate** | [**optional.Interface of DateTimeParameter**](.md)| Include actions before this date. | 
+ **userIdentity** | **optional.string**| Include actions performed by this user. | 
+ **sourceId** | **optional.string**| Include actions on this component. | 
 
 ### Return type
 
@@ -1449,24 +1456,22 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ScheduleComponents**
-> ScheduleComponentsEntity ScheduleComponents(ctx, id, body)
+> ScheduleComponentsEntity ScheduleComponents(ctx, body, id)
 Schedule or unschedule components in the specified Process Group.
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**ScheduleComponentsEntity**](ScheduleComponentsEntity.md)| The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -1506,7 +1511,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1526,11 +1531,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a FlowApiSearchFlowOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **optional.String**|  | 
- **a** | **optional.String**|  | 
+ **q** | **optional.string**|  | 
+ **a** | **optional.string**|  | 
 
 ### Return type
 
@@ -1542,7 +1546,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

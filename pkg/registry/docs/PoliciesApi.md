@@ -1,6 +1,6 @@
-# \PoliciesApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-registry-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,12 +12,9 @@ Method | HTTP request | Description
 [**RemoveAccessPolicy**](PoliciesApi.md#RemoveAccessPolicy) | **Delete** /policies/{id} | Delete access policy
 [**UpdateAccessPolicy**](PoliciesApi.md#UpdateAccessPolicy) | **Put** /policies/{id} | Update access policy
 
-
 # **CreateAccessPolicy**
 > AccessPolicy CreateAccessPolicy(ctx, body)
 Create access policy
-
-
 
 ### Required Parameters
 
@@ -32,7 +29,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -45,8 +42,6 @@ Name | Type | Description  | Notes
 > []AccessPolicy GetAccessPolicies(ctx, )
 Get all access policies
 
-
-
 ### Required Parameters
 This endpoint does not need any parameter.
 
@@ -56,11 +51,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -68,8 +63,6 @@ This endpoint does not need any parameter.
 # **GetAccessPolicy**
 > AccessPolicy GetAccessPolicy(ctx, id)
 Get access policy
-
-
 
 ### Required Parameters
 
@@ -84,11 +77,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -113,11 +106,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -137,11 +130,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -150,25 +143,22 @@ This endpoint does not need any parameter.
 > AccessPolicy RemoveAccessPolicy(ctx, version, id, optional)
 Delete access policy
 
-
-
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **version** | **string**| The version is used to verify the client is working with the latest version of the entity. | 
+  **version** | [**LongParameter**](.md)| The version is used to verify the client is working with the latest version of the entity. | 
   **id** | **string**| The access policy id. | 
  **optional** | ***PoliciesApiRemoveAccessPolicyOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a PoliciesApiRemoveAccessPolicyOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **clientId** | **optional.String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
+ **clientId** | [**optional.Interface of ClientIdParameter**](.md)| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
 
 ### Return type
 
@@ -176,28 +166,26 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateAccessPolicy**
-> AccessPolicy UpdateAccessPolicy(ctx, id, body)
+> AccessPolicy UpdateAccessPolicy(ctx, body, id)
 Update access policy
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The access policy id. | 
   **body** | [**AccessPolicy**](AccessPolicy.md)| The access policy configuration details. | 
+  **id** | **string**| The access policy id. | 
 
 ### Return type
 
@@ -205,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
