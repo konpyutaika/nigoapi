@@ -645,20 +645,20 @@ DataTransferApiService Transfer flow files from the output port
  * @param transactionId
  * @param optional nil or *DataTransferApiTransferFlowFilesOpts - Optional Parameters:
      * @param "Body" (optional.Interface of interface{}) - 
-
+@return StreamingOutput
 */
 
 type DataTransferApiTransferFlowFilesOpts struct {
     Body optional.Interface
 }
 
-func (a *DataTransferApiService) TransferFlowFiles(ctx context.Context, portId string, transactionId string, localVarOptionals *DataTransferApiTransferFlowFilesOpts) (*http.Response, *string, error) {
+func (a *DataTransferApiService) TransferFlowFiles(ctx context.Context, portId string, transactionId string, localVarOptionals *DataTransferApiTransferFlowFilesOpts) (StreamingOutput, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		
+		localVarReturnValue StreamingOutput
 	)
 
 	// create path and map variables
@@ -695,22 +695,29 @@ func (a *DataTransferApiService) TransferFlowFiles(ctx context.Context, portId s
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, nil, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, nil, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localStringBody := string(localVarBody)
 
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
+		}
+	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
@@ -722,13 +729,13 @@ func (a *DataTransferApiService) TransferFlowFiles(ctx context.Context, portId s
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarHttpResponse, &localStringBody, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarHttpResponse, &localStringBody, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		return localVarHttpResponse, &localStringBody, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarHttpResponse, &localStringBody, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }

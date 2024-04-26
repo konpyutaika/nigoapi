@@ -14,13 +14,13 @@ type ParameterContextDto struct {
 	// The Name of the Parameter Context.
 	Name string `json:"name,omitempty"`
 	// The Description of the Parameter Context.
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 	// The Parameters for the Parameter Context
 	Parameters []ParameterEntity `json:"parameters"`
 	// The Process Groups that are bound to this Parameter Context
 	BoundProcessGroups []ProcessGroupEntity `json:"boundProcessGroups"`
 	// A list of references of Parameter Contexts from which this one inherits parameters
-	InheritedParameterContexts     []ParameterContextReferenceEntity     `json:"inheritedParameterContexts,omitempty"`
+	InheritedParameterContexts     []ParameterContextReferenceEntity     `json:"inheritedParameterContexts"`
 	ParameterProviderConfiguration *ParameterProviderConfigurationEntity `json:"parameterProviderConfiguration,omitempty"`
 	// The ID the Parameter Context.
 	Id string `json:"id,omitempty"`

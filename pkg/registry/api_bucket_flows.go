@@ -1046,7 +1046,7 @@ Import the next version of a flow. The version number of the object being create
  * @param optional nil or *BucketFlowsApiImportVersionedFlowOpts - Optional Parameters:
      * @param "Body" (optional.Interface of VersionedFlowSnapshot) -  file
      * @param "Comments" (optional.String) - 
-
+@return VersionedFlowSnapshot
 */
 
 type BucketFlowsApiImportVersionedFlowOpts struct {
@@ -1054,13 +1054,13 @@ type BucketFlowsApiImportVersionedFlowOpts struct {
     Comments optional.String
 }
 
-func (a *BucketFlowsApiService) ImportVersionedFlow(ctx context.Context, bucketId string, flowId string, localVarOptionals *BucketFlowsApiImportVersionedFlowOpts) (*http.Response, *string, error) {
+func (a *BucketFlowsApiService) ImportVersionedFlow(ctx context.Context, bucketId string, flowId string, localVarOptionals *BucketFlowsApiImportVersionedFlowOpts) (VersionedFlowSnapshot, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		
+		localVarReturnValue VersionedFlowSnapshot
 	)
 
 	// create path and map variables
@@ -1100,22 +1100,29 @@ func (a *BucketFlowsApiService) ImportVersionedFlow(ctx context.Context, bucketI
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, nil, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, nil, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localStringBody := string(localVarBody)
 
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
+		}
+	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
@@ -1127,15 +1134,15 @@ func (a *BucketFlowsApiService) ImportVersionedFlow(ctx context.Context, bucketI
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarHttpResponse, &localStringBody, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarHttpResponse, &localStringBody, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		return localVarHttpResponse, &localStringBody, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarHttpResponse, &localStringBody, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 /*
 BucketFlowsApiService Update bucket flow

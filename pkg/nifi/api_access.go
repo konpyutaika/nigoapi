@@ -299,15 +299,15 @@ func (a *AccessApiService) GetAccessStatus(ctx context.Context) (AccessStatusEnt
 AccessApiService Get expiration for current Access Token
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-
+@return AccessTokenExpirationEntity
 */
-func (a *AccessApiService) GetAccessTokenExpiration(ctx context.Context) (*http.Response, *string, error) {
+func (a *AccessApiService) GetAccessTokenExpiration(ctx context.Context) (AccessTokenExpirationEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		
+		localVarReturnValue AccessTokenExpirationEntity
 	)
 
 	// create path and map variables
@@ -336,22 +336,29 @@ func (a *AccessApiService) GetAccessTokenExpiration(ctx context.Context) (*http.
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, nil, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, nil, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localStringBody := string(localVarBody)
 
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
+		}
+	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
@@ -363,15 +370,15 @@ func (a *AccessApiService) GetAccessTokenExpiration(ctx context.Context) (*http.
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarHttpResponse, &localStringBody, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarHttpResponse, &localStringBody, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		return localVarHttpResponse, &localStringBody, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarHttpResponse, &localStringBody, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 /*
 AccessApiService Retrieves the access configuration for this NiFi

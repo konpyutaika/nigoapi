@@ -297,15 +297,15 @@ func (a *ProcessGroupsApiService) CreateControllerService1(ctx context.Context, 
 ProcessGroupsApiService Creates a request to drop all flowfiles of all connection queues in this process group.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
-
+@return DropRequestEntity
 */
-func (a *ProcessGroupsApiService) CreateEmptyAllConnectionsRequest(ctx context.Context, id string) (*http.Response, *string, error) {
+func (a *ProcessGroupsApiService) CreateEmptyAllConnectionsRequest(ctx context.Context, id string) (DropRequestEntity, *http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		
+		localVarReturnValue DropRequestEntity
 	)
 
 	// create path and map variables
@@ -335,22 +335,29 @@ func (a *ProcessGroupsApiService) CreateEmptyAllConnectionsRequest(ctx context.C
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return localVarReturnValue, nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, nil, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, nil, err
+		return localVarReturnValue, localVarHttpResponse, nil, err
 	}
 
 	localStringBody := string(localVarBody)
 
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, &localStringBody, err
+		}
+	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
@@ -362,15 +369,15 @@ func (a *ProcessGroupsApiService) CreateEmptyAllConnectionsRequest(ctx context.C
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarHttpResponse, &localStringBody, newErr
+					return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return localVarHttpResponse, &localStringBody, newErr
+				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-		return localVarHttpResponse, &localStringBody, newErr
+		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return localVarHttpResponse, &localStringBody, nil
+	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 /*
 ProcessGroupsApiService Creates a funnel

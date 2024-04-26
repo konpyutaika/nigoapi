@@ -30,7 +30,7 @@ type {{classname}}Service service
 {{/required}}{{/parameters}}{{#hasOptionalParams}} * @param optional nil or *{{{classname}}}{{{nickname}}}Opts - Optional Parameters:
 {{#parameters}}{{^required}}     * @param "{{vendorExtensions.x-exportParamName}}" ({{#isPrimitiveType}}optional.{{vendorExtensions.x-optionalDataType}}{{/isPrimitiveType}}{{^isPrimitiveType}}optional.Interface of {{dataType}}{{/isPrimitiveType}}) - {{#description}} {{.}}{{/description}}
 {{/required}}{{/parameters}}{{/hasOptionalParams}}
-{{#returnType}}@return {{{returnType}}}{{/returnType}}
+{{#responses}}{{#dataType}}@return {{{dataType}}}{{/dataType}}{{/responses}}
 */
 {{#hasOptionalParams}}
 
@@ -53,13 +53,13 @@ type {{{classname}}}{{{nickname}}}Opts struct {
 }
 
 {{/hasOptionalParams}}
-func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}}, {{/hasParams}}{{#parameters}}{{#required}}{{paramName}} {{{dataType}}}{{#hasMore}}, {{/hasMore}}{{/required}}{{/parameters}}{{#hasOptionalParams}}localVarOptionals *{{{classname}}}{{{nickname}}}Opts{{/hasOptionalParams}}) ({{#returnType}}{{{returnType}}}, {{/returnType}}*http.Response, *string, error) {
+func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}}, {{/hasParams}}{{#parameters}}{{#required}}{{paramName}} {{{dataType}}}{{#hasMore}}, {{/hasMore}}{{/required}}{{/parameters}}{{#hasOptionalParams}}localVarOptionals *{{{classname}}}{{{nickname}}}Opts{{/hasOptionalParams}}) ({{#responses}}{{#dataType}}{{{dataType}}}, {{/dataType}}{{/responses}}*http.Response, *string, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("{{httpMethod}}")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		{{#returnType}}localVarReturnValue {{{returnType}}}{{/returnType}}
+		{{#responses}}{{#dataType}}localVarReturnValue {{{dataType}}}{{/dataType}}{{/responses}}
 	)
 
 	// create path and map variables
@@ -73,22 +73,22 @@ func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}
 	{{#required}}
 	{{#minItems}}
 	if len({{paramName}}) < {{minItems}} {
-		return {{#returnType}}localVarReturnValue, {{/returnType}}nil, reportError("{{paramName}} must have at least {{minItems}} elements")
+		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}nil, reportError("{{paramName}} must have at least {{minItems}} elements")
 	}
 	{{/minItems}}
 	{{#maxItems}}
 	if len({{paramName}}) > {{maxItems}} {
-		return {{#returnType}}localVarReturnValue, {{/returnType}}nil, reportError("{{paramName}} must have less than {{maxItems}} elements")
+		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}nil, reportError("{{paramName}} must have less than {{maxItems}} elements")
 	}
 	{{/maxItems}}
 	{{#minLength}}
 	if strlen({{paramName}}) < {{minLength}} {
-		return {{#returnType}}localVarReturnValue, {{/returnType}}nil, reportError("{{paramName}} must have at least {{minLength}} elements")
+		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}nil, reportError("{{paramName}} must have at least {{minLength}} elements")
 	}
 	{{/minLength}}
 	{{#maxLength}}
 	if strlen({{paramName}}) > {{maxLength}} {
-		return {{#returnType}}localVarReturnValue, {{/returnType}}nil, reportError("{{paramName}} must have less than {{maxLength}} elements")
+		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}nil, reportError("{{paramName}} must have less than {{maxLength}} elements")
 	}
 	{{/maxLength}}
 	{{#minimum}}
@@ -99,7 +99,7 @@ func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}
 	{{^isString}}
 	if {{paramName}} < {{minimum}} {
 	{{/isString}}
-		return {{#returnType}}localVarReturnValue, {{/returnType}}nil, reportError("{{paramName}} must be greater than {{minimum}}")
+		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}nil, reportError("{{paramName}} must be greater than {{minimum}}")
 	}
 	{{/minimum}}
 	{{#maximum}}
@@ -110,7 +110,7 @@ func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}
 	{{^isString}}
 	if {{paramName}} > {{maximum}} {
 	{{/isString}}
-		return {{#returnType}}localVarReturnValue, {{/returnType}}nil, reportError("{{paramName}} must be less than {{maximum}}")
+		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}nil, reportError("{{paramName}} must be less than {{maximum}}")
 	}
 	{{/maximum}}
 	{{/required}}
@@ -173,7 +173,7 @@ func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}
 		localVarFileOk := false
 		localVarFile, localVarFileOk = localVarOptionals.{{vendorExtensions.x-exportParamName}}.Value().({{dataType}})
 		if !localVarFileOk {
-				return {{#returnType}}localVarReturnValue, {{/returnType}}nil, nil, reportError("{{paramName}} should be {{dataType}}")
+				return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}nil, nil, reportError("{{paramName}} should be {{dataType}}")
 		}
 	}
 {{/required}}
@@ -229,31 +229,31 @@ func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}
 {{/authMethods}}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return {{#returnType}}localVarReturnValue, {{/returnType}}nil, nil, err
+		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return {{#returnType}}localVarReturnValue, {{/returnType}}localVarHttpResponse, nil, err
+		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}localVarHttpResponse, nil, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return {{#returnType}}localVarReturnValue, {{/returnType}}localVarHttpResponse, nil, err
+		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}localVarHttpResponse, nil, err
 	}
 
 	localStringBody := string(localVarBody)
 
-	{{#returnType}}
+	{{#responses}}{{#dataType}}
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 		if err == nil { 
-			return {{#returnType}}localVarReturnValue, {{/returnType}}localVarHttpResponse, &localStringBody, err
+			return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}localVarHttpResponse, &localStringBody, err
 		}
 	}
-	{{/returnType}}
+	{{/dataType}}{{/responses}}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
@@ -266,15 +266,15 @@ func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return {{#returnType}}localVarReturnValue, {{/returnType}}localVarHttpResponse, &localStringBody, newErr
+					return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}localVarHttpResponse, &localStringBody, newErr
 				}
 				newErr.model = v
-				return {{#returnType}}localVarReturnValue, {{/returnType}}localVarHttpResponse, &localStringBody, newErr
+				return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}localVarHttpResponse, &localStringBody, newErr
 		}
 		{{/dataType}}{{/responses}}
-		return {{#returnType}}localVarReturnValue, {{/returnType}}localVarHttpResponse, &localStringBody, newErr
+		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}localVarHttpResponse, &localStringBody, newErr
 	}
 
-	return {{#returnType}}localVarReturnValue, {{/returnType}}localVarHttpResponse, &localStringBody, nil
+	return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}localVarHttpResponse, &localStringBody, nil
 }
 {{/@first}}{{/contents}}{{/operation}}{{/operations}}
