@@ -1,6 +1,5 @@
 
 {{>partial_header}}
-
 package {{packageName}}
 
 {{#operations}}
@@ -23,8 +22,7 @@ type {{classname}}Service service
 {{#operation}}
 {{#contents}}
 {{#@first}}
-
-/* 
+/*
 {{{classname}}}Service{{#summary}} {{.}}{{/summary}}{{#notes}}
 {{notes}}{{/notes}}
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -36,19 +34,19 @@ type {{classname}}Service service
 */
 {{#hasOptionalParams}}
 
-type {{{classname}}}{{{nickname}}}Opts struct { 
+type {{{classname}}}{{{nickname}}}Opts struct {
 {{#parameters}}
 {{^required}}
 {{#isPrimitiveType}}
 {{#isFile}}
-	{{vendorExtensions.x-exportParamName}} optional.Interface
+    {{vendorExtensions.x-exportParamName}} optional.Interface
 {{/isFile}}
 {{^isFile}}
-	{{vendorExtensions.x-exportParamName}} optional.{{vendorExtensions.x-optionalDataType}}
+    {{vendorExtensions.x-exportParamName}} optional.{{vendorExtensions.x-optionalDataType}}
 {{/isFile}}
 {{/isPrimitiveType}}
 {{^isPrimitiveType}}
-	{{vendorExtensions.x-exportParamName}} optional.Interface
+    {{vendorExtensions.x-exportParamName}} optional.Interface
 {{/isPrimitiveType}}
 {{/required}}
 {{/parameters}}
@@ -262,7 +260,6 @@ func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-
 		{{#responses}}{{#dataType}}
 		if localVarHttpResponse.StatusCode == {{^isWildcard}}{{code}}{{/isWildcard}}{{#isWildcard}}200{{/isWildcard}} {
 			var v {{{dataType}}}
@@ -274,7 +271,6 @@ func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}
 				newErr.model = v
 				return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}localVarHttpResponse, &localStringBody, newErr
 		}
-    
 		{{/dataType}}{{/responses}}
 		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}localVarHttpResponse, &localStringBody, newErr
 	}
