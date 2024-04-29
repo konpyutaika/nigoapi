@@ -28,7 +28,7 @@ var (
 
 type FunnelsApiService service
 
-/*
+/* 
 FunnelsApiService Gets a funnel
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The funnel id.
@@ -110,14 +110,14 @@ func (a *FunnelsApiService) GetFunnel(ctx context.Context, id string) (FunnelEnt
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FunnelsApiService Deletes a funnel
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The funnel id.
@@ -128,7 +128,7 @@ FunnelsApiService Deletes a funnel
 @return FunnelEntity
 */
 
-type FunnelsApiRemoveFunnelOpts struct {
+type FunnelsApiRemoveFunnelOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -219,14 +219,14 @@ func (a *FunnelsApiService) RemoveFunnel(ctx context.Context, id string, localVa
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FunnelsApiService Updates a funnel
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The funnel configuration details.
@@ -311,7 +311,7 @@ func (a *FunnelsApiService) UpdateFunnel(ctx context.Context, body FunnelEntity,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

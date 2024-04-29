@@ -27,7 +27,7 @@ var (
 
 type ExtensionsApiService service
 
-/*
+/* 
 ExtensionsApiService Get all extensions
 Gets the metadata for all extensions that match the filter params and are part of bundles located in buckets the current user is authorized for. If the user is not authorized to any buckets, an empty result set will be returned.  NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -38,7 +38,7 @@ Gets the metadata for all extensions that match the filter params and are part o
 @return ExtensionMetadataContainer
 */
 
-type ExtensionsApiGetExtensionsOpts struct {
+type ExtensionsApiGetExtensionsOpts struct { 
 	BundleType optional.String
 	ExtensionType optional.String
 	Tag optional.Interface
@@ -128,14 +128,14 @@ func (a *ExtensionsApiService) GetExtensions(ctx context.Context, localVarOption
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ExtensionsApiService Get extensions providing service API
 Gets the metadata for extensions that provide the specified API and are part of bundles located in buckets the current user is authorized for. If the user is not authorized to any buckets, an empty result set will be returned.  NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -224,14 +224,14 @@ func (a *ExtensionsApiService) GetExtensionsProvidingServiceAPI(ctx context.Cont
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ExtensionsApiService Get extension tags
 Gets all the extension tags known to this NiFi Registry instance, along with the number of extensions that have the given tag.  NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -312,7 +312,7 @@ func (a *ExtensionsApiService) GetTags(ctx context.Context) ([]TagCount, *http.R
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

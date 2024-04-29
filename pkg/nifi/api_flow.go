@@ -28,7 +28,7 @@ var (
 
 type FlowApiService service
 
-/*
+/* 
 FlowApiService Enable or disable Controller Services in the specified Process Group.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered.
@@ -113,14 +113,14 @@ func (a *FlowApiService) ActivateControllerServices(ctx context.Context, body Ac
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Download a snapshot of the given reporting tasks and any controller services they use
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *FlowApiDownloadReportingTaskSnapshotOpts - Optional Parameters:
@@ -128,7 +128,7 @@ FlowApiService Download a snapshot of the given reporting tasks and any controll
 @return string
 */
 
-type FlowApiDownloadReportingTaskSnapshotOpts struct {
+type FlowApiDownloadReportingTaskSnapshotOpts struct { 
 	ReportingTaskId optional.String
 }
 
@@ -210,14 +210,14 @@ func (a *FlowApiService) DownloadReportingTaskSnapshot(ctx context.Context, loca
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Generates a client id.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return string
@@ -297,14 +297,14 @@ func (a *FlowApiService) GenerateClientId(ctx context.Context) (string, *http.Re
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves details about this NiFi to put in the About dialog
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return AboutEntity
@@ -384,14 +384,14 @@ func (a *FlowApiService) GetAboutInfo(ctx context.Context) (AboutEntity, *http.R
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets an action
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -474,14 +474,14 @@ func (a *FlowApiService) GetAction(ctx context.Context, id IntegerParameter) (Ac
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Returns all flow analysis results currently in effect
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return FlowAnalysisResultEntity
@@ -561,14 +561,14 @@ func (a *FlowApiService) GetAllFlowAnalysisResults(ctx context.Context) (FlowAna
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves the banners for this NiFi
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return BannerEntity
@@ -648,14 +648,14 @@ func (a *FlowApiService) GetBanners(ctx context.Context) (BannerEntity, *http.Re
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets the breadcrumbs for a process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -737,14 +737,14 @@ func (a *FlowApiService) GetBreadcrumbs(ctx context.Context, id string) (FlowBre
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets the buckets from the specified registry for the current user
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The registry id.
@@ -826,14 +826,14 @@ func (a *FlowApiService) GetBuckets(ctx context.Context, id string) (FlowRegistr
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets current bulletins
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *FlowApiGetBulletinBoardOpts - Optional Parameters:
@@ -846,7 +846,7 @@ FlowApiService Gets current bulletins
 @return BulletinBoardEntity
 */
 
-type FlowApiGetBulletinBoardOpts struct {
+type FlowApiGetBulletinBoardOpts struct { 
 	After optional.Interface
 	SourceName optional.Interface
 	Message optional.Interface
@@ -948,14 +948,14 @@ func (a *FlowApiService) GetBulletinBoard(ctx context.Context, localVarOptionals
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves Controller level bulletins
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ControllerBulletinsEntity
@@ -1035,14 +1035,14 @@ func (a *FlowApiService) GetBulletins(ctx context.Context) (ControllerBulletinsE
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService The cluster summary for this NiFi
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ClusterSummaryEntity
@@ -1122,14 +1122,14 @@ func (a *FlowApiService) GetClusterSummary(ctx context.Context) (ClusterSummaryE
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets configuration history for a component
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1212,14 +1212,14 @@ func (a *FlowApiService) GetComponentHistory(ctx context.Context, componentId st
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets statistics for a connection
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -1229,7 +1229,7 @@ FlowApiService Gets statistics for a connection
 @return ConnectionStatisticsEntity
 */
 
-type FlowApiGetConnectionStatisticsOpts struct {
+type FlowApiGetConnectionStatisticsOpts struct { 
 	Nodewise optional.Bool
 	ClusterNodeId optional.String
 }
@@ -1316,14 +1316,14 @@ func (a *FlowApiService) GetConnectionStatistics(ctx context.Context, id string,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets status for a connection
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -1333,7 +1333,7 @@ FlowApiService Gets status for a connection
 @return ConnectionStatusEntity
 */
 
-type FlowApiGetConnectionStatusOpts struct {
+type FlowApiGetConnectionStatusOpts struct { 
 	Nodewise optional.Bool
 	ClusterNodeId optional.String
 }
@@ -1420,14 +1420,14 @@ func (a *FlowApiService) GetConnectionStatus(ctx context.Context, id string, loc
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets the status history for a connection
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -1509,14 +1509,14 @@ func (a *FlowApiService) GetConnectionStatusHistory(ctx context.Context, id stri
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves the types of controller services that this NiFi supports
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1531,7 +1531,7 @@ Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 @return ControllerServiceTypesEntity
 */
 
-type FlowApiGetControllerServiceTypesOpts struct {
+type FlowApiGetControllerServiceTypesOpts struct { 
 	ServiceType optional.String
 	ServiceBundleGroup optional.String
 	ServiceBundleArtifact optional.String
@@ -1637,14 +1637,14 @@ func (a *FlowApiService) GetControllerServiceTypes(ctx context.Context, localVar
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets controller services for reporting tasks
 If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1654,7 +1654,7 @@ If the uiOnly query parameter is provided with a value of true, the returned ent
 @return ControllerServicesEntity
 */
 
-type FlowApiGetControllerServicesFromControllerOpts struct {
+type FlowApiGetControllerServicesFromControllerOpts struct { 
 	UiOnly optional.Bool
 	IncludeReferencingComponents optional.Bool
 }
@@ -1740,14 +1740,14 @@ func (a *FlowApiService) GetControllerServicesFromController(ctx context.Context
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets all controller services
 If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1760,7 +1760,7 @@ If the uiOnly query parameter is provided with a value of true, the returned ent
 @return ControllerServicesEntity
 */
 
-type FlowApiGetControllerServicesFromGroupOpts struct {
+type FlowApiGetControllerServicesFromGroupOpts struct { 
 	IncludeAncestorGroups optional.Bool
 	IncludeDescendantGroups optional.Bool
 	IncludeReferencingComponents optional.Bool
@@ -1855,14 +1855,14 @@ func (a *FlowApiService) GetControllerServicesFromGroup(ctx context.Context, id 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets the current status of this NiFi
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ControllerStatusEntity
@@ -1942,14 +1942,14 @@ func (a *FlowApiService) GetControllerStatus(ctx context.Context) (ControllerSta
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves the user identity of the user making the request
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return CurrentUserEntity
@@ -2029,14 +2029,14 @@ func (a *FlowApiService) GetCurrentUser(ctx context.Context) (CurrentUserEntity,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param registryId The registry client id.
@@ -2122,14 +2122,14 @@ func (a *FlowApiService) GetDetails(ctx context.Context, registryId string, buck
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets a process group
 If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2139,7 +2139,7 @@ If the uiOnly query parameter is provided with a value of true, the returned ent
 @return ProcessGroupFlowEntity
 */
 
-type FlowApiGetFlowOpts struct {
+type FlowApiGetFlowOpts struct { 
 	UiOnly optional.Bool
 }
 
@@ -2222,14 +2222,14 @@ func (a *FlowApiService) GetFlow(ctx context.Context, id string, localVarOptiona
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Returns flow analysis results produced by the analysis of a given process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param processGroupId The id of the process group representing (a part of) the flow to be analyzed.
@@ -2311,14 +2311,14 @@ func (a *FlowApiService) GetFlowAnalysisResults(ctx context.Context, processGrou
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves the types of available Flow Analysis Rules
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2329,7 +2329,7 @@ Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 @return FlowAnalysisRuleTypesEntity
 */
 
-type FlowApiGetFlowAnalysisRuleTypesOpts struct {
+type FlowApiGetFlowAnalysisRuleTypesOpts struct { 
 	BundleGroupFilter optional.String
 	BundleArtifactFilter optional.String
 	Type_ optional.String
@@ -2419,14 +2419,14 @@ func (a *FlowApiService) GetFlowAnalysisRuleTypes(ctx context.Context, localVarO
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves the configuration for this NiFi flow
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return FlowConfigurationEntity
@@ -2506,14 +2506,14 @@ func (a *FlowApiService) GetFlowConfig(ctx context.Context) (FlowConfigurationEn
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets all metrics for the flow from a particular node
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param producer The producer for flow file metrics. Each producer may have its own output format.
@@ -2525,7 +2525,7 @@ FlowApiService Gets all metrics for the flow from a particular node
 @return StreamingOutput
 */
 
-type FlowApiGetFlowMetricsOpts struct {
+type FlowApiGetFlowMetricsOpts struct { 
 	IncludedRegistries optional.Interface
 	SampleName optional.String
 	SampleLabelValue optional.String
@@ -2620,14 +2620,14 @@ func (a *FlowApiService) GetFlowMetrics(ctx context.Context, producer string, lo
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets the flows from the specified registry and bucket for the current user
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param registryId The registry client id.
@@ -2711,14 +2711,14 @@ func (a *FlowApiService) GetFlows(ctx context.Context, registryId string, bucket
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets status for an input port
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The input port id.
@@ -2728,7 +2728,7 @@ FlowApiService Gets status for an input port
 @return PortStatusEntity
 */
 
-type FlowApiGetInputPortStatusOpts struct {
+type FlowApiGetInputPortStatusOpts struct { 
 	Nodewise optional.Bool
 	ClusterNodeId optional.String
 }
@@ -2815,14 +2815,14 @@ func (a *FlowApiService) GetInputPortStatus(ctx context.Context, id string, loca
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets status for an output port
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The output port id.
@@ -2832,7 +2832,7 @@ FlowApiService Gets status for an output port
 @return PortStatusEntity
 */
 
-type FlowApiGetOutputPortStatusOpts struct {
+type FlowApiGetOutputPortStatusOpts struct { 
 	Nodewise optional.Bool
 	ClusterNodeId optional.String
 }
@@ -2919,14 +2919,14 @@ func (a *FlowApiService) GetOutputPortStatus(ctx context.Context, id string, loc
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets all Parameter Contexts
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ParameterContextsEntity
@@ -3006,14 +3006,14 @@ func (a *FlowApiService) GetParameterContexts(ctx context.Context) (ParameterCon
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves the types of parameter providers that this NiFi supports
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3024,7 +3024,7 @@ Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 @return ParameterProviderTypesEntity
 */
 
-type FlowApiGetParameterProviderTypesOpts struct {
+type FlowApiGetParameterProviderTypesOpts struct { 
 	BundleGroupFilter optional.String
 	BundleArtifactFilter optional.String
 	Type_ optional.String
@@ -3114,14 +3114,14 @@ func (a *FlowApiService) GetParameterProviderTypes(ctx context.Context, localVar
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets all parameter providers
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ParameterProvidersEntity
@@ -3201,14 +3201,14 @@ func (a *FlowApiService) GetParameterProviders(ctx context.Context) (ParameterPr
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves the types of prioritizers that this NiFi supports
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3289,14 +3289,14 @@ func (a *FlowApiService) GetPrioritizers(ctx context.Context) (PrioritizerTypesE
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets the status for a process group
 The status for a process group includes status for all descendent components. When invoked on the root group with recursive set to true, it will return the current status of every component in the flow.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3308,7 +3308,7 @@ The status for a process group includes status for all descendent components. Wh
 @return ProcessGroupStatusEntity
 */
 
-type FlowApiGetProcessGroupStatusOpts struct {
+type FlowApiGetProcessGroupStatusOpts struct { 
 	Recursive optional.Bool
 	Nodewise optional.Bool
 	ClusterNodeId optional.String
@@ -3399,14 +3399,14 @@ func (a *FlowApiService) GetProcessGroupStatus(ctx context.Context, id string, l
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets status history for a remote process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -3488,14 +3488,14 @@ func (a *FlowApiService) GetProcessGroupStatusHistory(ctx context.Context, id st
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets status for a processor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The processor id.
@@ -3505,7 +3505,7 @@ FlowApiService Gets status for a processor
 @return ProcessorStatusEntity
 */
 
-type FlowApiGetProcessorStatusOpts struct {
+type FlowApiGetProcessorStatusOpts struct { 
 	Nodewise optional.Bool
 	ClusterNodeId optional.String
 }
@@ -3592,14 +3592,14 @@ func (a *FlowApiService) GetProcessorStatus(ctx context.Context, id string, loca
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets status history for a processor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The processor id.
@@ -3681,14 +3681,14 @@ func (a *FlowApiService) GetProcessorStatusHistory(ctx context.Context, id strin
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves the types of processors that this NiFi supports
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3699,7 +3699,7 @@ Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 @return ProcessorTypesEntity
 */
 
-type FlowApiGetProcessorTypesOpts struct {
+type FlowApiGetProcessorTypesOpts struct { 
 	BundleGroupFilter optional.String
 	BundleArtifactFilter optional.String
 	Type_ optional.String
@@ -3789,14 +3789,14 @@ func (a *FlowApiService) GetProcessorTypes(ctx context.Context, localVarOptional
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets the listing of available flow registry clients
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return FlowRegistryClientsEntity
@@ -3876,14 +3876,14 @@ func (a *FlowApiService) GetRegistryClients(ctx context.Context) (FlowRegistryCl
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets status for a remote process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The remote process group id.
@@ -3893,7 +3893,7 @@ FlowApiService Gets status for a remote process group
 @return RemoteProcessGroupStatusEntity
 */
 
-type FlowApiGetRemoteProcessGroupStatusOpts struct {
+type FlowApiGetRemoteProcessGroupStatusOpts struct { 
 	Nodewise optional.Bool
 	ClusterNodeId optional.String
 }
@@ -3980,14 +3980,14 @@ func (a *FlowApiService) GetRemoteProcessGroupStatus(ctx context.Context, id str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets the status history
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The remote process group id.
@@ -4069,14 +4069,14 @@ func (a *FlowApiService) GetRemoteProcessGroupStatusHistory(ctx context.Context,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Get a snapshot of the given reporting tasks and any controller services they use
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *FlowApiGetReportingTaskSnapshotOpts - Optional Parameters:
@@ -4084,7 +4084,7 @@ FlowApiService Get a snapshot of the given reporting tasks and any controller se
 @return VersionedReportingTaskSnapshot
 */
 
-type FlowApiGetReportingTaskSnapshotOpts struct {
+type FlowApiGetReportingTaskSnapshotOpts struct { 
 	ReportingTaskId optional.String
 }
 
@@ -4166,14 +4166,14 @@ func (a *FlowApiService) GetReportingTaskSnapshot(ctx context.Context, localVarO
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves the types of reporting tasks that this NiFi supports
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4184,7 +4184,7 @@ Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 @return ReportingTaskTypesEntity
 */
 
-type FlowApiGetReportingTaskTypesOpts struct {
+type FlowApiGetReportingTaskTypesOpts struct { 
 	BundleGroupFilter optional.String
 	BundleArtifactFilter optional.String
 	Type_ optional.String
@@ -4274,14 +4274,14 @@ func (a *FlowApiService) GetReportingTaskTypes(ctx context.Context, localVarOpti
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets all reporting tasks
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ReportingTasksEntity
@@ -4361,14 +4361,14 @@ func (a *FlowApiService) GetReportingTasks(ctx context.Context) (ReportingTasksE
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Retrieves the runtime manifest for this NiFi instance.
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4449,14 +4449,14 @@ func (a *FlowApiService) GetRuntimeManifest(ctx context.Context) (RuntimeManifes
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets the flow versions from the specified registry and bucket for the specified flow for the current user
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param registryId The registry client id.
@@ -4542,14 +4542,14 @@ func (a *FlowApiService) GetVersions(ctx context.Context, registryId string, buc
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Gets configuration history
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4565,7 +4565,7 @@ Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 @return HistoryEntity
 */
 
-type FlowApiQueryHistoryOpts struct {
+type FlowApiQueryHistoryOpts struct { 
 	SortColumn optional.String
 	SortOrder optional.String
 	StartDate optional.Interface
@@ -4669,14 +4669,14 @@ func (a *FlowApiService) QueryHistory(ctx context.Context, offset IntegerParamet
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Schedule or unschedule components in the specified Process Group.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered.
@@ -4761,14 +4761,14 @@ func (a *FlowApiService) ScheduleComponents(ctx context.Context, body ScheduleCo
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Searches the cluster for a node with the specified address
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4851,14 +4851,14 @@ func (a *FlowApiService) SearchCluster(ctx context.Context, q string) (ClusterSe
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowApiService Performs a search against this NiFi using the specified search term
 Only search results from authorized components will be returned.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4868,7 +4868,7 @@ Only search results from authorized components will be returned.
 @return SearchResultsEntity
 */
 
-type FlowApiSearchFlowOpts struct {
+type FlowApiSearchFlowOpts struct { 
 	Q optional.String
 	A optional.String
 }
@@ -4954,7 +4954,7 @@ func (a *FlowApiService) SearchFlow(ctx context.Context, localVarOptionals *Flow
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

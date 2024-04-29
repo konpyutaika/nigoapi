@@ -24,7 +24,7 @@ type {{classname}}Service service
 {{#contents}}
 {{#@first}}
 
-/*
+/* 
 {{{classname}}}Service{{#summary}} {{.}}{{/summary}}{{#notes}}
 {{notes}}{{/notes}}
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -36,7 +36,7 @@ type {{classname}}Service service
 */
 {{#hasOptionalParams}}
 
-type {{{classname}}}{{{nickname}}}Opts struct {
+type {{{classname}}}{{{nickname}}}Opts struct { 
 {{#parameters}}
 {{^required}}
 {{#isPrimitiveType}}
@@ -274,7 +274,7 @@ func (a *{{{classname}}}Service) {{{nickname}}}(ctx context.Context{{#hasParams}
 				newErr.model = v
 				return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		{{/dataType}}{{/responses}}
 		return {{#responses}}{{#dataType}}localVarReturnValue, {{/dataType}}{{/responses}}localVarHttpResponse, &localStringBody, newErr
 	}

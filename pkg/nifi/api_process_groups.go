@@ -28,7 +28,7 @@ var (
 
 type ProcessGroupsApiService service
 
-/*
+/* 
 ProcessGroupsApiService Copies a snippet and discards it.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The copy snippet request.
@@ -113,14 +113,14 @@ func (a *ProcessGroupsApiService) CopySnippet(ctx context.Context, body CopySnip
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Creates a connection
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The connection configuration details.
@@ -205,14 +205,14 @@ func (a *ProcessGroupsApiService) CreateConnection(ctx context.Context, body Con
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Creates a new controller service
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The controller service configuration details.
@@ -297,14 +297,14 @@ func (a *ProcessGroupsApiService) CreateControllerService1(ctx context.Context, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Creates a request to drop all flowfiles of all connection queues in this process group.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -386,14 +386,14 @@ func (a *ProcessGroupsApiService) CreateEmptyAllConnectionsRequest(ctx context.C
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Creates a funnel
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The funnel configuration details.
@@ -478,14 +478,14 @@ func (a *ProcessGroupsApiService) CreateFunnel(ctx context.Context, body FunnelE
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Creates an input port
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The input port configuration details.
@@ -570,14 +570,14 @@ func (a *ProcessGroupsApiService) CreateInputPort(ctx context.Context, body Port
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Creates a label
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The label configuration details.
@@ -662,14 +662,14 @@ func (a *ProcessGroupsApiService) CreateLabel(ctx context.Context, body LabelEnt
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Creates an output port
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The output port configuration.
@@ -754,14 +754,14 @@ func (a *ProcessGroupsApiService) CreateOutputPort(ctx context.Context, body Por
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Creates a process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The process group configuration details.
@@ -771,7 +771,7 @@ ProcessGroupsApiService Creates a process group
 @return ProcessGroupEntity
 */
 
-type ProcessGroupsApiCreateProcessGroupOpts struct {
+type ProcessGroupsApiCreateProcessGroupOpts struct { 
 	ParameterContextHandlingStrategy optional.String
 }
 
@@ -856,14 +856,14 @@ func (a *ProcessGroupsApiService) CreateProcessGroup(ctx context.Context, body P
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Creates a new processor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The processor configuration details.
@@ -948,14 +948,14 @@ func (a *ProcessGroupsApiService) CreateProcessor(ctx context.Context, body Proc
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Creates a new process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The remote process group configuration details.
@@ -1040,14 +1040,14 @@ func (a *ProcessGroupsApiService) CreateRemoteProcessGroup(ctx context.Context, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Deletes the Replace Request with the given ID
 Deletes the Replace Request with the given ID. After a request is created via a POST to /process-groups/{id}/replace-requests, it is expected that the client will properly clean up the request by DELETE&#x27;ing it, once the Replace process has completed. If the request is deleted before the request completes, then the Replace request will finish the step that it is currently performing and then will cancel any subsequent steps. Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1057,7 +1057,7 @@ Deletes the Replace Request with the given ID. After a request is created via a 
 @return ProcessGroupReplaceRequestEntity
 */
 
-type ProcessGroupsApiDeleteReplaceProcessGroupRequestOpts struct {
+type ProcessGroupsApiDeleteReplaceProcessGroupRequestOpts struct { 
 	DisconnectedNodeAcknowledged optional.Bool
 }
 
@@ -1140,14 +1140,14 @@ func (a *ProcessGroupsApiService) DeleteReplaceProcessGroupRequest(ctx context.C
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets a process group for download
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -1156,7 +1156,7 @@ ProcessGroupsApiService Gets a process group for download
 @return string
 */
 
-type ProcessGroupsApiExportProcessGroupOpts struct {
+type ProcessGroupsApiExportProcessGroupOpts struct { 
 	IncludeReferencedServices optional.Bool
 }
 
@@ -1239,14 +1239,14 @@ func (a *ProcessGroupsApiService) ExportProcessGroup(ctx context.Context, id str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets the current status of a flow analysis request.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the process group representing (a part of) the flow being analyzed.
@@ -1330,14 +1330,14 @@ func (a *ProcessGroupsApiService) GetAnalyzeFlowRequest(ctx context.Context, id 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets all connections
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -1419,14 +1419,14 @@ func (a *ProcessGroupsApiService) GetConnections(ctx context.Context, id string)
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets the current status of a drop all flowfiles request.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -1510,14 +1510,14 @@ func (a *ProcessGroupsApiService) GetDropAllFlowfilesRequest(ctx context.Context
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets all funnels
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -1599,14 +1599,14 @@ func (a *ProcessGroupsApiService) GetFunnels(ctx context.Context, id string) (Fu
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets all input ports
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -1688,14 +1688,14 @@ func (a *ProcessGroupsApiService) GetInputPorts(ctx context.Context, id string) 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets all labels
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -1777,14 +1777,14 @@ func (a *ProcessGroupsApiService) GetLabels(ctx context.Context, id string) (Lab
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets a list of local modifications to the Process Group since it was last synchronized with the Flow Registry
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -1866,14 +1866,14 @@ func (a *ProcessGroupsApiService) GetLocalModifications(ctx context.Context, id 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets all output ports
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -1955,14 +1955,14 @@ func (a *ProcessGroupsApiService) GetOutputPorts(ctx context.Context, id string)
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets a process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -2044,14 +2044,14 @@ func (a *ProcessGroupsApiService) GetProcessGroup(ctx context.Context, id string
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets all process groups
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -2133,14 +2133,14 @@ func (a *ProcessGroupsApiService) GetProcessGroups(ctx context.Context, id strin
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets all processors
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -2149,7 +2149,7 @@ ProcessGroupsApiService Gets all processors
 @return ProcessorsEntity
 */
 
-type ProcessGroupsApiGetProcessorsOpts struct {
+type ProcessGroupsApiGetProcessorsOpts struct { 
 	IncludeDescendantGroups optional.Bool
 }
 
@@ -2232,14 +2232,14 @@ func (a *ProcessGroupsApiService) GetProcessors(ctx context.Context, id string, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Gets all remote process groups
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -2321,14 +2321,14 @@ func (a *ProcessGroupsApiService) GetRemoteProcessGroups(ctx context.Context, id
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Returns the Replace Request with the given ID
 Returns the Replace Request with the given ID. Once a Replace Request has been created by performing a POST to /process-groups/{id}/replace-requests, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2411,14 +2411,14 @@ func (a *ProcessGroupsApiService) GetReplaceProcessGroupRequest(ctx context.Cont
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Imports a specified process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -2427,7 +2427,7 @@ ProcessGroupsApiService Imports a specified process group
 @return ProcessGroupEntity
 */
 
-type ProcessGroupsApiImportProcessGroupOpts struct {
+type ProcessGroupsApiImportProcessGroupOpts struct { 
 	Body optional.Interface
 }
 
@@ -2513,14 +2513,14 @@ func (a *ProcessGroupsApiService) ImportProcessGroup(ctx context.Context, id str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Initiate the Replace Request of a Process Group with the given ID
 This will initiate the action of replacing a process group with the given process group. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a ProcessGroupReplaceRequestEntity, and the process of replacing the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /process-groups/replace-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /process-groups/replace-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2606,14 +2606,14 @@ func (a *ProcessGroupsApiService) InitiateReplaceProcessGroup(ctx context.Contex
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Cancels a flow analysis request.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the process group representing (a part of) the flow being analyzed.
@@ -2697,14 +2697,14 @@ func (a *ProcessGroupsApiService) RemoveAnalyzeFlowRequest(ctx context.Context, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Cancels and/or removes a request to drop all flowfiles.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -2788,14 +2788,14 @@ func (a *ProcessGroupsApiService) RemoveDropRequest1(ctx context.Context, id str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Deletes a process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -2806,7 +2806,7 @@ ProcessGroupsApiService Deletes a process group
 @return ProcessGroupEntity
 */
 
-type ProcessGroupsApiRemoveProcessGroupOpts struct {
+type ProcessGroupsApiRemoveProcessGroupOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -2897,14 +2897,14 @@ func (a *ProcessGroupsApiService) RemoveProcessGroup(ctx context.Context, id str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Replace Process Group contents with the given ID with the specified Process Group contents
 This endpoint is used for replication within a cluster, when replacing a flow with a new flow. It expects that the flow beingreplaced is not under version control and that the given snapshot will not modify any Processor that is currently running or any Controller Service that is enabled. Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2990,14 +2990,14 @@ func (a *ProcessGroupsApiService) ReplaceProcessGroup(ctx context.Context, body 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Executes a flow analysis for components within a given process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the process group representing (a part of) the flow to be analyzed.
@@ -3079,14 +3079,14 @@ func (a *ProcessGroupsApiService) SubmitAnalyzeFlowRequest(ctx context.Context, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Updates a process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The process group configuration details.
@@ -3171,14 +3171,14 @@ func (a *ProcessGroupsApiService) UpdateProcessGroup(ctx context.Context, body P
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessGroupsApiService Uploads a versioned flow definition and creates a process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The process group id.
@@ -3192,7 +3192,7 @@ ProcessGroupsApiService Uploads a versioned flow definition and creates a proces
 @return ProcessGroupEntity
 */
 
-type ProcessGroupsApiUploadProcessGroupOpts struct {
+type ProcessGroupsApiUploadProcessGroupOpts struct { 
 	GroupName optional.String
 	PositionX optional.Float64
 	PositionY optional.Float64
@@ -3295,7 +3295,7 @@ func (a *ProcessGroupsApiService) UploadProcessGroup(ctx context.Context, id str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

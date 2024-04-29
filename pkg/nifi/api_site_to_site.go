@@ -26,7 +26,7 @@ var (
 
 type SiteToSiteApiService service
 
-/*
+/* 
 SiteToSiteApiService Returns the available Peers and its status of this NiFi
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return PeersEntity
@@ -106,14 +106,14 @@ func (a *SiteToSiteApiService) GetPeers(ctx context.Context) (PeersEntity, *http
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 SiteToSiteApiService Returns the details about this NiFi necessary to communicate via site to site
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ControllerEntity
@@ -193,7 +193,7 @@ func (a *SiteToSiteApiService) GetSiteToSiteDetails(ctx context.Context) (Contro
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

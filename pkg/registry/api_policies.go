@@ -28,7 +28,7 @@ var (
 
 type PoliciesApiService service
 
-/*
+/* 
 PoliciesApiService Create access policy
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The access policy configuration details.
@@ -111,14 +111,14 @@ func (a *PoliciesApiService) CreateAccessPolicy(ctx context.Context, body Access
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 PoliciesApiService Get all access policies
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return []AccessPolicy
@@ -198,14 +198,14 @@ func (a *PoliciesApiService) GetAccessPolicies(ctx context.Context) ([]AccessPol
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 PoliciesApiService Get access policy
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The access policy id.
@@ -287,14 +287,14 @@ func (a *PoliciesApiService) GetAccessPolicy(ctx context.Context, id string) (Ac
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 PoliciesApiService Get access policy for resource
 Gets an access policy for the specified action and resource
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -379,14 +379,14 @@ func (a *PoliciesApiService) GetAccessPolicyForResource(ctx context.Context, act
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 PoliciesApiService Get available resources
 Gets the available resources that support access/authorization policies
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -467,14 +467,14 @@ func (a *PoliciesApiService) GetResources(ctx context.Context) ([]Resource, *htt
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 PoliciesApiService Delete access policy
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param version The version is used to verify the client is working with the latest version of the entity.
@@ -484,7 +484,7 @@ PoliciesApiService Delete access policy
 @return AccessPolicy
 */
 
-type PoliciesApiRemoveAccessPolicyOpts struct {
+type PoliciesApiRemoveAccessPolicyOpts struct { 
 	ClientId optional.Interface
 }
 
@@ -568,14 +568,14 @@ func (a *PoliciesApiService) RemoveAccessPolicy(ctx context.Context, version Lon
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 PoliciesApiService Update access policy
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The access policy configuration details.
@@ -660,7 +660,7 @@ func (a *PoliciesApiService) UpdateAccessPolicy(ctx context.Context, body Access
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

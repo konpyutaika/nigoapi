@@ -28,7 +28,7 @@ var (
 
 type SnippetsApiService service
 
-/*
+/* 
 SnippetsApiService Creates a snippet. The snippet will be automatically discarded if not used in a subsequent request after 1 minute.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The snippet configuration details.
@@ -111,14 +111,14 @@ func (a *SnippetsApiService) CreateSnippet(ctx context.Context, body SnippetEnti
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 SnippetsApiService Deletes the components in a snippet and discards the snippet
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The snippet id.
@@ -127,7 +127,7 @@ SnippetsApiService Deletes the components in a snippet and discards the snippet
 @return SnippetEntity
 */
 
-type SnippetsApiDeleteSnippetOpts struct {
+type SnippetsApiDeleteSnippetOpts struct { 
 	DisconnectedNodeAcknowledged optional.Bool
 }
 
@@ -210,14 +210,14 @@ func (a *SnippetsApiService) DeleteSnippet(ctx context.Context, id string, local
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 SnippetsApiService Move&#x27;s the components in this Snippet into a new Process Group and discards the snippet
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The snippet configuration details.
@@ -302,7 +302,7 @@ func (a *SnippetsApiService) UpdateSnippet(ctx context.Context, body SnippetEnti
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

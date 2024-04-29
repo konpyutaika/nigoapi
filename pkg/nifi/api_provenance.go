@@ -28,7 +28,7 @@ var (
 
 type ProvenanceApiService service
 
-/*
+/* 
 ProvenanceApiService Deletes a lineage query
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the lineage query.
@@ -37,7 +37,7 @@ ProvenanceApiService Deletes a lineage query
 @return LineageEntity
 */
 
-type ProvenanceApiDeleteLineageOpts struct {
+type ProvenanceApiDeleteLineageOpts struct { 
 	ClusterNodeId optional.String
 }
 
@@ -120,14 +120,14 @@ func (a *ProvenanceApiService) DeleteLineage(ctx context.Context, id string, loc
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProvenanceApiService Deletes a provenance query
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the provenance query.
@@ -136,7 +136,7 @@ ProvenanceApiService Deletes a provenance query
 @return ProvenanceEntity
 */
 
-type ProvenanceApiDeleteProvenanceOpts struct {
+type ProvenanceApiDeleteProvenanceOpts struct { 
 	ClusterNodeId optional.String
 }
 
@@ -219,14 +219,14 @@ func (a *ProvenanceApiService) DeleteProvenance(ctx context.Context, id string, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProvenanceApiService Gets a lineage query
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the lineage query.
@@ -235,7 +235,7 @@ ProvenanceApiService Gets a lineage query
 @return LineageEntity
 */
 
-type ProvenanceApiGetLineageOpts struct {
+type ProvenanceApiGetLineageOpts struct { 
 	ClusterNodeId optional.String
 }
 
@@ -318,14 +318,14 @@ func (a *ProvenanceApiService) GetLineage(ctx context.Context, id string, localV
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProvenanceApiService Gets a provenance query
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the provenance query.
@@ -336,7 +336,7 @@ ProvenanceApiService Gets a provenance query
 @return ProvenanceEntity
 */
 
-type ProvenanceApiGetProvenanceOpts struct {
+type ProvenanceApiGetProvenanceOpts struct { 
 	ClusterNodeId optional.String
 	Summarize optional.Bool
 	IncrementalResults optional.Bool
@@ -427,14 +427,14 @@ func (a *ProvenanceApiService) GetProvenance(ctx context.Context, id string, loc
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProvenanceApiService Gets the searchable attributes for provenance events
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ProvenanceOptionsEntity
@@ -514,14 +514,14 @@ func (a *ProvenanceApiService) GetSearchOptions(ctx context.Context) (Provenance
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProvenanceApiService Submits a lineage query
 Lineage queries may be long running so this endpoint submits a request. The response will include the current state of the query. If the request is not completed the URI in the response can be used at a later time to get the updated state of the query. Once the query has completed the lineage request should be deleted by the client who originally submitted it.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -605,14 +605,14 @@ func (a *ProvenanceApiService) SubmitLineageRequest(ctx context.Context, body Li
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProvenanceApiService Submits a provenance query
 Provenance queries may be long running so this endpoint submits a request. The response will include the current state of the query. If the request is not completed the URI in the response can be used at a later time to get the updated state of the query. Once the query has completed the provenance request should be deleted by the client who originally submitted it.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -696,7 +696,7 @@ func (a *ProvenanceApiService) SubmitProvenanceRequest(ctx context.Context, body
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

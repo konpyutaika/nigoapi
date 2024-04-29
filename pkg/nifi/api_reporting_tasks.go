@@ -28,7 +28,7 @@ var (
 
 type ReportingTasksApiService service
 
-/*
+/* 
 ReportingTasksApiService Performs analysis of the component&#x27;s configuration, providing information about which attributes are referenced.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The configuration analysis request.
@@ -113,14 +113,14 @@ func (a *ReportingTasksApiService) AnalyzeConfiguration3(ctx context.Context, bo
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ReportingTasksApiService Clears the state for a reporting task
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The reporting task id.
@@ -202,14 +202,14 @@ func (a *ReportingTasksApiService) ClearState4(ctx context.Context, id string) (
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ReportingTasksApiService Deletes the Verification Request with the given ID
 Deletes the Verification Request with the given ID. After a request is created, it is expected that the client will properly clean up the request by DELETE&#x27;ing it, once the Verification process has completed. If the request is deleted before the request completes, then the Verification request will finish the step that it is currently performing and then will cancel any subsequent steps.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -294,14 +294,14 @@ func (a *ReportingTasksApiService) DeleteVerificationRequest3(ctx context.Contex
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ReportingTasksApiService Gets a reporting task property descriptor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The reporting task id.
@@ -311,7 +311,7 @@ ReportingTasksApiService Gets a reporting task property descriptor
 @return PropertyDescriptorEntity
 */
 
-type ReportingTasksApiGetPropertyDescriptor4Opts struct {
+type ReportingTasksApiGetPropertyDescriptor4Opts struct { 
 	Sensitive optional.Bool
 }
 
@@ -395,14 +395,14 @@ func (a *ReportingTasksApiService) GetPropertyDescriptor4(ctx context.Context, i
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ReportingTasksApiService Gets a reporting task
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The reporting task id.
@@ -484,14 +484,14 @@ func (a *ReportingTasksApiService) GetReportingTask(ctx context.Context, id stri
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ReportingTasksApiService Gets the state for a reporting task
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The reporting task id.
@@ -573,14 +573,14 @@ func (a *ReportingTasksApiService) GetState4(ctx context.Context, id string) (Co
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ReportingTasksApiService Returns the Verification Request with the given ID
 Returns the Verification Request with the given ID. Once an Verification Request has been created, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -665,14 +665,14 @@ func (a *ReportingTasksApiService) GetVerificationRequest3(ctx context.Context, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ReportingTasksApiService Deletes a reporting task
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The reporting task id.
@@ -683,7 +683,7 @@ ReportingTasksApiService Deletes a reporting task
 @return ReportingTaskEntity
 */
 
-type ReportingTasksApiRemoveReportingTaskOpts struct {
+type ReportingTasksApiRemoveReportingTaskOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -774,14 +774,14 @@ func (a *ReportingTasksApiService) RemoveReportingTask(ctx context.Context, id s
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ReportingTasksApiService Performs verification of the Reporting Task&#x27;s configuration
 This will initiate the process of verifying a given Reporting Task configuration. This may be a long-running task. As a result, this endpoint will immediately return a ReportingTaskConfigVerificationRequestEntity, and the process of performing the verification will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /reporting-tasks/{taskId}/verification-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /reporting-tasks/{serviceId}/verification-requests/{requestId}.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -867,14 +867,14 @@ func (a *ReportingTasksApiService) SubmitConfigVerificationRequest2(ctx context.
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ReportingTasksApiService Updates a reporting task
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The reporting task configuration details.
@@ -959,14 +959,14 @@ func (a *ReportingTasksApiService) UpdateReportingTask(ctx context.Context, body
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ReportingTasksApiService Updates run status of a reporting task
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The reporting task run status.
@@ -1051,7 +1051,7 @@ func (a *ReportingTasksApiService) UpdateRunStatus5(ctx context.Context, body Re
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

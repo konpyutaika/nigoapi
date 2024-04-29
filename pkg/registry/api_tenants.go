@@ -28,7 +28,7 @@ var (
 
 type TenantsApiService service
 
-/*
+/* 
 TenantsApiService Create user
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -112,14 +112,14 @@ func (a *TenantsApiService) CreateUser(ctx context.Context, body User) (User, *h
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 TenantsApiService Create user group
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -203,14 +203,14 @@ func (a *TenantsApiService) CreateUserGroup(ctx context.Context, body UserGroup)
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 TenantsApiService Get user
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -293,14 +293,14 @@ func (a *TenantsApiService) GetUser(ctx context.Context, id string) (User, *http
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 TenantsApiService Get user group
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -383,14 +383,14 @@ func (a *TenantsApiService) GetUserGroup(ctx context.Context, id string) (UserGr
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 TenantsApiService Get user groups
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -471,14 +471,14 @@ func (a *TenantsApiService) GetUserGroups(ctx context.Context) ([]UserGroup, *ht
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 TenantsApiService Get all users
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -559,14 +559,14 @@ func (a *TenantsApiService) GetUsers(ctx context.Context) ([]User, *http.Respons
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 TenantsApiService Delete user
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -577,7 +577,7 @@ TenantsApiService Delete user
 @return User
 */
 
-type TenantsApiRemoveUserOpts struct {
+type TenantsApiRemoveUserOpts struct { 
 	ClientId optional.Interface
 }
 
@@ -661,14 +661,14 @@ func (a *TenantsApiService) RemoveUser(ctx context.Context, version LongParamete
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 TenantsApiService Delete user group
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -679,7 +679,7 @@ TenantsApiService Delete user group
 @return UserGroup
 */
 
-type TenantsApiRemoveUserGroupOpts struct {
+type TenantsApiRemoveUserGroupOpts struct { 
 	ClientId optional.Interface
 }
 
@@ -763,14 +763,14 @@ func (a *TenantsApiService) RemoveUserGroup(ctx context.Context, version LongPar
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 TenantsApiService Update user
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -856,14 +856,14 @@ func (a *TenantsApiService) UpdateUser(ctx context.Context, body User, id string
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 TenantsApiService Update user group
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -949,7 +949,7 @@ func (a *TenantsApiService) UpdateUserGroup(ctx context.Context, body UserGroup,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

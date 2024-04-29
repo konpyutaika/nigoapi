@@ -28,7 +28,7 @@ var (
 
 type ProcessorsApiService service
 
-/*
+/* 
 ProcessorsApiService Performs analysis of the component&#x27;s configuration, providing information about which attributes are referenced.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The processor configuration analysis request.
@@ -113,14 +113,14 @@ func (a *ProcessorsApiService) AnalyzeConfiguration2(ctx context.Context, body C
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Clears the state for a processor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The processor id.
@@ -202,14 +202,14 @@ func (a *ProcessorsApiService) ClearState3(ctx context.Context, id string) (Comp
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Deletes a processor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The processor id.
@@ -220,7 +220,7 @@ ProcessorsApiService Deletes a processor
 @return ProcessorEntity
 */
 
-type ProcessorsApiDeleteProcessorOpts struct {
+type ProcessorsApiDeleteProcessorOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -311,14 +311,14 @@ func (a *ProcessorsApiService) DeleteProcessor(ctx context.Context, id string, l
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Deletes the Verification Request with the given ID
 Deletes the Verification Request with the given ID. After a request is created, it is expected that the client will properly clean up the request by DELETE&#x27;ing it, once the Verification process has completed. If the request is deleted before the request completes, then the Verification request will finish the step that it is currently performing and then will cancel any subsequent steps.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -403,14 +403,14 @@ func (a *ProcessorsApiService) DeleteVerificationRequest2(ctx context.Context, i
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Gets a processor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The processor id.
@@ -492,14 +492,14 @@ func (a *ProcessorsApiService) GetProcessor(ctx context.Context, id string) (Pro
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Gets diagnostics information about a processor
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -582,14 +582,14 @@ func (a *ProcessorsApiService) GetProcessorDiagnostics(ctx context.Context, id s
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Submits a query to retrieve the run status details of all processors that are in the given list of Processor IDs
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ProcessorsApiGetProcessorRunStatusDetailsOpts - Optional Parameters:
@@ -597,7 +597,7 @@ ProcessorsApiService Submits a query to retrieve the run status details of all p
 @return ProcessorsRunStatusDetailsEntity
 */
 
-type ProcessorsApiGetProcessorRunStatusDetailsOpts struct {
+type ProcessorsApiGetProcessorRunStatusDetailsOpts struct { 
 	Body optional.Interface
 }
 
@@ -682,14 +682,14 @@ func (a *ProcessorsApiService) GetProcessorRunStatusDetails(ctx context.Context,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Gets the descriptor for a processor property
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The processor id.
@@ -700,7 +700,7 @@ ProcessorsApiService Gets the descriptor for a processor property
 @return PropertyDescriptorEntity
 */
 
-type ProcessorsApiGetPropertyDescriptor3Opts struct {
+type ProcessorsApiGetPropertyDescriptor3Opts struct { 
 	ClientId optional.Interface
 	Sensitive optional.Bool
 }
@@ -788,14 +788,14 @@ func (a *ProcessorsApiService) GetPropertyDescriptor3(ctx context.Context, id st
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Gets the state for a processor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The processor id.
@@ -877,14 +877,14 @@ func (a *ProcessorsApiService) GetState2(ctx context.Context, id string) (Compon
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Returns the Verification Request with the given ID
 Returns the Verification Request with the given ID. Once an Verification Request has been created, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -969,14 +969,14 @@ func (a *ProcessorsApiService) GetVerificationRequest2(ctx context.Context, id s
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Performs verification of the Processor&#x27;s configuration
 This will initiate the process of verifying a given Processor configuration. This may be a long-running task. As a result, this endpoint will immediately return a ProcessorConfigVerificationRequestEntity, and the process of performing the verification will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /processors/{processorId}/verification-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /processors/{processorId}/verification-requests/{requestId}.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1062,14 +1062,14 @@ func (a *ProcessorsApiService) SubmitProcessorVerificationRequest(ctx context.Co
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Terminates a processor, essentially \&quot;deleting\&quot; its threads and any active tasks
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The processor id.
@@ -1151,14 +1151,14 @@ func (a *ProcessorsApiService) TerminateProcessor(ctx context.Context, id string
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Updates a processor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The processor configuration details.
@@ -1243,14 +1243,14 @@ func (a *ProcessorsApiService) UpdateProcessor(ctx context.Context, body Process
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProcessorsApiService Updates run status of a processor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The processor run status.
@@ -1335,7 +1335,7 @@ func (a *ProcessorsApiService) UpdateRunStatus4(ctx context.Context, body Proces
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

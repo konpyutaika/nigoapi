@@ -28,7 +28,7 @@ var (
 
 type BucketsApiService service
 
-/*
+/* 
 BucketsApiService Create bucket
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The bucket to create
@@ -37,7 +37,7 @@ BucketsApiService Create bucket
 @return Bucket
 */
 
-type BucketsApiCreateBucketOpts struct {
+type BucketsApiCreateBucketOpts struct { 
 	PreserveSourceProperties optional.Bool
 }
 
@@ -121,14 +121,14 @@ func (a *BucketsApiService) CreateBucket(ctx context.Context, body Bucket, local
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketsApiService Delete bucket
 Deletes the bucket with the given id, along with all objects stored in the bucket
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -139,7 +139,7 @@ Deletes the bucket with the given id, along with all objects stored in the bucke
 @return Bucket
 */
 
-type BucketsApiDeleteBucketOpts struct {
+type BucketsApiDeleteBucketOpts struct { 
 	ClientId optional.Interface
 }
 
@@ -223,14 +223,14 @@ func (a *BucketsApiService) DeleteBucket(ctx context.Context, version LongParame
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketsApiService Get bucket fields
 Retrieves bucket field names for searching or sorting on buckets.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -311,14 +311,14 @@ func (a *BucketsApiService) GetAvailableBucketFields(ctx context.Context) (Field
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketsApiService Get bucket
 Gets the bucket with the given id.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -401,14 +401,14 @@ func (a *BucketsApiService) GetBucket(ctx context.Context, bucketId string) (Buc
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketsApiService Get all buckets
 The returned list will include only buckets for which the user is authorized.If the user is not authorized for any buckets, this returns an empty list.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -489,14 +489,14 @@ func (a *BucketsApiService) GetBuckets(ctx context.Context) ([]Bucket, *http.Res
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketsApiService Update bucket
 Updates the bucket with the given id.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -582,7 +582,7 @@ func (a *BucketsApiService) UpdateBucket(ctx context.Context, body Bucket, bucke
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

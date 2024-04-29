@@ -28,7 +28,7 @@ var (
 
 type ControllerApiService service
 
-/*
+/* 
 ControllerApiService Performs analysis of the component&#x27;s configuration, providing information about which attributes are referenced.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The configuration analysis request.
@@ -113,14 +113,14 @@ func (a *ControllerApiService) AnalyzeFlowAnalysisRuleConfiguration(ctx context.
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Clears the state for a flow analysis rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The flow analysis rule id.
@@ -202,14 +202,14 @@ func (a *ControllerApiService) ClearState(ctx context.Context, id string) (Compo
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Creates a new bulletin
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The reporting task configuration details.
@@ -292,14 +292,14 @@ func (a *ControllerApiService) CreateBulletin(ctx context.Context, body Bulletin
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Creates a new controller service
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The controller service configuration details.
@@ -382,14 +382,14 @@ func (a *ControllerApiService) CreateControllerService(ctx context.Context, body
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Creates a new flow analysis rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The flow analysis rule configuration details.
@@ -472,14 +472,14 @@ func (a *ControllerApiService) CreateFlowAnalysisRule(ctx context.Context, body 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Creates a new flow registry client
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The flow registry client configuration details.
@@ -562,14 +562,14 @@ func (a *ControllerApiService) CreateFlowRegistryClient(ctx context.Context, bod
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Creates a new parameter provider
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The parameter provider configuration details.
@@ -652,14 +652,14 @@ func (a *ControllerApiService) CreateParameterProvider(ctx context.Context, body
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Creates a new reporting task
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The reporting task configuration details.
@@ -742,14 +742,14 @@ func (a *ControllerApiService) CreateReportingTask(ctx context.Context, body Rep
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Deletes the Verification Request with the given ID
 Deletes the Verification Request with the given ID. After a request is created, it is expected that the client will properly clean up the request by DELETE&#x27;ing it, once the Verification process has completed. If the request is deleted before the request completes, then the Verification request will finish the step that it is currently performing and then will cancel any subsequent steps.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -834,14 +834,14 @@ func (a *ControllerApiService) DeleteFlowAnalysisRuleVerificationRequest(ctx con
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Deletes a flow registry client
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The flow registry client id.
@@ -852,7 +852,7 @@ ControllerApiService Deletes a flow registry client
 @return FlowRegistryClientEntity
 */
 
-type ControllerApiDeleteFlowRegistryClientOpts struct {
+type ControllerApiDeleteFlowRegistryClientOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -943,14 +943,14 @@ func (a *ControllerApiService) DeleteFlowRegistryClient(ctx context.Context, id 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Purges history
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param endDate Purge actions before this date/time.
@@ -1032,14 +1032,14 @@ func (a *ControllerApiService) DeleteHistory(ctx context.Context, endDate DateTi
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Removes a node from the cluster
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The node id.
@@ -1121,14 +1121,14 @@ func (a *ControllerApiService) DeleteNode(ctx context.Context, id string) (NodeE
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Gets the contents of the cluster
 Returns the contents of the cluster including all nodes and their status.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1209,14 +1209,14 @@ func (a *ControllerApiService) GetCluster(ctx context.Context) (ClusterEntity, *
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Retrieves the configuration for this NiFi Controller
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ControllerConfigurationEntity
@@ -1296,14 +1296,14 @@ func (a *ControllerApiService) GetControllerConfig(ctx context.Context) (Control
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Gets a flow analysis rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The flow analysis rule id.
@@ -1385,14 +1385,14 @@ func (a *ControllerApiService) GetFlowAnalysisRule(ctx context.Context, id strin
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Gets a flow analysis rule property descriptor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The flow analysis rule id.
@@ -1402,7 +1402,7 @@ ControllerApiService Gets a flow analysis rule property descriptor
 @return PropertyDescriptorEntity
 */
 
-type ControllerApiGetFlowAnalysisRulePropertyDescriptorOpts struct {
+type ControllerApiGetFlowAnalysisRulePropertyDescriptorOpts struct { 
 	Sensitive optional.Bool
 }
 
@@ -1486,14 +1486,14 @@ func (a *ControllerApiService) GetFlowAnalysisRulePropertyDescriptor(ctx context
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Gets the state for a flow analysis rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The flow analysis rule id.
@@ -1575,14 +1575,14 @@ func (a *ControllerApiService) GetFlowAnalysisRuleState(ctx context.Context, id 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Returns the Verification Request with the given ID
 Returns the Verification Request with the given ID. Once an Verification Request has been created, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1667,14 +1667,14 @@ func (a *ControllerApiService) GetFlowAnalysisRuleVerificationRequest(ctx contex
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Gets all flow analysis rules
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return FlowAnalysisRulesEntity
@@ -1754,14 +1754,14 @@ func (a *ControllerApiService) GetFlowAnalysisRules(ctx context.Context) (FlowAn
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Gets a flow registry client
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The flow registry client id.
@@ -1843,14 +1843,14 @@ func (a *ControllerApiService) GetFlowRegistryClient(ctx context.Context, id str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Gets the listing of available flow registry clients
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return FlowRegistryClientsEntity
@@ -1930,14 +1930,14 @@ func (a *ControllerApiService) GetFlowRegistryClients(ctx context.Context) (Flow
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Gets a node in the cluster
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The node id.
@@ -2019,14 +2019,14 @@ func (a *ControllerApiService) GetNode(ctx context.Context, id string) (NodeEnti
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Gets status history for the node
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2107,14 +2107,14 @@ func (a *ControllerApiService) GetNodeStatusHistory(ctx context.Context) (Compon
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Gets a flow registry client property descriptor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The flow registry client id.
@@ -2124,7 +2124,7 @@ ControllerApiService Gets a flow registry client property descriptor
 @return PropertyDescriptorEntity
 */
 
-type ControllerApiGetPropertyDescriptorOpts struct {
+type ControllerApiGetPropertyDescriptorOpts struct { 
 	Sensitive optional.Bool
 }
 
@@ -2208,14 +2208,14 @@ func (a *ControllerApiService) GetPropertyDescriptor(ctx context.Context, id str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Retrieves the types of flow  that this NiFi supports
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2296,14 +2296,14 @@ func (a *ControllerApiService) GetRegistryClientTypes(ctx context.Context) (Flow
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Imports a reporting task snapshot
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The import request containing the reporting task snapshot to import.
@@ -2386,14 +2386,14 @@ func (a *ControllerApiService) ImportReportingTaskSnapshot(ctx context.Context, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Deletes a flow analysis rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The flow analysis rule id.
@@ -2404,7 +2404,7 @@ ControllerApiService Deletes a flow analysis rule
 @return FlowAnalysisRuleEntity
 */
 
-type ControllerApiRemoveFlowAnalysisRuleOpts struct {
+type ControllerApiRemoveFlowAnalysisRuleOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -2495,14 +2495,14 @@ func (a *ControllerApiService) RemoveFlowAnalysisRule(ctx context.Context, id st
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Performs verification of the Flow Analysis Rule&#x27;s configuration
 This will initiate the process of verifying a given Flow Analysis Rule configuration. This may be a long-running task. As a result, this endpoint will immediately return a FlowAnalysisRuleConfigVerificationRequestEntity, and the process of performing the verification will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /flow-analysis-rules/{taskId}/verification-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /flow-analysis-rules/{serviceId}/verification-requests/{requestId}.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2588,14 +2588,14 @@ func (a *ControllerApiService) SubmitFlowAnalysisRuleConfigVerificationRequest(c
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Retrieves the configuration for this NiFi
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The controller configuration.
@@ -2678,14 +2678,14 @@ func (a *ControllerApiService) UpdateControllerConfig(ctx context.Context, body 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Updates a flow analysis rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The flow analysis rule configuration details.
@@ -2770,14 +2770,14 @@ func (a *ControllerApiService) UpdateFlowAnalysisRule(ctx context.Context, body 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Updates a flow registry client
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The flow registry client configuration details.
@@ -2862,14 +2862,14 @@ func (a *ControllerApiService) UpdateFlowRegistryClient(ctx context.Context, bod
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Updates a node in the cluster
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The node configuration. The only configuration that will be honored at this endpoint is the status.
@@ -2954,14 +2954,14 @@ func (a *ControllerApiService) UpdateNode(ctx context.Context, body NodeEntity, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerApiService Updates run status of a flow analysis rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The flow analysis rule run status.
@@ -3046,7 +3046,7 @@ func (a *ControllerApiService) UpdateRunStatus(ctx context.Context, body FlowAna
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

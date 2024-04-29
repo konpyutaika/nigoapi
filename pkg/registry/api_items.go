@@ -27,7 +27,7 @@ var (
 
 type ItemsApiService service
 
-/*
+/* 
 ItemsApiService Get item fields
 Retrieves the item field names for searching or sorting on bucket items.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -108,14 +108,14 @@ func (a *ItemsApiService) GetAvailableBucketItemFields(ctx context.Context) (Fie
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ItemsApiService Get all items
 Get items across all buckets. The returned items will include only items from buckets for which the user is authorized. If the user is not authorized to any buckets, an empty list will be returned.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -196,14 +196,14 @@ func (a *ItemsApiService) GetItems(ctx context.Context) ([]BucketItem, *http.Res
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ItemsApiService Get bucket items
 Gets the items located in the given bucket.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -286,7 +286,7 @@ func (a *ItemsApiService) GetItems1(ctx context.Context, bucketId string) ([]Buc
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

@@ -28,7 +28,7 @@ var (
 
 type InputPortsApiService service
 
-/*
+/* 
 InputPortsApiService Gets an input port
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The input port id.
@@ -110,14 +110,14 @@ func (a *InputPortsApiService) GetInputPort(ctx context.Context, id string) (Por
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 InputPortsApiService Deletes an input port
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The input port id.
@@ -128,7 +128,7 @@ InputPortsApiService Deletes an input port
 @return PortEntity
 */
 
-type InputPortsApiRemoveInputPortOpts struct {
+type InputPortsApiRemoveInputPortOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -219,14 +219,14 @@ func (a *InputPortsApiService) RemoveInputPort(ctx context.Context, id string, l
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 InputPortsApiService Updates an input port
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The input port configuration details.
@@ -311,14 +311,14 @@ func (a *InputPortsApiService) UpdateInputPort(ctx context.Context, body PortEnt
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 InputPortsApiService Updates run status of an input-port
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The port run status.
@@ -403,7 +403,7 @@ func (a *InputPortsApiService) UpdateRunStatus2(ctx context.Context, body PortRu
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

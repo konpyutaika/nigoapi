@@ -28,7 +28,7 @@ var (
 
 type ProvenanceEventsApiService service
 
-/*
+/* 
 ProvenanceEventsApiService Gets the input content for a provenance event
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The provenance event id.
@@ -37,7 +37,7 @@ ProvenanceEventsApiService Gets the input content for a provenance event
 @return StreamingOutput
 */
 
-type ProvenanceEventsApiGetInputContentOpts struct {
+type ProvenanceEventsApiGetInputContentOpts struct { 
 	ClusterNodeId optional.String
 }
 
@@ -120,14 +120,14 @@ func (a *ProvenanceEventsApiService) GetInputContent(ctx context.Context, id Lon
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProvenanceEventsApiService Gets the output content for a provenance event
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The provenance event id.
@@ -136,7 +136,7 @@ ProvenanceEventsApiService Gets the output content for a provenance event
 @return StreamingOutput
 */
 
-type ProvenanceEventsApiGetOutputContentOpts struct {
+type ProvenanceEventsApiGetOutputContentOpts struct { 
 	ClusterNodeId optional.String
 }
 
@@ -219,14 +219,14 @@ func (a *ProvenanceEventsApiService) GetOutputContent(ctx context.Context, id Lo
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProvenanceEventsApiService Gets a provenance event
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The provenance event id.
@@ -235,7 +235,7 @@ ProvenanceEventsApiService Gets a provenance event
 @return ProvenanceEventEntity
 */
 
-type ProvenanceEventsApiGetProvenanceEventOpts struct {
+type ProvenanceEventsApiGetProvenanceEventOpts struct { 
 	ClusterNodeId optional.String
 }
 
@@ -318,14 +318,14 @@ func (a *ProvenanceEventsApiService) GetProvenanceEvent(ctx context.Context, id 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProvenanceEventsApiService Replays content from a provenance event
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The replay request.
@@ -408,14 +408,14 @@ func (a *ProvenanceEventsApiService) SubmitReplay(ctx context.Context, body Subm
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ProvenanceEventsApiService Replays content from a provenance event
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The replay request.
@@ -498,7 +498,7 @@ func (a *ProvenanceEventsApiService) SubmitReplayLatestEvent(ctx context.Context
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

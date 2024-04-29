@@ -26,7 +26,7 @@ var (
 
 type AboutApiService service
 
-/*
+/* 
 AboutApiService Get version
 Gets the NiFi Registry version.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -107,7 +107,7 @@ func (a *AboutApiService) GetVersion(ctx context.Context) (RegistryAbout, *http.
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

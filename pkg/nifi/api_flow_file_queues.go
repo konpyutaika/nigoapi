@@ -28,7 +28,7 @@ var (
 
 type FlowFileQueuesApiService service
 
-/*
+/* 
 FlowFileQueuesApiService Creates a request to drop the contents of the queue in this connection.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -110,14 +110,14 @@ func (a *FlowFileQueuesApiService) CreateDropRequest(ctx context.Context, id str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowFileQueuesApiService Lists the contents of the queue in this connection.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -199,14 +199,14 @@ func (a *FlowFileQueuesApiService) CreateFlowFileListing(ctx context.Context, id
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowFileQueuesApiService Cancels and/or removes a request to list the contents of this connection.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -290,14 +290,14 @@ func (a *FlowFileQueuesApiService) DeleteListingRequest(ctx context.Context, id 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowFileQueuesApiService Gets the content for a FlowFile in a Connection.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -308,7 +308,7 @@ FlowFileQueuesApiService Gets the content for a FlowFile in a Connection.
 @return StreamingOutput
 */
 
-type FlowFileQueuesApiDownloadFlowFileContentOpts struct {
+type FlowFileQueuesApiDownloadFlowFileContentOpts struct { 
 	ClientId optional.Interface
 	ClusterNodeId optional.String
 }
@@ -396,14 +396,14 @@ func (a *FlowFileQueuesApiService) DownloadFlowFileContent(ctx context.Context, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowFileQueuesApiService Gets the current status of a drop request for the specified connection.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -487,14 +487,14 @@ func (a *FlowFileQueuesApiService) GetDropRequest(ctx context.Context, id string
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowFileQueuesApiService Gets a FlowFile from a Connection.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -504,7 +504,7 @@ FlowFileQueuesApiService Gets a FlowFile from a Connection.
 @return FlowFileEntity
 */
 
-type FlowFileQueuesApiGetFlowFileOpts struct {
+type FlowFileQueuesApiGetFlowFileOpts struct { 
 	ClusterNodeId optional.String
 }
 
@@ -588,14 +588,14 @@ func (a *FlowFileQueuesApiService) GetFlowFile(ctx context.Context, id string, f
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowFileQueuesApiService Gets the current status of a listing request for the specified connection.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -679,14 +679,14 @@ func (a *FlowFileQueuesApiService) GetListingRequest(ctx context.Context, id str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowFileQueuesApiService Cancels and/or removes a request to drop the contents of this connection.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -770,7 +770,7 @@ func (a *FlowFileQueuesApiService) RemoveDropRequest(ctx context.Context, id str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

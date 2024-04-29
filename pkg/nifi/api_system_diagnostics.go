@@ -27,7 +27,7 @@ var (
 
 type SystemDiagnosticsApiService service
 
-/*
+/* 
 SystemDiagnosticsApiService Retrieve available JMX metrics
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -36,7 +36,7 @@ Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 @return JmxMetricsResultsEntity
 */
 
-type SystemDiagnosticsApiGetJmxMetricsOpts struct {
+type SystemDiagnosticsApiGetJmxMetricsOpts struct { 
 	BeanNameFilter optional.String
 }
 
@@ -118,14 +118,14 @@ func (a *SystemDiagnosticsApiService) GetJmxMetrics(ctx context.Context, localVa
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 SystemDiagnosticsApiService Gets the diagnostics for the system NiFi is running on
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *SystemDiagnosticsApiGetSystemDiagnosticsOpts - Optional Parameters:
@@ -135,7 +135,7 @@ SystemDiagnosticsApiService Gets the diagnostics for the system NiFi is running 
 @return SystemDiagnosticsEntity
 */
 
-type SystemDiagnosticsApiGetSystemDiagnosticsOpts struct {
+type SystemDiagnosticsApiGetSystemDiagnosticsOpts struct { 
 	Nodewise optional.Bool
 	DiagnosticLevel optional.String
 	ClusterNodeId optional.String
@@ -225,7 +225,7 @@ func (a *SystemDiagnosticsApiService) GetSystemDiagnostics(ctx context.Context, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

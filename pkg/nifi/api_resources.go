@@ -26,7 +26,7 @@ var (
 
 type ResourcesApiService service
 
-/*
+/* 
 ResourcesApiService Gets the available resources that support access/authorization policies
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ResourcesEntity
@@ -106,7 +106,7 @@ func (a *ResourcesApiService) GetResources(ctx context.Context) (ResourcesEntity
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

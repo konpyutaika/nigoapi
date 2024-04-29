@@ -28,7 +28,7 @@ var (
 
 type ParameterContextsApiService service
 
-/*
+/* 
 ParameterContextsApiService Create a Parameter Context
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The Parameter Context.
@@ -111,14 +111,14 @@ func (a *ParameterContextsApiService) CreateParameterContext(ctx context.Context
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ParameterContextsApiService Deletes the Parameter Context with the given ID
 Deletes the Parameter Context with the given ID.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -130,7 +130,7 @@ Deletes the Parameter Context with the given ID.
 @return ParameterContextEntity
 */
 
-type ParameterContextsApiDeleteParameterContextOpts struct {
+type ParameterContextsApiDeleteParameterContextOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -221,14 +221,14 @@ func (a *ParameterContextsApiService) DeleteParameterContext(ctx context.Context
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ParameterContextsApiService Deletes the Update Request with the given ID
 Deletes the Update Request with the given ID. After a request is created via a POST to /nifi-api/parameter-contexts/update-requests, it is expected that the client will properly clean up the request by DELETE&#x27;ing it, once the Update process has completed. If the request is deleted before the request completes, then the Update request will finish the step that it is currently performing and then will cancel any subsequent steps.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -239,7 +239,7 @@ Deletes the Update Request with the given ID. After a request is created via a P
 @return ParameterContextUpdateRequestEntity
 */
 
-type ParameterContextsApiDeleteUpdateRequestOpts struct {
+type ParameterContextsApiDeleteUpdateRequestOpts struct { 
 	DisconnectedNodeAcknowledged optional.Bool
 }
 
@@ -323,14 +323,14 @@ func (a *ParameterContextsApiService) DeleteUpdateRequest(ctx context.Context, c
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ParameterContextsApiService Deletes the Validation Request with the given ID
 Deletes the Validation Request with the given ID. After a request is created via a POST to /nifi-api/validation-contexts, it is expected that the client will properly clean up the request by DELETE&#x27;ing it, once the validation process has completed. If the request is deleted before the request completes, then the Validation request will finish the step that it is currently performing and then will cancel any subsequent steps.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -341,7 +341,7 @@ Deletes the Validation Request with the given ID. After a request is created via
 @return ParameterContextValidationRequestEntity
 */
 
-type ParameterContextsApiDeleteValidationRequestOpts struct {
+type ParameterContextsApiDeleteValidationRequestOpts struct { 
 	DisconnectedNodeAcknowledged optional.Bool
 }
 
@@ -425,14 +425,14 @@ func (a *ParameterContextsApiService) DeleteValidationRequest(ctx context.Contex
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ParameterContextsApiService Returns the Parameter Context with the given ID
 Returns the Parameter Context with the given ID.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -442,7 +442,7 @@ Returns the Parameter Context with the given ID.
 @return ParameterContextEntity
 */
 
-type ParameterContextsApiGetParameterContextOpts struct {
+type ParameterContextsApiGetParameterContextOpts struct { 
 	IncludeInheritedParameters optional.Bool
 }
 
@@ -525,14 +525,14 @@ func (a *ParameterContextsApiService) GetParameterContext(ctx context.Context, i
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ParameterContextsApiService Returns the Update Request with the given ID
 Returns the Update Request with the given ID. Once an Update Request has been created by performing a POST to /nifi-api/parameter-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -617,14 +617,14 @@ func (a *ParameterContextsApiService) GetParameterContextUpdate(ctx context.Cont
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ParameterContextsApiService Returns the Validation Request with the given ID
 Returns the Validation Request with the given ID. Once a Validation Request has been created by performing a POST to /nifi-api/validation-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -709,14 +709,14 @@ func (a *ParameterContextsApiService) GetValidationRequest(ctx context.Context, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ParameterContextsApiService Initiate the Update Request of a Parameter Context
 This will initiate the process of updating a Parameter Context. Changing the value of a Parameter may require that one or more components be stopped and restarted, so this action may take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterContextUpdateRequestEntity, and the process of updating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-contexts/update-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-contexts/update-requests/{requestId}.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -802,14 +802,14 @@ func (a *ParameterContextsApiService) SubmitParameterContextUpdate(ctx context.C
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ParameterContextsApiService Initiate a Validation Request to determine how the validity of components will change if a Parameter Context were to be updated
 This will initiate the process of validating all components whose Process Group is bound to the specified Parameter Context. Performing validation against an arbitrary number of components may be expect and take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterContextValidationRequestEntity, and the process of validating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-contexts/validation-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-contexts/validation-requests/{requestId}.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -895,14 +895,14 @@ func (a *ParameterContextsApiService) SubmitValidationRequest(ctx context.Contex
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ParameterContextsApiService Modifies a Parameter Context
 This endpoint will update a Parameter Context to match the provided entity. However, this request will fail if any component is running and is referencing a Parameter in the Parameter Context. Generally, this endpoint is not called directly. Instead, an update request should be submitted by making a POST to the /parameter-contexts/update-requests endpoint. That endpoint will, in turn, call this endpoint.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -988,7 +988,7 @@ func (a *ParameterContextsApiService) UpdateParameterContext(ctx context.Context
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

@@ -28,7 +28,7 @@ var (
 
 type ConnectionsApiService service
 
-/*
+/* 
 ConnectionsApiService Deletes a connection
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -39,7 +39,7 @@ ConnectionsApiService Deletes a connection
 @return ConnectionEntity
 */
 
-type ConnectionsApiDeleteConnectionOpts struct {
+type ConnectionsApiDeleteConnectionOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -130,14 +130,14 @@ func (a *ConnectionsApiService) DeleteConnection(ctx context.Context, id string,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ConnectionsApiService Gets a connection
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The connection id.
@@ -219,14 +219,14 @@ func (a *ConnectionsApiService) GetConnection(ctx context.Context, id string) (C
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ConnectionsApiService Updates a connection
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The connection configuration details.
@@ -311,7 +311,7 @@ func (a *ConnectionsApiService) UpdateConnection(ctx context.Context, body Conne
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

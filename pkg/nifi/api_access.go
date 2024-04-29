@@ -27,7 +27,7 @@ var (
 
 type AccessApiService service
 
-/*
+/* 
 AccessApiService Creates a token for accessing the REST API via username/password
 The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. It is stored in the browser as a cookie, but also returned inthe response body to be stored/used by third party client scripts.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -37,7 +37,7 @@ The token returned is formatted as a JSON Web Token (JWT). The token is base64 e
 @return string
 */
 
-type AccessApiCreateAccessTokenOpts struct {
+type AccessApiCreateAccessTokenOpts struct { 
 	Username optional.String
 	Password optional.String
 }
@@ -123,14 +123,14 @@ func (a *AccessApiService) CreateAccessToken(ctx context.Context, localVarOption
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Creates a token for accessing the REST API via Kerberos ticket exchange / SPNEGO negotiation
 The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. The token can be used in the Authorization header in the format &#x27;Authorization: Bearer &lt;token&gt;&#x27;. It is also stored in the browser as a cookie.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -211,14 +211,14 @@ func (a *AccessApiService) CreateAccessTokenFromTicket(ctx context.Context) (str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Gets the status the client&#x27;s access
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -299,14 +299,14 @@ func (a *AccessApiService) GetAccessStatus(ctx context.Context) (AccessStatusEnt
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Get expiration for current Access Token
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -387,14 +387,14 @@ func (a *AccessApiService) GetAccessTokenExpiration(ctx context.Context) (Access
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Retrieves the access configuration for this NiFi
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return AccessConfigurationEntity
@@ -474,14 +474,14 @@ func (a *AccessApiService) GetLoginConfig(ctx context.Context) (AccessConfigurat
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Redirect/callback URI for processing the result of the Apache Knox login sequence.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 
@@ -550,7 +550,7 @@ func (a *AccessApiService) KnoxCallback(ctx context.Context) (*http.Response, *s
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Performs a logout in the Apache Knox.
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -620,7 +620,7 @@ func (a *AccessApiService) KnoxLogout(ctx context.Context) (*http.Response, *str
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Initiates a request to authenticate through Apache Knox.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 
@@ -689,7 +689,7 @@ func (a *AccessApiService) KnoxRequest(ctx context.Context) (*http.Response, *st
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Performs a logout for other providers that have been issued a JWT.
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -759,7 +759,7 @@ func (a *AccessApiService) LogOut(ctx context.Context) (*http.Response, *string,
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Completes the logout sequence by removing the cached Logout Request and Cookie if they existed and redirects to /nifi/login.
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

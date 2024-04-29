@@ -28,7 +28,7 @@ var (
 
 type BucketFlowsApiService service
 
-/*
+/* 
 BucketFlowsApiService Create flow
 Creates a flow in the given bucket. The flow id is created by the server and populated in the returned entity.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -114,14 +114,14 @@ func (a *BucketFlowsApiService) CreateFlow(ctx context.Context, body VersionedFl
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Create flow version
 Creates the next version of a flow. The version number of the object being created must be the next available version integer. Flow versions are immutable after they are created.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -133,7 +133,7 @@ Creates the next version of a flow. The version number of the object being creat
 @return VersionedFlowSnapshot
 */
 
-type BucketFlowsApiCreateFlowVersionOpts struct {
+type BucketFlowsApiCreateFlowVersionOpts struct { 
 	PreserveSourceProperties optional.Bool
 }
 
@@ -219,14 +219,14 @@ func (a *BucketFlowsApiService) CreateFlowVersion(ctx context.Context, body Vers
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Delete bucket flow
 Deletes a flow, including all saved versions of that flow.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -238,7 +238,7 @@ Deletes a flow, including all saved versions of that flow.
 @return VersionedFlow
 */
 
-type BucketFlowsApiDeleteFlowOpts struct {
+type BucketFlowsApiDeleteFlowOpts struct { 
 	ClientId optional.Interface
 }
 
@@ -323,14 +323,14 @@ func (a *BucketFlowsApiService) DeleteFlow(ctx context.Context, version LongPara
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Exports specified bucket flow version content
 Exports the specified version of a flow, including the metadata and content of the flow.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -417,14 +417,14 @@ func (a *BucketFlowsApiService) ExportVersionedFlow(ctx context.Context, bucketI
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Get bucket flow
 Retrieves the flow with the given id in the given bucket.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -509,14 +509,14 @@ func (a *BucketFlowsApiService) GetFlow(ctx context.Context, bucketId string, fl
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Get bucket flow diff
 Computes the differences between two given versions of a flow.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -605,14 +605,14 @@ func (a *BucketFlowsApiService) GetFlowDiff(ctx context.Context, bucketId string
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Get bucket flow version
 Gets the given version of a flow, including the metadata and content for the version.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -699,14 +699,14 @@ func (a *BucketFlowsApiService) GetFlowVersion(ctx context.Context, bucketId str
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Get bucket flow versions
 Gets summary information for all versions of a flow. Versions are ordered newest-&gt;oldest.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -791,14 +791,14 @@ func (a *BucketFlowsApiService) GetFlowVersions(ctx context.Context, bucketId st
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Get bucket flows
 Retrieves all flows in the given bucket.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -881,14 +881,14 @@ func (a *BucketFlowsApiService) GetFlows(ctx context.Context, bucketId string) (
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Get latest bucket flow version content
 Gets the latest version of a flow, including the metadata and content of the flow.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -973,14 +973,14 @@ func (a *BucketFlowsApiService) GetLatestFlowVersion(ctx context.Context, bucket
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Get latest bucket flow version metadata
 Gets the metadata for the latest version of a flow.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1065,14 +1065,14 @@ func (a *BucketFlowsApiService) GetLatestFlowVersionMetadata(ctx context.Context
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Import flow version
 Import the next version of a flow. The version number of the object being created will be the next available version integer. Flow versions are immutable after they are created.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1084,7 +1084,7 @@ Import the next version of a flow. The version number of the object being create
 @return VersionedFlowSnapshot
 */
 
-type BucketFlowsApiImportVersionedFlowOpts struct {
+type BucketFlowsApiImportVersionedFlowOpts struct { 
 	Body optional.Interface
 	Comments optional.String
 }
@@ -1175,14 +1175,14 @@ func (a *BucketFlowsApiService) ImportVersionedFlow(ctx context.Context, bucketI
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BucketFlowsApiService Update bucket flow
 Updates the flow with the given id in the given bucket.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1270,7 +1270,7 @@ func (a *BucketFlowsApiService) UpdateFlow(ctx context.Context, body VersionedFl
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

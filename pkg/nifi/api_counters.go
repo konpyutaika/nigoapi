@@ -28,7 +28,7 @@ var (
 
 type CountersApiService service
 
-/*
+/* 
 CountersApiService Gets the current counters for this NiFi
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -38,7 +38,7 @@ Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 @return CountersEntity
 */
 
-type CountersApiGetCountersOpts struct {
+type CountersApiGetCountersOpts struct { 
 	Nodewise optional.Bool
 	ClusterNodeId optional.String
 }
@@ -124,14 +124,14 @@ func (a *CountersApiService) GetCounters(ctx context.Context, localVarOptionals 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 CountersApiService Updates the specified counter. This will reset the counter value to 0
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -214,7 +214,7 @@ func (a *CountersApiService) UpdateCounter(ctx context.Context, id string) (Coun
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

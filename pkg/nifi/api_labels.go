@@ -28,7 +28,7 @@ var (
 
 type LabelsApiService service
 
-/*
+/* 
 LabelsApiService Gets a label
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The label id.
@@ -110,14 +110,14 @@ func (a *LabelsApiService) GetLabel(ctx context.Context, id string) (LabelEntity
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 LabelsApiService Deletes a label
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The label id.
@@ -128,7 +128,7 @@ LabelsApiService Deletes a label
 @return LabelEntity
 */
 
-type LabelsApiRemoveLabelOpts struct {
+type LabelsApiRemoveLabelOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -219,14 +219,14 @@ func (a *LabelsApiService) RemoveLabel(ctx context.Context, id string, localVarO
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 LabelsApiService Updates a label
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The label configuration details.
@@ -311,7 +311,7 @@ func (a *LabelsApiService) UpdateLabel(ctx context.Context, body LabelEntity, id
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

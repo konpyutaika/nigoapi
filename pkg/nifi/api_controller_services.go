@@ -28,7 +28,7 @@ var (
 
 type ControllerServicesApiService service
 
-/*
+/* 
 ControllerServicesApiService Performs analysis of the component&#x27;s configuration, providing information about which attributes are referenced.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The configuration analysis request.
@@ -113,14 +113,14 @@ func (a *ControllerServicesApiService) AnalyzeConfiguration(ctx context.Context,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Clears the state for a controller service
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The controller service id.
@@ -202,14 +202,14 @@ func (a *ControllerServicesApiService) ClearState1(ctx context.Context, id strin
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Deletes the Verification Request with the given ID
 Deletes the Verification Request with the given ID. After a request is created, it is expected that the client will properly clean up the request by DELETE&#x27;ing it, once the Verification process has completed. If the request is deleted before the request completes, then the Verification request will finish the step that it is currently performing and then will cancel any subsequent steps.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -294,14 +294,14 @@ func (a *ControllerServicesApiService) DeleteVerificationRequest(ctx context.Con
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Gets a controller service
 If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -311,7 +311,7 @@ If the uiOnly query parameter is provided with a value of true, the returned ent
 @return ControllerServiceEntity
 */
 
-type ControllerServicesApiGetControllerServiceOpts struct {
+type ControllerServicesApiGetControllerServiceOpts struct { 
 	UiOnly optional.Bool
 }
 
@@ -394,14 +394,14 @@ func (a *ControllerServicesApiService) GetControllerService(ctx context.Context,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Gets a controller service
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The controller service id.
@@ -483,14 +483,14 @@ func (a *ControllerServicesApiService) GetControllerServiceReferences(ctx contex
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Gets a controller service property descriptor
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The controller service id.
@@ -500,7 +500,7 @@ ControllerServicesApiService Gets a controller service property descriptor
 @return PropertyDescriptorEntity
 */
 
-type ControllerServicesApiGetPropertyDescriptor1Opts struct {
+type ControllerServicesApiGetPropertyDescriptor1Opts struct { 
 	Sensitive optional.Bool
 }
 
@@ -584,14 +584,14 @@ func (a *ControllerServicesApiService) GetPropertyDescriptor1(ctx context.Contex
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Gets the state for a controller service
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The controller service id.
@@ -673,14 +673,14 @@ func (a *ControllerServicesApiService) GetState(ctx context.Context, id string) 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Returns the Verification Request with the given ID
 Returns the Verification Request with the given ID. Once an Verification Request has been created, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -765,14 +765,14 @@ func (a *ControllerServicesApiService) GetVerificationRequest(ctx context.Contex
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Deletes a controller service
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The controller service id.
@@ -783,7 +783,7 @@ ControllerServicesApiService Deletes a controller service
 @return ControllerServiceEntity
 */
 
-type ControllerServicesApiRemoveControllerServiceOpts struct {
+type ControllerServicesApiRemoveControllerServiceOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -874,14 +874,14 @@ func (a *ControllerServicesApiService) RemoveControllerService(ctx context.Conte
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Performs verification of the Controller Service&#x27;s configuration
 This will initiate the process of verifying a given Controller Service configuration. This may be a long-running task. As a result, this endpoint will immediately return a ControllerServiceConfigVerificationRequestEntity, and the process of performing the verification will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /controller-services/{serviceId}/verification-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /controller-services/{serviceId}/verification-requests/{requestId}.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -967,14 +967,14 @@ func (a *ControllerServicesApiService) SubmitConfigVerificationRequest(ctx conte
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Updates a controller service
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The controller service configuration details.
@@ -1059,14 +1059,14 @@ func (a *ControllerServicesApiService) UpdateControllerService(ctx context.Conte
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Updates a controller services references
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The controller service request update request.
@@ -1151,14 +1151,14 @@ func (a *ControllerServicesApiService) UpdateControllerServiceReferences(ctx con
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 ControllerServicesApiService Updates run status of a controller service
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The controller service run status.
@@ -1243,7 +1243,7 @@ func (a *ControllerServicesApiService) UpdateRunStatus1(ctx context.Context, bod
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

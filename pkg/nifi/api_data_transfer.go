@@ -28,7 +28,7 @@ var (
 
 type DataTransferApiService service
 
-/*
+/* 
 DataTransferApiService Commit or cancel the specified transaction
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param responseCode The response code. Available values are BAD_CHECKSUM(19), CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15).
@@ -39,7 +39,7 @@ DataTransferApiService Commit or cancel the specified transaction
 @return TransactionResultEntity
 */
 
-type DataTransferApiCommitInputPortTransactionOpts struct {
+type DataTransferApiCommitInputPortTransactionOpts struct { 
 	Body optional.Interface
 }
 
@@ -127,14 +127,14 @@ func (a *DataTransferApiService) CommitInputPortTransaction(ctx context.Context,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 DataTransferApiService Commit or cancel the specified transaction
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param responseCode The response code. Available values are CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15).
@@ -146,7 +146,7 @@ DataTransferApiService Commit or cancel the specified transaction
 @return TransactionResultEntity
 */
 
-type DataTransferApiCommitOutputPortTransactionOpts struct {
+type DataTransferApiCommitOutputPortTransactionOpts struct { 
 	Body optional.Interface
 }
 
@@ -235,14 +235,14 @@ func (a *DataTransferApiService) CommitOutputPortTransaction(ctx context.Context
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 DataTransferApiService Create a transaction to the specified output port or input port
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param portType The port type.
@@ -252,7 +252,7 @@ DataTransferApiService Create a transaction to the specified output port or inpu
 @return TransactionResultEntity
 */
 
-type DataTransferApiCreatePortTransactionOpts struct {
+type DataTransferApiCreatePortTransactionOpts struct { 
 	Body optional.Interface
 }
 
@@ -339,14 +339,14 @@ func (a *DataTransferApiService) CreatePortTransaction(ctx context.Context, port
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 DataTransferApiService Extend transaction TTL
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param portId
@@ -356,7 +356,7 @@ DataTransferApiService Extend transaction TTL
 @return TransactionResultEntity
 */
 
-type DataTransferApiExtendInputPortTransactionTTLOpts struct {
+type DataTransferApiExtendInputPortTransactionTTLOpts struct { 
 	Body optional.Interface
 }
 
@@ -443,14 +443,14 @@ func (a *DataTransferApiService) ExtendInputPortTransactionTTL(ctx context.Conte
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 DataTransferApiService Extend transaction TTL
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param portId
@@ -460,7 +460,7 @@ DataTransferApiService Extend transaction TTL
 @return TransactionResultEntity
 */
 
-type DataTransferApiExtendOutputPortTransactionTTLOpts struct {
+type DataTransferApiExtendOutputPortTransactionTTLOpts struct { 
 	Body optional.Interface
 }
 
@@ -547,14 +547,14 @@ func (a *DataTransferApiService) ExtendOutputPortTransactionTTL(ctx context.Cont
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 DataTransferApiService Transfer flow files to the input port
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param portId The input port id.
@@ -564,7 +564,7 @@ DataTransferApiService Transfer flow files to the input port
 @return string
 */
 
-type DataTransferApiReceiveFlowFilesOpts struct {
+type DataTransferApiReceiveFlowFilesOpts struct { 
 	Body optional.Interface
 }
 
@@ -651,14 +651,14 @@ func (a *DataTransferApiService) ReceiveFlowFiles(ctx context.Context, portId st
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 DataTransferApiService Transfer flow files from the output port
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param portId The output port id.
@@ -668,7 +668,7 @@ DataTransferApiService Transfer flow files from the output port
 @return StreamingOutput
 */
 
-type DataTransferApiTransferFlowFilesOpts struct {
+type DataTransferApiTransferFlowFilesOpts struct { 
 	Body optional.Interface
 }
 
@@ -755,7 +755,7 @@ func (a *DataTransferApiService) TransferFlowFiles(ctx context.Context, portId s
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

@@ -27,7 +27,7 @@ var (
 
 type FlowsApiService service
 
-/*
+/* 
 FlowsApiService Get flow fields
 Retrieves the flow field names that can be used for searching or sorting on flows.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -108,14 +108,14 @@ func (a *FlowsApiService) GetAvailableFlowFields(ctx context.Context) (Fields, *
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowsApiService Get flow
 Gets a flow by id.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -198,14 +198,14 @@ func (a *FlowsApiService) GetFlow1(ctx context.Context, flowId string) (Versione
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowsApiService Get flow version
 Gets the given version of a flow, including metadata and flow content.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -290,14 +290,14 @@ func (a *FlowsApiService) GetFlowVersion1(ctx context.Context, flowId string, ve
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowsApiService Get flow versions
 Gets summary information for all versions of a given flow. Versions are ordered newest-&gt;oldest.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -380,14 +380,14 @@ func (a *FlowsApiService) GetFlowVersions1(ctx context.Context, flowId string) (
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowsApiService Get latest flow version
 Gets the latest version of a flow, including metadata and flow content.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -470,14 +470,14 @@ func (a *FlowsApiService) GetLatestFlowVersion1(ctx context.Context, flowId stri
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 FlowsApiService Get latest flow version metadata
 Gets the metadata for the latest version of a flow.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -560,7 +560,7 @@ func (a *FlowsApiService) GetLatestFlowVersionMetadata1(ctx context.Context, flo
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

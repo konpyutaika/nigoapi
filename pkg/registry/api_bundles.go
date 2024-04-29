@@ -28,7 +28,7 @@ var (
 
 type BundlesApiService service
 
-/*
+/* 
 BundlesApiService Delete bundle
 Deletes the given extension bundle and all of it&#x27;s versions.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -111,14 +111,14 @@ func (a *BundlesApiService) DeleteBundle(ctx context.Context, bundleId string) (
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BundlesApiService Delete bundle version
 Deletes the given extension bundle version and it&#x27;s associated binary content.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -203,14 +203,14 @@ func (a *BundlesApiService) DeleteBundleVersion(ctx context.Context, bundleId st
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BundlesApiService Get bundle
 Gets the metadata about an extension bundle.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -293,14 +293,14 @@ func (a *BundlesApiService) GetBundle(ctx context.Context, bundleId string) (Bun
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BundlesApiService Get bundle version
 Gets the descriptor for the given version of the given extension bundle.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -385,14 +385,14 @@ func (a *BundlesApiService) GetBundleVersion(ctx context.Context, bundleId strin
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BundlesApiService Get bundle version content
 Gets the binary content for the given version of the given extension bundle.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -477,14 +477,14 @@ func (a *BundlesApiService) GetBundleVersionContent(ctx context.Context, bundleI
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BundlesApiService Get bundle version extension
 Gets the metadata about the extension with the given name in the given extension bundle version.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -571,14 +571,14 @@ func (a *BundlesApiService) GetBundleVersionExtension(ctx context.Context, bundl
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BundlesApiService Get bundle version extension docs details
 Gets the additional details documentation for the given extension in the given extension bundle version.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -654,7 +654,7 @@ func (a *BundlesApiService) GetBundleVersionExtensionAdditionalDetailsDocs(ctx c
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BundlesApiService Get bundle version extension docs
 Gets the documentation for the given extension in the given extension bundle version.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -730,7 +730,7 @@ func (a *BundlesApiService) GetBundleVersionExtensionDocs(ctx context.Context, b
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BundlesApiService Get bundle version extensions
 Gets the metadata about the extensions in the given extension bundle version.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -815,14 +815,14 @@ func (a *BundlesApiService) GetBundleVersionExtensions(ctx context.Context, bund
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BundlesApiService Get bundle versions
 Gets the metadata for the versions of the given extension bundle.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -905,14 +905,14 @@ func (a *BundlesApiService) GetBundleVersions(ctx context.Context, bundleId stri
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BundlesApiService Get all bundle versions
 Gets the metadata about extension bundle versions across all authorized buckets with optional filters applied. If the user is not authorized to any buckets, an empty list will be returned.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -923,7 +923,7 @@ Gets the metadata about extension bundle versions across all authorized buckets 
 @return []BundleVersionMetadata
 */
 
-type BundlesApiGetBundleVersions1Opts struct {
+type BundlesApiGetBundleVersions1Opts struct { 
 	GroupId optional.String
 	ArtifactId optional.String
 	Version optional.String
@@ -1013,14 +1013,14 @@ func (a *BundlesApiService) GetBundleVersions1(ctx context.Context, localVarOpti
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 BundlesApiService Get all bundles
 Gets the metadata for all bundles across all authorized buckets with optional filters applied. The returned results will include only items from buckets for which the user is authorized. If the user is not authorized to any buckets, an empty list will be returned.   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1031,7 +1031,7 @@ Gets the metadata for all bundles across all authorized buckets with optional fi
 @return []Bundle
 */
 
-type BundlesApiGetBundlesOpts struct {
+type BundlesApiGetBundlesOpts struct { 
 	BucketName optional.String
 	GroupId optional.String
 	ArtifactId optional.String
@@ -1121,7 +1121,7 @@ func (a *BundlesApiService) GetBundles(ctx context.Context, localVarOptionals *B
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

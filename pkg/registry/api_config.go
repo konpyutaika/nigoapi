@@ -26,7 +26,7 @@ var (
 
 type ConfigApiService service
 
-/*
+/* 
 ConfigApiService Get configration
 Gets the NiFi Registry configurations.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -107,7 +107,7 @@ func (a *ConfigApiService) GetConfiguration(ctx context.Context) (RegistryConfig
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 

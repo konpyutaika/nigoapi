@@ -26,7 +26,7 @@ var (
 
 type AccessApiService service
 
-/*
+/* 
 AccessApiService Create token trying all providers
 Creates a token for accessing the REST API via auto-detected method of verifying client identity claim credentials. The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. The token can be used in the Authorization header in the format &#x27;Authorization: Bearer &lt;token&gt;&#x27;.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -96,7 +96,7 @@ func (a *AccessApiService) CreateAccessTokenByTryingAllProviders(ctx context.Con
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Create token using basic auth
 Creates a token for accessing the REST API via username/password. The user credentials must be passed in standard HTTP Basic Auth format. That is: &#x27;Authorization: Basic &lt;credentials&gt;&#x27;, where &lt;credentials&gt; is the base64 encoded value of &#x27;&lt;username&gt;:&lt;password&gt;&#x27;. The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. The token can be used in the Authorization header in the format &#x27;Authorization: Bearer &lt;token&gt;&#x27;.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -166,7 +166,7 @@ func (a *AccessApiService) CreateAccessTokenUsingBasicAuthCredentials(ctx contex
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Create token using identity provider
 Creates a token for accessing the REST API via a custom identity provider. The user credentials must be passed in a format understood by the custom identity provider, e.g., a third-party auth token in an HTTP header. The exact format of the user credentials expected by the custom identity provider can be discovered by &#x27;GET /access/token/identity-provider/usage&#x27;. The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. The token can be used in the Authorization header in the format &#x27;Authorization: Bearer &lt;token&gt;&#x27;.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -236,7 +236,7 @@ func (a *AccessApiService) CreateAccessTokenUsingIdentityProviderCredentials(ctx
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Create token using kerberos
 Creates a token for accessing the REST API via Kerberos Service Tickets or SPNEGO Tokens (which includes Kerberos Service Tickets). The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. The token can be used in the Authorization header in the format &#x27;Authorization: Bearer &lt;token&gt;&#x27;.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -306,7 +306,7 @@ func (a *AccessApiService) CreateAccessTokenUsingKerberosTicket(ctx context.Cont
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Get access status
 Returns the current client&#x27;s authenticated identity and permissions to top-level resources
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -387,14 +387,14 @@ func (a *AccessApiService) GetAccessStatus(ctx context.Context) (CurrentUser, *h
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Get identity provider usage
 Provides a description of how the currently configured identity provider expects credentials to be passed to POST /access/token/identity-provider
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -464,7 +464,7 @@ func (a *AccessApiService) GetIdentityProviderUsageInstructions(ctx context.Cont
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Performs a logout for other providers that have been issued a JWT.
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -534,7 +534,7 @@ func (a *AccessApiService) Logout(ctx context.Context) (*http.Response, *string,
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Completes the logout sequence.
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -604,7 +604,7 @@ func (a *AccessApiService) LogoutComplete(ctx context.Context) (*http.Response, 
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Redirect/callback URI for processing the result of the OpenId Connect login sequence.
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -674,7 +674,7 @@ func (a *AccessApiService) OidcCallback(ctx context.Context) (*http.Response, *s
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Retrieves a JWT following a successful login sequence using the configured OpenId Connect provider.
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -744,7 +744,7 @@ func (a *AccessApiService) OidcExchange(ctx context.Context) (*http.Response, *s
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Performs a logout in the OpenId Provider.
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -814,7 +814,7 @@ func (a *AccessApiService) OidcLogout(ctx context.Context) (*http.Response, *str
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Redirect/callback URI for processing the result of the OpenId Connect logout sequence.
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -884,7 +884,7 @@ func (a *AccessApiService) OidcLogoutCallback(ctx context.Context) (*http.Respon
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Initiates a request to authenticate through the configured OpenId Connect provider.
   NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -954,7 +954,7 @@ func (a *AccessApiService) OidcRequest(ctx context.Context) (*http.Response, *st
 	return localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 AccessApiService Test identity provider
 Tests the format of the credentials against this identity provider without preforming authentication on the credentials to validate them. The user credentials should be passed in a format understood by the custom identity provider as defined by &#x27;GET /access/token/identity-provider/usage&#x27;.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

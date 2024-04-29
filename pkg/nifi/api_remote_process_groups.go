@@ -28,7 +28,7 @@ var (
 
 type RemoteProcessGroupsApiService service
 
-/*
+/* 
 RemoteProcessGroupsApiService Gets a remote process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The remote process group id.
@@ -110,14 +110,14 @@ func (a *RemoteProcessGroupsApiService) GetRemoteProcessGroup(ctx context.Contex
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 RemoteProcessGroupsApiService Gets the state for a RemoteProcessGroup
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The processor id.
@@ -199,14 +199,14 @@ func (a *RemoteProcessGroupsApiService) GetState3(ctx context.Context, id string
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 RemoteProcessGroupsApiService Deletes a remote process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The remote process group id.
@@ -217,7 +217,7 @@ RemoteProcessGroupsApiService Deletes a remote process group
 @return RemoteProcessGroupEntity
 */
 
-type RemoteProcessGroupsApiRemoveRemoteProcessGroupOpts struct {
+type RemoteProcessGroupsApiRemoveRemoteProcessGroupOpts struct { 
 	Version optional.Interface
 	ClientId optional.Interface
 	DisconnectedNodeAcknowledged optional.Bool
@@ -308,14 +308,14 @@ func (a *RemoteProcessGroupsApiService) RemoveRemoteProcessGroup(ctx context.Con
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 RemoteProcessGroupsApiService Updates a remote process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The remote process group.
@@ -400,14 +400,14 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroup(ctx context.Con
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 RemoteProcessGroupsApiService Updates a remote port
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -495,14 +495,14 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPort(ctx co
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 RemoteProcessGroupsApiService Updates run status of a remote port
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -590,14 +590,14 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupInputPortRunStat
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 RemoteProcessGroupsApiService Updates a remote port
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -685,14 +685,14 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPort(ctx c
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 RemoteProcessGroupsApiService Updates run status of a remote port
 Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -780,14 +780,14 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupOutputPortRunSta
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 RemoteProcessGroupsApiService Updates run status of a remote process group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The remote process group run status.
@@ -872,14 +872,14 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupRunStatus(ctx co
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, &localStringBody, nil
 }
 
-/*
+/* 
 RemoteProcessGroupsApiService Updates run status of all remote process groups in a process group (recursively)
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body The remote process groups run status.
@@ -964,7 +964,7 @@ func (a *RemoteProcessGroupsApiService) UpdateRemoteProcessGroupRunStatuses(ctx 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 		}
-
+    
 		return localVarReturnValue, localVarHttpResponse, &localStringBody, newErr
 	}
 
