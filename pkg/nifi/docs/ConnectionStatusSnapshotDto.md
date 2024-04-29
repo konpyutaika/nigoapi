@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **SourceName** | **string** | The name of the source of the connection. | [optional] [default to null]
 **DestinationId** | **string** | The id of the destination of the connection. | [optional] [default to null]
 **DestinationName** | **string** | The name of the destination of the connection. | [optional] [default to null]
-**Predictions** | [***ConnectionStatusPredictionsSnapshotDto**](ConnectionStatusPredictionsSnapshotDTO.md) | Predictions, if available, for this connection (null if not available) | [optional] [default to null]
+**Predictions** | [***ConnectionStatusPredictionsSnapshotDto**](ConnectionStatusPredictionsSnapshotDTO.md) |  | [optional] [default to null]
 **FlowFilesIn** | **int32** | The number of FlowFiles that have come into the connection in the last 5 minutes. | [optional] [default to null]
 **BytesIn** | **int64** | The size of the FlowFiles that have come into the connection in the last 5 minutes. | [optional] [default to null]
 **Input** | **string** | The input count/size for the connection in the last 5 minutes, pretty printed. | [optional] [default to null]
@@ -27,5 +27,4 @@ Name | Type | Description | Notes
 **FlowFileAvailability** | **string** | The availability of FlowFiles in this connection | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

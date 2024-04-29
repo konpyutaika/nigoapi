@@ -1,12 +1,12 @@
-# \ProcessGroupsApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CopySnippet**](ProcessGroupsApi.md#CopySnippet) | **Post** /process-groups/{id}/snippet-instance | Copies a snippet and discards it.
 [**CreateConnection**](ProcessGroupsApi.md#CreateConnection) | **Post** /process-groups/{id}/connections | Creates a connection
-[**CreateControllerService**](ProcessGroupsApi.md#CreateControllerService) | **Post** /process-groups/{id}/controller-services | Creates a new controller service
+[**CreateControllerService1**](ProcessGroupsApi.md#CreateControllerService1) | **Post** /process-groups/{id}/controller-services | Creates a new controller service
 [**CreateEmptyAllConnectionsRequest**](ProcessGroupsApi.md#CreateEmptyAllConnectionsRequest) | **Post** /process-groups/{id}/empty-all-connections-requests | Creates a request to drop all flowfiles of all connection queues in this process group.
 [**CreateFunnel**](ProcessGroupsApi.md#CreateFunnel) | **Post** /process-groups/{id}/funnels | Creates a funnel
 [**CreateInputPort**](ProcessGroupsApi.md#CreateInputPort) | **Post** /process-groups/{id}/input-ports | Creates an input port
@@ -15,10 +15,9 @@ Method | HTTP request | Description
 [**CreateProcessGroup**](ProcessGroupsApi.md#CreateProcessGroup) | **Post** /process-groups/{id}/process-groups | Creates a process group
 [**CreateProcessor**](ProcessGroupsApi.md#CreateProcessor) | **Post** /process-groups/{id}/processors | Creates a new processor
 [**CreateRemoteProcessGroup**](ProcessGroupsApi.md#CreateRemoteProcessGroup) | **Post** /process-groups/{id}/remote-process-groups | Creates a new process group
-[**CreateTemplate**](ProcessGroupsApi.md#CreateTemplate) | **Post** /process-groups/{id}/templates | Creates a template and discards the specified snippet.
 [**DeleteReplaceProcessGroupRequest**](ProcessGroupsApi.md#DeleteReplaceProcessGroupRequest) | **Delete** /process-groups/replace-requests/{id} | Deletes the Replace Request with the given ID
-[**DeleteVariableRegistryUpdateRequest**](ProcessGroupsApi.md#DeleteVariableRegistryUpdateRequest) | **Delete** /process-groups/{groupId}/variable-registry/update-requests/{updateId} | Deletes an update request for a process group&#39;s variable registry. If the request is not yet complete, it will automatically be cancelled.
 [**ExportProcessGroup**](ProcessGroupsApi.md#ExportProcessGroup) | **Get** /process-groups/{id}/download | Gets a process group for download
+[**GetAnalyzeFlowRequest**](ProcessGroupsApi.md#GetAnalyzeFlowRequest) | **Get** /process-groups/{id}/flow-analysis-requests/{requestId} | Gets the current status of a flow analysis request.
 [**GetConnections**](ProcessGroupsApi.md#GetConnections) | **Get** /process-groups/{id}/connections | Gets all connections
 [**GetDropAllFlowfilesRequest**](ProcessGroupsApi.md#GetDropAllFlowfilesRequest) | **Get** /process-groups/{id}/empty-all-connections-requests/{drop-request-id} | Gets the current status of a drop all flowfiles request.
 [**GetFunnels**](ProcessGroupsApi.md#GetFunnels) | **Get** /process-groups/{id}/funnels | Gets all funnels
@@ -31,35 +30,27 @@ Method | HTTP request | Description
 [**GetProcessors**](ProcessGroupsApi.md#GetProcessors) | **Get** /process-groups/{id}/processors | Gets all processors
 [**GetRemoteProcessGroups**](ProcessGroupsApi.md#GetRemoteProcessGroups) | **Get** /process-groups/{id}/remote-process-groups | Gets all remote process groups
 [**GetReplaceProcessGroupRequest**](ProcessGroupsApi.md#GetReplaceProcessGroupRequest) | **Get** /process-groups/replace-requests/{id} | Returns the Replace Request with the given ID
-[**GetVariableRegistry**](ProcessGroupsApi.md#GetVariableRegistry) | **Get** /process-groups/{id}/variable-registry | Gets a process group&#39;s variable registry
-[**GetVariableRegistryUpdateRequest**](ProcessGroupsApi.md#GetVariableRegistryUpdateRequest) | **Get** /process-groups/{groupId}/variable-registry/update-requests/{updateId} | Gets a process group&#39;s variable registry
 [**ImportProcessGroup**](ProcessGroupsApi.md#ImportProcessGroup) | **Post** /process-groups/{id}/process-groups/import | Imports a specified process group
-[**ImportTemplate**](ProcessGroupsApi.md#ImportTemplate) | **Post** /process-groups/{id}/templates/import | Imports a template
 [**InitiateReplaceProcessGroup**](ProcessGroupsApi.md#InitiateReplaceProcessGroup) | **Post** /process-groups/{id}/replace-requests | Initiate the Replace Request of a Process Group with the given ID
-[**InstantiateTemplate**](ProcessGroupsApi.md#InstantiateTemplate) | **Post** /process-groups/{id}/template-instance | Instantiates a template
-[**RemoveDropRequest**](ProcessGroupsApi.md#RemoveDropRequest) | **Delete** /process-groups/{id}/empty-all-connections-requests/{drop-request-id} | Cancels and/or removes a request to drop all flowfiles.
+[**RemoveAnalyzeFlowRequest**](ProcessGroupsApi.md#RemoveAnalyzeFlowRequest) | **Delete** /process-groups/{id}/flow-analysis-requests/{requestId} | Cancels a flow analysis request.
+[**RemoveDropRequest1**](ProcessGroupsApi.md#RemoveDropRequest1) | **Delete** /process-groups/{id}/empty-all-connections-requests/{drop-request-id} | Cancels and/or removes a request to drop all flowfiles.
 [**RemoveProcessGroup**](ProcessGroupsApi.md#RemoveProcessGroup) | **Delete** /process-groups/{id} | Deletes a process group
 [**ReplaceProcessGroup**](ProcessGroupsApi.md#ReplaceProcessGroup) | **Put** /process-groups/{id}/flow-contents | Replace Process Group contents with the given ID with the specified Process Group contents
-[**SubmitUpdateVariableRegistryRequest**](ProcessGroupsApi.md#SubmitUpdateVariableRegistryRequest) | **Post** /process-groups/{id}/variable-registry/update-requests | Submits a request to update a process group&#39;s variable registry
+[**SubmitAnalyzeFlowRequest**](ProcessGroupsApi.md#SubmitAnalyzeFlowRequest) | **Post** /process-groups/{id}/flow-analysis-requests | Executes a flow analysis for components within a given process group
 [**UpdateProcessGroup**](ProcessGroupsApi.md#UpdateProcessGroup) | **Put** /process-groups/{id} | Updates a process group
-[**UpdateVariableRegistry**](ProcessGroupsApi.md#UpdateVariableRegistry) | **Put** /process-groups/{id}/variable-registry | Updates the contents of a Process Group&#39;s variable Registry
 [**UploadProcessGroup**](ProcessGroupsApi.md#UploadProcessGroup) | **Post** /process-groups/{id}/process-groups/upload | Uploads a versioned flow definition and creates a process group
-[**UploadTemplate**](ProcessGroupsApi.md#UploadTemplate) | **Post** /process-groups/{id}/templates/upload | Uploads a template
-
 
 # **CopySnippet**
-> FlowEntity CopySnippet(ctx, id, body)
+> FlowEntity CopySnippet(ctx, body, id)
 Copies a snippet and discards it.
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**CopySnippetRequestEntity**](CopySnippetRequestEntity.md)| The copy snippet request. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -77,18 +68,16 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateConnection**
-> ConnectionEntity CreateConnection(ctx, id, body)
+> ConnectionEntity CreateConnection(ctx, body, id)
 Creates a connection
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**ConnectionEntity**](ConnectionEntity.md)| The connection configuration details. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -105,19 +94,17 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **CreateControllerService**
-> ControllerServiceEntity CreateControllerService(ctx, id, body)
+# **CreateControllerService1**
+> ControllerServiceEntity CreateControllerService1(ctx, body, id)
 Creates a new controller service
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**ControllerServiceEntity**](ControllerServiceEntity.md)| The controller service configuration details. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -135,10 +122,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateEmptyAllConnectionsRequest**
-> DropRequestEntity CreateEmptyAllConnectionsRequest(ctx, id)
+> CreateEmptyAllConnectionsRequest(ctx, id)
 Creates a request to drop all flowfiles of all connection queues in this process group.
-
-
 
 ### Required Parameters
 
@@ -149,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DropRequestEntity**](DropRequestEntity.md)
+ (empty response body)
 
 ### Authorization
 
@@ -157,24 +142,22 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateFunnel**
-> FunnelEntity CreateFunnel(ctx, id, body)
+> FunnelEntity CreateFunnel(ctx, body, id)
 Creates a funnel
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**FunnelEntity**](FunnelEntity.md)| The funnel configuration details. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -192,18 +175,16 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateInputPort**
-> PortEntity CreateInputPort(ctx, id, body)
+> PortEntity CreateInputPort(ctx, body, id)
 Creates an input port
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**PortEntity**](PortEntity.md)| The input port configuration details. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -221,18 +202,16 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateLabel**
-> LabelEntity CreateLabel(ctx, id, body)
+> LabelEntity CreateLabel(ctx, body, id)
 Creates a label
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**LabelEntity**](LabelEntity.md)| The label configuration details. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -250,18 +229,16 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateOutputPort**
-> PortEntity CreateOutputPort(ctx, id, body)
+> PortEntity CreateOutputPort(ctx, body, id)
 Creates an output port
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**PortEntity**](PortEntity.md)| The output port configuration. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -279,28 +256,25 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateProcessGroup**
-> ProcessGroupEntity CreateProcessGroup(ctx, id, body, optional)
+> ProcessGroupEntity CreateProcessGroup(ctx, body, id, optional)
 Creates a process group
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**ProcessGroupEntity**](ProcessGroupEntity.md)| The process group configuration details. | 
+  **id** | **string**| The process group id. | 
  **optional** | ***ProcessGroupsApiCreateProcessGroupOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProcessGroupsApiCreateProcessGroupOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **parameterContextHandlingStrategy** | **optional.String**| Handling Strategy controls whether to keep or replace Parameter Contexts | [default to KEEP_EXISTING]
+ **parameterContextHandlingStrategy** | **optional.string**| Handling Strategy controls whether to keep or replace Parameter Contexts | [default to KEEP_EXISTING]
 
 ### Return type
 
@@ -318,18 +292,16 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateProcessor**
-> ProcessorEntity CreateProcessor(ctx, id, body)
+> ProcessorEntity CreateProcessor(ctx, body, id)
 Creates a new processor
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**ProcessorEntity**](ProcessorEntity.md)| The processor configuration details. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -347,51 +319,20 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateRemoteProcessGroup**
-> RemoteProcessGroupEntity CreateRemoteProcessGroup(ctx, id, body)
+> RemoteProcessGroupEntity CreateRemoteProcessGroup(ctx, body, id)
 Creates a new process group
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**RemoteProcessGroupEntity**](RemoteProcessGroupEntity.md)| The remote process group configuration details. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
 [**RemoteProcessGroupEntity**](RemoteProcessGroupEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **CreateTemplate**
-> TemplateEntity CreateTemplate(ctx, id, body)
-Creates a template and discards the specified snippet.
-
-
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
-  **body** | [**CreateTemplateRequestEntity**](CreateTemplateRequestEntity.md)| The create template request. | 
-
-### Return type
-
-[**TemplateEntity**](TemplateEntity.md)
 
 ### Authorization
 
@@ -420,11 +361,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProcessGroupsApiDeleteReplaceProcessGroupRequestOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **disconnectedNodeAcknowledged** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
+ **disconnectedNodeAcknowledged** | **optional.bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
 
 ### Return type
 
@@ -436,46 +376,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **DeleteVariableRegistryUpdateRequest**
-> VariableRegistryUpdateRequestEntity DeleteVariableRegistryUpdateRequest(ctx, groupId, updateId, optional)
-Deletes an update request for a process group's variable registry. If the request is not yet complete, it will automatically be cancelled.
-
-Note: This endpoint is subject to change as NiFi and it's REST API evolve.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **groupId** | **string**| The process group id. | 
-  **updateId** | **string**| The ID of the Variable Registry Update Request | 
- **optional** | ***ProcessGroupsApiDeleteVariableRegistryUpdateRequestOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a ProcessGroupsApiDeleteVariableRegistryUpdateRequestOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **disconnectedNodeAcknowledged** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
-
-### Return type
-
-[**VariableRegistryUpdateRequestEntity**](VariableRegistryUpdateRequestEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -483,8 +384,6 @@ No authorization required
 # **ExportProcessGroup**
 > string ExportProcessGroup(ctx, id, optional)
 Gets a process group for download
-
-
 
 ### Required Parameters
 
@@ -496,11 +395,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProcessGroupsApiExportProcessGroupOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **includeReferencedServices** | **optional.Bool**| If referenced services from outside the target group should be included | [default to false]
+ **includeReferencedServices** | **optional.bool**| If referenced services from outside the target group should be included | [default to false]
 
 ### Return type
 
@@ -512,7 +410,34 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetAnalyzeFlowRequest**
+> AnalyzeFlowRequestEntity GetAnalyzeFlowRequest(ctx, id, requestId)
+Gets the current status of a flow analysis request.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The id of the process group representing (a part of) the flow being analyzed. | 
+  **requestId** | **string**| The id of the process group representing (a part of) the flow to be analyzed. | 
+
+### Return type
+
+[**AnalyzeFlowRequestEntity**](AnalyzeFlowRequestEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -520,8 +445,6 @@ No authorization required
 # **GetConnections**
 > ConnectionsEntity GetConnections(ctx, id)
 Gets all connections
-
-
 
 ### Required Parameters
 
@@ -540,7 +463,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -548,8 +471,6 @@ No authorization required
 # **GetDropAllFlowfilesRequest**
 > DropRequestEntity GetDropAllFlowfilesRequest(ctx, id, dropRequestId)
 Gets the current status of a drop all flowfiles request.
-
-
 
 ### Required Parameters
 
@@ -569,7 +490,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -577,8 +498,6 @@ No authorization required
 # **GetFunnels**
 > FunnelsEntity GetFunnels(ctx, id)
 Gets all funnels
-
-
 
 ### Required Parameters
 
@@ -597,7 +516,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -605,8 +524,6 @@ No authorization required
 # **GetInputPorts**
 > InputPortsEntity GetInputPorts(ctx, id)
 Gets all input ports
-
-
 
 ### Required Parameters
 
@@ -625,7 +542,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -633,8 +550,6 @@ No authorization required
 # **GetLabels**
 > LabelsEntity GetLabels(ctx, id)
 Gets all labels
-
-
 
 ### Required Parameters
 
@@ -653,7 +568,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -661,8 +576,6 @@ No authorization required
 # **GetLocalModifications**
 > FlowComparisonEntity GetLocalModifications(ctx, id)
 Gets a list of local modifications to the Process Group since it was last synchronized with the Flow Registry
-
-
 
 ### Required Parameters
 
@@ -681,7 +594,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -689,8 +602,6 @@ No authorization required
 # **GetOutputPorts**
 > OutputPortsEntity GetOutputPorts(ctx, id)
 Gets all output ports
-
-
 
 ### Required Parameters
 
@@ -709,7 +620,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -717,8 +628,6 @@ No authorization required
 # **GetProcessGroup**
 > ProcessGroupEntity GetProcessGroup(ctx, id)
 Gets a process group
-
-
 
 ### Required Parameters
 
@@ -737,7 +646,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -745,8 +654,6 @@ No authorization required
 # **GetProcessGroups**
 > ProcessGroupsEntity GetProcessGroups(ctx, id)
 Gets all process groups
-
-
 
 ### Required Parameters
 
@@ -765,7 +672,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -773,8 +680,6 @@ No authorization required
 # **GetProcessors**
 > ProcessorsEntity GetProcessors(ctx, id, optional)
 Gets all processors
-
-
 
 ### Required Parameters
 
@@ -786,11 +691,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProcessGroupsApiGetProcessorsOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **includeDescendantGroups** | **optional.Bool**| Whether or not to include processors from descendant process groups | [default to false]
+ **includeDescendantGroups** | **optional.bool**| Whether or not to include processors from descendant process groups | [default to false]
 
 ### Return type
 
@@ -802,7 +706,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -810,8 +714,6 @@ No authorization required
 # **GetRemoteProcessGroups**
 > RemoteProcessGroupsEntity GetRemoteProcessGroups(ctx, id)
 Gets all remote process groups
-
-
 
 ### Required Parameters
 
@@ -830,7 +732,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -858,82 +760,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **GetVariableRegistry**
-> VariableRegistryEntity GetVariableRegistry(ctx, id, optional)
-Gets a process group's variable registry
-
-Note: This endpoint is subject to change as NiFi and it's REST API evolve.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
- **optional** | ***ProcessGroupsApiGetVariableRegistryOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a ProcessGroupsApiGetVariableRegistryOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **includeAncestorGroups** | **optional.Bool**| Whether or not to include ancestor groups | [default to true]
-
-### Return type
-
-[**VariableRegistryEntity**](VariableRegistryEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **GetVariableRegistryUpdateRequest**
-> VariableRegistryUpdateRequestEntity GetVariableRegistryUpdateRequest(ctx, groupId, updateId)
-Gets a process group's variable registry
-
-Note: This endpoint is subject to change as NiFi and it's REST API evolve.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **groupId** | **string**| The process group id. | 
-  **updateId** | **string**| The ID of the Variable Registry Update Request | 
-
-### Return type
-
-[**VariableRegistryUpdateRequestEntity**](VariableRegistryUpdateRequestEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ImportProcessGroup**
-> ProcessGroupEntity ImportProcessGroup(ctx, id)
+> ProcessGroupEntity ImportProcessGroup(ctx, id, optional)
 Imports a specified process group
-
-
 
 ### Required Parameters
 
@@ -941,6 +775,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| The process group id. | 
+ **optional** | ***ProcessGroupsApiImportProcessGroupOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ProcessGroupsApiImportProcessGroupOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | [**optional.Interface of ProcessGroupUploadEntity**](ProcessGroupUploadEntity.md)|  | 
 
 ### Return type
 
@@ -957,36 +799,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ImportTemplate**
-> TemplateEntity ImportTemplate(ctx, id)
-Imports a template
-
-
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
-
-### Return type
-
-[**TemplateEntity**](TemplateEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/xml
- - **Accept**: application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **InitiateReplaceProcessGroup**
-> ProcessGroupReplaceRequestEntity InitiateReplaceProcessGroup(ctx, id, body)
+> ProcessGroupReplaceRequestEntity InitiateReplaceProcessGroup(ctx, body, id)
 Initiate the Replace Request of a Process Group with the given ID
 
 This will initiate the action of replacing a process group with the given process group. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a ProcessGroupReplaceRequestEntity, and the process of replacing the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /process-groups/replace-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /process-groups/replace-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it's REST API evolve.
@@ -996,8 +810,8 @@ This will initiate the action of replacing a process group with the given proces
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**ProcessGroupImportEntity**](ProcessGroupImportEntity.md)| The process group replace request entity | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -1014,23 +828,21 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **InstantiateTemplate**
-> FlowEntity InstantiateTemplate(ctx, id, body)
-Instantiates a template
-
-
+# **RemoveAnalyzeFlowRequest**
+> AnalyzeFlowRequestEntity RemoveAnalyzeFlowRequest(ctx, id, requestId)
+Cancels a flow analysis request.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
-  **body** | [**InstantiateTemplateRequestEntity**](InstantiateTemplateRequestEntity.md)| The instantiate template request. | 
+  **id** | **string**| The id of the process group representing (a part of) the flow being analyzed. | 
+  **requestId** | **string**| The id of the flow analysis request | 
 
 ### Return type
 
-[**FlowEntity**](FlowEntity.md)
+[**AnalyzeFlowRequestEntity**](AnalyzeFlowRequestEntity.md)
 
 ### Authorization
 
@@ -1038,16 +850,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RemoveDropRequest**
-> DropRequestEntity RemoveDropRequest(ctx, id, dropRequestId)
+# **RemoveDropRequest1**
+> DropRequestEntity RemoveDropRequest1(ctx, id, dropRequestId)
 Cancels and/or removes a request to drop all flowfiles.
-
-
 
 ### Required Parameters
 
@@ -1067,7 +877,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1075,8 +885,6 @@ No authorization required
 # **RemoveProcessGroup**
 > ProcessGroupEntity RemoveProcessGroup(ctx, id, optional)
 Deletes a process group
-
-
 
 ### Required Parameters
 
@@ -1088,13 +896,12 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProcessGroupsApiRemoveProcessGroupOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **version** | **optional.String**| The revision is used to verify the client is working with the latest version of the flow. | 
- **clientId** | **optional.String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
- **disconnectedNodeAcknowledged** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
+ **version** | [**optional.Interface of LongParameter**](.md)| The revision is used to verify the client is working with the latest version of the flow. | 
+ **clientId** | [**optional.Interface of ClientIdParameter**](.md)| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
+ **disconnectedNodeAcknowledged** | **optional.bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
 
 ### Return type
 
@@ -1106,13 +913,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReplaceProcessGroup**
-> ProcessGroupImportEntity ReplaceProcessGroup(ctx, id, body)
+> ProcessGroupImportEntity ReplaceProcessGroup(ctx, body, id)
 Replace Process Group contents with the given ID with the specified Process Group contents
 
 This endpoint is used for replication within a cluster, when replacing a flow with a new flow. It expects that the flow beingreplaced is not under version control and that the given snapshot will not modify any Processor that is currently running or any Controller Service that is enabled. Note: This endpoint is subject to change as NiFi and it's REST API evolve.
@@ -1122,8 +929,8 @@ This endpoint is used for replication within a cluster, when replacing a flow wi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**ProcessGroupImportEntity**](ProcessGroupImportEntity.md)| The process group replace request entity. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
@@ -1140,23 +947,20 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **SubmitUpdateVariableRegistryRequest**
-> VariableRegistryUpdateRequestEntity SubmitUpdateVariableRegistryRequest(ctx, id, body)
-Submits a request to update a process group's variable registry
-
-Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+# **SubmitAnalyzeFlowRequest**
+> AnalyzeFlowRequestEntity SubmitAnalyzeFlowRequest(ctx, id)
+Executes a flow analysis for components within a given process group
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
-  **body** | [**VariableRegistryEntity**](VariableRegistryEntity.md)| The variable registry configuration details. | 
+  **id** | **string**| The id of the process group representing (a part of) the flow to be analyzed. | 
 
 ### Return type
 
-[**VariableRegistryUpdateRequestEntity**](VariableRegistryUpdateRequestEntity.md)
+[**AnalyzeFlowRequestEntity**](AnalyzeFlowRequestEntity.md)
 
 ### Authorization
 
@@ -1164,57 +968,26 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateProcessGroup**
-> ProcessGroupEntity UpdateProcessGroup(ctx, id, body)
+> ProcessGroupEntity UpdateProcessGroup(ctx, body, id)
 Updates a process group
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
   **body** | [**ProcessGroupEntity**](ProcessGroupEntity.md)| The process group configuration details. | 
+  **id** | **string**| The process group id. | 
 
 ### Return type
 
 [**ProcessGroupEntity**](ProcessGroupEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **UpdateVariableRegistry**
-> VariableRegistryEntity UpdateVariableRegistry(ctx, id, body)
-Updates the contents of a Process Group's variable Registry
-
-Note: This endpoint is subject to change as NiFi and it's REST API evolve.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
-  **body** | [**VariableRegistryEntity**](VariableRegistryEntity.md)| The variable registry configuration details. | 
-
-### Return type
-
-[**VariableRegistryEntity**](VariableRegistryEntity.md)
 
 ### Authorization
 
@@ -1228,10 +1001,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UploadProcessGroup**
-> ProcessGroupEntity UploadProcessGroup(ctx, id, body, body2, body3, body4, optional)
+> ProcessGroupEntity UploadProcessGroup(ctx, id, optional)
 Uploads a versioned flow definition and creates a process group
-
-
 
 ### Required Parameters
 
@@ -1239,23 +1010,19 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| The process group id. | 
-  **body** | **string**| The process group name. | 
-  **body2** | **float64**| The process group X position. | 
-  **body3** | **float64**| The process group Y position. | 
-  **body4** | **string**| The client id. | 
  **optional** | ***ProcessGroupsApiUploadProcessGroupOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ProcessGroupsApiUploadProcessGroupOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
-
-
-
- **body5** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | 
+ **groupName** | **optional.string**|  | 
+ **positionX** | **optional.float64**|  | 
+ **positionY** | **optional.float64**|  | 
+ **clientId** | **optional.string**|  | 
+ **disconnectedNodeAcknowledged** | **optional.bool**|  | 
+ **file** | [**optional.Interface of interface{}**](.md)|  | 
 
 ### Return type
 
@@ -1269,45 +1036,6 @@ No authorization required
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **UploadTemplate**
-> TemplateEntity UploadTemplate(ctx, id, template, optional)
-Uploads a template
-
-
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The process group id. | 
-  **template** | ***os.File**| The binary content of the template file being uploaded. | 
- **optional** | ***ProcessGroupsApiUploadTemplateOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a ProcessGroupsApiUploadTemplateOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **body** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | 
-
-### Return type
-
-[**TemplateEntity**](TemplateEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

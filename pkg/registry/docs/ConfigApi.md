@@ -1,11 +1,10 @@
-# \ConfigApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-registry-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetConfiguration**](ConfigApi.md#GetConfiguration) | **Get** /config | Get configration
-
 
 # **GetConfiguration**
 > RegistryConfiguration GetConfiguration(ctx, )
@@ -22,11 +21,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,6 +1,6 @@
-# \DataTransferApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,12 +12,9 @@ Method | HTTP request | Description
 [**ReceiveFlowFiles**](DataTransferApi.md#ReceiveFlowFiles) | **Post** /data-transfer/input-ports/{portId}/transactions/{transactionId}/flow-files | Transfer flow files to the input port
 [**TransferFlowFiles**](DataTransferApi.md#TransferFlowFiles) | **Get** /data-transfer/output-ports/{portId}/transactions/{transactionId}/flow-files | Transfer flow files from the output port
 
-
 # **CommitInputPortTransaction**
-> TransactionResultEntity CommitInputPortTransaction(ctx, responseCode, portId, transactionId)
+> TransactionResultEntity CommitInputPortTransaction(ctx, responseCode, portId, transactionId, optional)
 Commit or cancel the specified transaction
-
-
 
 ### Required Parameters
 
@@ -27,6 +24,16 @@ Name | Type | Description  | Notes
   **responseCode** | **int32**| The response code. Available values are BAD_CHECKSUM(19), CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). | 
   **portId** | **string**| The input port id. | 
   **transactionId** | **string**| The transaction id. | 
+ **optional** | ***DataTransferApiCommitInputPortTransactionOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a DataTransferApiCommitInputPortTransactionOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **body** | [**optional.Interface of interface{}**](interface{}.md)|  | 
 
 ### Return type
 
@@ -44,10 +51,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CommitOutputPortTransaction**
-> TransactionResultEntity CommitOutputPortTransaction(ctx, responseCode, checksum, portId, transactionId)
+> TransactionResultEntity CommitOutputPortTransaction(ctx, responseCode, checksum, portId, transactionId, optional)
 Commit or cancel the specified transaction
-
-
 
 ### Required Parameters
 
@@ -58,6 +63,17 @@ Name | Type | Description  | Notes
   **checksum** | **string**| A checksum calculated at client side using CRC32 to check flow file content integrity. It must match with the value calculated at server side. | 
   **portId** | **string**| The output port id. | 
   **transactionId** | **string**| The transaction id. | 
+ **optional** | ***DataTransferApiCommitOutputPortTransactionOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a DataTransferApiCommitOutputPortTransactionOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+ **body** | [**optional.Interface of interface{}**](interface{}.md)|  | 
 
 ### Return type
 
@@ -75,10 +91,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreatePortTransaction**
-> TransactionResultEntity CreatePortTransaction(ctx, portType, portId)
+> TransactionResultEntity CreatePortTransaction(ctx, portType, portId, optional)
 Create a transaction to the specified output port or input port
-
-
 
 ### Required Parameters
 
@@ -87,6 +101,15 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **portType** | **string**| The port type. | 
   **portId** | **string**|  | 
+ **optional** | ***DataTransferApiCreatePortTransactionOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a DataTransferApiCreatePortTransactionOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **body** | [**optional.Interface of interface{}**](interface{}.md)|  | 
 
 ### Return type
 
@@ -98,16 +121,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ExtendInputPortTransactionTTL**
-> TransactionResultEntity ExtendInputPortTransactionTTL(ctx, portId, transactionId)
+> TransactionResultEntity ExtendInputPortTransactionTTL(ctx, portId, transactionId, optional)
 Extend transaction TTL
-
-
 
 ### Required Parameters
 
@@ -116,6 +137,15 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **portId** | **string**|  | 
   **transactionId** | **string**|  | 
+ **optional** | ***DataTransferApiExtendInputPortTransactionTTLOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a DataTransferApiExtendInputPortTransactionTTLOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **body** | [**optional.Interface of interface{}**](interface{}.md)|  | 
 
 ### Return type
 
@@ -133,10 +163,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ExtendOutputPortTransactionTTL**
-> TransactionResultEntity ExtendOutputPortTransactionTTL(ctx, portId, transactionId)
+> TransactionResultEntity ExtendOutputPortTransactionTTL(ctx, portId, transactionId, optional)
 Extend transaction TTL
-
-
 
 ### Required Parameters
 
@@ -145,6 +173,15 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **portId** | **string**|  | 
   **transactionId** | **string**|  | 
+ **optional** | ***DataTransferApiExtendOutputPortTransactionTTLOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a DataTransferApiExtendOutputPortTransactionTTLOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **body** | [**optional.Interface of interface{}**](interface{}.md)|  | 
 
 ### Return type
 
@@ -162,10 +199,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReceiveFlowFiles**
-> string ReceiveFlowFiles(ctx, portId, transactionId)
+> string ReceiveFlowFiles(ctx, portId, transactionId, optional)
 Transfer flow files to the input port
-
-
 
 ### Required Parameters
 
@@ -174,6 +209,15 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **portId** | **string**| The input port id. | 
   **transactionId** | **string**|  | 
+ **optional** | ***DataTransferApiReceiveFlowFilesOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a DataTransferApiReceiveFlowFilesOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **body** | [**optional.Interface of interface{}**](interface{}.md)|  | 
 
 ### Return type
 
@@ -191,10 +235,8 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **TransferFlowFiles**
-> StreamingOutput TransferFlowFiles(ctx, portId, transactionId)
+> TransferFlowFiles(ctx, portId, transactionId, optional)
 Transfer flow files from the output port
-
-
 
 ### Required Parameters
 
@@ -203,10 +245,19 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **portId** | **string**| The output port id. | 
   **transactionId** | **string**|  | 
+ **optional** | ***DataTransferApiTransferFlowFilesOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a DataTransferApiTransferFlowFilesOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **body** | [**optional.Interface of interface{}**](interface{}.md)|  | 
 
 ### Return type
 
-[**StreamingOutput**](StreamingOutput.md)
+ (empty response body)
 
 ### Authorization
 

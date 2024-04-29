@@ -1,6 +1,6 @@
-# \ParameterContextsApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,12 +15,9 @@ Method | HTTP request | Description
 [**SubmitValidationRequest**](ParameterContextsApi.md#SubmitValidationRequest) | **Post** /parameter-contexts/{contextId}/validation-requests | Initiate a Validation Request to determine how the validity of components will change if a Parameter Context were to be updated
 [**UpdateParameterContext**](ParameterContextsApi.md#UpdateParameterContext) | **Put** /parameter-contexts/{id} | Modifies a Parameter Context
 
-
 # **CreateParameterContext**
 > ParameterContextEntity CreateParameterContext(ctx, body)
 Create a Parameter Context
-
-
 
 ### Required Parameters
 
@@ -60,13 +57,12 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ParameterContextsApiDeleteParameterContextOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **version** | **optional.String**| The version is used to verify the client is working with the latest version of the flow. | 
- **clientId** | **optional.String**| If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. | 
- **disconnectedNodeAcknowledged** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
+ **version** | [**optional.Interface of LongParameter**](.md)| The version is used to verify the client is working with the latest version of the flow. | 
+ **clientId** | [**optional.Interface of ClientIdParameter**](.md)| If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. | 
+ **disconnectedNodeAcknowledged** | **optional.bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
 
 ### Return type
 
@@ -78,7 +74,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -100,12 +96,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ParameterContextsApiDeleteUpdateRequestOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **disconnectedNodeAcknowledged** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
+ **disconnectedNodeAcknowledged** | **optional.bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
 
 ### Return type
 
@@ -117,7 +112,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -139,12 +134,11 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ParameterContextsApiDeleteValidationRequestOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **disconnectedNodeAcknowledged** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
+ **disconnectedNodeAcknowledged** | **optional.bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
 
 ### Return type
 
@@ -156,7 +150,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -177,11 +171,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ParameterContextsApiGetParameterContextOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **includeInheritedParameters** | **optional.Bool**| Whether or not to include inherited parameters from other parameter contexts, and therefore also overridden values.  If true, the result will be the &#39;effective&#39; parameter context. | [default to false]
+ **includeInheritedParameters** | **optional.bool**| Whether or not to include inherited parameters from other parameter contexts, and therefore also overridden values.  If true, the result will be the &#x27;effective&#x27; parameter context. | [default to false]
 
 ### Return type
 
@@ -193,7 +186,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -222,7 +215,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -251,13 +244,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SubmitParameterContextUpdate**
-> ParameterContextUpdateRequestEntity SubmitParameterContextUpdate(ctx, contextId, body)
+> ParameterContextUpdateRequestEntity SubmitParameterContextUpdate(ctx, body, contextId)
 Initiate the Update Request of a Parameter Context
 
 This will initiate the process of updating a Parameter Context. Changing the value of a Parameter may require that one or more components be stopped and restarted, so this action may take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterContextUpdateRequestEntity, and the process of updating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-contexts/update-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-contexts/update-requests/{requestId}.
@@ -267,8 +260,8 @@ This will initiate the process of updating a Parameter Context. Changing the val
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **contextId** | **string**|  | 
   **body** | [**ParameterContextEntity**](ParameterContextEntity.md)| The updated version of the parameter context. | 
+  **contextId** | **string**|  | 
 
 ### Return type
 
@@ -286,7 +279,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SubmitValidationRequest**
-> ParameterContextValidationRequestEntity SubmitValidationRequest(ctx, contextId, body)
+> ParameterContextValidationRequestEntity SubmitValidationRequest(ctx, body, contextId)
 Initiate a Validation Request to determine how the validity of components will change if a Parameter Context were to be updated
 
 This will initiate the process of validating all components whose Process Group is bound to the specified Parameter Context. Performing validation against an arbitrary number of components may be expect and take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterContextValidationRequestEntity, and the process of validating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-contexts/validation-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-contexts/validation-requests/{requestId}.
@@ -296,8 +289,8 @@ This will initiate the process of validating all components whose Process Group 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **contextId** | **string**|  | 
   **body** | [**ParameterContextValidationRequestEntity**](ParameterContextValidationRequestEntity.md)| The validation request | 
+  **contextId** | **string**|  | 
 
 ### Return type
 
@@ -315,7 +308,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateParameterContext**
-> ParameterContextEntity UpdateParameterContext(ctx, id, body)
+> ParameterContextEntity UpdateParameterContext(ctx, body, id)
 Modifies a Parameter Context
 
 This endpoint will update a Parameter Context to match the provided entity. However, this request will fail if any component is running and is referencing a Parameter in the Parameter Context. Generally, this endpoint is not called directly. Instead, an update request should be submitted by making a POST to the /parameter-contexts/update-requests endpoint. That endpoint will, in turn, call this endpoint.
@@ -325,8 +318,8 @@ This endpoint will update a Parameter Context to match the provided entity. Howe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**|  | 
   **body** | [**ParameterContextEntity**](ParameterContextEntity.md)| The updated Parameter Context | 
+  **id** | **string**|  | 
 
 ### Return type
 

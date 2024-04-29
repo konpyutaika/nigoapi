@@ -1,37 +1,34 @@
-# \ControllerServicesApi
+# {{classname}}
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AnalyzeConfiguration**](ControllerServicesApi.md#AnalyzeConfiguration) | **Post** /controller-services/{id}/config/analysis | Performs analysis of the component&#39;s configuration, providing information about which attributes are referenced.
-[**ClearState**](ControllerServicesApi.md#ClearState) | **Post** /controller-services/{id}/state/clear-requests | Clears the state for a controller service
+[**AnalyzeConfiguration**](ControllerServicesApi.md#AnalyzeConfiguration) | **Post** /controller-services/{id}/config/analysis | Performs analysis of the component&#x27;s configuration, providing information about which attributes are referenced.
+[**ClearState1**](ControllerServicesApi.md#ClearState1) | **Post** /controller-services/{id}/state/clear-requests | Clears the state for a controller service
 [**DeleteVerificationRequest**](ControllerServicesApi.md#DeleteVerificationRequest) | **Delete** /controller-services/{id}/config/verification-requests/{requestId} | Deletes the Verification Request with the given ID
 [**GetControllerService**](ControllerServicesApi.md#GetControllerService) | **Get** /controller-services/{id} | Gets a controller service
 [**GetControllerServiceReferences**](ControllerServicesApi.md#GetControllerServiceReferences) | **Get** /controller-services/{id}/references | Gets a controller service
-[**GetPropertyDescriptor**](ControllerServicesApi.md#GetPropertyDescriptor) | **Get** /controller-services/{id}/descriptors | Gets a controller service property descriptor
+[**GetPropertyDescriptor1**](ControllerServicesApi.md#GetPropertyDescriptor1) | **Get** /controller-services/{id}/descriptors | Gets a controller service property descriptor
 [**GetState**](ControllerServicesApi.md#GetState) | **Get** /controller-services/{id}/state | Gets the state for a controller service
 [**GetVerificationRequest**](ControllerServicesApi.md#GetVerificationRequest) | **Get** /controller-services/{id}/config/verification-requests/{requestId} | Returns the Verification Request with the given ID
 [**RemoveControllerService**](ControllerServicesApi.md#RemoveControllerService) | **Delete** /controller-services/{id} | Deletes a controller service
-[**SubmitConfigVerificationRequest**](ControllerServicesApi.md#SubmitConfigVerificationRequest) | **Post** /controller-services/{id}/config/verification-requests | Performs verification of the Controller Service&#39;s configuration
+[**SubmitConfigVerificationRequest**](ControllerServicesApi.md#SubmitConfigVerificationRequest) | **Post** /controller-services/{id}/config/verification-requests | Performs verification of the Controller Service&#x27;s configuration
 [**UpdateControllerService**](ControllerServicesApi.md#UpdateControllerService) | **Put** /controller-services/{id} | Updates a controller service
 [**UpdateControllerServiceReferences**](ControllerServicesApi.md#UpdateControllerServiceReferences) | **Put** /controller-services/{id}/references | Updates a controller services references
-[**UpdateRunStatus**](ControllerServicesApi.md#UpdateRunStatus) | **Put** /controller-services/{id}/run-status | Updates run status of a controller service
-
+[**UpdateRunStatus1**](ControllerServicesApi.md#UpdateRunStatus1) | **Put** /controller-services/{id}/run-status | Updates run status of a controller service
 
 # **AnalyzeConfiguration**
-> ConfigurationAnalysisEntity AnalyzeConfiguration(ctx, id, body)
+> ConfigurationAnalysisEntity AnalyzeConfiguration(ctx, body, id)
 Performs analysis of the component's configuration, providing information about which attributes are referenced.
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The controller service id. | 
   **body** | [**ConfigurationAnalysisEntity**](ConfigurationAnalysisEntity.md)| The configuration analysis request. | 
+  **id** | **string**| The controller service id. | 
 
 ### Return type
 
@@ -48,11 +45,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ClearState**
-> ComponentStateEntity ClearState(ctx, id)
+# **ClearState1**
+> ComponentStateEntity ClearState1(ctx, id)
 Clears the state for a controller service
-
-
 
 ### Required Parameters
 
@@ -71,7 +66,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -100,7 +95,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -121,11 +116,10 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ControllerServicesApiGetControllerServiceOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **uiOnly** | **optional.Bool**|  | [default to false]
+ **uiOnly** | **optional.bool**|  | [default to false]
 
 ### Return type
 
@@ -137,7 +131,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -145,8 +139,6 @@ No authorization required
 # **GetControllerServiceReferences**
 > ControllerServiceReferencingComponentsEntity GetControllerServiceReferences(ctx, id)
 Gets a controller service
-
-
 
 ### Required Parameters
 
@@ -165,16 +157,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetPropertyDescriptor**
-> PropertyDescriptorEntity GetPropertyDescriptor(ctx, id, propertyName, optional)
+# **GetPropertyDescriptor1**
+> PropertyDescriptorEntity GetPropertyDescriptor1(ctx, id, propertyName, optional)
 Gets a controller service property descriptor
-
-
 
 ### Required Parameters
 
@@ -183,16 +173,15 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| The controller service id. | 
   **propertyName** | **string**| The property name to return the descriptor for. | 
- **optional** | ***ControllerServicesApiGetPropertyDescriptorOpts** | optional parameters | nil if no parameters
+ **optional** | ***ControllerServicesApiGetPropertyDescriptor1Opts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a pointer to a ControllerServicesApiGetPropertyDescriptorOpts struct
-
+Optional parameters are passed through a pointer to a ControllerServicesApiGetPropertyDescriptor1Opts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **sensitive** | **optional.Bool**| Property Descriptor requested sensitive status | [default to false]
+ **sensitive** | **optional.bool**| Property Descriptor requested sensitive status | 
 
 ### Return type
 
@@ -204,7 +193,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -212,8 +201,6 @@ No authorization required
 # **GetState**
 > ComponentStateEntity GetState(ctx, id)
 Gets the state for a controller service
-
-
 
 ### Required Parameters
 
@@ -232,7 +219,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -261,7 +248,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -269,8 +256,6 @@ No authorization required
 # **RemoveControllerService**
 > ControllerServiceEntity RemoveControllerService(ctx, id, optional)
 Deletes a controller service
-
-
 
 ### Required Parameters
 
@@ -282,13 +267,12 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ControllerServicesApiRemoveControllerServiceOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **version** | **optional.String**| The revision is used to verify the client is working with the latest version of the flow. | 
- **clientId** | **optional.String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
- **disconnectedNodeAcknowledged** | **optional.Bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
+ **version** | [**optional.Interface of LongParameter**](.md)| The revision is used to verify the client is working with the latest version of the flow. | 
+ **clientId** | [**optional.Interface of ClientIdParameter**](.md)| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
+ **disconnectedNodeAcknowledged** | **optional.bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
 
 ### Return type
 
@@ -300,13 +284,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SubmitConfigVerificationRequest**
-> VerifyConfigRequestEntity SubmitConfigVerificationRequest(ctx, id, body)
+> VerifyConfigRequestEntity SubmitConfigVerificationRequest(ctx, body, id)
 Performs verification of the Controller Service's configuration
 
 This will initiate the process of verifying a given Controller Service configuration. This may be a long-running task. As a result, this endpoint will immediately return a ControllerServiceConfigVerificationRequestEntity, and the process of performing the verification will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /controller-services/{serviceId}/verification-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /controller-services/{serviceId}/verification-requests/{requestId}.
@@ -316,8 +300,8 @@ This will initiate the process of verifying a given Controller Service configura
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The controller service id. | 
   **body** | [**VerifyConfigRequestEntity**](VerifyConfigRequestEntity.md)| The controller service configuration verification request. | 
+  **id** | **string**| The controller service id. | 
 
 ### Return type
 
@@ -335,18 +319,16 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateControllerService**
-> ControllerServiceEntity UpdateControllerService(ctx, id, body)
+> ControllerServiceEntity UpdateControllerService(ctx, body, id)
 Updates a controller service
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The controller service id. | 
   **body** | [**ControllerServiceEntity**](ControllerServiceEntity.md)| The controller service configuration details. | 
+  **id** | **string**| The controller service id. | 
 
 ### Return type
 
@@ -364,18 +346,16 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateControllerServiceReferences**
-> ControllerServiceReferencingComponentsEntity UpdateControllerServiceReferences(ctx, id, body)
+> ControllerServiceReferencingComponentsEntity UpdateControllerServiceReferences(ctx, body, id)
 Updates a controller services references
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The controller service id. | 
   **body** | [**UpdateControllerServiceReferenceRequestEntity**](UpdateControllerServiceReferenceRequestEntity.md)| The controller service request update request. | 
+  **id** | **string**| The controller service id. | 
 
 ### Return type
 
@@ -392,19 +372,17 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdateRunStatus**
-> ControllerServiceEntity UpdateRunStatus(ctx, id, body)
+# **UpdateRunStatus1**
+> ControllerServiceEntity UpdateRunStatus1(ctx, body, id)
 Updates run status of a controller service
-
-
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The controller service id. | 
   **body** | [**ControllerServiceRunStatusEntity**](ControllerServiceRunStatusEntity.md)| The controller service run status. | 
+  **id** | **string**| The controller service id. | 
 
 ### Return type
 
