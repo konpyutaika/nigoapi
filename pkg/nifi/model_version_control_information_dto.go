@@ -28,7 +28,7 @@ type VersionControlInformationDto struct {
 	// The description of the flow
 	FlowDescription string `json:"flowDescription,omitempty"`
 	// The version of the flow
-	Version int32 `json:"version,omitempty"`
+	Version interface{} `json:"version,omitempty"`
 	// The storage location
 	StorageLocation string `json:"storageLocation,omitempty"`
 	// The current state of the Process Group, as it relates to the Versioned Flow

@@ -44,6 +44,20 @@ To generate the clients please run following command:
 ```
 
 Manual changes: 
+
+- In [`model_version_control_information_dto`](./pkg/nifi/model_version_control_information_dto.go), replace:
+
+  ```golang
+  // The version of the flow
+	Version int32 `json:"version,omitempty"`
+  ```
+
+  by:
+
+  ```golang
+  // The version of the flow
+	Version interface{} `json:"version,omitempty"`
+  ```
   
 - In [`model_revision_dto.go`](./pkg/nifi/model_revision_dto.go), replace: 
 
