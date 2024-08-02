@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**FlowAnalysisPending** | **bool** |  | [optional] [default to null]
 **Rules** | [**[]FlowAnalysisRuleDto**](FlowAnalysisRuleDTO.md) |  | [optional] [default to null]
 **RuleViolations** | [**[]FlowAnalysisRuleViolationDto**](FlowAnalysisRuleViolationDTO.md) |  | [optional] [default to null]
 

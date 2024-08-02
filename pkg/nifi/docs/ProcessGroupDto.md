@@ -37,8 +37,8 @@ Name | Type | Description | Notes
 **PublicOutputPortCount** | **int32** | The number of public output ports in the process group. | [optional] [default to null]
 **StatelessGroupScheduledState** | **string** | If the Process Group is configured to run in using the Stateless Engine, represents the current state. Otherwise, will be STOPPED. | [optional] [default to null]
 **Contents** | [***FlowSnippetDto**](FlowSnippetDTO.md) |  | [optional] [default to null]
-**InputPortCount** | **int32** | The number of input ports in the process group. | [optional] [default to null]
 **OutputPortCount** | **int32** | The number of output ports in the process group. | [optional] [default to null]
+**InputPortCount** | **int32** | The number of input ports in the process group. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

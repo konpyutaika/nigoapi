@@ -20,11 +20,11 @@ git checkout tags/rel/nifi-<version> -b rel/nifi-<version>
 Build the `swagger.json` for **NiFi**:
 
 ```console
-cd nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-web/nifi-web-api
+cd nifi-framework-bundle/nifi-framework/nifi-web/nifi-web-api
 mvn clean install -T2C -DskipTests
 ```
 
-Now available at `nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-web/nifi-web-api/target/swagger-ui/swagger.json`.
+Now available at `nifi-framework-bundle/nifi-framework/nifi-web/nifi-web-api/target/nifi-web-api-2.0.0-M4/docs/rest-api/swagger.json`.
 
 Build the `swagger.json` for **NiFi Registry**:
 
@@ -33,7 +33,7 @@ cd nifi-registry/nifi-registry-core/nifi-registry-web-api
 mvn clean install -T2C -DskipTests
 ```
 
-Now available at `nifi-registry/nifi-registry-core/nifi-registry-web-api/target/swagger/swagger.json`.
+Now available at `nifi-registry/nifi-registry-core/nifi-registry-web-api/target/nifi-registry-web-api-2.0.0-M4/docs/rest-api/swagger.json`.
 
 ## Generate client
 
@@ -49,7 +49,7 @@ Manual changes:
 
   ```golang
   // The version of the flow
-	Version int32 `json:"version,omitempty"`
+	Version string `json:"version,omitempty"`
   ```
 
   by:
@@ -179,7 +179,7 @@ Manual changes:
   ```golang
   // The x coordinate.
   X float64 `json:"x"`
-    // The y coordinate.
+  // The y coordinate.
   Y float64 `json:"y"`
   ```
 

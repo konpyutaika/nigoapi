@@ -31,8 +31,8 @@ Name | Type | Description | Notes
 **PublicOutputPortCount** | **int32** | The number of public output ports in the process group. | [optional] [default to null]
 **ParameterContext** | [***ParameterContextReferenceEntity**](ParameterContextReferenceEntity.md) |  | [optional] [default to null]
 **ProcessGroupUpdateStrategy** | **string** | Determines the process group update strategy | [optional] [default to null]
-**InputPortCount** | **int32** | The number of input ports in the process group. | [optional] [default to null]
 **OutputPortCount** | **int32** | The number of output ports in the process group. | [optional] [default to null]
+**InputPortCount** | **int32** | The number of input ports in the process group. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

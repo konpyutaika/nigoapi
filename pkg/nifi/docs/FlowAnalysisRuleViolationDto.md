@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **RuleId** | **string** |  | [optional] [default to null]
 **IssueId** | **string** |  | [optional] [default to null]
 **ViolationMessage** | **string** |  | [optional] [default to null]
+**SubjectComponentType** | **string** |  | [optional] [default to null]
 **SubjectPermissionDto** | [***PermissionsDto**](PermissionsDTO.md) |  | [optional] [default to null]
 **Enabled** | **bool** |  | [optional] [default to null]
 

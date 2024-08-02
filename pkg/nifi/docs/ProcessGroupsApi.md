@@ -17,7 +17,6 @@ Method | HTTP request | Description
 [**CreateRemoteProcessGroup**](ProcessGroupsApi.md#CreateRemoteProcessGroup) | **Post** /process-groups/{id}/remote-process-groups | Creates a new process group
 [**DeleteReplaceProcessGroupRequest**](ProcessGroupsApi.md#DeleteReplaceProcessGroupRequest) | **Delete** /process-groups/replace-requests/{id} | Deletes the Replace Request with the given ID
 [**ExportProcessGroup**](ProcessGroupsApi.md#ExportProcessGroup) | **Get** /process-groups/{id}/download | Gets a process group for download
-[**GetAnalyzeFlowRequest**](ProcessGroupsApi.md#GetAnalyzeFlowRequest) | **Get** /process-groups/{id}/flow-analysis-requests/{requestId} | Gets the current status of a flow analysis request.
 [**GetConnections**](ProcessGroupsApi.md#GetConnections) | **Get** /process-groups/{id}/connections | Gets all connections
 [**GetDropAllFlowfilesRequest**](ProcessGroupsApi.md#GetDropAllFlowfilesRequest) | **Get** /process-groups/{id}/empty-all-connections-requests/{drop-request-id} | Gets the current status of a drop all flowfiles request.
 [**GetFunnels**](ProcessGroupsApi.md#GetFunnels) | **Get** /process-groups/{id}/funnels | Gets all funnels
@@ -32,11 +31,9 @@ Method | HTTP request | Description
 [**GetReplaceProcessGroupRequest**](ProcessGroupsApi.md#GetReplaceProcessGroupRequest) | **Get** /process-groups/replace-requests/{id} | Returns the Replace Request with the given ID
 [**ImportProcessGroup**](ProcessGroupsApi.md#ImportProcessGroup) | **Post** /process-groups/{id}/process-groups/import | Imports a specified process group
 [**InitiateReplaceProcessGroup**](ProcessGroupsApi.md#InitiateReplaceProcessGroup) | **Post** /process-groups/{id}/replace-requests | Initiate the Replace Request of a Process Group with the given ID
-[**RemoveAnalyzeFlowRequest**](ProcessGroupsApi.md#RemoveAnalyzeFlowRequest) | **Delete** /process-groups/{id}/flow-analysis-requests/{requestId} | Cancels a flow analysis request.
 [**RemoveDropRequest1**](ProcessGroupsApi.md#RemoveDropRequest1) | **Delete** /process-groups/{id}/empty-all-connections-requests/{drop-request-id} | Cancels and/or removes a request to drop all flowfiles.
 [**RemoveProcessGroup**](ProcessGroupsApi.md#RemoveProcessGroup) | **Delete** /process-groups/{id} | Deletes a process group
 [**ReplaceProcessGroup**](ProcessGroupsApi.md#ReplaceProcessGroup) | **Put** /process-groups/{id}/flow-contents | Replace Process Group contents with the given ID with the specified Process Group contents
-[**SubmitAnalyzeFlowRequest**](ProcessGroupsApi.md#SubmitAnalyzeFlowRequest) | **Post** /process-groups/{id}/flow-analysis-requests | Executes a flow analysis for components within a given process group
 [**UpdateProcessGroup**](ProcessGroupsApi.md#UpdateProcessGroup) | **Put** /process-groups/{id} | Updates a process group
 [**UploadProcessGroup**](ProcessGroupsApi.md#UploadProcessGroup) | **Post** /process-groups/{id}/process-groups/upload | Uploads a versioned flow definition and creates a process group
 
@@ -403,33 +400,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **string**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **GetAnalyzeFlowRequest**
-> AnalyzeFlowRequestEntity GetAnalyzeFlowRequest(ctx, id, requestId)
-Gets the current status of a flow analysis request.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The id of the process group representing (a part of) the flow being analyzed. | 
-  **requestId** | **string**| The id of the process group representing (a part of) the flow to be analyzed. | 
-
-### Return type
-
-[**AnalyzeFlowRequestEntity**](AnalyzeFlowRequestEntity.md)
 
 ### Authorization
 
@@ -828,33 +798,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RemoveAnalyzeFlowRequest**
-> AnalyzeFlowRequestEntity RemoveAnalyzeFlowRequest(ctx, id, requestId)
-Cancels a flow analysis request.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The id of the process group representing (a part of) the flow being analyzed. | 
-  **requestId** | **string**| The id of the flow analysis request | 
-
-### Return type
-
-[**AnalyzeFlowRequestEntity**](AnalyzeFlowRequestEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **RemoveDropRequest1**
 > DropRequestEntity RemoveDropRequest1(ctx, id, dropRequestId)
 Cancels and/or removes a request to drop all flowfiles.
@@ -943,32 +886,6 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **SubmitAnalyzeFlowRequest**
-> AnalyzeFlowRequestEntity SubmitAnalyzeFlowRequest(ctx, id)
-Executes a flow analysis for components within a given process group
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**| The id of the process group representing (a part of) the flow to be analyzed. | 
-
-### Return type
-
-[**AnalyzeFlowRequestEntity**](AnalyzeFlowRequestEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

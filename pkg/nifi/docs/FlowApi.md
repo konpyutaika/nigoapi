@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**GetAction**](FlowApi.md#GetAction) | **Get** /flow/history/{id} | Gets an action
 [**GetAllFlowAnalysisResults**](FlowApi.md#GetAllFlowAnalysisResults) | **Get** /flow/flow-analysis/results | Returns all flow analysis results currently in effect
 [**GetBanners**](FlowApi.md#GetBanners) | **Get** /flow/banners | Retrieves the banners for this NiFi
+[**GetBranches**](FlowApi.md#GetBranches) | **Get** /flow/registries/{id}/branches | Gets the branches from the specified registry for the current user
 [**GetBreadcrumbs**](FlowApi.md#GetBreadcrumbs) | **Get** /flow/process-groups/{id}/breadcrumbs | Gets the breadcrumbs for a process group
 [**GetBuckets**](FlowApi.md#GetBuckets) | **Get** /flow/registries/{id}/buckets | Gets the buckets from the specified registry for the current user
 [**GetBulletinBoard**](FlowApi.md#GetBulletinBoard) | **Get** /flow/bulletin-board | Gets current bulletins
@@ -50,6 +51,7 @@ Method | HTTP request | Description
 [**GetReportingTaskTypes**](FlowApi.md#GetReportingTaskTypes) | **Get** /flow/reporting-task-types | Retrieves the types of reporting tasks that this NiFi supports
 [**GetReportingTasks**](FlowApi.md#GetReportingTasks) | **Get** /flow/reporting-tasks | Gets all reporting tasks
 [**GetRuntimeManifest**](FlowApi.md#GetRuntimeManifest) | **Get** /flow/runtime-manifest | Retrieves the runtime manifest for this NiFi instance.
+[**GetVersionDifferences**](FlowApi.md#GetVersionDifferences) | **Get** /flow/registries/{registry-id}/branches/{branch-id-a}/buckets/{bucket-id-a}/flows/{flow-id-a}/{version-a}/diff/branches/{branch-id-b}/buckets/{bucket-id-b}/flows/{flow-id-b}/{version-b} | Gets the differences between two versions of the same versioned flow, the basis of the comparison will be the first version
 [**GetVersions**](FlowApi.md#GetVersions) | **Get** /flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/versions | Gets the flow versions from the specified registry and bucket for the specified flow for the current user
 [**QueryHistory**](FlowApi.md#QueryHistory) | **Get** /flow/history | Gets configuration history
 [**ScheduleComponents**](FlowApi.md#ScheduleComponents) | **Put** /flow/process-groups/{id} | Schedule or unschedule components in the specified Process Group.
@@ -231,6 +233,32 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetBranches**
+> FlowRegistryBranchesEntity GetBranches(ctx, id)
+Gets the branches from the specified registry for the current user
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The registry id. | 
+
+### Return type
+
+[**FlowRegistryBranchesEntity**](FlowRegistryBranchesEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetBreadcrumbs**
 > FlowBreadcrumbEntity GetBreadcrumbs(ctx, id)
 Gets the breadcrumbs for a process group
@@ -258,7 +286,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBuckets**
-> FlowRegistryBucketsEntity GetBuckets(ctx, id)
+> FlowRegistryBucketsEntity GetBuckets(ctx, id, optional)
 Gets the buckets from the specified registry for the current user
 
 ### Required Parameters
@@ -267,6 +295,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| The registry id. | 
+ **optional** | ***FlowApiGetBucketsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiGetBucketsOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **branch** | **optional.string**| The name of a branch to get the buckets from. If not specified the default branch of the registry client will be used. | 
 
 ### Return type
 
@@ -1378,6 +1414,57 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**RuntimeManifestEntity**](RuntimeManifestEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetVersionDifferences**
+> FlowComparisonEntity GetVersionDifferences(ctx, registryId, branchIdA, bucketIdA, flowIdA, versionA, branchIdB, bucketIdB, flowIdB, versionB, optional)
+Gets the differences between two versions of the same versioned flow, the basis of the comparison will be the first version
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **registryId** | **string**| The registry client id. | 
+  **branchIdA** | **string**| The branch id for the base version. | 
+  **bucketIdA** | **string**| The bucket id for the base version. | 
+  **flowIdA** | **string**| The flow id for the base version. | 
+  **versionA** | **string**| The base version. | 
+  **branchIdB** | **string**| The branch id for the compared version. | 
+  **bucketIdB** | **string**| The bucket id for the compared version. | 
+  **flowIdB** | **string**| The flow id for the compared version. | 
+  **versionB** | **string**| The compared version. | 
+ **optional** | ***FlowApiGetVersionDifferencesOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiGetVersionDifferencesOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+
+
+
+
+
+ **offset** | **optional.int32**| Must be a non-negative number. Specifies the starting point of the listing. 0 means start from the beginning. | [default to 0]
+ **limit** | **optional.int32**| Limits the number of differences listed. This might lead to partial result. 0 means no limitation is applied. | [default to 1000]
+
+### Return type
+
+[**FlowComparisonEntity**](FlowComparisonEntity.md)
 
 ### Authorization
 
