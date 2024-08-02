@@ -3,9 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Branch** | **string** |  | [optional] [default to null]
 **BucketIdentifier** | **string** |  | [optional] [default to null]
 **FlowIdentifier** | **string** |  | [optional] [default to null]
-**Version** | **int32** |  | [optional] [default to null]
+**Version** | **string** |  | [optional] [default to null]
 **Timestamp** | **int64** |  | [optional] [default to null]
 **Author** | **string** |  | [optional] [default to null]
 **Comments** | **string** |  | [optional] [default to null]

@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Identity** | **string** | The user identity being serialized. | [optional] [default to null]
 **Anonymous** | **bool** | Whether the current user is anonymous. | [optional] [default to null]
+**LogoutSupported** | **bool** | Whether the system is configured to support logout operations based on current user authentication status | [optional] [default to null]
 **ProvenancePermissions** | [***PermissionsDto**](PermissionsDTO.md) |  | [optional] [default to null]
 **CountersPermissions** | [***PermissionsDto**](PermissionsDTO.md) |  | [optional] [default to null]
 **TenantsPermissions** | [***PermissionsDto**](PermissionsDTO.md) |  | [optional] [default to null]

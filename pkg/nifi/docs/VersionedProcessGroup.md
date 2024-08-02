@@ -27,9 +27,9 @@ Name | Type | Description | Notes
 **MaxConcurrentTasks** | **int32** | The maximum number of concurrent tasks that should be scheduled for this Process Group when using the Stateless Engine | [optional] [default to null]
 **StatelessFlowTimeout** | **string** | The maximum amount of time that the flow is allows to run using the Stateless engine before it times out and is considered a failure | [optional] [default to null]
 **LogFileSuffix** | **string** | The log file suffix for this Process Group for dedicated logging. | [optional] [default to null]
+**ComponentType** | **string** |  | [optional] [default to null]
 **FlowFileConcurrency** | **string** | The configured FlowFile Concurrency for the Process Group | [optional] [default to null]
 **FlowFileOutboundPolicy** | **string** | The FlowFile Outbound Policy for the Process Group | [optional] [default to null]
-**ComponentType** | **string** |  | [optional] [default to null]
 **GroupIdentifier** | **string** | The ID of the Process Group that this component belongs to | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

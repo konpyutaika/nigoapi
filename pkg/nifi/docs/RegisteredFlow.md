@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Identifier** | **string** |  | [optional] [default to null]
 **Name** | **string** |  | [optional] [default to null]
 **Description** | **string** |  | [optional] [default to null]
+**Branch** | **string** |  | [optional] [default to null]
 **BucketIdentifier** | **string** |  | [optional] [default to null]
 **BucketName** | **string** |  | [optional] [default to null]
 **CreatedTimestamp** | **int64** |  | [optional] [default to null]

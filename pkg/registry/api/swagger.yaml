@@ -8,7 +8,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 2.0.0-M2
+  version: 2.0.0-M4
 servers:
 - url: /
 paths:
@@ -2825,6 +2825,8 @@ paths:
           - PROCESSOR
           - CONTROLLER_SERVICE
           - REPORTING_TASK
+          - FLOW_ANALYSIS_RULE
+          - PARAMETER_PROVIDER
       - name: tag
         in: query
         description: "The tags to filter on, will be used in an OR statement"
@@ -4125,10 +4127,10 @@ components:
         filename: filename
         link:
           rel: rel
-          title: title
           type: type
           params:
             key: params
+          title: title
           uri: http://example.com/aeiou
           uriBuilder: {}
           rels:
@@ -4279,11 +4281,17 @@ components:
     Link:
       type: object
       properties:
+        type:
+          type: string
+        params:
+          type: object
+          additionalProperties:
+            type: string
+        title:
+          type: string
         uri:
           type: string
           format: uri
-        title:
-          type: string
         uriBuilder:
           $ref: '#/components/schemas/UriBuilder'
         rel:
@@ -4292,20 +4300,14 @@ components:
           type: array
           items:
             type: string
-        type:
-          type: string
-        params:
-          type: object
-          additionalProperties:
-            type: string
       description: An WebLink to this entity.
       readOnly: true
       example:
         rel: rel
-        title: title
         type: type
         params:
           key: params
+        title: title
         uri: http://example.com/aeiou
         uriBuilder: {}
         rels:
@@ -4409,10 +4411,10 @@ components:
         createdTimestamp: 1
         link:
           rel: rel
-          title: title
           type: type
           params:
             key: params
+          title: title
           uri: http://example.com/aeiou
           uriBuilder: {}
           rels:
@@ -4805,6 +4807,9 @@ components:
         storageLocation:
           type: string
           description: The location of the Flow Registry that stores the flow
+        branch:
+          type: string
+          description: The name of the branch that the flow resides in
         bucketId:
           type: string
           description: The UUID of the bucket that the flow resides in
@@ -4812,9 +4817,8 @@ components:
           type: string
           description: The UUID of the flow
         version:
-          type: integer
+          type: string
           description: The version of the flow
-          format: int32
         latest:
           type: boolean
           description: Whether or not these coordinates point to the latest version
@@ -4825,8 +4829,9 @@ components:
         registryId: registryId
         storageLocation: storageLocation
         bucketId: bucketId
+        branch: branch
         flowId: flowId
-        version: 6
+        version: version
         latest: true
     VersionedFlowSnapshot:
       required:
@@ -4891,10 +4896,10 @@ components:
           author: author
           link:
             rel: rel
-            title: title
             type: type
             params:
               key: params
+            title: title
             uri: http://example.com/aeiou
             uriBuilder: {}
             rels:
@@ -5029,8 +5034,9 @@ components:
             registryId: registryId
             storageLocation: storageLocation
             bucketId: bucketId
+            branch: branch
             flowId: flowId
-            version: 6
+            version: version
             latest: true
           connections:
           - identifier: identifier
@@ -5103,7 +5109,7 @@ components:
           parameterContextName: parameterContextName
           identifier: identifier
           componentType: CONNECTION
-          defaultBackPressureObjectThreshold: 7
+          defaultBackPressureObjectThreshold: 6
           comments: comments
           executionEngine: STANDARD
           labels:
@@ -5210,7 +5216,7 @@ components:
           position:
             x: 0.8008281904610115
             "y": 6.027456183070403
-          maxConcurrentTasks: 1
+          maxConcurrentTasks: 7
           statelessFlowTimeout: statelessFlowTimeout
           remoteProcessGroups:
           - identifier: identifier
@@ -5336,10 +5342,10 @@ components:
           createdTimestamp: 1
           link:
             rel: rel
-            title: title
             type: type
             params:
               key: params
+            title: title
             uri: http://example.com/aeiou
             uriBuilder: {}
             rels:
@@ -5358,8 +5364,8 @@ components:
           key:
             parameterGroupName: parameterGroupName
             identifier: identifier
-            synchronized: true
             componentType: CONNECTION
+            synchronized: true
             comments: comments
             description: description
             inheritedParameterContexts:
@@ -5422,10 +5428,10 @@ components:
         author: author
         link:
           rel: rel
-          title: title
           type: type
           params:
             key: params
+          title: title
           uri: http://example.com/aeiou
           uriBuilder: {}
           rels:
@@ -5631,10 +5637,6 @@ components:
           type: string
           description: "The corresponding parameter group name fetched from the parameter\
             \ provider, if applicable"
-        synchronized:
-          type: boolean
-          description: True if the parameter provider is set and the context should
-            receive updates when its parameters are next fetched
         componentType:
           type: string
           enum:
@@ -5654,6 +5656,10 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+        synchronized:
+          type: boolean
+          description: True if the parameter provider is set and the context should
+            receive updates when its parameters are next fetched
         groupIdentifier:
           type: string
           description: The ID of the Process Group that this component belongs to
@@ -5664,8 +5670,8 @@ components:
       example:
         parameterGroupName: parameterGroupName
         identifier: identifier
-        synchronized: true
         componentType: CONNECTION
+        synchronized: true
         comments: comments
         description: description
         inheritedParameterContexts:
@@ -5888,12 +5894,6 @@ components:
         logFileSuffix:
           type: string
           description: The log file suffix for this Process Group for dedicated logging.
-        flowFileConcurrency:
-          type: string
-          description: The configured FlowFile Concurrency for the Process Group
-        flowFileOutboundPolicy:
-          type: string
-          description: The FlowFile Outbound Policy for the Process Group
         componentType:
           type: string
           enum:
@@ -5913,6 +5913,12 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+        flowFileConcurrency:
+          type: string
+          description: The configured FlowFile Concurrency for the Process Group
+        flowFileOutboundPolicy:
+          type: string
+          description: The FlowFile Outbound Policy for the Process Group
         groupIdentifier:
           type: string
           description: The ID of the Process Group that this component belongs to
@@ -6039,8 +6045,9 @@ components:
           registryId: registryId
           storageLocation: storageLocation
           bucketId: bucketId
+          branch: branch
           flowId: flowId
-          version: 6
+          version: version
           latest: true
         connections:
         - identifier: identifier
@@ -6113,7 +6120,7 @@ components:
         parameterContextName: parameterContextName
         identifier: identifier
         componentType: CONNECTION
-        defaultBackPressureObjectThreshold: 7
+        defaultBackPressureObjectThreshold: 6
         comments: comments
         executionEngine: STANDARD
         labels:
@@ -6220,7 +6227,7 @@ components:
         position:
           x: 0.8008281904610115
           "y": 6.027456183070403
-        maxConcurrentTasks: 1
+        maxConcurrentTasks: 7
         statelessFlowTimeout: statelessFlowTimeout
         remoteProcessGroups:
         - identifier: identifier
@@ -7146,6 +7153,8 @@ components:
           - PROCESSOR
           - CONTROLLER_SERVICE
           - REPORTING_TASK
+          - FLOW_ANALYSIS_RULE
+          - PARAMETER_PROVIDER
         deprecationNotice:
           $ref: '#/components/schemas/DeprecationNotice'
         description:
@@ -7860,6 +7869,8 @@ components:
           - PROCESSOR
           - CONTROLLER_SERVICE
           - REPORTING_TASK
+          - FLOW_ANALYSIS_RULE
+          - PARAMETER_PROVIDER
         description:
           type: string
           description: The description of the extension
@@ -7922,10 +7933,10 @@ components:
           version: version
         link:
           rel: rel
-          title: title
           type: type
           params:
             key: params
+          title: title
           uri: http://example.com/aeiou
           uriBuilder: {}
           rels:
@@ -7978,10 +7989,10 @@ components:
         groupId: groupId
         link:
           rel: rel
-          title: title
           type: type
           params:
             key: params
+          title: title
           uri: http://example.com/aeiou
           uriBuilder: {}
           rels:
@@ -8000,10 +8011,10 @@ components:
         bucketName: bucketName
         link:
           rel: rel
-          title: title
           type: type
           params:
             key: params
+          title: title
           uri: http://example.com/aeiou
           uriBuilder: {}
           rels:
@@ -8025,10 +8036,10 @@ components:
         groupId: groupId
         link:
           rel: rel
-          title: title
           type: type
           params:
             key: params
+          title: title
           uri: http://example.com/aeiou
           uriBuilder: {}
           rels:
@@ -8051,10 +8062,10 @@ components:
       example:
         extensionsLink:
           rel: rel
-          title: title
           type: type
           params:
             key: params
+          title: title
           uri: http://example.com/aeiou
           uriBuilder: {}
           rels:
@@ -8093,10 +8104,10 @@ components:
         groupId: groupId
         link:
           rel: rel
-          title: title
           type: type
           params:
             key: params
+          title: title
           uri: http://example.com/aeiou
           uriBuilder: {}
           rels:
@@ -8121,6 +8132,8 @@ components:
           - PROCESSOR
           - CONTROLLER_SERVICE
           - REPORTING_TASK
+          - FLOW_ANALYSIS_RULE
+          - PARAMETER_PROVIDER
         tags:
           uniqueItems: true
           type: array
@@ -8187,10 +8200,10 @@ components:
             version: version
           link:
             rel: rel
-            title: title
             type: type
             params:
               key: params
+            title: title
             uri: http://example.com/aeiou
             uriBuilder: {}
             rels:
@@ -8237,10 +8250,10 @@ components:
             version: version
           link:
             rel: rel
-            title: title
             type: type
             params:
               key: params
+            title: title
             uri: http://example.com/aeiou
             uriBuilder: {}
             rels:
@@ -8332,10 +8345,10 @@ components:
         createdTimestamp: 1
         link:
           rel: rel
-          title: title
           type: type
           params:
             key: params
+          title: title
           uri: http://example.com/aeiou
           uriBuilder: {}
           rels:

@@ -14,6 +14,9 @@ Name | Type | Description | Notes
 **Queued** | **string** | The queue the NiFi on the node. | [optional] [default to null]
 **Events** | [**[]NodeEventDto**](NodeEventDTO.md) | The node&#x27;s events. | [optional] [default to null]
 **NodeStartTime** | **string** | The time at which this Node was last refreshed. | [optional] [default to null]
+**FlowFilesQueued** | **int32** | The number of FlowFiles that are queued up on the node | [optional] [default to null]
+**BytesQueued** | **int64** | The total size of all FlowFiles that are queued up on the node | [optional] [default to null]
+**FlowFileBytes** | **int64** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
