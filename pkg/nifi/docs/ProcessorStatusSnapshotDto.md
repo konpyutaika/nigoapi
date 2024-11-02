@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **TasksDuration** | **string** | The total duration of all tasks for this connectable over the last 5 minutes. | [optional] [default to null]
 **ActiveThreadCount** | **int32** | The number of threads currently executing in the processor. | [optional] [default to null]
 **TerminatedThreadCount** | **int32** | The number of threads currently terminated for the processor. | [optional] [default to null]
+**ProcessingPerformanceStatus** | [***ProcessingPerformanceStatusDto**](ProcessingPerformanceStatusDTO.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

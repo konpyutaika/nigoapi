@@ -93,7 +93,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DownloadFlowFileContent**
-> StreamingOutput DownloadFlowFileContent(ctx, id, flowfileUuid, optional)
+> DownloadFlowFileContent(ctx, id, flowfileUuid, optional)
 Gets the content for a FlowFile in a Connection.
 
 ### Required Parameters
@@ -111,12 +111,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **range_** | **optional.string**| Range of bytes requested | 
  **clientId** | [**optional.Interface of ClientIdParameter**](.md)| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | 
  **clusterNodeId** | **optional.string**| The id of the node where the content exists if clustered. | 
 
 ### Return type
 
-[**StreamingOutput**](StreamingOutput.md)
+ (empty response body)
 
 ### Authorization
 

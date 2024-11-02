@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**GetAuthenticationConfiguration**](AuthenticationApi.md#GetAuthenticationConfiguration) | **Get** /authentication/configuration | Retrieves the authentication configuration endpoint and status information
 
 # **GetAuthenticationConfiguration**
-> AccessConfigurationEntity GetAuthenticationConfiguration(ctx, )
+> AuthenticationConfigurationEntity GetAuthenticationConfiguration(ctx, )
 Retrieves the authentication configuration endpoint and status information
 
 ### Required Parameters
@@ -15,7 +15,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AccessConfigurationEntity**](AccessConfigurationEntity.md)
+[**AuthenticationConfigurationEntity**](AuthenticationConfigurationEntity.md)
 
 ### Authorization
 

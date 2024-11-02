@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Uri** | **string** | The URI that can be used to access this FlowFile. | [optional] [default to null]
 **Uuid** | **string** | The FlowFile UUID. | [optional] [default to null]
 **Filename** | **string** | The FlowFile filename. | [optional] [default to null]
+**MimeType** | **string** | The FlowFile mime type. | [optional] [default to null]
 **Position** | **int32** | The FlowFile&#x27;s position in the queue. | [optional] [default to null]
 **Size** | **int64** | The FlowFile file size. | [optional] [default to null]
 **QueuedDuration** | **int64** | How long this FlowFile has been enqueued. | [optional] [default to null]

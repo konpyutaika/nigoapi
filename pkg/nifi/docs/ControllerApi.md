@@ -15,7 +15,9 @@ Method | HTTP request | Description
 [**DeleteFlowAnalysisRuleVerificationRequest**](ControllerApi.md#DeleteFlowAnalysisRuleVerificationRequest) | **Delete** /controller/flow-analysis-rules/{id}/config/verification-requests/{requestId} | Deletes the Verification Request with the given ID
 [**DeleteFlowRegistryClient**](ControllerApi.md#DeleteFlowRegistryClient) | **Delete** /controller/registry-clients/{id} | Deletes a flow registry client
 [**DeleteHistory**](ControllerApi.md#DeleteHistory) | **Delete** /controller/history | Purges history
+[**DeleteNar**](ControllerApi.md#DeleteNar) | **Delete** /controller/nar-manager/nars/{id} | Deletes an installed NAR
 [**DeleteNode**](ControllerApi.md#DeleteNode) | **Delete** /controller/cluster/nodes/{id} | Removes a node from the cluster
+[**DownloadNar**](ControllerApi.md#DownloadNar) | **Get** /controller/nar-manager/nars/{id}/content | Retrieves the content of the NAR with the given id
 [**GetCluster**](ControllerApi.md#GetCluster) | **Get** /controller/cluster | Gets the contents of the cluster
 [**GetControllerConfig**](ControllerApi.md#GetControllerConfig) | **Get** /controller/config | Retrieves the configuration for this NiFi Controller
 [**GetFlowAnalysisRule**](ControllerApi.md#GetFlowAnalysisRule) | **Get** /controller/flow-analysis-rules/{id} | Gets a flow analysis rule
@@ -25,6 +27,9 @@ Method | HTTP request | Description
 [**GetFlowAnalysisRules**](ControllerApi.md#GetFlowAnalysisRules) | **Get** /controller/flow-analysis-rules | Gets all flow analysis rules
 [**GetFlowRegistryClient**](ControllerApi.md#GetFlowRegistryClient) | **Get** /controller/registry-clients/{id} | Gets a flow registry client
 [**GetFlowRegistryClients**](ControllerApi.md#GetFlowRegistryClients) | **Get** /controller/registry-clients | Gets the listing of available flow registry clients
+[**GetNarDetails**](ControllerApi.md#GetNarDetails) | **Get** /controller/nar-manager/nars/{id}/details | Retrieves the component types available from the installed NARs
+[**GetNarSummaries**](ControllerApi.md#GetNarSummaries) | **Get** /controller/nar-manager/nars | Retrieves summary information for installed NARs
+[**GetNarSummary**](ControllerApi.md#GetNarSummary) | **Get** /controller/nar-manager/nars/{id} | Retrieves the summary information for the NAR with the given identifier
 [**GetNode**](ControllerApi.md#GetNode) | **Get** /controller/cluster/nodes/{id} | Gets a node in the cluster
 [**GetNodeStatusHistory**](ControllerApi.md#GetNodeStatusHistory) | **Get** /controller/status/history | Gets status history for the node
 [**GetPropertyDescriptor**](ControllerApi.md#GetPropertyDescriptor) | **Get** /controller/registry-clients/{id}/descriptors | Gets a flow registry client property descriptor
@@ -37,6 +42,7 @@ Method | HTTP request | Description
 [**UpdateFlowRegistryClient**](ControllerApi.md#UpdateFlowRegistryClient) | **Put** /controller/registry-clients/{id} | Updates a flow registry client
 [**UpdateNode**](ControllerApi.md#UpdateNode) | **Put** /controller/cluster/nodes/{id} | Updates a node in the cluster
 [**UpdateRunStatus**](ControllerApi.md#UpdateRunStatus) | **Put** /controller/flow-analysis-rules/{id}/run-status | Updates run status of a flow analysis rule
+[**UploadNar**](ControllerApi.md#UploadNar) | **Post** /controller/nar-manager/nars/content | Uploads a NAR and requests for it to be installed
 
 # **AnalyzeFlowAnalysisRuleConfiguration**
 > ConfigurationAnalysisEntity AnalyzeFlowAnalysisRuleConfiguration(ctx, body, id)
@@ -338,6 +344,41 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **DeleteNar**
+> NarSummaryEntity DeleteNar(ctx, id, optional)
+Deletes an installed NAR
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The id of the NAR. | 
+ **optional** | ***ControllerApiDeleteNarOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ControllerApiDeleteNarOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **disconnectedNodeAcknowledged** | **optional.bool**|  | [default to false]
+ **force** | **optional.bool**|  | [default to false]
+
+### Return type
+
+[**NarSummaryEntity**](NarSummaryEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **DeleteNode**
 > NodeEntity DeleteNode(ctx, id)
 Removes a node from the cluster
@@ -361,6 +402,32 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DownloadNar**
+> string DownloadNar(ctx, id)
+Retrieves the content of the NAR with the given id
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The id of the NAR. | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -585,6 +652,80 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**FlowRegistryClientsEntity**](FlowRegistryClientsEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetNarDetails**
+> NarDetailsEntity GetNarDetails(ctx, id)
+Retrieves the component types available from the installed NARs
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The id of the NAR. | 
+
+### Return type
+
+[**NarDetailsEntity**](NarDetailsEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetNarSummaries**
+> NarSummariesEntity GetNarSummaries(ctx, )
+Retrieves summary information for installed NARs
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**NarSummariesEntity**](NarSummariesEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetNarSummary**
+> NarDetailsEntity GetNarSummary(ctx, id)
+Retrieves the summary information for the NAR with the given identifier
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The id of the NAR. | 
+
+### Return type
+
+[**NarDetailsEntity**](NarDetailsEntity.md)
 
 ### Authorization
 
@@ -928,6 +1069,40 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UploadNar**
+> NarSummaryEntity UploadNar(ctx, body, optional)
+Uploads a NAR and requests for it to be installed
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**interface{}**](interface{}.md)| The contents of the NAR file. | 
+ **optional** | ***ControllerApiUploadNarOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ControllerApiUploadNarOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **filename** | **optional.string**|  | 
+
+### Return type
+
+[**NarSummaryEntity**](NarSummaryEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

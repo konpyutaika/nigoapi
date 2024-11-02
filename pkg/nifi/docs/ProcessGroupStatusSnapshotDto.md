@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **ActiveThreadCount** | **int32** | The active thread count for this process group. | [optional] [default to null]
 **TerminatedThreadCount** | **int32** | The number of threads currently terminated for the process group. | [optional] [default to null]
 **ProcessingNanos** | **int64** |  | [optional] [default to null]
+**ProcessingPerformanceStatus** | [***ProcessingPerformanceStatusDto**](ProcessingPerformanceStatusDTO.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
