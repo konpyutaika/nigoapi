@@ -4,16 +4,58 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CreateAsset**](ParameterContextsApi.md#CreateAsset) | **Post** /parameter-contexts/{contextId}/assets | Creates a new Asset in the given Parameter Context
 [**CreateParameterContext**](ParameterContextsApi.md#CreateParameterContext) | **Post** /parameter-contexts | Create a Parameter Context
+[**DeleteAsset**](ParameterContextsApi.md#DeleteAsset) | **Delete** /parameter-contexts/{contextId}/assets/{assetId} | Deletes an Asset from the given Parameter Context
 [**DeleteParameterContext**](ParameterContextsApi.md#DeleteParameterContext) | **Delete** /parameter-contexts/{id} | Deletes the Parameter Context with the given ID
 [**DeleteUpdateRequest**](ParameterContextsApi.md#DeleteUpdateRequest) | **Delete** /parameter-contexts/{contextId}/update-requests/{requestId} | Deletes the Update Request with the given ID
 [**DeleteValidationRequest**](ParameterContextsApi.md#DeleteValidationRequest) | **Delete** /parameter-contexts/{contextId}/validation-requests/{id} | Deletes the Validation Request with the given ID
+[**GetAssetContent**](ParameterContextsApi.md#GetAssetContent) | **Get** /parameter-contexts/{contextId}/assets/{assetId} | Retrieves the content of the asset with the given id
+[**GetAssets**](ParameterContextsApi.md#GetAssets) | **Get** /parameter-contexts/{contextId}/assets | Lists the assets that belong to the Parameter Context with the given ID
 [**GetParameterContext**](ParameterContextsApi.md#GetParameterContext) | **Get** /parameter-contexts/{id} | Returns the Parameter Context with the given ID
 [**GetParameterContextUpdate**](ParameterContextsApi.md#GetParameterContextUpdate) | **Get** /parameter-contexts/{contextId}/update-requests/{requestId} | Returns the Update Request with the given ID
 [**GetValidationRequest**](ParameterContextsApi.md#GetValidationRequest) | **Get** /parameter-contexts/{contextId}/validation-requests/{id} | Returns the Validation Request with the given ID
 [**SubmitParameterContextUpdate**](ParameterContextsApi.md#SubmitParameterContextUpdate) | **Post** /parameter-contexts/{contextId}/update-requests | Initiate the Update Request of a Parameter Context
 [**SubmitValidationRequest**](ParameterContextsApi.md#SubmitValidationRequest) | **Post** /parameter-contexts/{contextId}/validation-requests | Initiate a Validation Request to determine how the validity of components will change if a Parameter Context were to be updated
 [**UpdateParameterContext**](ParameterContextsApi.md#UpdateParameterContext) | **Put** /parameter-contexts/{id} | Modifies a Parameter Context
+
+# **CreateAsset**
+> AssetEntity CreateAsset(ctx, body, contextId, optional)
+Creates a new Asset in the given Parameter Context
+
+This endpoint will create a new Asset in the given Parameter Context. The Asset will be created with the given name and the contents of the file that is uploaded. The Asset will be created in the given Parameter Context, and will be available for use by any component that references the Parameter Context.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**interface{}**](interface{}.md)| The contents of the asset. | 
+  **contextId** | **string**|  | 
+ **optional** | ***ParameterContextsApiCreateAssetOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ParameterContextsApiCreateAssetOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **filename** | **optional.string**|  | 
+
+### Return type
+
+[**AssetEntity**](AssetEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/octet-stream
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateParameterContext**
 > ParameterContextEntity CreateParameterContext(ctx, body)
@@ -37,6 +79,44 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteAsset**
+> AssetEntity DeleteAsset(ctx, contextId, assetId, optional)
+Deletes an Asset from the given Parameter Context
+
+This endpoint will create a new Asset in the given Parameter Context. The Asset will be created with the given name and the contents of the file that is uploaded. The Asset will be created in the given Parameter Context, and will be available for use by any component that references the Parameter Context.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **contextId** | **string**| The ID of the Parameter Context | 
+  **assetId** | **string**| The ID of the Asset | 
+ **optional** | ***ParameterContextsApiDeleteAssetOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ParameterContextsApiDeleteAssetOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **disconnectedNodeAcknowledged** | **optional.bool**|  | [default to false]
+
+### Return type
+
+[**AssetEntity**](AssetEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -143,6 +223,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ParameterContextValidationRequestEntity**](ParameterContextValidationRequestEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetAssetContent**
+> string GetAssetContent(ctx, contextId, assetId)
+Retrieves the content of the asset with the given id
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **contextId** | **string**| The ID of the Parameter Context | 
+  **assetId** | **string**| The ID of the Asset | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetAssets**
+> AssetsEntity GetAssets(ctx, contextId)
+Lists the assets that belong to the Parameter Context with the given ID
+
+Lists the assets that belong to the Parameter Context with the given ID.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **contextId** | **string**| The ID of the Parameter Context | 
+
+### Return type
+
+[**AssetsEntity**](AssetsEntity.md)
 
 ### Authorization
 

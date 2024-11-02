@@ -17,7 +17,7 @@ export wv_mustache_dir=./swagger_templates
 export wv_api_def_dir=./api_defs
 
 export wv_codegen_url=https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.54/${wv_codegen_filename}
-export wv_swagger_def=$(ls ${wv_api_def_dir} | grep ${wv_client_name} | sort -V | tail -1)
+export wv_swagger_def=$(ls ${wv_api_def_dir} | grep ${wv_client_name} | sort -t - -V -k 2,2 | tail -1)
 
 echo Prepping Workspace
 mkdir -p ${wv_tmp_dir}

@@ -8,7 +8,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 2.0.0-M4
+  version: 2.0.0
 servers:
 - url: /
 paths:
@@ -1717,6 +1717,7 @@ paths:
             application/octet-stream:
               schema:
                 type: string
+                format: byte
                 x-content-type: application/octet-stream
         "400":
           description: NiFi Registry was unable to complete the request because it
@@ -2339,6 +2340,7 @@ paths:
             application/octet-stream:
               schema:
                 type: string
+                format: byte
                 x-content-type: application/octet-stream
         "400":
           description: NiFi Registry was unable to complete the request because it
@@ -4127,12 +4129,12 @@ components:
         filename: filename
         link:
           rel: rel
+          title: title
           type: type
           params:
             key: params
-          title: title
-          uri: http://example.com/aeiou
           uriBuilder: {}
+          uri: http://example.com/aeiou
           rels:
           - rels
           - rels
@@ -4281,17 +4283,6 @@ components:
     Link:
       type: object
       properties:
-        type:
-          type: string
-        params:
-          type: object
-          additionalProperties:
-            type: string
-        title:
-          type: string
-        uri:
-          type: string
-          format: uri
         uriBuilder:
           $ref: '#/components/schemas/UriBuilder'
         rel:
@@ -4300,16 +4291,27 @@ components:
           type: array
           items:
             type: string
+        uri:
+          type: string
+          format: uri
+        title:
+          type: string
+        type:
+          type: string
+        params:
+          type: object
+          additionalProperties:
+            type: string
       description: An WebLink to this entity.
       readOnly: true
       example:
         rel: rel
+        title: title
         type: type
         params:
           key: params
-        title: title
-        uri: http://example.com/aeiou
         uriBuilder: {}
+        uri: http://example.com/aeiou
         rels:
         - rels
         - rels
@@ -4411,12 +4413,12 @@ components:
         createdTimestamp: 1
         link:
           rel: rel
+          title: title
           type: type
           params:
             key: params
-          title: title
-          uri: http://example.com/aeiou
           uriBuilder: {}
+          uri: http://example.com/aeiou
           rels:
           - rels
           - rels
@@ -4548,6 +4550,19 @@ components:
       example:
         x: 0.8008281904610115
         "y": 6.027456183070403
+    VersionedAsset:
+      type: object
+      properties:
+        identifier:
+          type: string
+          description: The identifier of the asset
+        name:
+          type: string
+          description: The name of the asset
+      description: The assets that are referenced by this parameter
+      example:
+        identifier: identifier
+        name: name
     VersionedConnection:
       type: object
       properties:
@@ -4896,12 +4911,12 @@ components:
           author: author
           link:
             rel: rel
+            title: title
             type: type
             params:
               key: params
-            title: title
-            uri: http://example.com/aeiou
             uriBuilder: {}
+            uri: http://example.com/aeiou
             rels:
             - rels
             - rels
@@ -5342,12 +5357,12 @@ components:
           createdTimestamp: 1
           link:
             rel: rel
+            title: title
             type: type
             params:
               key: params
-            title: title
-            uri: http://example.com/aeiou
             uriBuilder: {}
+            uri: http://example.com/aeiou
             rels:
             - rels
             - rels
@@ -5364,8 +5379,8 @@ components:
           key:
             parameterGroupName: parameterGroupName
             identifier: identifier
-            componentType: CONNECTION
             synchronized: true
+            componentType: CONNECTION
             comments: comments
             description: description
             inheritedParameterContexts:
@@ -5376,12 +5391,22 @@ components:
             position: null
             groupIdentifier: groupIdentifier
             parameters:
-            - provided: true
+            - referencedAssets:
+              - identifier: identifier
+                name: name
+              - identifier: identifier
+                name: name
+              provided: true
               name: name
               description: description
               sensitive: true
               value: value
-            - provided: true
+            - referencedAssets:
+              - identifier: identifier
+                name: name
+              - identifier: identifier
+                name: name
+              provided: true
               name: name
               description: description
               sensitive: true
@@ -5428,12 +5453,12 @@ components:
         author: author
         link:
           rel: rel
+          title: title
           type: type
           params:
             key: params
-          title: title
-          uri: http://example.com/aeiou
           uriBuilder: {}
+          uri: http://example.com/aeiou
           rels:
           - rels
           - rels
@@ -5587,8 +5612,18 @@ components:
         value:
           type: string
           description: The value of the parameter
+        referencedAssets:
+          type: array
+          description: The assets that are referenced by this parameter
+          items:
+            $ref: '#/components/schemas/VersionedAsset'
       description: The parameters in the context
       example:
+        referencedAssets:
+        - identifier: identifier
+          name: name
+        - identifier: identifier
+          name: name
         provided: true
         name: name
         description: description
@@ -5637,6 +5672,10 @@ components:
           type: string
           description: "The corresponding parameter group name fetched from the parameter\
             \ provider, if applicable"
+        synchronized:
+          type: boolean
+          description: True if the parameter provider is set and the context should
+            receive updates when its parameters are next fetched
         componentType:
           type: string
           enum:
@@ -5656,10 +5695,6 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
-        synchronized:
-          type: boolean
-          description: True if the parameter provider is set and the context should
-            receive updates when its parameters are next fetched
         groupIdentifier:
           type: string
           description: The ID of the Process Group that this component belongs to
@@ -5670,8 +5705,8 @@ components:
       example:
         parameterGroupName: parameterGroupName
         identifier: identifier
-        componentType: CONNECTION
         synchronized: true
+        componentType: CONNECTION
         comments: comments
         description: description
         inheritedParameterContexts:
@@ -5682,12 +5717,22 @@ components:
         position: null
         groupIdentifier: groupIdentifier
         parameters:
-        - provided: true
+        - referencedAssets:
+          - identifier: identifier
+            name: name
+          - identifier: identifier
+            name: name
+          provided: true
           name: name
           description: description
           sensitive: true
           value: value
-        - provided: true
+        - referencedAssets:
+          - identifier: identifier
+            name: name
+          - identifier: identifier
+            name: name
+          provided: true
           name: name
           description: description
           sensitive: true
@@ -5894,6 +5939,12 @@ components:
         logFileSuffix:
           type: string
           description: The log file suffix for this Process Group for dedicated logging.
+        flowFileConcurrency:
+          type: string
+          description: The configured FlowFile Concurrency for the Process Group
+        flowFileOutboundPolicy:
+          type: string
+          description: The FlowFile Outbound Policy for the Process Group
         componentType:
           type: string
           enum:
@@ -5913,12 +5964,6 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
-        flowFileConcurrency:
-          type: string
-          description: The configured FlowFile Concurrency for the Process Group
-        flowFileOutboundPolicy:
-          type: string
-          description: The FlowFile Outbound Policy for the Process Group
         groupIdentifier:
           type: string
           description: The ID of the Process Group that this component belongs to
@@ -7933,12 +7978,12 @@ components:
           version: version
         link:
           rel: rel
+          title: title
           type: type
           params:
             key: params
-          title: title
-          uri: http://example.com/aeiou
           uriBuilder: {}
+          uri: http://example.com/aeiou
           rels:
           - rels
           - rels
@@ -7989,12 +8034,12 @@ components:
         groupId: groupId
         link:
           rel: rel
+          title: title
           type: type
           params:
             key: params
-          title: title
-          uri: http://example.com/aeiou
           uriBuilder: {}
+          uri: http://example.com/aeiou
           rels:
           - rels
           - rels
@@ -8011,12 +8056,12 @@ components:
         bucketName: bucketName
         link:
           rel: rel
+          title: title
           type: type
           params:
             key: params
-          title: title
-          uri: http://example.com/aeiou
           uriBuilder: {}
+          uri: http://example.com/aeiou
           rels:
           - rels
           - rels
@@ -8036,12 +8081,12 @@ components:
         groupId: groupId
         link:
           rel: rel
+          title: title
           type: type
           params:
             key: params
-          title: title
-          uri: http://example.com/aeiou
           uriBuilder: {}
+          uri: http://example.com/aeiou
           rels:
           - rels
           - rels
@@ -8062,12 +8107,12 @@ components:
       example:
         extensionsLink:
           rel: rel
+          title: title
           type: type
           params:
             key: params
-          title: title
-          uri: http://example.com/aeiou
           uriBuilder: {}
+          uri: http://example.com/aeiou
           rels:
           - rels
           - rels
@@ -8104,12 +8149,12 @@ components:
         groupId: groupId
         link:
           rel: rel
+          title: title
           type: type
           params:
             key: params
-          title: title
-          uri: http://example.com/aeiou
           uriBuilder: {}
+          uri: http://example.com/aeiou
           rels:
           - rels
           - rels
@@ -8200,12 +8245,12 @@ components:
             version: version
           link:
             rel: rel
+            title: title
             type: type
             params:
               key: params
-            title: title
-            uri: http://example.com/aeiou
             uriBuilder: {}
+            uri: http://example.com/aeiou
             rels:
             - rels
             - rels
@@ -8250,12 +8295,12 @@ components:
             version: version
           link:
             rel: rel
+            title: title
             type: type
             params:
               key: params
-            title: title
-            uri: http://example.com/aeiou
             uriBuilder: {}
+            uri: http://example.com/aeiou
             rels:
             - rels
             - rels
@@ -8345,12 +8390,12 @@ components:
         createdTimestamp: 1
         link:
           rel: rel
+          title: title
           type: type
           params:
             key: params
-          title: title
-          uri: http://example.com/aeiou
           uriBuilder: {}
+          uri: http://example.com/aeiou
           rels:
           - rels
           - rels

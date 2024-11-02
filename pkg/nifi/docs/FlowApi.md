@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GenerateClientId**](FlowApi.md#GenerateClientId) | **Get** /flow/client-id | Generates a client id.
 [**GetAboutInfo**](FlowApi.md#GetAboutInfo) | **Get** /flow/about | Retrieves details about this NiFi to put in the About dialog
 [**GetAction**](FlowApi.md#GetAction) | **Get** /flow/history/{id} | Gets an action
+[**GetAdditionalDetails**](FlowApi.md#GetAdditionalDetails) | **Get** /flow/additional-details/{group}/{artifact}/{version}/{type} | Retrieves the additional details for the specified component type.
 [**GetAllFlowAnalysisResults**](FlowApi.md#GetAllFlowAnalysisResults) | **Get** /flow/flow-analysis/results | Returns all flow analysis results currently in effect
 [**GetBanners**](FlowApi.md#GetBanners) | **Get** /flow/banners | Retrieves the banners for this NiFi
 [**GetBranches**](FlowApi.md#GetBranches) | **Get** /flow/registries/{id}/branches | Gets the branches from the specified registry for the current user
@@ -21,6 +22,8 @@ Method | HTTP request | Description
 [**GetConnectionStatistics**](FlowApi.md#GetConnectionStatistics) | **Get** /flow/connections/{id}/statistics | Gets statistics for a connection
 [**GetConnectionStatus**](FlowApi.md#GetConnectionStatus) | **Get** /flow/connections/{id}/status | Gets status for a connection
 [**GetConnectionStatusHistory**](FlowApi.md#GetConnectionStatusHistory) | **Get** /flow/connections/{id}/status/history | Gets the status history for a connection
+[**GetContentViewers**](FlowApi.md#GetContentViewers) | **Get** /flow/content-viewers | Retrieves the registered content viewers
+[**GetControllerServiceDefinition**](FlowApi.md#GetControllerServiceDefinition) | **Get** /flow/controller-service-definition/{group}/{artifact}/{version}/{type} | Retrieves the Controller Service Definition for the specified component type.
 [**GetControllerServiceTypes**](FlowApi.md#GetControllerServiceTypes) | **Get** /flow/controller-service-types | Retrieves the types of controller services that this NiFi supports
 [**GetControllerServicesFromController**](FlowApi.md#GetControllerServicesFromController) | **Get** /flow/controller/controller-services | Gets controller services for reporting tasks
 [**GetControllerServicesFromGroup**](FlowApi.md#GetControllerServicesFromGroup) | **Get** /flow/process-groups/{id}/controller-services | Gets all controller services
@@ -29,6 +32,7 @@ Method | HTTP request | Description
 [**GetDetails**](FlowApi.md#GetDetails) | **Get** /flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/details | Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
 [**GetFlow**](FlowApi.md#GetFlow) | **Get** /flow/process-groups/{id} | Gets a process group
 [**GetFlowAnalysisResults**](FlowApi.md#GetFlowAnalysisResults) | **Get** /flow/flow-analysis/results/{processGroupId} | Returns flow analysis results produced by the analysis of a given process group
+[**GetFlowAnalysisRuleDefinition**](FlowApi.md#GetFlowAnalysisRuleDefinition) | **Get** /flow/flow-analysis-rule-definition/{group}/{artifact}/{version}/{type} | Retrieves the Flow Analysis Rule Definition for the specified component type.
 [**GetFlowAnalysisRuleTypes**](FlowApi.md#GetFlowAnalysisRuleTypes) | **Get** /flow/flow-analysis-rule-types | Retrieves the types of available Flow Analysis Rules
 [**GetFlowConfig**](FlowApi.md#GetFlowConfig) | **Get** /flow/config | Retrieves the configuration for this NiFi flow
 [**GetFlowMetrics**](FlowApi.md#GetFlowMetrics) | **Get** /flow/metrics/{producer} | Gets all metrics for the flow from a particular node
@@ -36,17 +40,20 @@ Method | HTTP request | Description
 [**GetInputPortStatus**](FlowApi.md#GetInputPortStatus) | **Get** /flow/input-ports/{id}/status | Gets status for an input port
 [**GetOutputPortStatus**](FlowApi.md#GetOutputPortStatus) | **Get** /flow/output-ports/{id}/status | Gets status for an output port
 [**GetParameterContexts**](FlowApi.md#GetParameterContexts) | **Get** /flow/parameter-contexts | Gets all Parameter Contexts
+[**GetParameterProviderDefinition**](FlowApi.md#GetParameterProviderDefinition) | **Get** /flow/parameter-provider-definition/{group}/{artifact}/{version}/{type} | Retrieves the Parameter Provider Definition for the specified component type.
 [**GetParameterProviderTypes**](FlowApi.md#GetParameterProviderTypes) | **Get** /flow/parameter-provider-types | Retrieves the types of parameter providers that this NiFi supports
 [**GetParameterProviders**](FlowApi.md#GetParameterProviders) | **Get** /flow/parameter-providers | Gets all parameter providers
 [**GetPrioritizers**](FlowApi.md#GetPrioritizers) | **Get** /flow/prioritizers | Retrieves the types of prioritizers that this NiFi supports
 [**GetProcessGroupStatus**](FlowApi.md#GetProcessGroupStatus) | **Get** /flow/process-groups/{id}/status | Gets the status for a process group
 [**GetProcessGroupStatusHistory**](FlowApi.md#GetProcessGroupStatusHistory) | **Get** /flow/process-groups/{id}/status/history | Gets status history for a remote process group
+[**GetProcessorDefinition**](FlowApi.md#GetProcessorDefinition) | **Get** /flow/processor-definition/{group}/{artifact}/{version}/{type} | Retrieves the Processor Definition for the specified component type.
 [**GetProcessorStatus**](FlowApi.md#GetProcessorStatus) | **Get** /flow/processors/{id}/status | Gets status for a processor
 [**GetProcessorStatusHistory**](FlowApi.md#GetProcessorStatusHistory) | **Get** /flow/processors/{id}/status/history | Gets status history for a processor
 [**GetProcessorTypes**](FlowApi.md#GetProcessorTypes) | **Get** /flow/processor-types | Retrieves the types of processors that this NiFi supports
 [**GetRegistryClients**](FlowApi.md#GetRegistryClients) | **Get** /flow/registries | Gets the listing of available flow registry clients
 [**GetRemoteProcessGroupStatus**](FlowApi.md#GetRemoteProcessGroupStatus) | **Get** /flow/remote-process-groups/{id}/status | Gets status for a remote process group
 [**GetRemoteProcessGroupStatusHistory**](FlowApi.md#GetRemoteProcessGroupStatusHistory) | **Get** /flow/remote-process-groups/{id}/status/history | Gets the status history
+[**GetReportingTaskDefinition**](FlowApi.md#GetReportingTaskDefinition) | **Get** /flow/reporting-task-definition/{group}/{artifact}/{version}/{type} | Retrieves the Reporting Task Definition for the specified component type.
 [**GetReportingTaskSnapshot**](FlowApi.md#GetReportingTaskSnapshot) | **Get** /flow/reporting-tasks/snapshot | Get a snapshot of the given reporting tasks and any controller services they use
 [**GetReportingTaskTypes**](FlowApi.md#GetReportingTaskTypes) | **Get** /flow/reporting-task-types | Retrieves the types of reporting tasks that this NiFi supports
 [**GetReportingTasks**](FlowApi.md#GetReportingTasks) | **Get** /flow/reporting-tasks | Gets all reporting tasks
@@ -177,6 +184,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ActionEntity**](ActionEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetAdditionalDetails**
+> AdditionalDetailsEntity GetAdditionalDetails(ctx, group, artifact, version, type_)
+Retrieves the additional details for the specified component type.
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **group** | **string**| The bundle group | 
+  **artifact** | **string**| The bundle artifact | 
+  **version** | **string**| The bundle version | 
+  **type_** | **string**| The processor type | 
+
+### Return type
+
+[**AdditionalDetailsEntity**](AdditionalDetailsEntity.md)
 
 ### Authorization
 
@@ -524,6 +562,59 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetContentViewers**
+> ContentViewerEntity GetContentViewers(ctx, )
+Retrieves the registered content viewers
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ContentViewerEntity**](ContentViewerEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetControllerServiceDefinition**
+> ControllerServiceDefinition GetControllerServiceDefinition(ctx, group, artifact, version, type_)
+Retrieves the Controller Service Definition for the specified component type.
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **group** | **string**| The bundle group | 
+  **artifact** | **string**| The bundle artifact | 
+  **version** | **string**| The bundle version | 
+  **type_** | **string**| The controller service type | 
+
+### Return type
+
+[**ControllerServiceDefinition**](ControllerServiceDefinition.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetControllerServiceTypes**
 > ControllerServiceTypesEntity GetControllerServiceTypes(ctx, optional)
 Retrieves the types of controller services that this NiFi supports
@@ -683,7 +774,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDetails**
-> VersionedFlowEntity GetDetails(ctx, registryId, bucketId, flowId)
+> VersionedFlowEntity GetDetails(ctx, registryId, bucketId, flowId, optional)
 Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
 
 ### Required Parameters
@@ -694,6 +785,16 @@ Name | Type | Description  | Notes
   **registryId** | **string**| The registry client id. | 
   **bucketId** | **string**| The bucket id. | 
   **flowId** | **string**| The flow id. | 
+ **optional** | ***FlowApiGetDetailsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiGetDetailsOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **branch** | **optional.string**| The name of a branch to get the flow from. If not specified the default branch of the registry client will be used. | 
 
 ### Return type
 
@@ -760,6 +861,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FlowAnalysisResultEntity**](FlowAnalysisResultEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetFlowAnalysisRuleDefinition**
+> FlowAnalysisRuleDefinition GetFlowAnalysisRuleDefinition(ctx, group, artifact, version, type_)
+Retrieves the Flow Analysis Rule Definition for the specified component type.
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **group** | **string**| The bundle group | 
+  **artifact** | **string**| The bundle artifact | 
+  **version** | **string**| The bundle version | 
+  **type_** | **string**| The flow analysis rule type | 
+
+### Return type
+
+[**FlowAnalysisRuleDefinition**](FlowAnalysisRuleDefinition.md)
 
 ### Authorization
 
@@ -868,7 +1000,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetFlows**
-> VersionedFlowsEntity GetFlows(ctx, registryId, bucketId)
+> VersionedFlowsEntity GetFlows(ctx, registryId, bucketId, optional)
 Gets the flows from the specified registry and bucket for the current user
 
 ### Required Parameters
@@ -878,6 +1010,15 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **registryId** | **string**| The registry client id. | 
   **bucketId** | **string**| The bucket id. | 
+ **optional** | ***FlowApiGetFlowsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiGetFlowsOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **branch** | **optional.string**| The name of a branch to get the flows from. If not specified the default branch of the registry client will be used. | 
 
 ### Return type
 
@@ -974,6 +1115,37 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ParameterContextsEntity**](ParameterContextsEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetParameterProviderDefinition**
+> ParameterProviderDefinition GetParameterProviderDefinition(ctx, group, artifact, version, type_)
+Retrieves the Parameter Provider Definition for the specified component type.
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **group** | **string**| The bundle group | 
+  **artifact** | **string**| The bundle artifact | 
+  **version** | **string**| The bundle version | 
+  **type_** | **string**| The parameter provider type | 
+
+### Return type
+
+[**ParameterProviderDefinition**](ParameterProviderDefinition.md)
 
 ### Authorization
 
@@ -1120,6 +1292,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StatusHistoryEntity**](StatusHistoryEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetProcessorDefinition**
+> ProcessorDefinition GetProcessorDefinition(ctx, group, artifact, version, type_)
+Retrieves the Processor Definition for the specified component type.
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **group** | **string**| The bundle group | 
+  **artifact** | **string**| The bundle artifact | 
+  **version** | **string**| The bundle version | 
+  **type_** | **string**| The processor type | 
+
+### Return type
+
+[**ProcessorDefinition**](ProcessorDefinition.md)
 
 ### Authorization
 
@@ -1312,6 +1515,37 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetReportingTaskDefinition**
+> ReportingTaskDefinition GetReportingTaskDefinition(ctx, group, artifact, version, type_)
+Retrieves the Reporting Task Definition for the specified component type.
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **group** | **string**| The bundle group | 
+  **artifact** | **string**| The bundle artifact | 
+  **version** | **string**| The bundle version | 
+  **type_** | **string**| The reporting task type | 
+
+### Return type
+
+[**ReportingTaskDefinition**](ReportingTaskDefinition.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetReportingTaskSnapshot**
 > VersionedReportingTaskSnapshot GetReportingTaskSnapshot(ctx, optional)
 Get a snapshot of the given reporting tasks and any controller services they use
@@ -1478,7 +1712,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetVersions**
-> VersionedFlowSnapshotMetadataSetEntity GetVersions(ctx, registryId, bucketId, flowId)
+> VersionedFlowSnapshotMetadataSetEntity GetVersions(ctx, registryId, bucketId, flowId, optional)
 Gets the flow versions from the specified registry and bucket for the specified flow for the current user
 
 ### Required Parameters
@@ -1489,6 +1723,16 @@ Name | Type | Description  | Notes
   **registryId** | **string**| The registry client id. | 
   **bucketId** | **string**| The bucket id. | 
   **flowId** | **string**| The flow id. | 
+ **optional** | ***FlowApiGetVersionsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiGetVersionsOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **branch** | **optional.string**| The name of a branch to get the flow versions from. If not specified the default branch of the registry client will be used. | 
 
 ### Return type
 
@@ -1557,7 +1801,7 @@ Schedule or unschedule components in the specified Process Group.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body** | [**ScheduleComponentsEntity**](ScheduleComponentsEntity.md)| The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. | 
+  **body** | [**ScheduleComponentsEntity**](ScheduleComponentsEntity.md)| The request to schedule or unschedule. If the components in the request are not specified, all authorized components will be considered. | 
   **id** | **string**| The process group id. | 
 
 ### Return type

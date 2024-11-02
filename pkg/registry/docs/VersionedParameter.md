@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Sensitive** | **bool** | Whether or not the parameter value is sensitive | [optional] [default to null]
 **Provided** | **bool** | Whether or not the parameter value is provided by a ParameterProvider | [optional] [default to null]
 **Value** | **string** | The value of the parameter | [optional] [default to null]
+**ReferencedAssets** | [**[]VersionedAsset**](VersionedAsset.md) | The assets that are referenced by this parameter | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
