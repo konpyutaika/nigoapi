@@ -9,10 +9,6 @@
  */
 package nifi
 
-import (
-	"time"
-)
-
 // The Update Request
 type ParameterContextUpdateRequestDto struct {
 	// Whether or not the request is completed
@@ -20,7 +16,7 @@ type ParameterContextUpdateRequestDto struct {
 	// The reason for the request failing, or null if the request has not failed
 	FailureReason string `json:"failureReason,omitempty"`
 	// The timestamp of when the request was last updated
-	LastUpdated      time.Time            `json:"lastUpdated,omitempty"`
+	LastUpdated      string               `json:"lastUpdated,omitempty"`
 	ParameterContext *ParameterContextDto `json:"parameterContext,omitempty"`
 	// A value between 0 and 100 (inclusive) indicating how close the request is to completion
 	PercentCompleted int32 `json:"percentCompleted,omitempty"`
