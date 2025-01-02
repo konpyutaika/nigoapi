@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CanRead** | **bool** | Indicates whether the user can read a given resource. | [optional] [default to null]
 **Id** | **string** | The id of the remote process group. | [optional] [default to null]
 **RemoteProcessGroupStatusSnapshot** | [***RemoteProcessGroupStatusSnapshotDto**](RemoteProcessGroupStatusSnapshotDTO.md) |  | [optional] [default to null]
-**CanRead** | **bool** | Indicates whether the user can read a given resource. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

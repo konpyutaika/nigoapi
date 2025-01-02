@@ -4,6 +4,7 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Copy**](ProcessGroupsApi.md#Copy) | **Post** /process-groups/{id}/copy | Generates a copy response for the given copy request
 [**CopySnippet**](ProcessGroupsApi.md#CopySnippet) | **Post** /process-groups/{id}/snippet-instance | Copies a snippet and discards it.
 [**CreateConnection**](ProcessGroupsApi.md#CreateConnection) | **Post** /process-groups/{id}/connections | Creates a connection
 [**CreateControllerService1**](ProcessGroupsApi.md#CreateControllerService1) | **Post** /process-groups/{id}/controller-services | Creates a new controller service
@@ -31,11 +32,39 @@ Method | HTTP request | Description
 [**GetReplaceProcessGroupRequest**](ProcessGroupsApi.md#GetReplaceProcessGroupRequest) | **Get** /process-groups/replace-requests/{id} | Returns the Replace Request with the given ID
 [**ImportProcessGroup**](ProcessGroupsApi.md#ImportProcessGroup) | **Post** /process-groups/{id}/process-groups/import | Imports a specified process group
 [**InitiateReplaceProcessGroup**](ProcessGroupsApi.md#InitiateReplaceProcessGroup) | **Post** /process-groups/{id}/replace-requests | Initiate the Replace Request of a Process Group with the given ID
+[**Paste**](ProcessGroupsApi.md#Paste) | **Put** /process-groups/{id}/paste | Pastes into the specified process group
 [**RemoveDropRequest1**](ProcessGroupsApi.md#RemoveDropRequest1) | **Delete** /process-groups/{id}/empty-all-connections-requests/{drop-request-id} | Cancels and/or removes a request to drop all flowfiles.
 [**RemoveProcessGroup**](ProcessGroupsApi.md#RemoveProcessGroup) | **Delete** /process-groups/{id} | Deletes a process group
 [**ReplaceProcessGroup**](ProcessGroupsApi.md#ReplaceProcessGroup) | **Put** /process-groups/{id}/flow-contents | Replace Process Group contents with the given ID with the specified Process Group contents
 [**UpdateProcessGroup**](ProcessGroupsApi.md#UpdateProcessGroup) | **Put** /process-groups/{id} | Updates a process group
 [**UploadProcessGroup**](ProcessGroupsApi.md#UploadProcessGroup) | **Post** /process-groups/{id}/process-groups/upload | Uploads a versioned flow definition and creates a process group
+
+# **Copy**
+> CopyResponseEntity Copy(ctx, body, id)
+Generates a copy response for the given copy request
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**CopyRequestEntity**](CopyRequestEntity.md)| The request including the components to be copied from the specified Process Group. | 
+  **id** | **string**| The process group id. | 
+
+### Return type
+
+[**CopyResponseEntity**](CopyResponseEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CopySnippet**
 > FlowEntity CopySnippet(ctx, body, id)
@@ -798,6 +827,33 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **Paste**
+> PasteResponseEntity Paste(ctx, body, id)
+Pastes into the specified process group
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**PasteRequestEntity**](PasteRequestEntity.md)| The request including the components to be pasted into the specified Process Group. | 
+  **id** | **string**| The process group id. | 
+
+### Return type
+
+[**PasteResponseEntity**](PasteResponseEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **RemoveDropRequest1**
 > DropRequestEntity RemoveDropRequest1(ctx, id, dropRequestId)
 Cancels and/or removes a request to drop all flowfiles.
@@ -934,12 +990,12 @@ Optional parameters are passed through a pointer to a ProcessGroupsApiUploadProc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **groupName** | **optional.string**|  | 
- **positionX** | **optional.float64**|  | 
- **positionY** | **optional.float64**|  | 
  **clientId** | **optional.string**|  | 
  **disconnectedNodeAcknowledged** | **optional.bool**|  | 
  **file** | [**optional.Interface of interface{}**](.md)|  | 
+ **groupName** | **optional.string**|  | 
+ **positionX** | **optional.float64**|  | 
+ **positionY** | **optional.float64**|  | 
 
 ### Return type
 

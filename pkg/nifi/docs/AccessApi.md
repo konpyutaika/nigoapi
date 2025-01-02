@@ -25,8 +25,8 @@ Name | Type | Description  | Notes
 Optional parameters are passed through a pointer to a AccessApiCreateAccessTokenOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **optional.string**|  | 
  **password** | **optional.string**|  | 
+ **username** | **optional.string**|  | 
 
 ### Return type
 
