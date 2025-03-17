@@ -8,7 +8,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 2.1.0
+  version: 2.3.0
 servers:
 - url: /
 paths:
@@ -34,15 +34,15 @@ paths:
         to top-level resources
       operationId: getAccessStatus
       responses:
-        "409":
-          description: NiFi Registry was unable to complete the request because it
-            assumes a server state that is not valid. The NiFi Registry might be running
-            unsecured.
-        default:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CurrentUser'
+        "409":
+          description: NiFi Registry was unable to complete the request because it
+            assumes a server state that is not valid. The NiFi Registry might be running
+            unsecured.
   /access/logout:
     delete:
       tags:
@@ -171,6 +171,12 @@ paths:
         \ header in the format 'Authorization: Bearer <token>'."
       operationId: createAccessTokenByTryingAllProviders
       responses:
+        "201":
+          content:
+            text/plain:
+              schema:
+                type: string
+                x-content-type: text/plain
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -200,6 +206,12 @@ paths:
         \ Bearer <token>'."
       operationId: createAccessTokenUsingIdentityProviderCredentials
       responses:
+        "201":
+          content:
+            text/plain:
+              schema:
+                type: string
+                x-content-type: text/plain
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -223,6 +235,12 @@ paths:
         provider as defined by 'GET /access/token/identity-provider/usage'.
       operationId: testIdentityProviderRecognizesCredentialsFormat
       responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+                x-content-type: text/plain
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -245,6 +263,12 @@ paths:
         provider expects credentials to be passed to POST /access/token/identity-provider
       operationId: getIdentityProviderUsageInstructions
       responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+                x-content-type: text/plain
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -269,6 +293,12 @@ paths:
         \ <token>'."
       operationId: createAccessTokenUsingKerberosTicket
       responses:
+        "201":
+          content:
+            text/plain:
+              schema:
+                type: string
+                x-content-type: text/plain
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -296,6 +326,12 @@ paths:
         \ header in the format 'Authorization: Bearer <token>'."
       operationId: createAccessTokenUsingBasicAuthCredentials
       responses:
+        "201":
+          content:
+            text/plain:
+              schema:
+                type: string
+                x-content-type: text/plain
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -318,9 +354,7 @@ paths:
         \ an empty list."
       operationId: getBuckets
       responses:
-        "401":
-          description: Client could not be authenticated.
-        default:
+        "200":
           content:
             application/json:
               schema:
@@ -328,6 +362,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/Bucket'
                 x-content-type: application/json
+        "401":
+          description: Client could not be authenticated.
     post:
       tags:
       - Buckets
@@ -350,6 +386,11 @@ paths:
               $ref: '#/components/schemas/Bucket'
         required: true
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -357,11 +398,6 @@ paths:
           description: Client could not be authenticated.
         "403":
           description: Client is not authorized to make this request.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Bucket'
       x-access-policy:
         action: write
         resource: /buckets
@@ -395,17 +431,17 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
         "401":
           description: Client could not be authenticated.
         "403":
           description: Client is not authorized to make this request.
         "404":
           description: The specified resource could not be found.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Bucket'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -432,6 +468,11 @@ paths:
               $ref: '#/components/schemas/Bucket'
         required: true
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -444,11 +485,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Bucket'
       x-access-policy:
         action: write
         resource: "/buckets/{bucketId}"
@@ -487,6 +523,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -496,11 +537,6 @@ paths:
           description: Client is not authorized to make this request.
         "404":
           description: The specified resource could not be found.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Bucket'
       x-access-policy:
         action: delete
         resource: "/buckets/{bucketId}"
@@ -524,6 +560,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Bundle'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -536,14 +580,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Bundle'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -592,6 +628,11 @@ paths:
             schema:
               $ref: '#/components/schemas/bundles_bundleType_body'
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BundleVersion'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -604,11 +645,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BundleVersion'
       x-access-policy:
         action: write
         resource: "/buckets/{bucketId}"
@@ -629,6 +665,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VersionedFlow'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -641,14 +685,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VersionedFlow'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -676,6 +712,11 @@ paths:
               $ref: '#/components/schemas/VersionedFlow'
         required: true
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlow'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -688,11 +729,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlow'
       x-access-policy:
         action: write
         resource: "/buckets/{bucketId}"
@@ -721,6 +757,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlow'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -733,11 +774,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlow'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -772,6 +808,11 @@ paths:
               $ref: '#/components/schemas/VersionedFlow'
         required: true
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlow'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -784,11 +825,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlow'
       x-access-policy:
         action: write
         resource: "/buckets/{bucketId}"
@@ -834,6 +870,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlow'
         "401":
           description: Client could not be authenticated.
         "403":
@@ -843,11 +884,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlow'
       x-access-policy:
         action: delete
         resource: "/buckets/{bucketId}"
@@ -894,6 +930,11 @@ paths:
           type: integer
           format: int32
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlowDifference'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -906,11 +947,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlowDifference'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -940,6 +976,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VersionedFlowSnapshotMetadata'
+                x-content-type: application/json
         "401":
           description: Client could not be authenticated.
         "403":
@@ -949,14 +993,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VersionedFlowSnapshotMetadata'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1001,6 +1037,11 @@ paths:
               $ref: '#/components/schemas/VersionedFlowSnapshot'
         required: true
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlowSnapshot'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1013,11 +1054,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlowSnapshot'
       x-access-policy:
         action: write
         resource: "/buckets/{bucketId}"
@@ -1063,6 +1099,10 @@ paths:
       responses:
         "201":
           description: The resource has been successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlowSnapshot'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1075,11 +1115,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlowSnapshot'
       x-access-policy:
         action: write
         resource: "/buckets/{bucketId}"
@@ -1109,6 +1144,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlowSnapshot'
         "401":
           description: Client could not be authenticated.
         "403":
@@ -1118,11 +1158,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlowSnapshot'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1151,6 +1186,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlowSnapshotMetadata'
         "401":
           description: Client could not be authenticated.
         "403":
@@ -1160,11 +1200,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlowSnapshotMetadata'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1203,6 +1238,11 @@ paths:
           type: integer
           format: int32
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlowSnapshot'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1215,11 +1255,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlowSnapshot'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1258,6 +1293,11 @@ paths:
           type: integer
           format: int32
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlowSnapshot'
         "401":
           description: Client could not be authenticated.
         "403":
@@ -1267,11 +1307,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlowSnapshot'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1318,9 +1353,7 @@ paths:
         schema:
           type: string
       responses:
-        "401":
-          description: Client could not be authenticated.
-        default:
+        "200":
           content:
             application/json:
               schema:
@@ -1328,6 +1361,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/Bundle'
                 x-content-type: application/json
+        "401":
+          description: Client could not be authenticated.
   /bundles/versions:
     get:
       tags:
@@ -1370,9 +1405,7 @@ paths:
         schema:
           type: string
       responses:
-        "401":
-          description: Client could not be authenticated.
-        default:
+        "200":
           content:
             application/json:
               schema:
@@ -1380,6 +1413,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/BundleVersionMetadata'
                 x-content-type: application/json
+        "401":
+          description: Client could not be authenticated.
   /bundles/{bundleId}:
     get:
       tags:
@@ -1398,6 +1433,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1410,11 +1450,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Bundle'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1436,6 +1471,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1448,11 +1488,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Bundle'
       x-access-policy:
         action: write
         resource: "/buckets/{bucketId}"
@@ -1475,6 +1510,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BundleVersionMetadata'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1487,14 +1530,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/BundleVersionMetadata'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1525,6 +1560,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BundleVersion'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1537,11 +1577,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BundleVersion'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1571,6 +1606,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BundleVersion'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1583,11 +1623,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BundleVersion'
       x-access-policy:
         action: write
         resource: "/buckets/{bucketId}"
@@ -1618,6 +1653,13 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: byte
+                x-content-type: application/octet-stream
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1630,13 +1672,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/octet-stream:
-              schema:
-                type: string
-                format: byte
-                x-content-type: application/octet-stream
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1667,6 +1702,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExtensionMetadata'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1679,14 +1722,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ExtensionMetadata'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1725,6 +1760,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Extension'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1737,14 +1780,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Extension'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1856,13 +1891,13 @@ paths:
       description: Gets the NiFi Registry configurations.
       operationId: getConfiguration
       responses:
-        "401":
-          description: Client could not be authenticated.
-        default:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/RegistryConfiguration'
+        "401":
+          description: Client could not be authenticated.
       x-access-policy:
         action: read
         resource: "/policies,/tenants"
@@ -1876,6 +1911,14 @@ paths:
         \ to change as NiFi Registry and its REST API evolve."
       operationId: getExtensionRepoBuckets
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExtensionRepoBucket'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1888,14 +1931,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ExtensionRepoBucket'
-                x-content-type: application/json
   /extension-repository/{bucketName}:
     get:
       tags:
@@ -1915,6 +1950,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExtensionRepoGroup'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1927,14 +1970,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ExtensionRepoGroup'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -1965,6 +2000,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExtensionRepoArtifact'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -1977,14 +2020,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ExtensionRepoArtifact'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2023,6 +2058,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExtensionRepoVersionSummary'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -2035,14 +2078,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ExtensionRepoVersionSummary'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2089,6 +2124,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtensionRepoVersion'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -2101,11 +2141,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExtensionRepoVersion'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2152,6 +2187,13 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: byte
+                x-content-type: application/octet-stream
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -2164,13 +2206,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/octet-stream:
-              schema:
-                type: string
-                format: byte
-                x-content-type: application/octet-stream
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2217,6 +2252,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExtensionMetadata'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -2229,14 +2272,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ExtensionMetadata'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2291,6 +2326,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Extension'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -2303,11 +2343,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Extension'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2600,6 +2635,11 @@ paths:
           items:
             type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtensionMetadataContainer'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -2612,11 +2652,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExtensionMetadataContainer'
   /extensions/provided-service-api:
     get:
       tags:
@@ -2661,6 +2696,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtensionMetadataContainer'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -2673,11 +2713,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExtensionMetadataContainer'
   /extensions/tags:
     get:
       tags:
@@ -2689,6 +2724,14 @@ paths:
         NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
       operationId: getTags
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TagCount'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -2701,14 +2744,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/TagCount'
-                x-content-type: application/json
   /flows/fields:
     get:
       tags:
@@ -2740,6 +2775,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlow'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -2752,11 +2792,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlow'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2778,6 +2813,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VersionedFlowSnapshotMetadata'
+                x-content-type: application/json
         "401":
           description: Client could not be authenticated.
         "403":
@@ -2787,14 +2830,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VersionedFlowSnapshotMetadata'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2816,6 +2851,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlowSnapshot'
         "401":
           description: Client could not be authenticated.
         "403":
@@ -2825,11 +2865,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlowSnapshot'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2850,6 +2885,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlowSnapshotMetadata'
         "401":
           description: Client could not be authenticated.
         "403":
@@ -2859,11 +2899,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlowSnapshotMetadata'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2894,6 +2929,11 @@ paths:
           type: integer
           format: int32
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionedFlowSnapshot'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -2906,11 +2946,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionedFlowSnapshot'
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2924,9 +2959,7 @@ paths:
         \ not authorized to any buckets, an empty list will be returned."
       operationId: getItems
       responses:
-        "401":
-          description: Client could not be authenticated.
-        default:
+        "200":
           content:
             application/json:
               schema:
@@ -2934,6 +2967,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/BucketItem'
                 x-content-type: application/json
+        "401":
+          description: Client could not be authenticated.
   /items/fields:
     get:
       tags:
@@ -2965,6 +3000,14 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BucketItem'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -2974,14 +3017,6 @@ paths:
           description: Client is not authorized to make this request.
         "404":
           description: The specified resource could not be found.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/BucketItem'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: "/buckets/{bucketId}"
@@ -2992,14 +3027,7 @@ paths:
       summary: Get all access policies
       operationId: getAccessPolicies
       responses:
-        "401":
-          description: Client could not be authenticated.
-        "403":
-          description: Client is not authorized to make this request.
-        "409":
-          description: NiFi Registry was unable to complete the request because it
-            assumes a server state that is not valid.
-        default:
+        "200":
           content:
             application/json:
               schema:
@@ -3007,6 +3035,13 @@ paths:
                 items:
                   $ref: '#/components/schemas/AccessPolicy'
                 x-content-type: application/json
+        "401":
+          description: Client could not be authenticated.
+        "403":
+          description: Client is not authorized to make this request.
+        "409":
+          description: NiFi Registry was unable to complete the request because it
+            assumes a server state that is not valid.
       x-access-policy:
         action: read
         resource: /policies
@@ -3051,11 +3086,7 @@ paths:
         policies
       operationId: getResources
       responses:
-        "401":
-          description: Client could not be authenticated.
-        "403":
-          description: Client is not authorized to make this request.
-        default:
+        "200":
           content:
             application/json:
               schema:
@@ -3063,6 +3094,10 @@ paths:
                 items:
                   $ref: '#/components/schemas/Resource'
                 x-content-type: application/json
+        "401":
+          description: Client could not be authenticated.
+        "403":
+          description: Client is not authorized to make this request.
       x-access-policy:
         action: read
         resource: /policies
@@ -3092,6 +3127,11 @@ paths:
           pattern: .+
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicy'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3104,11 +3144,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AccessPolicy'
       x-access-policy:
         action: read
         resource: /policies
@@ -3128,6 +3163,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicy'
         "401":
           description: Client could not be authenticated.
         "403":
@@ -3137,11 +3177,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AccessPolicy'
       x-access-policy:
         action: read
         resource: /policies
@@ -3167,6 +3202,11 @@ paths:
               $ref: '#/components/schemas/AccessPolicy'
         required: true
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicy'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3180,11 +3220,6 @@ paths:
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid. The NiFi Registry might not
             be configured to use a ConfigurableAccessPolicyProvider.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AccessPolicy'
       x-access-policy:
         action: write
         resource: /policies
@@ -3221,6 +3256,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicy'
         "401":
           description: Client could not be authenticated.
         "403":
@@ -3231,11 +3271,6 @@ paths:
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid. The NiFi Registry might not
             be configured to use a ConfigurableAccessPolicyProvider.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AccessPolicy'
       x-access-policy:
         action: delete
         resource: /policies
@@ -3250,6 +3285,14 @@ paths:
         NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
       operationId: getUserGroups
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserGroup'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3262,14 +3305,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UserGroup'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: /tenants
@@ -3290,6 +3325,11 @@ paths:
               $ref: '#/components/schemas/UserGroup'
         required: true
       responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroup'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3302,11 +3342,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGroup'
       x-access-policy:
         action: write
         resource: /tenants
@@ -3330,6 +3365,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroup'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3342,11 +3382,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGroup'
       x-access-policy:
         action: read
         resource: /tenants
@@ -3376,6 +3411,11 @@ paths:
               $ref: '#/components/schemas/UserGroup'
         required: true
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroup'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3388,11 +3428,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGroup'
       x-access-policy:
         action: write
         resource: /tenants
@@ -3433,6 +3468,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroup'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3445,11 +3485,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGroup'
       x-access-policy:
         action: delete
         resource: /tenants
@@ -3464,6 +3499,14 @@ paths:
         NOTE: This endpoint is subject to change as NiFi Registry and its REST API evolve.
       operationId: getUsers
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+                x-content-type: application/json
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3474,14 +3517,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/User'
-                x-content-type: application/json
       x-access-policy:
         action: read
         resource: /tenants
@@ -3502,6 +3537,11 @@ paths:
               $ref: '#/components/schemas/User'
         required: true
       responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3514,11 +3554,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
       x-access-policy:
         action: write
         resource: /tenants
@@ -3542,6 +3577,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3554,11 +3594,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
       x-access-policy:
         action: read
         resource: /tenants
@@ -3588,6 +3623,11 @@ paths:
               $ref: '#/components/schemas/User'
         required: true
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3600,11 +3640,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
       x-access-policy:
         action: write
         resource: /tenants
@@ -3645,6 +3680,11 @@ paths:
         schema:
           type: string
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
         "400":
           description: NiFi Registry was unable to complete the request because it
             was invalid. The request should not be retried without modification.
@@ -3657,11 +3697,6 @@ paths:
         "409":
           description: NiFi Registry was unable to complete the request because it
             assumes a server state that is not valid.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
       x-access-policy:
         action: delete
         resource: /tenants
@@ -3674,7 +3709,9 @@ components:
           type: string
           description: The action associated with this access policy.
           enum:
-          - "read, write, delete"
+          - read
+          - write
+          - delete
         configurable:
           type: boolean
           description: "Indicates if this access policy is configurable, based on\
@@ -3717,12 +3754,12 @@ components:
           accessPolicies:
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           identity: identity
@@ -3741,19 +3778,19 @@ components:
           accessPolicies:
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           identity: identity
           configurable: true
           revision: null
         resource: resource
-        action: "read, write, delete"
+        action: read
         configurable: true
         users:
         - null
@@ -3769,7 +3806,9 @@ components:
           type: string
           description: The action associated with this access policy.
           enum:
-          - "read, write, delete"
+          - read
+          - write
+          - delete
         configurable:
           type: boolean
           description: "Indicates if this access policy is configurable, based on\
@@ -3789,7 +3828,7 @@ components:
       example:
         identifier: identifier
         resource: resource
-        action: "read, write, delete"
+        action: read
         configurable: true
         revision: null
     AllowableValue:
@@ -5929,12 +5968,12 @@ components:
         accessPolicies:
         - identifier: identifier
           resource: resource
-          action: "read, write, delete"
+          action: read
           configurable: true
           revision: null
         - identifier: identifier
           resource: resource
-          action: "read, write, delete"
+          action: read
           configurable: true
           revision: null
         identity: identity
@@ -6025,12 +6064,12 @@ components:
           accessPolicies:
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           identity: identity
@@ -6049,12 +6088,12 @@ components:
           accessPolicies:
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           identity: identity
@@ -6072,12 +6111,12 @@ components:
         accessPolicies:
         - identifier: identifier
           resource: resource
-          action: "read, write, delete"
+          action: read
           configurable: true
           revision: null
         - identifier: identifier
           resource: resource
-          action: "read, write, delete"
+          action: read
           configurable: true
           revision: null
         identity: identity
@@ -6134,12 +6173,12 @@ components:
         accessPolicies:
         - identifier: identifier
           resource: resource
-          action: "read, write, delete"
+          action: read
           configurable: true
           revision: null
         - identifier: identifier
           resource: resource
-          action: "read, write, delete"
+          action: read
           configurable: true
           revision: null
         identity: identity
@@ -6158,12 +6197,12 @@ components:
           accessPolicies:
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           identity: identity
@@ -6182,12 +6221,12 @@ components:
           accessPolicies:
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           - identifier: identifier
             resource: resource
-            action: "read, write, delete"
+            action: read
             configurable: true
             revision: null
           identity: identity

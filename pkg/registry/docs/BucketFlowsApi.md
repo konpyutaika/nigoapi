@@ -363,7 +363,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ImportVersionedFlow**
-> ImportVersionedFlow(ctx, bucketId, flowId, optional)
+> VersionedFlowSnapshot ImportVersionedFlow(ctx, bucketId, flowId, optional)
 Import flow version
 
 Import the next version of a flow. The version number of the object being created will be the next available version integer. Flow versions are immutable after they are created.
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**VersionedFlowSnapshot**](VersionedFlowSnapshot.md)
 
 ### Authorization
 

@@ -201,9 +201,9 @@ Manual changes:
 
   ```golang
   // The timestamp of when the request was submitted
-  SubmissionTime Time.time `json:"submissionTime,omitempty"`
+  SubmissionTime time.Time `json:"submissionTime,omitempty"`
   // The timestamp of when the request was last updated
-  LastUpdated Time.time `json:"lastUpdated,omitempty"`
+  LastUpdated time.Time `json:"lastUpdated,omitempty"`
   ```
  
   by: 

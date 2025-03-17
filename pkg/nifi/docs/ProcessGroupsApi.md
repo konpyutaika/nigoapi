@@ -148,7 +148,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateEmptyAllConnectionsRequest**
-> CreateEmptyAllConnectionsRequest(ctx, id)
+> DropRequestEntity CreateEmptyAllConnectionsRequest(ctx, id)
 Creates a request to drop all flowfiles of all connection queues in this process group.
 
 ### Required Parameters
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**DropRequestEntity**](DropRequestEntity.md)
 
 ### Authorization
 
