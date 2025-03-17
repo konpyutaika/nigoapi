@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**RemoveDropRequest**](FlowFileQueuesApi.md#RemoveDropRequest) | **Delete** /flowfile-queues/{id}/drop-requests/{drop-request-id} | Cancels and/or removes a request to drop the contents of this connection.
 
 # **CreateDropRequest**
-> CreateDropRequest(ctx, id)
+> DropRequestEntity CreateDropRequest(ctx, id)
 Creates a request to drop the contents of the queue in this connection.
 
 ### Required Parameters
@@ -26,7 +26,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**DropRequestEntity**](DropRequestEntity.md)
 
 ### Authorization
 
@@ -40,7 +40,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateFlowFileListing**
-> CreateFlowFileListing(ctx, id)
+> ListingRequestEntity CreateFlowFileListing(ctx, id)
 Lists the contents of the queue in this connection.
 
 ### Required Parameters
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**ListingRequestEntity**](ListingRequestEntity.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DownloadFlowFileContent**
-> DownloadFlowFileContent(ctx, id, flowfileUuid, optional)
+> StreamingOutput DownloadFlowFileContent(ctx, id, flowfileUuid, optional)
 Gets the content for a FlowFile in a Connection.
 
 ### Required Parameters
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**StreamingOutput**](StreamingOutput.md)
 
 ### Authorization
 

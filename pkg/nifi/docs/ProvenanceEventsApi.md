@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**SubmitReplayLatestEvent**](ProvenanceEventsApi.md#SubmitReplayLatestEvent) | **Post** /provenance-events/latest/replays | Replays content from a provenance event
 
 # **GetInputContent**
-> GetInputContent(ctx, id, optional)
+> StreamingOutput GetInputContent(ctx, id, optional)
 Gets the input content for a provenance event
 
 ### Required Parameters
@@ -33,7 +33,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**StreamingOutput**](StreamingOutput.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetOutputContent**
-> GetOutputContent(ctx, id, optional)
+> StreamingOutput GetOutputContent(ctx, id, optional)
 Gets the output content for a provenance event
 
 ### Required Parameters
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**StreamingOutput**](StreamingOutput.md)
 
 ### Authorization
 
