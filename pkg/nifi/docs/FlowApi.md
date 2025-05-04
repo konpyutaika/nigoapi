@@ -979,7 +979,7 @@ Optional parameters are passed through a pointer to a FlowApiGetFlowMetricsOpts 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **includedRegistries** | [**optional.Interface of []string**](string.md)| Set of included metrics registries | 
+ **includedRegistries** | [**optional.Interface of []string**](string.md)| Set of included metrics registries. Duplicate the parameter to include multiple registries. All registries are included by default. | 
  **sampleName** | **optional.string**| Regular Expression Pattern to be applied against the sample name field | 
  **sampleLabelValue** | **optional.string**| Regular Expression Pattern to be applied against the sample label value field | 
  **rootFieldName** | **optional.string**| Name of the first field of JSON object. Applicable for JSON producer only. | 

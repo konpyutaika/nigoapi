@@ -8,7 +8,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 2.3.0
+  version: 2.4.0
 servers:
 - url: /
 paths:
@@ -3905,12 +3905,14 @@ components:
           type: string
           description: A description of the bucket.
         identifier:
+          minLength: 1
           type: string
           description: An ID to uniquely identify this object.
           readOnly: true
         link:
           $ref: '#/components/schemas/Link'
         name:
+          minLength: 1
           type: string
           description: The name of the bucket.
         permissions:
@@ -3954,6 +3956,7 @@ components:
       type: object
       properties:
         bucketIdentifier:
+          minLength: 1
           type: string
           description: The identifier of the bucket this items belongs to. This cannot
             be changed after the item is created.
@@ -3972,6 +3975,7 @@ components:
           type: string
           description: A description of the item.
         identifier:
+          minLength: 1
           type: string
           description: An ID to uniquely identify this object.
           readOnly: true
@@ -3985,6 +3989,7 @@ components:
           format: int64
           readOnly: true
         name:
+          minLength: 1
           type: string
           description: The name of the item.
         permissions:
@@ -4214,12 +4219,15 @@ components:
       type: object
       properties:
         artifactId:
+          minLength: 1
           type: string
           description: The artifact id of the bundle dependency
         groupId:
+          minLength: 1
           type: string
           description: The group id of the bundle dependency
         version:
+          minLength: 1
           type: string
           description: The version of the bundle dependency
       description: The set of other bundle versions that this version is dependent
@@ -4246,14 +4254,17 @@ components:
         artifactId:
           type: string
         author:
+          minLength: 1
           type: string
           description: The identity that created this version
         bucketId:
+          minLength: 1
           type: string
           description: The id of the bucket the extension bundle belongs to
         buildInfo:
           $ref: '#/components/schemas/BuildInfo'
         bundleId:
+          minLength: 1
           type: string
           description: The id of the extension bundle this version is for
         contentSize:
@@ -4267,11 +4278,13 @@ components:
         groupId:
           type: string
         id:
+          minLength: 1
           type: string
           description: The id of this version of the extension bundle
         link:
           $ref: '#/components/schemas/Link'
         sha256:
+          minLength: 1
           type: string
           description: The hex representation of the SHA-256 digest of the binary
             content for this version
@@ -4280,6 +4293,7 @@ components:
           description: Whether or not the client supplied a SHA-256 when uploading
             the bundle
         systemApiVersion:
+          minLength: 1
           type: string
           description: The version of the system API that this bundle version was
             built against
@@ -4289,6 +4303,7 @@ components:
           description: The timestamp of the create date of this version
           format: int64
         version:
+          minLength: 1
           type: string
           description: The version of the extension bundle
       example:
@@ -5667,11 +5682,6 @@ components:
         dynamic: true
         expressionLanguageSupported: true
     ProvidedServiceAPI:
-      required:
-      - artifactId
-      - className
-      - groupId
-      - version
       type: object
       properties:
         artifactId:
@@ -5831,9 +5841,6 @@ components:
           explanation: explanation
         generalRestrictionExplanation: generalRestrictionExplanation
     Restriction:
-      required:
-      - explanation
-      - requiredPermission
       type: object
       properties:
         explanation:
@@ -6523,6 +6530,7 @@ components:
       type: object
       properties:
         bucketIdentifier:
+          minLength: 1
           type: string
           description: The identifier of the bucket this items belongs to. This cannot
             be changed after the item is created.
@@ -6541,6 +6549,7 @@ components:
           type: string
           description: A description of the item.
         identifier:
+          minLength: 1
           type: string
           description: An ID to uniquely identify this object.
           readOnly: true
@@ -6554,6 +6563,7 @@ components:
           format: int64
           readOnly: true
         name:
+          minLength: 1
           type: string
           description: The name of the item.
         permissions:
@@ -7281,16 +7291,19 @@ components:
       type: object
       properties:
         author:
+          minLength: 1
           type: string
           description: The user that created this snapshot of the flow.
           readOnly: true
         bucketIdentifier:
+          minLength: 1
           type: string
           description: The identifier of the bucket this snapshot belongs to.
         comments:
           type: string
           description: The comments provided by the user when creating the snapshot.
         flowIdentifier:
+          minLength: 1
           type: string
           description: The identifier of the flow this snapshot belongs to.
         link:
