@@ -24,7 +24,7 @@ cd nifi-framework-bundle/nifi-framework/nifi-web/nifi-web-api
 mvn clean install -T2C -DskipTests
 ```
 
-Now available at `nifi-framework-bundle/nifi-framework/nifi-web/nifi-web-api/target/nifi-web-api-2.4.0/docs/rest-api/swagger.json`.
+Now available at `nifi-framework-bundle/nifi-framework/nifi-web/nifi-web-api/target/nifi-web-api-2.5.0/docs/rest-api/swagger.json`.
 
 Build the `swagger.json` for **NiFi Registry**:
 
@@ -33,7 +33,7 @@ cd nifi-registry/nifi-registry-core/nifi-registry-web-api
 mvn clean install -T2C -DskipTests
 ```
 
-Now available at `nifi-registry/nifi-registry-core/nifi-registry-web-api/target/nifi-registry-web-api-2.4.0/docs/rest-api/swagger.json`.
+Now available at `nifi-registry/nifi-registry-core/nifi-registry-web-api/target/nifi-registry-web-api-2.5.0/docs/rest-api/swagger.json`.
 
 ## Generate client
 
