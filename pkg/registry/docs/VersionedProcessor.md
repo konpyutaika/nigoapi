@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AnnotationData** | **string** | The annotation data for the processor used to relay configuration between a custom UI and the procesosr. | [optional] [default to null]
 **AutoTerminatedRelationships** | **[]string** | The names of all relationships that cause a flow file to be terminated if the relationship is not connected elsewhere. This property differs from the &#x27;isAutoTerminate&#x27; property of the RelationshipDTO in that the RelationshipDTO is meant to depict the current configuration, whereas this property can be set in a DTO when updating a Processor in order to change which Relationships should be auto-terminated. | [optional] [default to null]
-**BackoffMechanism** | **string** | Determines whether the FlowFile should be penalized or the processor should be yielded between retries. | [optional] [default to null]
+**BackoffMechanism** | **string** | Determines whether the FlowFile should be penalized or the processor should be yielded between retries. Possible returned values: PENALIZE_FLOWFILE, YIELD_PROCESSOR. | [optional] [default to null]
 **BulletinLevel** | **string** | The level at which the processor will report bulletins. | [optional] [default to null]
 **Bundle** | [***Bundle**](Bundle.md) |  | [optional] [default to null]
 **Comments** | **string** | The user-supplied comments for the component | [optional] [default to null]

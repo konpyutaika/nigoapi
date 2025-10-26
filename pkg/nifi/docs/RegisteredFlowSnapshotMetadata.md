@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **BucketIdentifier** | **string** |  | [optional] [default to null]
 **Comments** | **string** |  | [optional] [default to null]
 **FlowIdentifier** | **string** |  | [optional] [default to null]
+**FlowName** | **string** |  | [optional] [default to null]
+**RegistryIdentifier** | **string** |  | [optional] [default to null]
+**RegistryName** | **string** |  | [optional] [default to null]
 **Timestamp** | **int64** |  | [optional] [default to null]
 **Version** | **string** |  | [optional] [default to null]
 

@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **ProxyPort** | **int32** |  | [optional] [default to null]
 **ProxyUser** | **string** |  | [optional] [default to null]
 **TargetUris** | **string** | The target URIs of the remote process group. If target uris is not set but target uri is set, then returns the single target uri. If neither target uris nor target uri is set, then returns null. | [optional] [default to null]
-**TransportProtocol** | **string** | The Transport Protocol that is used for Site-to-Site communications | [optional] [default to null]
+**TransportProtocol** | **string** | The Transport Protocol that is used for Site-to-Site communications. Possible returned values: RAW, HTTP. | [optional] [default to null]
 **YieldDuration** | **string** | When yielding, this amount of time must elapse before the remote process group is scheduled again. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -72,7 +72,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ClearState**
-> ComponentStateEntity ClearState(ctx, id)
+> ComponentStateEntity ClearState(ctx, id, optional)
 Clears the state for a flow analysis rule
 
 ### Required Parameters
@@ -81,6 +81,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| The flow analysis rule id. | 
+ **optional** | ***ControllerApiClearStateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ControllerApiClearStateOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | [**optional.Interface of ComponentStateEntity**](ComponentStateEntity.md)| Optional component state to perform a selective key removal. If omitted, clears all state. | 
 
 ### Return type
 
@@ -88,11 +96,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*, application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -114,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -140,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -166,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -192,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -218,7 +226,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -244,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -273,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -309,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -335,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -370,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -396,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -422,7 +430,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -446,7 +454,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -468,7 +476,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -494,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -530,7 +538,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -556,7 +564,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -585,7 +593,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -607,7 +615,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -633,7 +641,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -655,7 +663,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -681,7 +689,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -703,7 +711,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -729,7 +737,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -755,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -779,7 +787,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -815,7 +823,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -839,7 +847,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -865,7 +873,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -901,7 +909,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -930,7 +938,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -956,7 +964,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -983,7 +991,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -1010,7 +1018,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -1037,7 +1045,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -1064,7 +1072,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -1098,7 +1106,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
