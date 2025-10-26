@@ -5,6 +5,7 @@ All URIs are relative to */*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetCounters**](CountersApi.md#GetCounters) | **Get** /counters | Gets the current counters for this NiFi
+[**UpdateAllCounters**](CountersApi.md#UpdateAllCounters) | **Put** /counters | Updates all counters. This will reset all counter values to 0
 [**UpdateCounter**](CountersApi.md#UpdateCounter) | **Put** /counters/{id} | Updates the specified counter. This will reset the counter value to 0
 
 # **GetCounters**
@@ -33,7 +34,31 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateAllCounters**
+> CountersEntity UpdateAllCounters(ctx, )
+Updates all counters. This will reset all counter values to 0
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CountersEntity**](CountersEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
@@ -61,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
 
 ### HTTP request headers
 
