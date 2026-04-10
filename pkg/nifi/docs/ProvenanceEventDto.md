@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **EventDuration** | **int64** | The event duration in milliseconds. | [optional] [default to null]
 **EventId** | **int64** | The event id. This is a one up number thats unique per node. | [optional] [default to null]
 **EventTime** | **string** | The timestamp of the event. | [optional] [default to null]
+**EventTimestamp** | **string** | Event Timestamp formatted using ISO8601 | [optional] [default to null]
 **EventType** | **string** | The type of the event. | [optional] [default to null]
 **FileSize** | **string** | The size of the flowfile for the event. | [optional] [default to null]
 **FileSizeBytes** | **int64** | The size of the flowfile in bytes for the event. | [optional] [default to null]
