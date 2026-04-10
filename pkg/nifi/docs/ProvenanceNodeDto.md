@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ChildUuids** | **[]string** | The uuid of the childrent flowfiles of the provenance event. | [optional] [default to null]
 **ClusterNodeIdentifier** | **string** | The identifier of the node that this event/flowfile originated from. | [optional] [default to null]
+**ComponentType** | **string** | If the type is EVENT, this is the type of the component that generated the event. | [optional] [default to null]
 **EventType** | **string** | If the type is EVENT, this is the type of event. | [optional] [default to null]
 **FlowFileUuid** | **string** | The uuid of the flowfile associated with the provenance event. | [optional] [default to null]
 **Id** | **string** | The id of the node. | [optional] [default to null]
