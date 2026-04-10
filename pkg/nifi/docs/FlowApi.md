@@ -5,6 +5,7 @@ All URIs are relative to */*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ActivateControllerServices**](FlowApi.md#ActivateControllerServices) | **Put** /flow/process-groups/{id}/controller-services | Enable or disable Controller Services in the specified Process Group.
+[**ClearBulletins1**](FlowApi.md#ClearBulletins1) | **Post** /flow/process-groups/{id}/bulletins/clear-requests | Clears bulletins for components in the specified Process Group.
 [**DownloadReportingTaskSnapshot**](FlowApi.md#DownloadReportingTaskSnapshot) | **Get** /flow/reporting-tasks/download | Download a snapshot of the given reporting tasks and any controller services they use
 [**GenerateClientId**](FlowApi.md#GenerateClientId) | **Get** /flow/client-id | Generates a client id.
 [**GetAboutInfo**](FlowApi.md#GetAboutInfo) | **Get** /flow/about | Retrieves details about this NiFi to put in the About dialog
@@ -36,8 +37,10 @@ Method | HTTP request | Description
 [**GetFlowAnalysisRuleTypes**](FlowApi.md#GetFlowAnalysisRuleTypes) | **Get** /flow/flow-analysis-rule-types | Retrieves the types of available Flow Analysis Rules
 [**GetFlowConfig**](FlowApi.md#GetFlowConfig) | **Get** /flow/config | Retrieves the configuration for this NiFi flow
 [**GetFlowMetrics**](FlowApi.md#GetFlowMetrics) | **Get** /flow/metrics/{producer} | Gets all metrics for the flow from a particular node
+[**GetFlowRegistryClientDefinition**](FlowApi.md#GetFlowRegistryClientDefinition) | **Get** /flow/flow-registry-client-definition/{group}/{artifact}/{version}/{type} | Retrieves the Flow Registry Client Definition for the specified component type.
 [**GetFlows**](FlowApi.md#GetFlows) | **Get** /flow/registries/{registry-id}/buckets/{bucket-id}/flows | Gets the flows from the specified registry and bucket for the current user
 [**GetInputPortStatus**](FlowApi.md#GetInputPortStatus) | **Get** /flow/input-ports/{id}/status | Gets status for an input port
+[**GetListenPorts**](FlowApi.md#GetListenPorts) | **Get** /flow/listen-ports | Gets all listen ports configured on this NiFi that the current user has access to
 [**GetOutputPortStatus**](FlowApi.md#GetOutputPortStatus) | **Get** /flow/output-ports/{id}/status | Gets status for an output port
 [**GetParameterContexts**](FlowApi.md#GetParameterContexts) | **Get** /flow/parameter-contexts | Gets all Parameter Contexts
 [**GetParameterProviderDefinition**](FlowApi.md#GetParameterProviderDefinition) | **Get** /flow/parameter-provider-definition/{group}/{artifact}/{version}/{type} | Retrieves the Parameter Provider Definition for the specified component type.
@@ -80,6 +83,33 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ActivateControllerServicesEntity**](ActivateControllerServicesEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ClearBulletins1**
+> ClearBulletinsForGroupResultsEntity ClearBulletins1(ctx, body, id)
+Clears bulletins for components in the specified Process Group.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ClearBulletinsForGroupRequestEntity**](ClearBulletinsForGroupRequestEntity.md)| The request to clear bulletins. If the components in the request are not specified, all authorized components will be considered. | 
+  **id** | **string**| The process group id. | 
+
+### Return type
+
+[**ClearBulletinsForGroupResultsEntity**](ClearBulletinsForGroupResultsEntity.md)
 
 ### Authorization
 
@@ -983,6 +1013,7 @@ Name | Type | Description  | Notes
  **sampleName** | **optional.string**| Regular Expression Pattern to be applied against the sample name field | 
  **sampleLabelValue** | **optional.string**| Regular Expression Pattern to be applied against the sample label value field | 
  **rootFieldName** | **optional.string**| Name of the first field of JSON object. Applicable for JSON producer only. | 
+ **flowMetricsReportingStrategy** | **optional.string**| Flow metrics reporting strategy limits collected metrics | [default to ALL_COMPONENTS]
 
 ### Return type
 
@@ -996,6 +1027,37 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetFlowRegistryClientDefinition**
+> FlowRegistryClientDefinition GetFlowRegistryClientDefinition(ctx, group, artifact, version, type_)
+Retrieves the Flow Registry Client Definition for the specified component type.
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **group** | **string**| The bundle group | 
+  **artifact** | **string**| The bundle artifact | 
+  **version** | **string**| The bundle version | 
+  **type_** | **string**| The flow registry client type | 
+
+### Return type
+
+[**FlowRegistryClientDefinition**](FlowRegistryClientDefinition.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1058,6 +1120,28 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PortStatusEntity**](PortStatusEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetListenPorts**
+> ListenPortsEntity GetListenPorts(ctx, )
+Gets all listen ports configured on this NiFi that the current user has access to
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListenPortsEntity**](ListenPortsEntity.md)
 
 ### Authorization
 

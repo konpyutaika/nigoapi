@@ -12,7 +12,9 @@ Name | Type | Description | Notes
 **SourceId** | **string** | The id of the source component. | [optional] [default to null]
 **SourceName** | **string** | The name of the source component. | [optional] [default to null]
 **SourceType** | **string** | The type of the source component | [optional] [default to null]
+**StackTrace** | **string** | The stack trace associated with the bulletin, if any. | [optional] [default to null]
 **Timestamp** | **string** | When this bulletin was generated. | [optional] [default to null]
+**TimestampIso** | **string** | When this bulletin was generated in ISO format with full date and milliseconds. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

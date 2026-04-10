@@ -8,7 +8,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 2.6.0
+  version: 2.7.0
 servers:
 - url: /
 paths:
@@ -2623,6 +2623,7 @@ paths:
           - REPORTING_TASK
           - FLOW_ANALYSIS_RULE
           - PARAMETER_PROVIDER
+          - FLOW_REGISTRY_CLIENT
       - name: tag
         in: query
         description: "The tags to filter on, will be used in an OR statement"
@@ -4773,6 +4774,7 @@ components:
           - REPORTING_TASK
           - FLOW_ANALYSIS_RULE
           - PARAMETER_PROVIDER
+          - FLOW_REGISTRY_CLIENT
         useCases:
           type: array
           description: Zero or more documented use cases for how the extension may
@@ -4941,6 +4943,11 @@ components:
               - values
               - values
             propertyName: propertyName
+          listenPortDefinition:
+            applicationProtocols:
+            - applicationProtocols
+            - applicationProtocols
+            transportProtocol: TCP
           allowableValues:
           - displayName: displayName
             description: description
@@ -4981,6 +4988,11 @@ components:
               - values
               - values
             propertyName: propertyName
+          listenPortDefinition:
+            applicationProtocols:
+            - applicationProtocols
+            - applicationProtocols
+            transportProtocol: TCP
           allowableValues:
           - displayName: displayName
             description: description
@@ -5009,6 +5021,7 @@ components:
           - REPORTING_TASK
           - FLOW_ANALYSIS_RULE
           - PARAMETER_PROVIDER
+          - FLOW_REGISTRY_CLIENT
         tags:
           uniqueItems: true
           type: array
@@ -5068,6 +5081,7 @@ components:
           - REPORTING_TASK
           - FLOW_ANALYSIS_RULE
           - PARAMETER_PROVIDER
+          - FLOW_REGISTRY_CLIENT
       description: The metadata for the extensions
       example:
         bundleInfo:
@@ -5476,6 +5490,33 @@ components:
         rels:
         - rels
         - rels
+    ListenPortDefinition:
+      type: object
+      properties:
+        applicationProtocols:
+          type: array
+          description: The application protocols that this listen port could support
+            (if any)
+          xml:
+            wrapped: true
+          items:
+            type: string
+            description: The application protocols that this listen port could support
+              (if any)
+            xml:
+              name: applicationProtocol
+        transportProtocol:
+          type: string
+          description: The transport protocol used by this listen port
+          enum:
+          - TCP
+          - UDP
+      description: The optional listen port definition
+      example:
+        applicationProtocols:
+        - applicationProtocols
+        - applicationProtocols
+        transportProtocol: TCP
     LongParameter:
       type: object
       properties:
@@ -5628,6 +5669,8 @@ components:
         expressionLanguageSupported:
           type: boolean
           description: Whether or not expression language is supported
+        listenPortDefinition:
+          $ref: '#/components/schemas/ListenPortDefinition'
         name:
           type: string
           description: The name of the property
@@ -5671,6 +5714,11 @@ components:
             - values
             - values
           propertyName: propertyName
+        listenPortDefinition:
+          applicationProtocols:
+          - applicationProtocols
+          - applicationProtocols
+          transportProtocol: TCP
         allowableValues:
         - displayName: displayName
           description: description
@@ -5682,18 +5730,27 @@ components:
         dynamic: true
         expressionLanguageSupported: true
     ProvidedServiceAPI:
+      required:
+      - artifactId
+      - className
+      - groupId
+      - version
       type: object
       properties:
         artifactId:
+          minLength: 1
           type: string
           description: The artifact id of the service API being provided
         className:
+          minLength: 1
           type: string
           description: The class name of the service API being provided
         groupId:
+          minLength: 1
           type: string
           description: The group id of the service API being provided
         version:
+          minLength: 1
           type: string
           description: The version of the service API being provided
       description: The service APIs provided by the extension
@@ -5841,12 +5898,17 @@ components:
           explanation: explanation
         generalRestrictionExplanation: generalRestrictionExplanation
     Restriction:
+      required:
+      - explanation
+      - requiredPermission
       type: object
       properties:
         explanation:
+          minLength: 1
           type: string
           description: The explanation of this restriction
         requiredPermission:
+          minLength: 1
           type: string
           description: The permission required for this restriction
       description: The specific restrictions
@@ -6503,6 +6565,11 @@ components:
             name: name
             dynamic: true
             sensitive: true
+            listenPortDefinition:
+              applicationProtocols:
+              - applicationProtocols
+              - applicationProtocols
+              transportProtocol: TCP
         type: type
         scheduledState: ENABLED
         controllerServiceApis:
@@ -7016,6 +7083,11 @@ components:
                 name: name
                 dynamic: true
                 sensitive: true
+                listenPortDefinition:
+                  applicationProtocols:
+                  - applicationProtocols
+                  - applicationProtocols
+                  transportProtocol: TCP
             type: type
             scheduledState: ENABLED
             controllerServiceApis:
@@ -7050,6 +7122,11 @@ components:
                 name: name
                 dynamic: true
                 sensitive: true
+                listenPortDefinition:
+                  applicationProtocols:
+                  - applicationProtocols
+                  - applicationProtocols
+                  transportProtocol: TCP
             type: type
             scheduledState: ENABLED
             controllerServiceApis:
@@ -7464,6 +7541,30 @@ components:
         groupIdentifier: groupIdentifier
         height: 9.301444243932576
         zIndex: 2
+    VersionedListenPortDefinition:
+      type: object
+      properties:
+        applicationProtocols:
+          type: array
+          description: The application protocol(s) that the listen port could support
+            (if any)
+          items:
+            type: string
+            description: The application protocol(s) that the listen port could support
+              (if any)
+        transportProtocol:
+          type: string
+          description: The transport protocol used by the listen port
+          enum:
+          - TCP
+          - UDP
+      description: "Returns the Listen Port Definition for the port this property\
+        \ specifies, if applicable"
+      example:
+        applicationProtocols:
+        - applicationProtocols
+        - applicationProtocols
+        transportProtocol: TCP
     VersionedParameter:
       type: object
       properties:
@@ -8060,6 +8161,11 @@ components:
               name: name
               dynamic: true
               sensitive: true
+              listenPortDefinition:
+                applicationProtocols:
+                - applicationProtocols
+                - applicationProtocols
+                transportProtocol: TCP
           type: type
           scheduledState: ENABLED
           controllerServiceApis:
@@ -8094,6 +8200,11 @@ components:
               name: name
               dynamic: true
               sensitive: true
+              listenPortDefinition:
+                applicationProtocols:
+                - applicationProtocols
+                - applicationProtocols
+                transportProtocol: TCP
           type: type
           scheduledState: ENABLED
           controllerServiceApis:
@@ -8442,6 +8553,8 @@ components:
           type: boolean
           description: Whether or not the property provides the identifier of a Controller
             Service
+        listenPortDefinition:
+          $ref: '#/components/schemas/VersionedListenPortDefinition'
         name:
           type: string
           description: The name of the property
@@ -8462,6 +8575,11 @@ components:
         name: name
         dynamic: true
         sensitive: true
+        listenPortDefinition:
+          applicationProtocols:
+          - applicationProtocols
+          - applicationProtocols
+          transportProtocol: TCP
     VersionedRemoteGroupPort:
       type: object
       properties:

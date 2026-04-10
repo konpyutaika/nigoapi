@@ -4,6 +4,7 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ClearBulletins6**](RemoteProcessGroupsApi.md#ClearBulletins6) | **Post** /remote-process-groups/{id}/bulletins/clear-requests | Clears bulletins for a remote process group
 [**GetRemoteProcessGroup**](RemoteProcessGroupsApi.md#GetRemoteProcessGroup) | **Get** /remote-process-groups/{id} | Gets a remote process group
 [**GetState3**](RemoteProcessGroupsApi.md#GetState3) | **Get** /remote-process-groups/{id}/state | Gets the state for a RemoteProcessGroup
 [**RemoveRemoteProcessGroup**](RemoteProcessGroupsApi.md#RemoveRemoteProcessGroup) | **Delete** /remote-process-groups/{id} | Deletes a remote process group
@@ -14,6 +15,33 @@ Method | HTTP request | Description
 [**UpdateRemoteProcessGroupOutputPortRunStatus**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupOutputPortRunStatus) | **Put** /remote-process-groups/{id}/output-ports/{port-id}/run-status | Updates run status of a remote port
 [**UpdateRemoteProcessGroupRunStatus**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupRunStatus) | **Put** /remote-process-groups/{id}/run-status | Updates run status of a remote process group
 [**UpdateRemoteProcessGroupRunStatuses**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupRunStatuses) | **Put** /remote-process-groups/process-group/{id}/run-status | Updates run status of all remote process groups in a process group (recursively)
+
+# **ClearBulletins6**
+> ClearBulletinsResultEntity ClearBulletins6(ctx, body, id)
+Clears bulletins for a remote process group
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ClearBulletinsRequestEntity**](ClearBulletinsRequestEntity.md)| The clear bulletin request. | 
+  **id** | **string**| The remote process group id. | 
+
+### Return type
+
+[**ClearBulletinsResultEntity**](ClearBulletinsResultEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRemoteProcessGroup**
 > RemoteProcessGroupEntity GetRemoteProcessGroup(ctx, id)

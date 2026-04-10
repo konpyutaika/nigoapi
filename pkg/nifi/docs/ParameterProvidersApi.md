@@ -5,6 +5,7 @@ All URIs are relative to */*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AnalyzeConfiguration1**](ParameterProvidersApi.md#AnalyzeConfiguration1) | **Post** /parameter-providers/{id}/config/analysis | Performs analysis of the component&#x27;s configuration, providing information about which attributes are referenced.
+[**ClearBulletins4**](ParameterProvidersApi.md#ClearBulletins4) | **Post** /parameter-providers/{id}/bulletins/clear-requests | Clears bulletins for a parameter provider
 [**ClearState2**](ParameterProvidersApi.md#ClearState2) | **Post** /parameter-providers/{id}/state/clear-requests | Clears the state for a parameter provider
 [**DeleteApplyParametersRequest**](ParameterProvidersApi.md#DeleteApplyParametersRequest) | **Delete** /parameter-providers/{providerId}/apply-parameters-requests/{requestId} | Deletes the Apply Parameters Request with the given ID
 [**DeleteVerificationRequest1**](ParameterProvidersApi.md#DeleteVerificationRequest1) | **Delete** /parameter-providers/{id}/config/verification-requests/{requestId} | Deletes the Verification Request with the given ID
@@ -35,6 +36,33 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConfigurationAnalysisEntity**](ConfigurationAnalysisEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ClearBulletins4**
+> ClearBulletinsResultEntity ClearBulletins4(ctx, body, id)
+Clears bulletins for a parameter provider
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ClearBulletinsRequestEntity**](ClearBulletinsRequestEntity.md)| The clear bulletin request specifying the timestamp from which to clear bulletins. | 
+  **id** | **string**| The parameter provider id. | 
+
+### Return type
+
+[**ClearBulletinsResultEntity**](ClearBulletinsResultEntity.md)
 
 ### Authorization
 
