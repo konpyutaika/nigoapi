@@ -4,10 +4,38 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ClearBulletins2**](InputPortsApi.md#ClearBulletins2) | **Post** /input-ports/{id}/bulletins/clear-requests | Clears bulletins for an input port
 [**GetInputPort**](InputPortsApi.md#GetInputPort) | **Get** /input-ports/{id} | Gets an input port
 [**RemoveInputPort**](InputPortsApi.md#RemoveInputPort) | **Delete** /input-ports/{id} | Deletes an input port
 [**UpdateInputPort**](InputPortsApi.md#UpdateInputPort) | **Put** /input-ports/{id} | Updates an input port
 [**UpdateRunStatus2**](InputPortsApi.md#UpdateRunStatus2) | **Put** /input-ports/{id}/run-status | Updates run status of an input-port
+
+# **ClearBulletins2**
+> ClearBulletinsResultEntity ClearBulletins2(ctx, body, id)
+Clears bulletins for an input port
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ClearBulletinsRequestEntity**](ClearBulletinsRequestEntity.md)| The request to clear bulletins. | 
+  **id** | **string**| The input port id. | 
+
+### Return type
+
+[**ClearBulletinsResultEntity**](ClearBulletinsResultEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetInputPort**
 > PortEntity GetInputPort(ctx, id)

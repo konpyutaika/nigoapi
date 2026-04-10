@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **InputRequirement** | **string** | The input requirement for this processor. | [optional] [default to null]
 **OperatePermissions** | [***PermissionsDto**](PermissionsDTO.md) |  | [optional] [default to null]
 **Permissions** | [***PermissionsDto**](PermissionsDTO.md) |  | [optional] [default to null]
+**PhysicalState** | **string** | The physical state of the processor, including transition states | [optional] [default to null]
 **Position** | [***PositionDto**](PositionDTO.md) |  | [optional] [default to null]
 **Revision** | [***RevisionDto**](RevisionDTO.md) |  | [optional] [default to null]
 **Status** | [***ProcessorStatusDto**](ProcessorStatusDTO.md) |  | [optional] [default to null]

@@ -5,6 +5,10 @@ All URIs are relative to */*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AnalyzeFlowAnalysisRuleConfiguration**](ControllerApi.md#AnalyzeFlowAnalysisRuleConfiguration) | **Post** /controller/flow-analysis-rules/{id}/config/analysis | Performs analysis of the component&#x27;s configuration, providing information about which attributes are referenced.
+[**AnalyzeFlowRegistryClientConfiguration**](ControllerApi.md#AnalyzeFlowRegistryClientConfiguration) | **Post** /controller/registry-clients/{id}/config/analysis | Performs analysis of the component&#x27;s configuration, providing information about which attributes are referenced.
+[**ClearFlowAnalysisRuleBulletins**](ControllerApi.md#ClearFlowAnalysisRuleBulletins) | **Post** /controller/flow-analysis-rules/{id}/bulletins/clear-requests | Clears bulletins for a flow analysis rule
+[**ClearParameterProviderBulletins**](ControllerApi.md#ClearParameterProviderBulletins) | **Post** /controller/parameter-providers/{id}/bulletins/clear-requests | Clears bulletins for a parameter provider
+[**ClearRegistryClientBulletins**](ControllerApi.md#ClearRegistryClientBulletins) | **Post** /controller/registry-clients/{id}/bulletins/clear-requests | Clears bulletins for a registry client
 [**ClearState**](ControllerApi.md#ClearState) | **Post** /controller/flow-analysis-rules/{id}/state/clear-requests | Clears the state for a flow analysis rule
 [**CreateBulletin**](ControllerApi.md#CreateBulletin) | **Post** /controller/bulletin | Creates a new bulletin
 [**CreateControllerService**](ControllerApi.md#CreateControllerService) | **Post** /controller/controller-services | Creates a new controller service
@@ -17,6 +21,7 @@ Method | HTTP request | Description
 [**DeleteHistory**](ControllerApi.md#DeleteHistory) | **Delete** /controller/history | Purges history
 [**DeleteNar**](ControllerApi.md#DeleteNar) | **Delete** /controller/nar-manager/nars/{id} | Deletes an installed NAR
 [**DeleteNode**](ControllerApi.md#DeleteNode) | **Delete** /controller/cluster/nodes/{id} | Removes a node from the cluster
+[**DeleteRegistryClientVerificationRequest**](ControllerApi.md#DeleteRegistryClientVerificationRequest) | **Delete** /controller/registry-clients/{id}/config/verification-requests/{requestId} | Deletes the Verification Request with the given ID
 [**DownloadNar**](ControllerApi.md#DownloadNar) | **Get** /controller/nar-manager/nars/{id}/content | Retrieves the content of the NAR with the given id
 [**GetCluster**](ControllerApi.md#GetCluster) | **Get** /controller/cluster | Gets the contents of the cluster
 [**GetControllerConfig**](ControllerApi.md#GetControllerConfig) | **Get** /controller/config | Retrieves the configuration for this NiFi Controller
@@ -34,9 +39,11 @@ Method | HTTP request | Description
 [**GetNodeStatusHistory**](ControllerApi.md#GetNodeStatusHistory) | **Get** /controller/status/history | Gets status history for the node
 [**GetPropertyDescriptor**](ControllerApi.md#GetPropertyDescriptor) | **Get** /controller/registry-clients/{id}/descriptors | Gets a flow registry client property descriptor
 [**GetRegistryClientTypes**](ControllerApi.md#GetRegistryClientTypes) | **Get** /controller/registry-types | Retrieves the types of flow  that this NiFi supports
+[**GetRegistryClientVerificationRequest**](ControllerApi.md#GetRegistryClientVerificationRequest) | **Get** /controller/registry-clients/{id}/config/verification-requests/{requestId} | Returns the Verification Request with the given ID
 [**ImportReportingTaskSnapshot**](ControllerApi.md#ImportReportingTaskSnapshot) | **Post** /controller/reporting-tasks/import | Imports a reporting task snapshot
 [**RemoveFlowAnalysisRule**](ControllerApi.md#RemoveFlowAnalysisRule) | **Delete** /controller/flow-analysis-rules/{id} | Deletes a flow analysis rule
 [**SubmitFlowAnalysisRuleConfigVerificationRequest**](ControllerApi.md#SubmitFlowAnalysisRuleConfigVerificationRequest) | **Post** /controller/flow-analysis-rules/{id}/config/verification-requests | Performs verification of the Flow Analysis Rule&#x27;s configuration
+[**SubmitRegistryClientConfigVerificationRequest**](ControllerApi.md#SubmitRegistryClientConfigVerificationRequest) | **Post** /controller/registry-clients/{id}/config/verification-requests | Performs verification of the Registry Client&#x27;s configuration
 [**UpdateControllerConfig**](ControllerApi.md#UpdateControllerConfig) | **Put** /controller/config | Retrieves the configuration for this NiFi
 [**UpdateFlowAnalysisRule**](ControllerApi.md#UpdateFlowAnalysisRule) | **Put** /controller/flow-analysis-rules/{id} | Updates a flow analysis rule
 [**UpdateFlowRegistryClient**](ControllerApi.md#UpdateFlowRegistryClient) | **Put** /controller/registry-clients/{id} | Updates a flow registry client
@@ -59,6 +66,114 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConfigurationAnalysisEntity**](ConfigurationAnalysisEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **AnalyzeFlowRegistryClientConfiguration**
+> ConfigurationAnalysisEntity AnalyzeFlowRegistryClientConfiguration(ctx, body, id)
+Performs analysis of the component's configuration, providing information about which attributes are referenced.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ConfigurationAnalysisEntity**](ConfigurationAnalysisEntity.md)| The configuration analysis request. | 
+  **id** | **string**| The registry client id. | 
+
+### Return type
+
+[**ConfigurationAnalysisEntity**](ConfigurationAnalysisEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ClearFlowAnalysisRuleBulletins**
+> ClearBulletinsResultEntity ClearFlowAnalysisRuleBulletins(ctx, body, id)
+Clears bulletins for a flow analysis rule
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ClearBulletinsRequestEntity**](ClearBulletinsRequestEntity.md)| The request to clear bulletins. | 
+  **id** | **string**| The flow analysis rule id. | 
+
+### Return type
+
+[**ClearBulletinsResultEntity**](ClearBulletinsResultEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ClearParameterProviderBulletins**
+> ClearBulletinsResultEntity ClearParameterProviderBulletins(ctx, body, id)
+Clears bulletins for a parameter provider
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ClearBulletinsRequestEntity**](ClearBulletinsRequestEntity.md)| The request to clear bulletins. | 
+  **id** | **string**| The parameter provider id. | 
+
+### Return type
+
+[**ClearBulletinsResultEntity**](ClearBulletinsResultEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ClearRegistryClientBulletins**
+> ClearBulletinsResultEntity ClearRegistryClientBulletins(ctx, body, id)
+Clears bulletins for a registry client
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ClearBulletinsRequestEntity**](ClearBulletinsRequestEntity.md)| The request to clear bulletins. | 
+  **id** | **string**| The registry client id. | 
+
+### Return type
+
+[**ClearBulletinsResultEntity**](ClearBulletinsResultEntity.md)
 
 ### Authorization
 
@@ -401,6 +516,35 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**NodeEntity**](NodeEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteRegistryClientVerificationRequest**
+> VerifyConfigRequestEntity DeleteRegistryClientVerificationRequest(ctx, id, requestId)
+Deletes the Verification Request with the given ID
+
+Deletes the Verification Request with the given ID. After a request is created, it is expected that the client will properly clean up the request by DELETE'ing it, once the Verification process has completed. If the request is deleted before the request completes, then the Verification request will finish the step that it is currently performing and then will cancel any subsequent steps.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The ID of the Registry Client | 
+  **requestId** | **string**| The ID of the Verification Request | 
+
+### Return type
+
+[**VerifyConfigRequestEntity**](VerifyConfigRequestEntity.md)
 
 ### Authorization
 
@@ -856,6 +1000,35 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetRegistryClientVerificationRequest**
+> VerifyConfigRequestEntity GetRegistryClientVerificationRequest(ctx, id, requestId)
+Returns the Verification Request with the given ID
+
+Returns the Verification Request with the given ID. Once a Verification Request has been created, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The ID of the Registry Client | 
+  **requestId** | **string**| The ID of the Verification Request | 
+
+### Return type
+
+[**VerifyConfigRequestEntity**](VerifyConfigRequestEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ImportReportingTaskSnapshot**
 > VersionedReportingTaskImportResponseEntity ImportReportingTaskSnapshot(ctx, body)
 Imports a reporting task snapshot
@@ -931,6 +1104,35 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **body** | [**VerifyConfigRequestEntity**](VerifyConfigRequestEntity.md)| The flow analysis rules configuration verification request. | 
   **id** | **string**| The flow analysis rules id. | 
+
+### Return type
+
+[**VerifyConfigRequestEntity**](VerifyConfigRequestEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **SubmitRegistryClientConfigVerificationRequest**
+> VerifyConfigRequestEntity SubmitRegistryClientConfigVerificationRequest(ctx, body, id)
+Performs verification of the Registry Client's configuration
+
+Initiates verification of a Registry Client configuration. The request returns immediately with a request entity while verification runs asynchronously. The client should poll /controller/registry-clients/{clientId}/config/verification-requests/{requestId} for status and DELETE the request once verification completes.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**VerifyConfigRequestEntity**](VerifyConfigRequestEntity.md)| The registry client configuration verification request. | 
+  **id** | **string**| The registry client id. | 
 
 ### Return type
 

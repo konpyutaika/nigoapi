@@ -5,6 +5,7 @@ All URIs are relative to */*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AnalyzeConfiguration**](ControllerServicesApi.md#AnalyzeConfiguration) | **Post** /controller-services/{id}/config/analysis | Performs analysis of the component&#x27;s configuration, providing information about which attributes are referenced.
+[**ClearBulletins**](ControllerServicesApi.md#ClearBulletins) | **Post** /controller-services/{id}/bulletins/clear-requests | Clears bulletins for a controller service
 [**ClearState1**](ControllerServicesApi.md#ClearState1) | **Post** /controller-services/{id}/state/clear-requests | Clears the state for a controller service
 [**DeleteVerificationRequest**](ControllerServicesApi.md#DeleteVerificationRequest) | **Delete** /controller-services/{id}/config/verification-requests/{requestId} | Deletes the Verification Request with the given ID
 [**GetControllerService**](ControllerServicesApi.md#GetControllerService) | **Get** /controller-services/{id} | Gets a controller service
@@ -33,6 +34,33 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConfigurationAnalysisEntity**](ConfigurationAnalysisEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ClearBulletins**
+> ClearBulletinsResultEntity ClearBulletins(ctx, body, id)
+Clears bulletins for a controller service
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ClearBulletinsRequestEntity**](ClearBulletinsRequestEntity.md)| The clear bulletin request specifying the timestamp from which to clear bulletins. | 
+  **id** | **string**| The controller service id. | 
+
+### Return type
+
+[**ClearBulletinsResultEntity**](ClearBulletinsResultEntity.md)
 
 ### Authorization
 

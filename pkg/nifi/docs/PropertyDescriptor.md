@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Dynamic** | **bool** | Whether or not the descriptor is for a dynamically added property | [optional] [default to null]
 **ExpressionLanguageScope** | **string** | The scope of expression language supported by this property | [optional] [default to null]
 **ExpressionLanguageScopeDescription** | **string** | The description of the expression language scope supported by this property | [optional] [default to null]
+**ListenPortDefinition** | [***PropertyListenPortDefinition**](PropertyListenPortDefinition.md) |  | [optional] [default to null]
 **Name** | **string** | The name of the property key | [optional] [default to null]
 **Required** | **bool** | Whether or not  the property is required for the component | [optional] [default to null]
 **ResourceDefinition** | [***PropertyResourceDefinition**](PropertyResourceDefinition.md) |  | [optional] [default to null]

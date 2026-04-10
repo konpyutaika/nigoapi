@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the processor. | [optional] [default to null]
 **ParentGroupId** | **string** | The id of parent process group of this component if applicable. | [optional] [default to null]
 **PersistsState** | **bool** | Whether the processor persists state. | [optional] [default to null]
+**PhysicalState** | **string** | The physical state of the processor, including transition states | [optional] [default to null]
 **Position** | [***PositionDto**](PositionDTO.md) |  | [optional] [default to null]
 **Relationships** | [**[]RelationshipDto**](RelationshipDTO.md) | The available relationships that the processor currently supports. | [optional] [default to null]
 **Restricted** | **bool** | Whether the processor requires elevated privileges. | [optional] [default to null]

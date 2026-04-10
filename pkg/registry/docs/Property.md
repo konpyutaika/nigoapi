@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **DynamicallyModifiesClasspath** | **bool** | Whether or not the processor dynamically modifies the classpath | [optional] [default to null]
 **ExpressionLanguageScope** | **string** | The scope of expression language support | [optional] [default to null]
 **ExpressionLanguageSupported** | **bool** | Whether or not expression language is supported | [optional] [default to null]
+**ListenPortDefinition** | [***ListenPortDefinition**](ListenPortDefinition.md) |  | [optional] [default to null]
 **Name** | **string** | The name of the property | [optional] [default to null]
 **Required** | **bool** | Whether or not the property is required | [optional] [default to null]
 **ResourceDefinition** | [***ResourceDefinition**](ResourceDefinition.md) |  | [optional] [default to null]

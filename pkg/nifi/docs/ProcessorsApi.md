@@ -5,6 +5,7 @@ All URIs are relative to */*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AnalyzeConfiguration2**](ProcessorsApi.md#AnalyzeConfiguration2) | **Post** /processors/{id}/config/analysis | Performs analysis of the component&#x27;s configuration, providing information about which attributes are referenced.
+[**ClearBulletins5**](ProcessorsApi.md#ClearBulletins5) | **Post** /processors/{id}/bulletins/clear-requests | Clears bulletins for a processor
 [**ClearState3**](ProcessorsApi.md#ClearState3) | **Post** /processors/{id}/state/clear-requests | Clears the state for a processor
 [**DeleteProcessor**](ProcessorsApi.md#DeleteProcessor) | **Delete** /processors/{id} | Deletes a processor
 [**DeleteVerificationRequest2**](ProcessorsApi.md#DeleteVerificationRequest2) | **Delete** /processors/{id}/config/verification-requests/{requestId} | Deletes the Verification Request with the given ID
@@ -34,6 +35,33 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConfigurationAnalysisEntity**](ConfigurationAnalysisEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ClearBulletins5**
+> ClearBulletinsResultEntity ClearBulletins5(ctx, body, id)
+Clears bulletins for a processor
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ClearBulletinsRequestEntity**](ClearBulletinsRequestEntity.md)| The clear bulletin request specifying the timestamp from which to clear bulletins. | 
+  **id** | **string**| The processor id. | 
+
+### Return type
+
+[**ClearBulletinsResultEntity**](ClearBulletinsResultEntity.md)
 
 ### Authorization
 

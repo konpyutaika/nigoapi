@@ -5,6 +5,7 @@ All URIs are relative to */*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AnalyzeConfiguration3**](ReportingTasksApi.md#AnalyzeConfiguration3) | **Post** /reporting-tasks/{id}/config/analysis | Performs analysis of the component&#x27;s configuration, providing information about which attributes are referenced.
+[**ClearBulletins7**](ReportingTasksApi.md#ClearBulletins7) | **Post** /reporting-tasks/{id}/bulletins/clear-requests | Clears bulletins for a reporting task
 [**ClearState4**](ReportingTasksApi.md#ClearState4) | **Post** /reporting-tasks/{id}/state/clear-requests | Clears the state for a reporting task
 [**DeleteVerificationRequest3**](ReportingTasksApi.md#DeleteVerificationRequest3) | **Delete** /reporting-tasks/{id}/config/verification-requests/{requestId} | Deletes the Verification Request with the given ID
 [**GetPropertyDescriptor4**](ReportingTasksApi.md#GetPropertyDescriptor4) | **Get** /reporting-tasks/{id}/descriptors | Gets a reporting task property descriptor
@@ -31,6 +32,33 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConfigurationAnalysisEntity**](ConfigurationAnalysisEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ClearBulletins7**
+> ClearBulletinsResultEntity ClearBulletins7(ctx, body, id)
+Clears bulletins for a reporting task
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | [**ClearBulletinsRequestEntity**](ClearBulletinsRequestEntity.md)| The clear bulletin request specifying the timestamp from which to clear bulletins. | 
+  **id** | **string**| The reporting task id. | 
+
+### Return type
+
+[**ClearBulletinsResultEntity**](ClearBulletinsResultEntity.md)
 
 ### Authorization
 
