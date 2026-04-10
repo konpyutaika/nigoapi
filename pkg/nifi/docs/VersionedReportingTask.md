@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **AnnotationData** | **string** | The annotation for the reporting task. This is how the custom UI relays configuration to the reporting task. | [optional] [default to null]
 **Bundle** | [***Bundle**](Bundle.md) |  | [optional] [default to null]
 **Comments** | **string** | The user-supplied comments for the component | [optional] [default to null]
+**ComponentState** | [***VersionedComponentState**](VersionedComponentState.md) |  | [optional] [default to null]
 **ComponentType** | **string** |  | [optional] [default to null]
 **GroupIdentifier** | **string** | The ID of the Process Group that this component belongs to | [optional] [default to null]
 **Identifier** | **string** | The component&#x27;s unique identifier | [optional] [default to null]

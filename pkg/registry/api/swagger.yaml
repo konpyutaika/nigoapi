@@ -8,7 +8,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 2.8.0
+  version: 2.9.0
 servers:
 - url: /
 paths:
@@ -2624,6 +2624,7 @@ paths:
           - FLOW_ANALYSIS_RULE
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
       - name: tag
         in: query
         description: "The tags to filter on, will be used in an OR statement"
@@ -3858,7 +3859,7 @@ components:
         name:
           type: string
           description: The name of the attribute
-      description: The attributes written to flow files by the extension
+      description: The attributes written to FlowFiles by the extension
       example:
         name: name
         description: description
@@ -3867,7 +3868,7 @@ components:
       properties:
         count:
           type: integer
-          description: Preferred number of flow files to include in a transaction.
+          description: Preferred number of FlowFiles to include in a transaction.
           format: int32
         duration:
           type: string
@@ -4398,6 +4399,166 @@ components:
           valueB: valueB
           valueA: valueA
         componentName: componentName
+    ConfigurationStep:
+      type: object
+      properties:
+        description:
+          type: string
+          description: The description of the configuration step
+        name:
+          type: string
+          description: The name of the configuration step
+        propertyGroups:
+          type: array
+          description: The property groups in this configuration step
+          xml:
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/ConnectorPropertyGroup'
+        stepDependencies:
+          type: array
+          description: The dependencies that this step has on other steps
+          xml:
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/ConfigurationStepDependency'
+      description: The configuration steps for a Connector extension
+      example:
+        name: name
+        description: description
+        stepDependencies:
+        - dependentValues:
+          - dependentValues
+          - dependentValues
+          propertyName: propertyName
+          stepName: stepName
+        - dependentValues:
+          - dependentValues
+          - dependentValues
+          propertyName: propertyName
+          stepName: stepName
+        propertyGroups:
+        - name: name
+          description: description
+          properties:
+          - allowableValuesFetchable: true
+            allowableValues:
+            - displayName: displayName
+              description: description
+              value: value
+            - displayName: displayName
+              description: description
+              value: value
+            defaultValue: defaultValue
+            propertyType: STRING
+            name: name
+            description: description
+            required: true
+            dependencies:
+            - dependentValues:
+              - dependentValues
+              - dependentValues
+              propertyName: propertyName
+            - dependentValues:
+              - dependentValues
+              - dependentValues
+              propertyName: propertyName
+          - allowableValuesFetchable: true
+            allowableValues:
+            - displayName: displayName
+              description: description
+              value: value
+            - displayName: displayName
+              description: description
+              value: value
+            defaultValue: defaultValue
+            propertyType: STRING
+            name: name
+            description: description
+            required: true
+            dependencies:
+            - dependentValues:
+              - dependentValues
+              - dependentValues
+              propertyName: propertyName
+            - dependentValues:
+              - dependentValues
+              - dependentValues
+              propertyName: propertyName
+        - name: name
+          description: description
+          properties:
+          - allowableValuesFetchable: true
+            allowableValues:
+            - displayName: displayName
+              description: description
+              value: value
+            - displayName: displayName
+              description: description
+              value: value
+            defaultValue: defaultValue
+            propertyType: STRING
+            name: name
+            description: description
+            required: true
+            dependencies:
+            - dependentValues:
+              - dependentValues
+              - dependentValues
+              propertyName: propertyName
+            - dependentValues:
+              - dependentValues
+              - dependentValues
+              propertyName: propertyName
+          - allowableValuesFetchable: true
+            allowableValues:
+            - displayName: displayName
+              description: description
+              value: value
+            - displayName: displayName
+              description: description
+              value: value
+            defaultValue: defaultValue
+            propertyType: STRING
+            name: name
+            description: description
+            required: true
+            dependencies:
+            - dependentValues:
+              - dependentValues
+              - dependentValues
+              propertyName: propertyName
+            - dependentValues:
+              - dependentValues
+              - dependentValues
+              propertyName: propertyName
+    ConfigurationStepDependency:
+      type: object
+      properties:
+        dependentValues:
+          type: array
+          description: The values of the dependent property that enable this step
+          xml:
+            wrapped: true
+          items:
+            type: string
+            description: The values of the dependent property that enable this step
+            xml:
+              name: dependentValue
+        propertyName:
+          type: string
+          description: The name of the property within the step that this step depends
+            on
+        stepName:
+          type: string
+          description: The name of the step that this step depends on
+      description: The dependencies that this step has on other steps
+      example:
+        dependentValues:
+        - dependentValues
+        - dependentValues
+        propertyName: propertyName
+        stepName: stepName
     ConnectableComponent:
       type: object
       properties:
@@ -4437,6 +4598,162 @@ components:
         instanceIdentifier: instanceIdentifier
         id: id
         type: PROCESSOR
+    ConnectorProperty:
+      type: object
+      properties:
+        allowableValues:
+          type: array
+          description: The allowable values for this property
+          xml:
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/AllowableValue'
+        allowableValuesFetchable:
+          type: boolean
+          description: Whether or not the allowable values can be fetched dynamically
+        defaultValue:
+          type: string
+          description: The default value of the property
+        dependencies:
+          type: array
+          description: The properties that this property depends on
+          xml:
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/ConnectorPropertyDependency'
+        description:
+          type: string
+          description: The description of the property
+        name:
+          type: string
+          description: The name of the property
+        propertyType:
+          type: string
+          description: The type of the property
+          enum:
+          - STRING
+          - INTEGER
+          - BOOLEAN
+          - FLOAT
+          - DOUBLE
+          - STRING_LIST
+          - SECRET
+          - ASSET
+          - ASSET_LIST
+        required:
+          type: boolean
+          description: Whether or not the property is required
+      description: The properties in this group
+      example:
+        allowableValuesFetchable: true
+        allowableValues:
+        - displayName: displayName
+          description: description
+          value: value
+        - displayName: displayName
+          description: description
+          value: value
+        defaultValue: defaultValue
+        propertyType: STRING
+        name: name
+        description: description
+        required: true
+        dependencies:
+        - dependentValues:
+          - dependentValues
+          - dependentValues
+          propertyName: propertyName
+        - dependentValues:
+          - dependentValues
+          - dependentValues
+          propertyName: propertyName
+    ConnectorPropertyDependency:
+      type: object
+      properties:
+        dependentValues:
+          type: array
+          description: The values of the dependent property that enable this property
+          xml:
+            wrapped: true
+          items:
+            type: string
+            description: The values of the dependent property that enable this property
+            xml:
+              name: dependentValue
+        propertyName:
+          type: string
+          description: The name of the property that this property depends on
+      description: The properties that this property depends on
+      example:
+        dependentValues:
+        - dependentValues
+        - dependentValues
+        propertyName: propertyName
+    ConnectorPropertyGroup:
+      type: object
+      properties:
+        description:
+          type: string
+          description: The description of the property group
+        name:
+          type: string
+          description: The name of the property group
+        properties:
+          type: array
+          description: The properties in this group
+          xml:
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/ConnectorProperty'
+      description: The property groups in this configuration step
+      example:
+        name: name
+        description: description
+        properties:
+        - allowableValuesFetchable: true
+          allowableValues:
+          - displayName: displayName
+            description: description
+            value: value
+          - displayName: displayName
+            description: description
+            value: value
+          defaultValue: defaultValue
+          propertyType: STRING
+          name: name
+          description: description
+          required: true
+          dependencies:
+          - dependentValues:
+            - dependentValues
+            - dependentValues
+            propertyName: propertyName
+          - dependentValues:
+            - dependentValues
+            - dependentValues
+            propertyName: propertyName
+        - allowableValuesFetchable: true
+          allowableValues:
+          - displayName: displayName
+            description: description
+            value: value
+          - displayName: displayName
+            description: description
+            value: value
+          defaultValue: defaultValue
+          propertyType: STRING
+          name: name
+          description: description
+          required: true
+          dependencies:
+          - dependentValues:
+            - dependentValues
+            - dependentValues
+            propertyName: propertyName
+          - dependentValues:
+            - dependentValues
+            - dependentValues
+            propertyName: propertyName
     ControllerServiceAPI:
       type: object
       properties:
@@ -4647,6 +4964,13 @@ components:
       - type
       type: object
       properties:
+        configurationSteps:
+          type: array
+          description: The configuration steps for a Connector extension
+          xml:
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/ConfigurationStep'
         defaultSchedule:
           $ref: '#/components/schemas/DefaultSchedule'
         defaultSettings:
@@ -4703,7 +5027,7 @@ components:
             $ref: '#/components/schemas/ProvidedServiceAPI'
         readsAttributes:
           type: array
-          description: The attributes read from flow files by the extension
+          description: The attributes read from FlowFiles by the extension
           xml:
             wrapped: true
           items:
@@ -4760,7 +5084,7 @@ components:
         triggerWhenAnyDestinationAvailable:
           type: boolean
           description: Indicates that a processor should be triggered when any destinations
-            have space for flow files
+            have space for FlowFiles
         triggerWhenEmpty:
           type: boolean
           description: Indicates that a processor should be triggered when the incoming
@@ -4775,6 +5099,7 @@ components:
           - FLOW_ANALYSIS_RULE
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         useCases:
           type: array
           description: Zero or more documented use cases for how the extension may
@@ -4785,7 +5110,7 @@ components:
             $ref: '#/components/schemas/UseCase'
         writesAttributes:
           type: array
-          description: The attributes written to flow files by the extension
+          description: The attributes written to FlowFiles by the extension
           xml:
             wrapped: true
           items:
@@ -4883,6 +5208,223 @@ components:
           configuration: configuration
           description: description
           inputRequirement: INPUT_REQUIRED
+        configurationSteps:
+        - name: name
+          description: description
+          stepDependencies:
+          - dependentValues:
+            - dependentValues
+            - dependentValues
+            propertyName: propertyName
+            stepName: stepName
+          - dependentValues:
+            - dependentValues
+            - dependentValues
+            propertyName: propertyName
+            stepName: stepName
+          propertyGroups:
+          - name: name
+            description: description
+            properties:
+            - allowableValuesFetchable: true
+              allowableValues:
+              - displayName: displayName
+                description: description
+                value: value
+              - displayName: displayName
+                description: description
+                value: value
+              defaultValue: defaultValue
+              propertyType: STRING
+              name: name
+              description: description
+              required: true
+              dependencies:
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+            - allowableValuesFetchable: true
+              allowableValues:
+              - displayName: displayName
+                description: description
+                value: value
+              - displayName: displayName
+                description: description
+                value: value
+              defaultValue: defaultValue
+              propertyType: STRING
+              name: name
+              description: description
+              required: true
+              dependencies:
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+          - name: name
+            description: description
+            properties:
+            - allowableValuesFetchable: true
+              allowableValues:
+              - displayName: displayName
+                description: description
+                value: value
+              - displayName: displayName
+                description: description
+                value: value
+              defaultValue: defaultValue
+              propertyType: STRING
+              name: name
+              description: description
+              required: true
+              dependencies:
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+            - allowableValuesFetchable: true
+              allowableValues:
+              - displayName: displayName
+                description: description
+                value: value
+              - displayName: displayName
+                description: description
+                value: value
+              defaultValue: defaultValue
+              propertyType: STRING
+              name: name
+              description: description
+              required: true
+              dependencies:
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+        - name: name
+          description: description
+          stepDependencies:
+          - dependentValues:
+            - dependentValues
+            - dependentValues
+            propertyName: propertyName
+            stepName: stepName
+          - dependentValues:
+            - dependentValues
+            - dependentValues
+            propertyName: propertyName
+            stepName: stepName
+          propertyGroups:
+          - name: name
+            description: description
+            properties:
+            - allowableValuesFetchable: true
+              allowableValues:
+              - displayName: displayName
+                description: description
+                value: value
+              - displayName: displayName
+                description: description
+                value: value
+              defaultValue: defaultValue
+              propertyType: STRING
+              name: name
+              description: description
+              required: true
+              dependencies:
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+            - allowableValuesFetchable: true
+              allowableValues:
+              - displayName: displayName
+                description: description
+                value: value
+              - displayName: displayName
+                description: description
+                value: value
+              defaultValue: defaultValue
+              propertyType: STRING
+              name: name
+              description: description
+              required: true
+              dependencies:
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+          - name: name
+            description: description
+            properties:
+            - allowableValuesFetchable: true
+              allowableValues:
+              - displayName: displayName
+                description: description
+                value: value
+              - displayName: displayName
+                description: description
+                value: value
+              defaultValue: defaultValue
+              propertyType: STRING
+              name: name
+              description: description
+              required: true
+              dependencies:
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+            - allowableValuesFetchable: true
+              allowableValues:
+              - displayName: displayName
+                description: description
+                value: value
+              - displayName: displayName
+                description: description
+                value: value
+              defaultValue: defaultValue
+              propertyType: STRING
+              name: name
+              description: description
+              required: true
+              dependencies:
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
+              - dependentValues:
+                - dependentValues
+                - dependentValues
+                propertyName: propertyName
         restricted:
           restrictions:
           - requiredPermission: requiredPermission
@@ -4949,12 +5491,8 @@ components:
             - applicationProtocols
             transportProtocol: TCP
           allowableValues:
-          - displayName: displayName
-            description: description
-            value: value
-          - displayName: displayName
-            description: description
-            value: value
+          - null
+          - null
           name: name
           dynamic: true
           expressionLanguageSupported: true
@@ -4994,12 +5532,8 @@ components:
             - applicationProtocols
             transportProtocol: TCP
           allowableValues:
-          - displayName: displayName
-            description: description
-            value: value
-          - displayName: displayName
-            description: description
-            value: value
+          - null
+          - null
           name: name
           dynamic: true
           expressionLanguageSupported: true
@@ -5022,6 +5556,7 @@ components:
           - FLOW_ANALYSIS_RULE
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         tags:
           uniqueItems: true
           type: array
@@ -5082,6 +5617,7 @@ components:
           - FLOW_ANALYSIS_RULE
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
       description: The metadata for the extensions
       example:
         bundleInfo:
@@ -5720,12 +6256,8 @@ components:
           - applicationProtocols
           transportProtocol: TCP
         allowableValues:
-        - displayName: displayName
-          description: description
-          value: value
-        - displayName: displayName
-          description: description
-          value: value
+        - null
+        - null
         name: name
         dynamic: true
         expressionLanguageSupported: true
@@ -6318,6 +6850,32 @@ components:
       example:
         identifier: identifier
         name: name
+    VersionedComponentState:
+      type: object
+      properties:
+        clusterState:
+          type: object
+          additionalProperties:
+            type: string
+            description: "The cluster-scoped state of the component, or null if not\
+              \ exported"
+          description: "The cluster-scoped state of the component, or null if not\
+            \ exported"
+        localNodeStates:
+          type: array
+          description: "The local-scoped state of the component ordered by node ordinal\
+            \ index, or null if not exported"
+          items:
+            $ref: '#/components/schemas/VersionedNodeState'
+      description: "The state of the component, if exported with state"
+      example:
+        localNodeStates:
+        - state:
+            key: state
+        - state:
+            key: state
+        clusterState:
+          key: clusterState
     VersionedConnection:
       type: object
       properties:
@@ -6363,12 +6921,13 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         destination:
           $ref: '#/components/schemas/ConnectableComponent'
         flowFileExpiration:
           type: string
-          description: The amount of time a flow file may be in the flow before it
-            will be automatically aged out of the flow. Once a flow file reaches this
+          description: The amount of time a FlowFile may be in the flow before it
+            will be automatically aged out of the flow. Once a FlowFile reaches this
             age it will be terminated from the flow the next time a processor attempts
             to start work on it.
         groupIdentifier:
@@ -6482,6 +7041,8 @@ components:
         comments:
           type: string
           description: The user-supplied comments for the component
+        componentState:
+          $ref: '#/components/schemas/VersionedComponentState'
         componentType:
           type: string
           enum:
@@ -6501,6 +7062,7 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         controllerServiceApis:
           type: array
           description: Lists the APIs this Controller Service implements.
@@ -6572,6 +7134,14 @@ components:
               transportProtocol: TCP
         type: type
         scheduledState: ENABLED
+        componentState:
+          localNodeStates:
+          - state:
+              key: state
+          - state:
+              key: state
+          clusterState:
+            key: clusterState
         controllerServiceApis:
         - type: type
           bundle: null
@@ -6873,6 +7443,7 @@ components:
               key: null
             type: type
             scheduledState: ENABLED
+            componentState: null
             maxBackoffPeriod: maxBackoffPeriod
             yieldDuration: yieldDuration
             bundle: null
@@ -6907,6 +7478,7 @@ components:
               key: null
             type: type
             scheduledState: ENABLED
+            componentState: null
             maxBackoffPeriod: maxBackoffPeriod
             yieldDuration: yieldDuration
             bundle: null
@@ -7090,6 +7662,14 @@ components:
                   transportProtocol: TCP
             type: type
             scheduledState: ENABLED
+            componentState:
+              localNodeStates:
+              - state:
+                  key: state
+              - state:
+                  key: state
+              clusterState:
+                key: clusterState
             controllerServiceApis:
             - type: type
               bundle: null
@@ -7129,6 +7709,14 @@ components:
                   transportProtocol: TCP
             type: type
             scheduledState: ENABLED
+            componentState:
+              localNodeStates:
+              - state:
+                  key: state
+              - state:
+                  key: state
+              clusterState:
+                key: clusterState
             controllerServiceApis:
             - type: type
               bundle: null
@@ -7437,6 +8025,7 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         groupIdentifier:
           type: string
           description: The ID of the Process Group that this component belongs to
@@ -7487,6 +8076,7 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         groupIdentifier:
           type: string
           description: The ID of the Process Group that this component belongs to
@@ -7565,6 +8155,19 @@ components:
         - applicationProtocols
         - applicationProtocols
         transportProtocol: TCP
+    VersionedNodeState:
+      type: object
+      properties:
+        state:
+          type: object
+          additionalProperties:
+            type: string
+            description: The state key-value pairs for this node
+          description: The state key-value pairs for this node
+      description: The state entries for a single node
+      example:
+        state:
+          key: state
     VersionedParameter:
       type: object
       properties:
@@ -7625,6 +8228,7 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         description:
           type: string
           description: The description of the parameter context
@@ -7737,6 +8341,7 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         concurrentlySchedulableTaskCount:
           type: integer
           description: The number of tasks that should be concurrently scheduled for
@@ -7816,6 +8421,7 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         connections:
           uniqueItems: true
           type: array
@@ -7951,6 +8557,7 @@ components:
             key: null
           type: type
           scheduledState: ENABLED
+          componentState: null
           maxBackoffPeriod: maxBackoffPeriod
           yieldDuration: yieldDuration
           bundle: null
@@ -7985,6 +8592,7 @@ components:
             key: null
           type: type
           scheduledState: ENABLED
+          componentState: null
           maxBackoffPeriod: maxBackoffPeriod
           yieldDuration: yieldDuration
           bundle: null
@@ -8168,6 +8776,14 @@ components:
                 transportProtocol: TCP
           type: type
           scheduledState: ENABLED
+          componentState:
+            localNodeStates:
+            - state:
+                key: state
+            - state:
+                key: state
+            clusterState:
+              key: clusterState
           controllerServiceApis:
           - type: type
             bundle: null
@@ -8207,6 +8823,14 @@ components:
                 transportProtocol: TCP
           type: type
           scheduledState: ENABLED
+          componentState:
+            localNodeStates:
+            - state:
+                key: state
+            - state:
+                key: state
+            clusterState:
+              key: clusterState
           controllerServiceApis:
           - type: type
             bundle: null
@@ -8367,11 +8991,11 @@ components:
         annotationData:
           type: string
           description: The annotation data for the processor used to relay configuration
-            between a custom UI and the procesosr.
+            between a custom UI and the processor.
         autoTerminatedRelationships:
           uniqueItems: true
           type: array
-          description: "The names of all relationships that cause a flow file to be\
+          description: "The names of all relationships that cause a FlowFile to be\
             \ terminated if the relationship is not connected elsewhere. This property\
             \ differs from the 'isAutoTerminate' property of the RelationshipDTO in\
             \ that the RelationshipDTO is meant to depict the current configuration,\
@@ -8379,7 +9003,7 @@ components:
             \ in order to change which Relationships should be auto-terminated."
           items:
             type: string
-            description: "The names of all relationships that cause a flow file to\
+            description: "The names of all relationships that cause a FlowFile to\
               \ be terminated if the relationship is not connected elsewhere. This\
               \ property differs from the 'isAutoTerminate' property of the RelationshipDTO\
               \ in that the RelationshipDTO is meant to depict the current configuration,\
@@ -8398,6 +9022,8 @@ components:
         comments:
           type: string
           description: The user-supplied comments for the component
+        componentState:
+          $ref: '#/components/schemas/VersionedComponentState'
         componentType:
           type: string
           enum:
@@ -8417,10 +9043,11 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         concurrentlySchedulableTaskCount:
           type: integer
           description: The number of tasks that should be concurrently schedule for
-            the processor. If the processor doesn't allow parallol processing then
+            the processor. If the processor doesn't allow parallel processing then
             any positive input will be ignored.
           format: int32
         executionNode:
@@ -8445,8 +9072,8 @@ components:
           description: The component's name
         penaltyDuration:
           type: string
-          description: The amout of time that is used when the process penalizes a
-            flowfile.
+          description: The amount of time that is used when the process penalizes
+            a FlowFile.
         position:
           $ref: '#/components/schemas/Position'
         properties:
@@ -8516,6 +9143,7 @@ components:
           key: null
         type: type
         scheduledState: ENABLED
+        componentState: null
         maxBackoffPeriod: maxBackoffPeriod
         yieldDuration: yieldDuration
         bundle: null
@@ -8607,9 +9235,10 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         concurrentlySchedulableTaskCount:
           type: integer
-          description: The number of task that may transmit flowfiles to the target
+          description: The number of task that may transmit FlowFiles to the target
             port concurrently.
           format: int32
         groupIdentifier:
@@ -8643,7 +9272,7 @@ components:
           description: The ID of the port on the target NiFi instance
         useCompression:
           type: boolean
-          description: Whether the flowfiles are compressed when sent to the target
+          description: Whether the FlowFiles are compressed when sent to the target
             port.
       description: "A Set of Output Ports that can be connected to, in order to pull\
         \ data from the remote NiFi instance"
@@ -8693,6 +9322,7 @@ components:
           - PARAMETER_CONTEXT
           - PARAMETER_PROVIDER
           - FLOW_REGISTRY_CLIENT
+          - CONNECTOR
         groupIdentifier:
           type: string
           description: The ID of the Process Group that this component belongs to

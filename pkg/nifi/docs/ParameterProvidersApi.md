@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **body** | [**ParameterProviderParameterApplicationEntity**](ParameterProviderParameterApplicationEntity.md)| The apply parameters request. | 
-  **providerId** | **string**|  | 
+  **providerId** | **string**| The ID of the Parameter Provider | 
 
 ### Return type
 

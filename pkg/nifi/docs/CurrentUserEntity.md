@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Anonymous** | **bool** | Whether the current user is anonymous. | [optional] [default to null]
 **CanVersionFlows** | **bool** | Whether the current user can version flows. | [optional] [default to null]
 **ComponentRestrictionPermissions** | [**[]ComponentRestrictionPermissionDto**](ComponentRestrictionPermissionDTO.md) | Permissions for specific component restrictions. | [optional] [default to null]
+**ConnectorsPermissions** | [***PermissionsDto**](PermissionsDTO.md) |  | [optional] [default to null]
 **ControllerPermissions** | [***PermissionsDto**](PermissionsDTO.md) |  | [optional] [default to null]
 **CountersPermissions** | [***PermissionsDto**](PermissionsDTO.md) |  | [optional] [default to null]
 **Identity** | **string** | The user identity being serialized. | [optional] [default to null]

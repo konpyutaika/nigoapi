@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **InvalidCount** | **int32** | The number of invalid components in the NiFi. | [optional] [default to null]
 **LocallyModifiedAndStaleCount** | **int32** | The number of locally modified and stale versioned process groups in the NiFi. | [optional] [default to null]
 **LocallyModifiedCount** | **int32** | The number of locally modified versioned process groups in the NiFi. | [optional] [default to null]
-**Queued** | **string** | The number of flowfiles queued in the NiFi. | [optional] [default to null]
+**Queued** | **string** | The number of FlowFiles queued in the NiFi. | [optional] [default to null]
 **RunningCount** | **int32** | The number of running components in the NiFi. | [optional] [default to null]
 **StaleCount** | **int32** | The number of stale versioned process groups in the NiFi. | [optional] [default to null]
 **StoppedCount** | **int32** | The number of stopped components in the NiFi. | [optional] [default to null]

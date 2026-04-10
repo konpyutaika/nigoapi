@@ -132,8 +132,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **clusterNodeId** | **optional.string**| The id of the node where this query exists if clustered. | 
- **summarize** | **optional.bool**| Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. | [default to false]
- **incrementalResults** | **optional.bool**| Whether or not to summarize provenance events returned. This property is false by default. | [default to true]
+ **summarize** | **optional.bool**| Whether or not to summarize provenance events returned. This property is false by default. | [default to false]
+ **incrementalResults** | **optional.bool**| Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. | [default to true]
 
 ### Return type
 

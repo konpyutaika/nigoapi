@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **GroupId** | **string** | The id of the parent process group the remote process group resides in. | [optional] [default to null]
 **Id** | **string** | The id of the remote process group. | [optional] [default to null]
 **Name** | **string** | The name of the remote process group. | [optional] [default to null]
-**Received** | **string** | The count/size of the flowfiles received from the remote process group in the last 5 minutes. | [optional] [default to null]
-**Sent** | **string** | The count/size of the flowfiles sent to the remote process group in the last 5 minutes. | [optional] [default to null]
+**Received** | **string** | The count/size of the FlowFiles received from the remote process group in the last 5 minutes. | [optional] [default to null]
+**Sent** | **string** | The count/size of the FlowFiles sent to the remote process group in the last 5 minutes. | [optional] [default to null]
 **TargetUri** | **string** | The URI of the target system. | [optional] [default to null]
 **TransmissionStatus** | **string** | The transmission status of the remote process group. | [optional] [default to null]
 

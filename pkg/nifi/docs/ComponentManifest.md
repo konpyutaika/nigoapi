@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Apis** | [**[]DefinedType**](DefinedType.md) | Public interfaces defined in this bundle | [optional] [default to null]
+**Connectors** | [**[]ConnectorDefinition**](ConnectorDefinition.md) | Connectors provided in this bundle | [optional] [default to null]
 **ControllerServices** | [**[]ControllerServiceDefinition**](ControllerServiceDefinition.md) | Controller Services provided in this bundle | [optional] [default to null]
 **FlowAnalysisRules** | [**[]FlowAnalysisRuleDefinition**](FlowAnalysisRuleDefinition.md) | Flow Analysis Rules provided in this bundle | [optional] [default to null]
 **FlowRegistryClients** | [**[]FlowRegistryClientDefinition**](FlowRegistryClientDefinition.md) | Flow Registry Clients provided in this bundle | [optional] [default to null]

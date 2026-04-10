@@ -38,17 +38,17 @@ Method | HTTP request | Description
 [**GetNode**](ControllerApi.md#GetNode) | **Get** /controller/cluster/nodes/{id} | Gets a node in the cluster
 [**GetNodeStatusHistory**](ControllerApi.md#GetNodeStatusHistory) | **Get** /controller/status/history | Gets status history for the node
 [**GetPropertyDescriptor**](ControllerApi.md#GetPropertyDescriptor) | **Get** /controller/registry-clients/{id}/descriptors | Gets a flow registry client property descriptor
-[**GetRegistryClientTypes**](ControllerApi.md#GetRegistryClientTypes) | **Get** /controller/registry-types | Retrieves the types of flow  that this NiFi supports
+[**GetRegistryClientTypes**](ControllerApi.md#GetRegistryClientTypes) | **Get** /controller/registry-types | Retrieves the types of flow registry clients that this NiFi supports
 [**GetRegistryClientVerificationRequest**](ControllerApi.md#GetRegistryClientVerificationRequest) | **Get** /controller/registry-clients/{id}/config/verification-requests/{requestId} | Returns the Verification Request with the given ID
 [**ImportReportingTaskSnapshot**](ControllerApi.md#ImportReportingTaskSnapshot) | **Post** /controller/reporting-tasks/import | Imports a reporting task snapshot
 [**RemoveFlowAnalysisRule**](ControllerApi.md#RemoveFlowAnalysisRule) | **Delete** /controller/flow-analysis-rules/{id} | Deletes a flow analysis rule
 [**SubmitFlowAnalysisRuleConfigVerificationRequest**](ControllerApi.md#SubmitFlowAnalysisRuleConfigVerificationRequest) | **Post** /controller/flow-analysis-rules/{id}/config/verification-requests | Performs verification of the Flow Analysis Rule&#x27;s configuration
 [**SubmitRegistryClientConfigVerificationRequest**](ControllerApi.md#SubmitRegistryClientConfigVerificationRequest) | **Post** /controller/registry-clients/{id}/config/verification-requests | Performs verification of the Registry Client&#x27;s configuration
-[**UpdateControllerConfig**](ControllerApi.md#UpdateControllerConfig) | **Put** /controller/config | Retrieves the configuration for this NiFi
+[**UpdateControllerConfig**](ControllerApi.md#UpdateControllerConfig) | **Put** /controller/config | Updates the configuration for this NiFi
 [**UpdateFlowAnalysisRule**](ControllerApi.md#UpdateFlowAnalysisRule) | **Put** /controller/flow-analysis-rules/{id} | Updates a flow analysis rule
 [**UpdateFlowRegistryClient**](ControllerApi.md#UpdateFlowRegistryClient) | **Put** /controller/registry-clients/{id} | Updates a flow registry client
 [**UpdateNode**](ControllerApi.md#UpdateNode) | **Put** /controller/cluster/nodes/{id} | Updates a node in the cluster
-[**UpdateRunStatus**](ControllerApi.md#UpdateRunStatus) | **Put** /controller/flow-analysis-rules/{id}/run-status | Updates run status of a flow analysis rule
+[**UpdateRunStatus1**](ControllerApi.md#UpdateRunStatus1) | **Put** /controller/flow-analysis-rules/{id}/run-status | Updates run status of a flow analysis rule
 [**UploadNar**](ControllerApi.md#UploadNar) | **Post** /controller/nar-manager/nars/content | Uploads a NAR and requests for it to be installed
 
 # **AnalyzeFlowAnalysisRuleConfiguration**
@@ -484,8 +484,8 @@ Optional parameters are passed through a pointer to a ControllerApiDeleteNarOpts
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **disconnectedNodeAcknowledged** | **optional.bool**|  | [default to false]
- **force** | **optional.bool**|  | [default to false]
+ **disconnectedNodeAcknowledged** | **optional.bool**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [default to false]
+ **force** | **optional.bool**| Indicates if the NAR should be deleted even when components are instantiated. | [default to false]
 
 ### Return type
 
@@ -978,7 +978,7 @@ Name | Type | Description  | Notes
 
 # **GetRegistryClientTypes**
 > FlowRegistryClientTypesEntity GetRegistryClientTypes(ctx, )
-Retrieves the types of flow  that this NiFi supports
+Retrieves the types of flow registry clients that this NiFi supports
 
 Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 
@@ -1151,7 +1151,7 @@ Name | Type | Description  | Notes
 
 # **UpdateControllerConfig**
 > ControllerConfigurationEntity UpdateControllerConfig(ctx, body)
-Retrieves the configuration for this NiFi
+Updates the configuration for this NiFi
 
 ### Required Parameters
 
@@ -1256,8 +1256,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdateRunStatus**
-> FlowAnalysisRuleEntity UpdateRunStatus(ctx, body, id)
+# **UpdateRunStatus1**
+> FlowAnalysisRuleEntity UpdateRunStatus1(ctx, body, id)
 Updates run status of a flow analysis rule
 
 ### Required Parameters

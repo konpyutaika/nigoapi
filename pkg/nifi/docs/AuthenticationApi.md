@@ -4,11 +4,11 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAuthenticationConfiguration**](AuthenticationApi.md#GetAuthenticationConfiguration) | **Get** /authentication/configuration | Retrieves the authentication configuration endpoint and status information
+[**GetAuthenticationConfiguration**](AuthenticationApi.md#GetAuthenticationConfiguration) | **Get** /authentication/configuration | Retrieves the authentication configuration details and status information
 
 # **GetAuthenticationConfiguration**
 > AuthenticationConfigurationEntity GetAuthenticationConfiguration(ctx, )
-Retrieves the authentication configuration endpoint and status information
+Retrieves the authentication configuration details and status information
 
 ### Required Parameters
 This endpoint does not need any parameter.

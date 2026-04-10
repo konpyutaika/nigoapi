@@ -10,9 +10,9 @@ Method | HTTP request | Description
 [**RemoveRemoteProcessGroup**](RemoteProcessGroupsApi.md#RemoveRemoteProcessGroup) | **Delete** /remote-process-groups/{id} | Deletes a remote process group
 [**UpdateRemoteProcessGroup**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroup) | **Put** /remote-process-groups/{id} | Updates a remote process group
 [**UpdateRemoteProcessGroupInputPort**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupInputPort) | **Put** /remote-process-groups/{id}/input-ports/{port-id} | Updates a remote port
-[**UpdateRemoteProcessGroupInputPortRunStatus**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupInputPortRunStatus) | **Put** /remote-process-groups/{id}/input-ports/{port-id}/run-status | Updates run status of a remote port
+[**UpdateRemoteProcessGroupInputPortRunStatus**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupInputPortRunStatus) | **Put** /remote-process-groups/{id}/input-ports/{port-id}/run-status | Updates run status of a remote input port
 [**UpdateRemoteProcessGroupOutputPort**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupOutputPort) | **Put** /remote-process-groups/{id}/output-ports/{port-id} | Updates a remote port
-[**UpdateRemoteProcessGroupOutputPortRunStatus**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupOutputPortRunStatus) | **Put** /remote-process-groups/{id}/output-ports/{port-id}/run-status | Updates run status of a remote port
+[**UpdateRemoteProcessGroupOutputPortRunStatus**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupOutputPortRunStatus) | **Put** /remote-process-groups/{id}/output-ports/{port-id}/run-status | Updates run status of a remote output port
 [**UpdateRemoteProcessGroupRunStatus**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupRunStatus) | **Put** /remote-process-groups/{id}/run-status | Updates run status of a remote process group
 [**UpdateRemoteProcessGroupRunStatuses**](RemoteProcessGroupsApi.md#UpdateRemoteProcessGroupRunStatuses) | **Put** /remote-process-groups/process-group/{id}/run-status | Updates run status of all remote process groups in a process group (recursively)
 
@@ -140,7 +140,7 @@ Updates a remote process group
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body** | [**RemoteProcessGroupEntity**](RemoteProcessGroupEntity.md)| The remote process group. | 
+  **body** | [**RemoteProcessGroupEntity**](RemoteProcessGroupEntity.md)| The remote process group configuration details. | 
   **id** | **string**| The remote process group id. | 
 
 ### Return type
@@ -169,7 +169,7 @@ Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body** | [**RemoteProcessGroupPortEntity**](RemoteProcessGroupPortEntity.md)| The remote process group port. | 
+  **body** | [**RemoteProcessGroupPortEntity**](RemoteProcessGroupPortEntity.md)| The remote process group port configuration details. | 
   **id** | **string**| The remote process group id. | 
   **portId** | **string**| The remote process group port id. | 
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 # **UpdateRemoteProcessGroupInputPortRunStatus**
 > RemoteProcessGroupPortEntity UpdateRemoteProcessGroupInputPortRunStatus(ctx, body, id, portId)
-Updates run status of a remote port
+Updates run status of a remote input port
 
 Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 
@@ -199,7 +199,7 @@ Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body** | [**RemotePortRunStatusEntity**](RemotePortRunStatusEntity.md)| The remote process group port. | 
+  **body** | [**RemotePortRunStatusEntity**](RemotePortRunStatusEntity.md)| The remote process group port run status details. | 
   **id** | **string**| The remote process group id. | 
   **portId** | **string**| The remote process group port id. | 
 
@@ -229,7 +229,7 @@ Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body** | [**RemoteProcessGroupPortEntity**](RemoteProcessGroupPortEntity.md)| The remote process group port. | 
+  **body** | [**RemoteProcessGroupPortEntity**](RemoteProcessGroupPortEntity.md)| The remote process group port configuration details. | 
   **id** | **string**| The remote process group id. | 
   **portId** | **string**| The remote process group port id. | 
 
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 # **UpdateRemoteProcessGroupOutputPortRunStatus**
 > RemoteProcessGroupPortEntity UpdateRemoteProcessGroupOutputPortRunStatus(ctx, body, id, portId)
-Updates run status of a remote port
+Updates run status of a remote output port
 
 Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 
@@ -259,7 +259,7 @@ Note: This endpoint is subject to change as NiFi and it's REST API evolve.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body** | [**RemotePortRunStatusEntity**](RemotePortRunStatusEntity.md)| The remote process group port. | 
+  **body** | [**RemotePortRunStatusEntity**](RemotePortRunStatusEntity.md)| The remote process group port run status details. | 
   **id** | **string**| The remote process group id. | 
   **portId** | **string**| The remote process group port id. | 
 
