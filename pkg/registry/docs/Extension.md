@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ConfigurationSteps** | [**[]ConfigurationStep**](ConfigurationStep.md) | The configuration steps for a Connector extension | [optional] [default to null]
 **DefaultSchedule** | [***DefaultSchedule**](DefaultSchedule.md) |  | [optional] [default to null]
 **DefaultSettings** | [***DefaultSettings**](DefaultSettings.md) |  | [optional] [default to null]
 **DeprecationNotice** | [***DeprecationNotice**](DeprecationNotice.md) |  | [optional] [default to null]
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 **PrimaryNodeOnly** | **bool** | Indicates that a processor should be scheduled only on the primary node | [optional] [default to null]
 **Properties** | [**[]Property**](Property.md) | The properties of the extension | [optional] [default to null]
 **ProvidedServiceAPIs** | [**[]ProvidedServiceApi**](ProvidedServiceAPI.md) | The service APIs provided by this extension | [optional] [default to null]
-**ReadsAttributes** | [**[]Attribute**](Attribute.md) | The attributes read from flow files by the extension | [optional] [default to null]
+**ReadsAttributes** | [**[]Attribute**](Attribute.md) | The attributes read from FlowFiles by the extension | [optional] [default to null]
 **Relationships** | [**[]Relationship**](Relationship.md) | The relationships of the extension | [optional] [default to null]
 **Restricted** | [***Restricted**](Restricted.md) |  | [optional] [default to null]
 **SeeAlso** | **[]string** | The names of other extensions to see | [optional] [default to null]
@@ -26,11 +27,11 @@ Name | Type | Description | Notes
 **SystemResourceConsiderations** | [**[]SystemResourceConsideration**](SystemResourceConsideration.md) | The resource considerations of the extension | [optional] [default to null]
 **Tags** | **[]string** | The tags of the extension | [optional] [default to null]
 **TriggerSerially** | **bool** | Indicates that a processor should be triggered serially | [optional] [default to null]
-**TriggerWhenAnyDestinationAvailable** | **bool** | Indicates that a processor should be triggered when any destinations have space for flow files | [optional] [default to null]
+**TriggerWhenAnyDestinationAvailable** | **bool** | Indicates that a processor should be triggered when any destinations have space for FlowFiles | [optional] [default to null]
 **TriggerWhenEmpty** | **bool** | Indicates that a processor should be triggered when the incoming queues are empty | [optional] [default to null]
 **Type_** | **string** | The type of the extension | [default to null]
 **UseCases** | [**[]UseCase**](UseCase.md) | Zero or more documented use cases for how the extension may be used | [optional] [default to null]
-**WritesAttributes** | [**[]Attribute**](Attribute.md) | The attributes written to flow files by the extension | [optional] [default to null]
+**WritesAttributes** | [**[]Attribute**](Attribute.md) | The attributes written to FlowFiles by the extension | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

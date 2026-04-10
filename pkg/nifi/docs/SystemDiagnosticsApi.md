@@ -57,7 +57,7 @@ Optional parameters are passed through a pointer to a SystemDiagnosticsApiGetSys
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **nodewise** | **optional.bool**| Whether or not to include the breakdown per node. Optional, defaults to false | [default to false]
- **diagnosticLevel** | **optional.string**| Whether or not to include verbose details. Optional, defaults to false | [default to BASIC]
+ **diagnosticLevel** | **optional.string**| BASIC or VERBOSE verbosity details. Optional, defaults to BASIC | [default to BASIC]
  **clusterNodeId** | **optional.string**| The id of the node where to get the status. | 
 
 ### Return type

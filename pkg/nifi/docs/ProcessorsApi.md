@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**SubmitProcessorVerificationRequest**](ProcessorsApi.md#SubmitProcessorVerificationRequest) | **Post** /processors/{id}/config/verification-requests | Performs verification of the Processor&#x27;s configuration
 [**TerminateProcessor**](ProcessorsApi.md#TerminateProcessor) | **Delete** /processors/{id}/threads | Terminates a processor, essentially \&quot;deleting\&quot; its threads and any active tasks
 [**UpdateProcessor**](ProcessorsApi.md#UpdateProcessor) | **Put** /processors/{id} | Updates a processor
-[**UpdateRunStatus4**](ProcessorsApi.md#UpdateRunStatus4) | **Put** /processors/{id}/run-status | Updates run status of a processor
+[**UpdateRunStatus5**](ProcessorsApi.md#UpdateRunStatus5) | **Put** /processors/{id}/run-status | Updates run status of a processor
 
 # **AnalyzeConfiguration2**
 > ConfigurationAnalysisEntity AnalyzeConfiguration2(ctx, body, id)
@@ -433,8 +433,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdateRunStatus4**
-> ProcessorEntity UpdateRunStatus4(ctx, body, id)
+# **UpdateRunStatus5**
+> ProcessorEntity UpdateRunStatus5(ctx, body, id)
 Updates run status of a processor
 
 ### Required Parameters

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ConnectorTypes** | [**[]DocumentedTypeDto**](DocumentedTypeDTO.md) | The Connector types contained in the NAR | [optional] [default to null]
 **ControllerServiceTypes** | [**[]DocumentedTypeDto**](DocumentedTypeDTO.md) | The ControllerService types contained in the NAR | [optional] [default to null]
 **DependentCoordinates** | [**[]NarCoordinateDto**](NarCoordinateDTO.md) | The coordinates of NARs that depend on this NAR | [optional] [default to null]
 **FlowAnalysisRuleTypes** | [**[]DocumentedTypeDto**](DocumentedTypeDTO.md) | The FlowAnalysisRule types contained in the NAR | [optional] [default to null]

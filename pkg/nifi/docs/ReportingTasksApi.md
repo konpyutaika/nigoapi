@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**RemoveReportingTask**](ReportingTasksApi.md#RemoveReportingTask) | **Delete** /reporting-tasks/{id} | Deletes a reporting task
 [**SubmitConfigVerificationRequest2**](ReportingTasksApi.md#SubmitConfigVerificationRequest2) | **Post** /reporting-tasks/{id}/config/verification-requests | Performs verification of the Reporting Task&#x27;s configuration
 [**UpdateReportingTask**](ReportingTasksApi.md#UpdateReportingTask) | **Put** /reporting-tasks/{id} | Updates a reporting task
-[**UpdateRunStatus5**](ReportingTasksApi.md#UpdateRunStatus5) | **Put** /reporting-tasks/{id}/run-status | Updates run status of a reporting task
+[**UpdateRunStatus6**](ReportingTasksApi.md#UpdateRunStatus6) | **Put** /reporting-tasks/{id}/run-status | Updates run status of a reporting task
 
 # **AnalyzeConfiguration3**
 > ConfigurationAnalysisEntity AnalyzeConfiguration3(ctx, body, id)
@@ -343,8 +343,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdateRunStatus5**
-> ReportingTaskEntity UpdateRunStatus5(ctx, body, id)
+# **UpdateRunStatus6**
+> ReportingTaskEntity UpdateRunStatus6(ctx, body, id)
 Updates run status of a reporting task
 
 ### Required Parameters

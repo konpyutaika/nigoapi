@@ -9,8 +9,8 @@ Method | HTTP request | Description
 [**CreatePortTransaction**](DataTransferApi.md#CreatePortTransaction) | **Post** /data-transfer/{portType}/{portId}/transactions | Create a transaction to the specified output port or input port
 [**ExtendInputPortTransactionTTL**](DataTransferApi.md#ExtendInputPortTransactionTTL) | **Put** /data-transfer/input-ports/{portId}/transactions/{transactionId} | Extend transaction TTL
 [**ExtendOutputPortTransactionTTL**](DataTransferApi.md#ExtendOutputPortTransactionTTL) | **Put** /data-transfer/output-ports/{portId}/transactions/{transactionId} | Extend transaction TTL
-[**ReceiveFlowFiles**](DataTransferApi.md#ReceiveFlowFiles) | **Post** /data-transfer/input-ports/{portId}/transactions/{transactionId}/flow-files | Transfer flow files to the input port
-[**TransferFlowFiles**](DataTransferApi.md#TransferFlowFiles) | **Get** /data-transfer/output-ports/{portId}/transactions/{transactionId}/flow-files | Transfer flow files from the output port
+[**ReceiveFlowFiles**](DataTransferApi.md#ReceiveFlowFiles) | **Post** /data-transfer/input-ports/{portId}/transactions/{transactionId}/flow-files | Transfer FlowFiles to the input port
+[**TransferFlowFiles**](DataTransferApi.md#TransferFlowFiles) | **Get** /data-transfer/output-ports/{portId}/transactions/{transactionId}/flow-files | Transfer FlowFiles from the output port
 
 # **CommitInputPortTransaction**
 > TransactionResultEntity CommitInputPortTransaction(ctx, responseCode, portId, transactionId, optional)
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **portType** | **string**| The port type. | 
-  **portId** | **string**|  | 
+  **portId** | **string**| The input or output port id. | 
  **optional** | ***DataTransferApiCreatePortTransactionOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -135,8 +135,8 @@ Extend transaction TTL
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **portId** | **string**|  | 
-  **transactionId** | **string**|  | 
+  **portId** | **string**| The input port id. | 
+  **transactionId** | **string**| The transaction id. | 
  **optional** | ***DataTransferApiExtendInputPortTransactionTTLOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -171,8 +171,8 @@ Extend transaction TTL
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **portId** | **string**|  | 
-  **transactionId** | **string**|  | 
+  **portId** | **string**| The output port id. | 
+  **transactionId** | **string**| The transaction id. | 
  **optional** | ***DataTransferApiExtendOutputPortTransactionTTLOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 # **ReceiveFlowFiles**
 > string ReceiveFlowFiles(ctx, portId, transactionId, optional)
-Transfer flow files to the input port
+Transfer FlowFiles to the input port
 
 ### Required Parameters
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **portId** | **string**| The input port id. | 
-  **transactionId** | **string**|  | 
+  **transactionId** | **string**| The transaction id. | 
  **optional** | ***DataTransferApiReceiveFlowFilesOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 # **TransferFlowFiles**
 > TransferFlowFiles(ctx, portId, transactionId, optional)
-Transfer flow files from the output port
+Transfer FlowFiles from the output port
 
 ### Required Parameters
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **portId** | **string**| The output port id. | 
-  **transactionId** | **string**|  | 
+  **transactionId** | **string**| The transaction id. | 
  **optional** | ***DataTransferApiTransferFlowFilesOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

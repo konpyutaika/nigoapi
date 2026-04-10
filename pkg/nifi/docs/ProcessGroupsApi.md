@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**CopySnippet**](ProcessGroupsApi.md#CopySnippet) | **Post** /process-groups/{id}/snippet-instance | Copies a snippet and discards it.
 [**CreateConnection**](ProcessGroupsApi.md#CreateConnection) | **Post** /process-groups/{id}/connections | Creates a connection
 [**CreateControllerService1**](ProcessGroupsApi.md#CreateControllerService1) | **Post** /process-groups/{id}/controller-services | Creates a new controller service
-[**CreateEmptyAllConnectionsRequest**](ProcessGroupsApi.md#CreateEmptyAllConnectionsRequest) | **Post** /process-groups/{id}/empty-all-connections-requests | Creates a request to drop all flowfiles of all connection queues in this process group.
+[**CreateEmptyAllConnectionsRequest**](ProcessGroupsApi.md#CreateEmptyAllConnectionsRequest) | **Post** /process-groups/{id}/empty-all-connections-requests | Creates a request to drop all FlowFiles of all connection queues in this process group.
 [**CreateFunnel**](ProcessGroupsApi.md#CreateFunnel) | **Post** /process-groups/{id}/funnels | Creates a funnel
 [**CreateInputPort**](ProcessGroupsApi.md#CreateInputPort) | **Post** /process-groups/{id}/input-ports | Creates an input port
 [**CreateLabel**](ProcessGroupsApi.md#CreateLabel) | **Post** /process-groups/{id}/labels | Creates a label
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**DeleteReplaceProcessGroupRequest**](ProcessGroupsApi.md#DeleteReplaceProcessGroupRequest) | **Delete** /process-groups/replace-requests/{id} | Deletes the Replace Request with the given ID
 [**ExportProcessGroup**](ProcessGroupsApi.md#ExportProcessGroup) | **Get** /process-groups/{id}/download | Gets a process group for download
 [**GetConnections**](ProcessGroupsApi.md#GetConnections) | **Get** /process-groups/{id}/connections | Gets all connections
-[**GetDropAllFlowfilesRequest**](ProcessGroupsApi.md#GetDropAllFlowfilesRequest) | **Get** /process-groups/{id}/empty-all-connections-requests/{drop-request-id} | Gets the current status of a drop all flowfiles request.
+[**GetDropAllFlowfilesRequest**](ProcessGroupsApi.md#GetDropAllFlowfilesRequest) | **Get** /process-groups/{id}/empty-all-connections-requests/{drop-request-id} | Gets the current status of a drop all FlowFiles request.
 [**GetFunnels**](ProcessGroupsApi.md#GetFunnels) | **Get** /process-groups/{id}/funnels | Gets all funnels
 [**GetInputPorts**](ProcessGroupsApi.md#GetInputPorts) | **Get** /process-groups/{id}/input-ports | Gets all input ports
 [**GetLabels**](ProcessGroupsApi.md#GetLabels) | **Get** /process-groups/{id}/labels | Gets all labels
@@ -33,7 +33,7 @@ Method | HTTP request | Description
 [**ImportProcessGroup**](ProcessGroupsApi.md#ImportProcessGroup) | **Post** /process-groups/{id}/process-groups/import | Imports a specified process group
 [**InitiateReplaceProcessGroup**](ProcessGroupsApi.md#InitiateReplaceProcessGroup) | **Post** /process-groups/{id}/replace-requests | Initiate the Replace Request of a Process Group with the given ID
 [**Paste**](ProcessGroupsApi.md#Paste) | **Put** /process-groups/{id}/paste | Pastes into the specified process group
-[**RemoveDropRequest1**](ProcessGroupsApi.md#RemoveDropRequest1) | **Delete** /process-groups/{id}/empty-all-connections-requests/{drop-request-id} | Cancels and/or removes a request to drop all flowfiles.
+[**RemoveDropRequest1**](ProcessGroupsApi.md#RemoveDropRequest1) | **Delete** /process-groups/{id}/empty-all-connections-requests/{drop-request-id} | Cancels and/or removes a request to drop all FlowFiles.
 [**RemoveProcessGroup**](ProcessGroupsApi.md#RemoveProcessGroup) | **Delete** /process-groups/{id} | Deletes a process group
 [**ReplaceProcessGroup**](ProcessGroupsApi.md#ReplaceProcessGroup) | **Put** /process-groups/{id}/flow-contents | Replace Process Group contents with the given ID with the specified Process Group contents
 [**UpdateProcessGroup**](ProcessGroupsApi.md#UpdateProcessGroup) | **Put** /process-groups/{id} | Updates a process group
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 # **CreateEmptyAllConnectionsRequest**
 > DropRequestEntity CreateEmptyAllConnectionsRequest(ctx, id)
-Creates a request to drop all flowfiles of all connection queues in this process group.
+Creates a request to drop all FlowFiles of all connection queues in this process group.
 
 ### Required Parameters
 
@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 
 # **GetDropAllFlowfilesRequest**
 > DropRequestEntity GetDropAllFlowfilesRequest(ctx, id, dropRequestId)
-Gets the current status of a drop all flowfiles request.
+Gets the current status of a drop all FlowFiles request.
 
 ### Required Parameters
 
@@ -781,7 +781,7 @@ Optional parameters are passed through a pointer to a ProcessGroupsApiImportProc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**optional.Interface of ProcessGroupUploadEntity**](ProcessGroupUploadEntity.md)|  | 
+ **body** | [**optional.Interface of ProcessGroupUploadEntity**](ProcessGroupUploadEntity.md)| The Process Group Upload import details | 
 
 ### Return type
 
@@ -856,7 +856,7 @@ Name | Type | Description  | Notes
 
 # **RemoveDropRequest1**
 > DropRequestEntity RemoveDropRequest1(ctx, id, dropRequestId)
-Cancels and/or removes a request to drop all flowfiles.
+Cancels and/or removes a request to drop all FlowFiles.
 
 ### Required Parameters
 

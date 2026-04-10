@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Comments** | **string** | The user-supplied comments for the component | [optional] [default to null]
 **ComponentType** | **string** |  | [optional] [default to null]
 **Destination** | [***ConnectableComponent**](ConnectableComponent.md) |  | [optional] [default to null]
-**FlowFileExpiration** | **string** | The amount of time a flow file may be in the flow before it will be automatically aged out of the flow. Once a flow file reaches this age it will be terminated from the flow the next time a processor attempts to start work on it. | [optional] [default to null]
+**FlowFileExpiration** | **string** | The amount of time a FlowFile may be in the flow before it will be automatically aged out of the flow. Once a FlowFile reaches this age it will be terminated from the flow the next time a processor attempts to start work on it. | [optional] [default to null]
 **GroupIdentifier** | **string** | The ID of the Process Group that this component belongs to | [optional] [default to null]
 **Identifier** | **string** | The component&#x27;s unique identifier | [optional] [default to null]
 **InstanceIdentifier** | **string** | The instance ID of an existing component that is described by this VersionedComponent, or null if this is not mapped to an instantiated component | [optional] [default to null]

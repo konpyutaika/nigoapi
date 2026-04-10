@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**GetOutputPort**](OutputPortsApi.md#GetOutputPort) | **Get** /output-ports/{id} | Gets an output port
 [**RemoveOutputPort**](OutputPortsApi.md#RemoveOutputPort) | **Delete** /output-ports/{id} | Deletes an output port
 [**UpdateOutputPort**](OutputPortsApi.md#UpdateOutputPort) | **Put** /output-ports/{id} | Updates an output port
-[**UpdateRunStatus3**](OutputPortsApi.md#UpdateRunStatus3) | **Put** /output-ports/{id}/run-status | Updates run status of an output-port
+[**UpdateRunStatus4**](OutputPortsApi.md#UpdateRunStatus4) | **Put** /output-ports/{id}/run-status | Updates run status of an output-port
 
 # **ClearBulletins3**
 > ClearBulletinsResultEntity ClearBulletins3(ctx, body, id)
@@ -126,8 +126,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdateRunStatus3**
-> ProcessorEntity UpdateRunStatus3(ctx, body, id)
+# **UpdateRunStatus4**
+> ProcessorEntity UpdateRunStatus4(ctx, body, id)
 Updates run status of an output-port
 
 ### Required Parameters

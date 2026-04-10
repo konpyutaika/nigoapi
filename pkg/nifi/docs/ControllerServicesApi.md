@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**SubmitConfigVerificationRequest**](ControllerServicesApi.md#SubmitConfigVerificationRequest) | **Post** /controller-services/{id}/config/verification-requests | Performs verification of the Controller Service&#x27;s configuration
 [**UpdateControllerService**](ControllerServicesApi.md#UpdateControllerService) | **Put** /controller-services/{id} | Updates a controller service
 [**UpdateControllerServiceReferences**](ControllerServicesApi.md#UpdateControllerServiceReferences) | **Put** /controller-services/{id}/references | Updates a controller services references
-[**UpdateRunStatus1**](ControllerServicesApi.md#UpdateRunStatus1) | **Put** /controller-services/{id}/run-status | Updates run status of a controller service
+[**UpdateRunStatus2**](ControllerServicesApi.md#UpdateRunStatus2) | **Put** /controller-services/{id}/run-status | Updates run status of a controller service
 
 # **AnalyzeConfiguration**
 > ConfigurationAnalysisEntity AnalyzeConfiguration(ctx, body, id)
@@ -408,8 +408,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdateRunStatus1**
-> ControllerServiceEntity UpdateRunStatus1(ctx, body, id)
+# **UpdateRunStatus2**
+> ControllerServiceEntity UpdateRunStatus2(ctx, body, id)
 Updates run status of a controller service
 
 ### Required Parameters

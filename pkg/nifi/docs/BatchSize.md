@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | **int32** | Preferred number of flow files to include in a transaction. | [optional] [default to null]
+**Count** | **int32** | Preferred number of FlowFiles to include in a transaction. | [optional] [default to null]
 **Duration** | **string** | Preferred amount of time that a transaction should span. | [optional] [default to null]
 **Size** | **string** | Preferred number of bytes to include in a transaction. | [optional] [default to null]
 

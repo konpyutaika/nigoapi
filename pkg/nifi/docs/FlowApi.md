@@ -23,6 +23,9 @@ Method | HTTP request | Description
 [**GetConnectionStatistics**](FlowApi.md#GetConnectionStatistics) | **Get** /flow/connections/{id}/statistics | Gets statistics for a connection
 [**GetConnectionStatus**](FlowApi.md#GetConnectionStatus) | **Get** /flow/connections/{id}/status | Gets status for a connection
 [**GetConnectionStatusHistory**](FlowApi.md#GetConnectionStatusHistory) | **Get** /flow/connections/{id}/status/history | Gets the status history for a connection
+[**GetConnectorDefinition**](FlowApi.md#GetConnectorDefinition) | **Get** /flow/connector-definition/{group}/{artifact}/{version}/{type} | Retrieves the Connector Definition for the specified component type.
+[**GetConnectorTypes**](FlowApi.md#GetConnectorTypes) | **Get** /flow/connector-types | Retrieves the types of connectors that this NiFi supports
+[**GetConnectors**](FlowApi.md#GetConnectors) | **Get** /flow/connectors | Gets all connectors
 [**GetContentViewers**](FlowApi.md#GetContentViewers) | **Get** /flow/content-viewers | Retrieves the registered content viewers
 [**GetControllerServiceDefinition**](FlowApi.md#GetControllerServiceDefinition) | **Get** /flow/controller-service-definition/{group}/{artifact}/{version}/{type} | Retrieves the Controller Service Definition for the specified component type.
 [**GetControllerServiceTypes**](FlowApi.md#GetControllerServiceTypes) | **Get** /flow/controller-service-types | Retrieves the types of controller services that this NiFi supports
@@ -31,7 +34,7 @@ Method | HTTP request | Description
 [**GetControllerStatus**](FlowApi.md#GetControllerStatus) | **Get** /flow/status | Gets the current status of this NiFi
 [**GetCurrentUser**](FlowApi.md#GetCurrentUser) | **Get** /flow/current-user | Retrieves the user identity of the user making the request
 [**GetDetails**](FlowApi.md#GetDetails) | **Get** /flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/details | Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
-[**GetFlow**](FlowApi.md#GetFlow) | **Get** /flow/process-groups/{id} | Gets a process group
+[**GetFlow1**](FlowApi.md#GetFlow1) | **Get** /flow/process-groups/{id} | Gets a process group
 [**GetFlowAnalysisResults**](FlowApi.md#GetFlowAnalysisResults) | **Get** /flow/flow-analysis/results/{processGroupId} | Returns flow analysis results produced by the analysis of a given process group
 [**GetFlowAnalysisRuleDefinition**](FlowApi.md#GetFlowAnalysisRuleDefinition) | **Get** /flow/flow-analysis-rule-definition/{group}/{artifact}/{version}/{type} | Retrieves the Flow Analysis Rule Definition for the specified component type.
 [**GetFlowAnalysisRuleTypes**](FlowApi.md#GetFlowAnalysisRuleTypes) | **Get** /flow/flow-analysis-rule-types | Retrieves the types of available Flow Analysis Rules
@@ -61,6 +64,7 @@ Method | HTTP request | Description
 [**GetReportingTaskTypes**](FlowApi.md#GetReportingTaskTypes) | **Get** /flow/reporting-task-types | Retrieves the types of reporting tasks that this NiFi supports
 [**GetReportingTasks**](FlowApi.md#GetReportingTasks) | **Get** /flow/reporting-tasks | Gets all reporting tasks
 [**GetRuntimeManifest**](FlowApi.md#GetRuntimeManifest) | **Get** /flow/runtime-manifest | Retrieves the runtime manifest for this NiFi instance.
+[**GetStepDocumentation**](FlowApi.md#GetStepDocumentation) | **Get** /flow/steps/{group}/{artifact}/{version}/{connectorType}/{stepName} | Retrieves the step documentation for the specified Connector configuration step.
 [**GetVersionDifferences**](FlowApi.md#GetVersionDifferences) | **Get** /flow/registries/{registry-id}/branches/{branch-id-a}/buckets/{bucket-id-a}/flows/{flow-id-a}/{version-a}/diff/branches/{branch-id-b}/buckets/{bucket-id-b}/flows/{flow-id-b}/{version-b} | Gets the differences between two versions of the same versioned flow, the basis of the comparison will be the first version
 [**GetVersions**](FlowApi.md#GetVersions) | **Get** /flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/versions | Gets the flow versions from the specified registry and bucket for the specified flow for the current user
 [**QueryHistory**](FlowApi.md#QueryHistory) | **Get** /flow/history | Gets configuration history
@@ -77,7 +81,7 @@ Enable or disable Controller Services in the specified Process Group.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body** | [**ActivateControllerServicesEntity**](ActivateControllerServicesEntity.md)| The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. | 
+  **body** | [**ActivateControllerServicesEntity**](ActivateControllerServicesEntity.md)| The request to schedule or unschedule. If the components in the request are not specified, all authorized components will be considered. | 
   **id** | **string**| The process group id. | 
 
 ### Return type
@@ -407,7 +411,7 @@ Name | Type | Description  | Notes
  **message** | [**optional.Interface of BulletinBoardPatternParameter**](.md)| Includes bulletins whose message that match this regular expression. | 
  **sourceId** | [**optional.Interface of BulletinBoardPatternParameter**](.md)| Includes bulletins originating from this sources whose id match this regular expression. | 
  **groupId** | [**optional.Interface of BulletinBoardPatternParameter**](.md)| Includes bulletins originating from this sources whose group id match this regular expression. | 
- **limit** | [**optional.Interface of IntegerParameter**](.md)| The number of bulletins to limit the response to. | 
+ **limit** | [**optional.Interface of IntegerParameter**](.md)| The number of bulletins to limit the response to. Optional, default is no limit. | 
 
 ### Return type
 
@@ -592,6 +596,95 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetConnectorDefinition**
+> ConnectorDefinition GetConnectorDefinition(ctx, group, artifact, version, type_)
+Retrieves the Connector Definition for the specified component type.
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **group** | **string**| The bundle group | 
+  **artifact** | **string**| The bundle artifact | 
+  **version** | **string**| The bundle version | 
+  **type_** | **string**| The connector type | 
+
+### Return type
+
+[**ConnectorDefinition**](ConnectorDefinition.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetConnectorTypes**
+> ConnectorTypesEntity GetConnectorTypes(ctx, optional)
+Retrieves the types of connectors that this NiFi supports
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***FlowApiGetConnectorTypesOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FlowApiGetConnectorTypesOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bundleGroupFilter** | **optional.string**| If specified, will only return types that are a member of this bundle group. | 
+ **bundleArtifactFilter** | **optional.string**| If specified, will only return types that are a member of this bundle artifact. | 
+ **type_** | **optional.string**| If specified, will only return types whose fully qualified classname matches. | 
+
+### Return type
+
+[**ConnectorTypesEntity**](ConnectorTypesEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetConnectors**
+> ConnectorsEntity GetConnectors(ctx, )
+Gets all connectors
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConnectorsEntity**](ConnectorsEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetContentViewers**
 > ContentViewerEntity GetContentViewers(ctx, )
 Retrieves the registered content viewers
@@ -702,8 +795,8 @@ Name | Type | Description  | Notes
 Optional parameters are passed through a pointer to a FlowApiGetControllerServicesFromControllerOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uiOnly** | **optional.bool**|  | [default to false]
  **includeReferencingComponents** | **optional.bool**| Whether or not to include services&#x27; referencing components in the response | [default to true]
+ **uiOnly** | **optional.bool**|  | [default to false]
 
 ### Return type
 
@@ -841,8 +934,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetFlow**
-> ProcessGroupFlowEntity GetFlow(ctx, id, optional)
+# **GetFlow1**
+> ProcessGroupFlowEntity GetFlow1(ctx, id, optional)
 Gets a process group
 
 If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
@@ -853,10 +946,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| The process group id. | 
- **optional** | ***FlowApiGetFlowOpts** | optional parameters | nil if no parameters
+ **optional** | ***FlowApiGetFlow1Opts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a pointer to a FlowApiGetFlowOpts struct
+Optional parameters are passed through a pointer to a FlowApiGetFlow1Opts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -1744,6 +1837,38 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetStepDocumentation**
+> StepDocumentationEntity GetStepDocumentation(ctx, group, artifact, version, connectorType, stepName)
+Retrieves the step documentation for the specified Connector configuration step.
+
+Note: This endpoint is subject to change as NiFi and it's REST API evolve.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **group** | **string**| The bundle group | 
+  **artifact** | **string**| The bundle artifact | 
+  **version** | **string**| The bundle version | 
+  **connectorType** | **string**| The fully qualified Connector type | 
+  **stepName** | **string**| The configuration step name | 
+
+### Return type
+
+[**StepDocumentationEntity**](StepDocumentationEntity.md)
+
+### Authorization
+
+[CookieSecureAuthorizationBearer](../README.md#CookieSecureAuthorizationBearer), [HTTPBearerJWT](../README.md#HTTPBearerJWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetVersionDifferences**
 > FlowComparisonEntity GetVersionDifferences(ctx, registryId, branchIdA, bucketIdA, flowIdA, versionA, branchIdB, bucketIdB, flowIdB, versionB, optional)
 Gets the differences between two versions of the same versioned flow, the basis of the comparison will be the first version
@@ -1948,8 +2073,8 @@ Name | Type | Description  | Notes
 Optional parameters are passed through a pointer to a FlowApiSearchFlowOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **optional.string**|  | 
- **a** | **optional.string**|  | 
+ **q** | **optional.string**| The search term. | 
+ **a** | **optional.string**| The id of the currently visited process group. If not specified, then the root process group is used. | 
 
 ### Return type
 

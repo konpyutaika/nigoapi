@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClientId** | **string** | The client id. | [default to null]
 **DisconnectedNodeAcknowledged** | **bool** | Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [optional] [default to false]
-**File** | [***interface{}**](interface{}.md) |  | [optional] [default to null]
+**File** | [***interface{}**](interface{}.md) | The flow definition content | [optional] [default to null]
 **GroupName** | **string** | The process group name. | [default to null]
 **PositionX** | **float64** | The process group X position. | [default to null]
 **PositionY** | **float64** | The process group Y position. | [default to null]
